@@ -11,6 +11,7 @@ class NewTaskViewController: UIViewController {
     
     //  MARK: Properties
     /// Add the transparent affect
+    
     private let backgroundView: UIView = {
         let v = UIView()
         v.frame = UIScreen.main.bounds
@@ -73,6 +74,7 @@ class NewTaskViewController: UIViewController {
         configureBottomView()
         configureStackview()
         setupGesture()
+        observeKeyboard()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,6 +86,30 @@ class NewTaskViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func keyboardWillShow(_ notifiction: Notification){
+        /// get keyboard height
+        guard let keyboardHeight =
+                (notifiction.userInfo? [UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)? .cgRectValue.height else {return}
+//        print(keyboardHeight) /// 346.0
+
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            usingSpringWithDamping: 0.75,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseInOut) {[weak self] in
+            /// animation block
+            self?.view.frame.origin.y = 0 - keyboardHeight + 25
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notifiction: Notification){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear) {[unowned self] in
+            view.frame.origin.y = (bottomContainerView.frame.height)
+            view.layoutIfNeeded()
+        }
+    }
     
     
     //  MARK: Privates
@@ -100,8 +126,6 @@ class NewTaskViewController: UIViewController {
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor
-            ///  TODO: Update this
-            //            ,height: 500
         )
     }
     
@@ -130,6 +154,12 @@ class NewTaskViewController: UIViewController {
     private func setupGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissViewController))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    private func observeKeyboard(){
+        /// to observe when the keyboard is available and push the bottom card up or down
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
 
