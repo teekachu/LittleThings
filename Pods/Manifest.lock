@@ -1,0 +1,20 @@
+PODS:
+  - BulletinBoard (5.0.0)
+  - Loaf (0.7.0)
+
+DEPENDENCIES:
+  - BulletinBoard
+  - Loaf
+
+SPEC REPOS:
+  trunk:
+    - BulletinBoard
+    - Loaf
+
+SPEC CHECKSUMS:
+  BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
+
+PODFILE CHECKSUM: 12df5f779042f71e1d1d04b9edf8e0fcd33d8ccb
+
+COCOAPODS: 1.10.0

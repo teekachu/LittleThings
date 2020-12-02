@@ -1,0 +1,927 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0982556682E8F4D0B0CF9919553175F1 /* BLTNTitleLabelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E139B67DD81F1DE9354E8B9928AA91 /* BLTNTitleLabelContainer.swift */; };
+		0C2C9C5D42BB292FF7FB3BD4F6809436 /* BLTNItemManager+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A173E524C72C62830E27524CBD15B /* BLTNItemManager+Helpers.swift */; };
+		1309A19073E0186DAE3EBF96F27B7B9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		17BA28E862EAE04BB83E09CC902D4F93 /* Pods-One Three Five-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 719087F780E14FD028CB677412A02689 /* Pods-One Three Five-dummy.m */; };
+		19873951184EA4A8B280DCBAB5D05F86 /* BulletinCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DDAB892EE8B3B18344E6F33F472AC0 /* BulletinCloseButton.swift */; };
+		3A0FEA1EC8D5F7D4AE6383A1452C4C95 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586C7B0C1E4A0B902F5D3AEC08989305 /* Icons.swift */; };
+		3BC29E999BEA31FDA07B9CCD73B5CF54 /* ContinuousMaskLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C655EF32FA91347BFF44DAF6AC4733 /* ContinuousMaskLayer.swift */; };
+		3C5503601AD53E1A2623B04DB6E1695B /* BulletinBoard-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FD236D4D5842933F7C2076D40493BBD4 /* BulletinBoard-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E275340AA7E04E904203723E7F73B43 /* BulletinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67F2EF8FDE91C6953B7A1658909CC51 /* BulletinViewController.swift */; };
+		3F7DC59656D0DDA71E371D281B69EA08 /* UIView+RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DE66C80C8828AD70192799FCC43BA /* UIView+RoundedView.swift */; };
+		426FB778F42F7A71AFE6E4E1500F59B8 /* BLTNItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0139D802857675AE4AB60E9D05D31499 /* BLTNItemManager.swift */; };
+		5539DEA50DF15BAB199475748B5867AE /* BLTNItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC07AAEB42A6AE3C6302528A376649 /* BLTNItemAppearance.swift */; };
+		55E03F10F4196ACB82F3CF1EE8A80425 /* AnimationChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5B1004709E190E458B042FB39115A /* AnimationChain.swift */; };
+		5AC225342F4949A243D0AC02805E3FB4 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E49334D9DE3CC02296DD286FEC54DE9 /* ActivityIndicator.swift */; };
+		5D38B95F9FD5F4C3CCA3E5CE016470F3 /* BulletinDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A007796DD84BA4FA0E36DC9E3C74D08 /* BulletinDismissAnimationController.swift */; };
+		61D89F814CE3E175EFEAD9123B2FD0D4 /* BulletinBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4CF887A1E92559688EDFB6A5EBB0D /* BulletinBackgroundView.swift */; };
+		6270527753A2A79739ED04A0E7C2996F /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720B8DC954771F03F30C91CA1650120B /* Manager.swift */; };
+		631FF66C3764B4411BD5D0B023BDE35A /* BulletinPresentationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4BA560AAE8658518584CC9DD3D511B /* BulletinPresentationAnimationController.swift */; };
+		63453488DABC83B1C3BA9DC8C9EE27E4 /* BLTNBackgroundViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348A7EB88FB1CDB2CB6A1A34E5FB6CB /* BLTNBackgroundViewStyle.swift */; };
+		68291B4CF16255D3A7B0353C0BE2888F /* Loaf.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED209A176A605192E2D44AE730DAA159 /* Loaf.swift */; };
+		68A9160573FEA726120F68A374AE227C /* BulletinBoard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7FD1FAD324F1002EAE68C0B7F37FA4 /* BulletinBoard-dummy.m */; };
+		70CD18B564480ACF4BF94F581781B350 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		721A035134E7957C0227E47DCE0270B4 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5743D6664D89B1C42E27682C003E4052 /* Animator.swift */; };
+		7A6B76CC013B98E2936B6355CE3FAD69 /* BLTNContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F0322749E0EBB5E844D58E50FFC46B /* BLTNContainerView.swift */; };
+		7E3D75A8D56AF9B2FBB453CC9E623BAC /* Loaf-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD6D08CAEC52763A04388C3CC164C9 /* Loaf-dummy.m */; };
+		7FB558100620CFFD8E4BA366C2CA7EE1 /* BulletinSwipeInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D126374FCEBB9C041EC58FC5DCBE846D /* BulletinSwipeInteractionController.swift */; };
+		83E43B7FCF446A4D43BD6E0C0FBC1C7A /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72488328EC41FC811DA3F1506069EBB /* UIButton+BackgroundColor.swift */; };
+		86ED9D7481710F0B88C3095B58821774 /* BLTNItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B229E86330A8A2634A942C7C0B155B2 /* BLTNItem.swift */; };
+		8703033B65D40787C7BC827039D35F46 /* Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C94EB4EA0055A1A47ECDE809B28E1 /* Deprecations.swift */; };
+		89F4EE49F68B1E908935CD63085CEC33 /* BLTNSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7ECAC0B502B1929117962A9F914E2B /* BLTNSpacing.swift */; };
+		905F6C4AE74097C8490206AAF61F1155 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF11CE421643491C291A0B4BA0E50EF0 /* Controller.swift */; };
+		915AC4004CE246B3088D3E002F3F6FFA /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B60360651311815F80397BF3FE791 /* HighlightButton.swift */; };
+		9352CD88E91162C8CB37678ECE9667CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
+		950CC0A7034C96EA7EB4B418FC02C874 /* BLTNInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC6566E3D4EC5D454FEB8770263510 /* BLTNInterfaceBuilder.swift */; };
+		B7B33EA132F32201F759CCA6BAE00D72 /* BLTNViewPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620E7504D5E8BE1B364DE71DDC683981 /* BLTNViewPosition.swift */; };
+		BAED190C36D716D9AFB108583FCDE841 /* Pods-One Three Five-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA7B23B152FD80DFB875C57F3240188F /* Pods-One Three Five-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF6DDA092BAB26485BEDB22956DA8C85 /* Loaf-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 244BA2E92DC8FE3E601BB6046C78F80A /* Loaf-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C88E99F8FDDDB00DD3DA5C7FF0C690CD /* UIColor+Luminance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15A472D6C512FDF04BA4DCD8897FFEE /* UIColor+Luminance.swift */; };
+		C9C4F0512D311894394C39A719626449 /* RoundedViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F0575B4A9F13B7E1952C03A86A3464 /* RoundedViewProtocol.swift */; };
+		DB8010D31D5EAE7820F975C0F6B63B7B /* BLTNBoardSwiftSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = F8152810CD136B2EECC0B8297BE637C2 /* BLTNBoardSwiftSupport.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DC224047E3F50D14131DDB0558C2C215 /* BLTNActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB67FB928E9639204E84365BDAF5AAA /* BLTNActionItem.swift */; };
+		EC1B62640BFAA43FF93760C93AA0D5E9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A9333B15E97A764F9DB035B035700 /* Extensions.swift */; };
+		F049FC1C15E906610982B082B9628F42 /* BLTNHighlightButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870D8EBF51086B624BB93038556579F /* BLTNHighlightButtonWrapper.swift */; };
+		FBE309BEBDB50F0607D3E56BB111B310 /* BLTNPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44827ECE0FF53C0D7D6D21A1A6D0293 /* BLTNPageItem.swift */; };
+		FF669312E5814ED8250E627796F121D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5117B940AAB75FEB15643ABC5FB6BE91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E12D5ED3565D8FCC3DD9B9DD89246A9;
+			remoteInfo = Loaf;
+		};
+		D8AD28A50FD1037EBBADD1E0BECEA250 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CBE366D25C3692AAE548A9B678264C8;
+			remoteInfo = BulletinBoard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0139D802857675AE4AB60E9D05D31499 /* BLTNItemManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNItemManager.swift; path = Sources/BLTNItemManager.swift; sourceTree = "<group>"; };
+		014B60360651311815F80397BF3FE791 /* HighlightButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = Sources/InterfaceBuilder/HighlightButton.swift; sourceTree = "<group>"; };
+		0CBD6D08CAEC52763A04388C3CC164C9 /* Loaf-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Loaf-dummy.m"; sourceTree = "<group>"; };
+		0E49334D9DE3CC02296DD286FEC54DE9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = Sources/Support/Views/Internal/ActivityIndicator.swift; sourceTree = "<group>"; };
+		11A04A48FA348CA36FB002A3A33A5E14 /* Loaf-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Loaf-Info.plist"; sourceTree = "<group>"; };
+		169DE66C80C8828AD70192799FCC43BA /* UIView+RoundedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+RoundedView.swift"; path = "Sources/Support/Views/Internal/ContinuousCorners/UIView+RoundedView.swift"; sourceTree = "<group>"; };
+		1870D8EBF51086B624BB93038556579F /* BLTNHighlightButtonWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNHighlightButtonWrapper.swift; path = Sources/InterfaceBuilder/BLTNHighlightButtonWrapper.swift; sourceTree = "<group>"; };
+		208E5380502C938836CB0F73DAC83922 /* BulletinBoard-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BulletinBoard-prefix.pch"; sourceTree = "<group>"; };
+		23C655EF32FA91347BFF44DAF6AC4733 /* ContinuousMaskLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContinuousMaskLayer.swift; path = Sources/Support/Views/Internal/ContinuousCorners/ContinuousMaskLayer.swift; sourceTree = "<group>"; };
+		244BA2E92DC8FE3E601BB6046C78F80A /* Loaf-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Loaf-umbrella.h"; sourceTree = "<group>"; };
+		32FC7B6687AD42D9A2B2E32FD24580D4 /* Pods-One Three Five-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-One Three Five-frameworks.sh"; sourceTree = "<group>"; };
+		34F0322749E0EBB5E844D58E50FFC46B /* BLTNContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNContainerView.swift; path = Sources/InterfaceBuilder/BLTNContainerView.swift; sourceTree = "<group>"; };
+		3A007796DD84BA4FA0E36DC9E3C74D08 /* BulletinDismissAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinDismissAnimationController.swift; path = Sources/Support/Animations/BulletinDismissAnimationController.swift; sourceTree = "<group>"; };
+		42BC07AAEB42A6AE3C6302528A376649 /* BLTNItemAppearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNItemAppearance.swift; path = Sources/InterfaceBuilder/BLTNItemAppearance.swift; sourceTree = "<group>"; };
+		4B229E86330A8A2634A942C7C0B155B2 /* BLTNItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNItem.swift; path = Sources/Models/BLTNItem.swift; sourceTree = "<group>"; };
+		4BE730510F6EBDAEF7EF02CB99F4B209 /* Loaf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Loaf.framework; path = Loaf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52921EE095E5944B36AA6541CD8118CC /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
+		56F4BD699652658951720034F7A9A017 /* Loaf-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Loaf-prefix.pch"; sourceTree = "<group>"; };
+		5743D6664D89B1C42E27682C003E4052 /* Animator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animator.swift; path = Sources/Loaf/Presenter/Animator.swift; sourceTree = "<group>"; };
+		586C7B0C1E4A0B902F5D3AEC08989305 /* Icons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Sources/Loaf/Icons.swift; sourceTree = "<group>"; };
+		620E7504D5E8BE1B364DE71DDC683981 /* BLTNViewPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNViewPosition.swift; path = Sources/InterfaceBuilder/BLTNViewPosition.swift; sourceTree = "<group>"; };
+		6667810AB1809AC5231809913DFE6B4D /* Pods-One Three Five.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-One Three Five.debug.xcconfig"; sourceTree = "<group>"; };
+		6707A343CC32EFD2EDDE13310EEDFF71 /* Loaf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Loaf.release.xcconfig; sourceTree = "<group>"; };
+		6740689D50573DDECA98ECE9B7C93CAC /* Loaf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Loaf.modulemap; sourceTree = "<group>"; };
+		680FEA3C94FD612848B2425A307A5CBF /* Loaf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Loaf.debug.xcconfig; sourceTree = "<group>"; };
+		6EE85B662C8DB170EE515E893794E71E /* BulletinBoard-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BulletinBoard-Info.plist"; sourceTree = "<group>"; };
+		719087F780E14FD028CB677412A02689 /* Pods-One Three Five-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-One Three Five-dummy.m"; sourceTree = "<group>"; };
+		720B8DC954771F03F30C91CA1650120B /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Sources/Loaf/Presenter/Manager.swift; sourceTree = "<group>"; };
+		73626777A24986BF9906904476FC245D /* BulletinBoard.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BulletinBoard.modulemap; sourceTree = "<group>"; };
+		7D4BA560AAE8658518584CC9DD3D511B /* BulletinPresentationAnimationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinPresentationAnimationController.swift; path = Sources/Support/Animations/BulletinPresentationAnimationController.swift; sourceTree = "<group>"; };
+		85B90B916EC86B030AE098E732DD6D2E /* Pods-One Three Five.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-One Three Five.modulemap"; sourceTree = "<group>"; };
+		873A173E524C72C62830E27524CBD15B /* BLTNItemManager+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BLTNItemManager+Helpers.swift"; path = "Sources/Support/Helpers/BLTNItemManager+Helpers.swift"; sourceTree = "<group>"; };
+		9348A7EB88FB1CDB2CB6A1A34E5FB6CB /* BLTNBackgroundViewStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNBackgroundViewStyle.swift; path = Sources/InterfaceBuilder/BLTNBackgroundViewStyle.swift; sourceTree = "<group>"; };
+		96DDAB892EE8B3B18344E6F33F472AC0 /* BulletinCloseButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinCloseButton.swift; path = Sources/Support/Views/Internal/BulletinCloseButton.swift; sourceTree = "<group>"; };
+		98E139B67DD81F1DE9354E8B9928AA91 /* BLTNTitleLabelContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNTitleLabelContainer.swift; path = Sources/InterfaceBuilder/BLTNTitleLabelContainer.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A6F0575B4A9F13B7E1952C03A86A3464 /* RoundedViewProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoundedViewProtocol.swift; path = Sources/Support/Views/Internal/ContinuousCorners/RoundedViewProtocol.swift; sourceTree = "<group>"; };
+		A8CC2BC52068D174510D8A7BB3564714 /* Pods_One_Three_Five.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_One_Three_Five.framework; path = "Pods-One Three Five.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFBC6566E3D4EC5D454FEB8770263510 /* BLTNInterfaceBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNInterfaceBuilder.swift; path = Sources/InterfaceBuilder/BLTNInterfaceBuilder.swift; sourceTree = "<group>"; };
+		B44827ECE0FF53C0D7D6D21A1A6D0293 /* BLTNPageItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNPageItem.swift; path = Sources/Models/BLTNPageItem.swift; sourceTree = "<group>"; };
+		B72488328EC41FC811DA3F1506069EBB /* UIButton+BackgroundColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+BackgroundColor.swift"; path = "Sources/InterfaceBuilder/UIButton+BackgroundColor.swift"; sourceTree = "<group>"; };
+		B98CB033E1A6E55F33FF95F7C67660DD /* Pods-One Three Five-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-One Three Five-Info.plist"; sourceTree = "<group>"; };
+		BA2F28EF4778B0D6F2CB0172B976074C /* BulletinBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BulletinBoard.release.xcconfig; sourceTree = "<group>"; };
+		BA7B23B152FD80DFB875C57F3240188F /* Pods-One Three Five-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-One Three Five-umbrella.h"; sourceTree = "<group>"; };
+		BE7ECAC0B502B1929117962A9F914E2B /* BLTNSpacing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNSpacing.swift; path = Sources/InterfaceBuilder/BLTNSpacing.swift; sourceTree = "<group>"; };
+		C5FC4EC27B0970F708A6473BCFDA3C50 /* BLTNBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BLTNBoard.framework; path = BulletinBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C67F2EF8FDE91C6953B7A1658909CC51 /* BulletinViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinViewController.swift; path = Sources/Support/BulletinViewController.swift; sourceTree = "<group>"; };
+		CB0C94EB4EA0055A1A47ECDE809B28E1 /* Deprecations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecations.swift; path = Sources/Deprecations.swift; sourceTree = "<group>"; };
+		D126374FCEBB9C041EC58FC5DCBE846D /* BulletinSwipeInteractionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinSwipeInteractionController.swift; path = Sources/Support/Animations/BulletinSwipeInteractionController.swift; sourceTree = "<group>"; };
+		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		DC7FD1FAD324F1002EAE68C0B7F37FA4 /* BulletinBoard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BulletinBoard-dummy.m"; sourceTree = "<group>"; };
+		DF11CE421643491C291A0B4BA0E50EF0 /* Controller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = Sources/Loaf/Presenter/Controller.swift; sourceTree = "<group>"; };
+		E67DB331A6DAC9B12D58389312BFC54C /* Pods-One Three Five-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-One Three Five-acknowledgements.plist"; sourceTree = "<group>"; };
+		E9FD088E8A8F1529228F1E7DEDE2D7A1 /* Pods-One Three Five-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-One Three Five-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		ED209A176A605192E2D44AE730DAA159 /* Loaf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Loaf.swift; path = Sources/Loaf/Loaf.swift; sourceTree = "<group>"; };
+		F0399791BD47B87A2DB1D43F80A43024 /* BulletinBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BulletinBoard.debug.xcconfig; sourceTree = "<group>"; };
+		F15A472D6C512FDF04BA4DCD8897FFEE /* UIColor+Luminance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Luminance.swift"; path = "Sources/Support/Helpers/UIColor+Luminance.swift"; sourceTree = "<group>"; };
+		F8152810CD136B2EECC0B8297BE637C2 /* BLTNBoardSwiftSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BLTNBoardSwiftSupport.h; path = Sources/Support/BLTNBoardSwiftSupport.h; sourceTree = "<group>"; };
+		FBB67FB928E9639204E84365BDAF5AAA /* BLTNActionItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BLTNActionItem.swift; path = Sources/Models/BLTNActionItem.swift; sourceTree = "<group>"; };
+		FBC5B1004709E190E458B042FB39115A /* AnimationChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationChain.swift; path = Sources/Support/Animations/AnimationChain.swift; sourceTree = "<group>"; };
+		FD236D4D5842933F7C2076D40493BBD4 /* BulletinBoard-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BulletinBoard-umbrella.h"; sourceTree = "<group>"; };
+		FDB4CF887A1E92559688EDFB6A5EBB0D /* BulletinBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BulletinBackgroundView.swift; path = Sources/Support/Views/Internal/BulletinBackgroundView.swift; sourceTree = "<group>"; };
+		FE8A9333B15E97A764F9DB035B035700 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Loaf/Extensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2909161863B5A3EBA975E89A3E71680B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF669312E5814ED8250E627796F121D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41844141B33C1EFBB3B41281678FEE5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1309A19073E0186DAE3EBF96F27B7B9F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F44958E5A623862EEB7B9F000BCE718 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70CD18B564480ACF4BF94F581781B350 /* Foundation.framework in Frameworks */,
+				9352CD88E91162C8CB37678ECE9667CD /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49E790709356DF94307C914AF5BE8697 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7EB0CDA8014FBA3562CD6D9E04700A29 /* BulletinBoard */,
+				8A5B76D00889FE6ABAC227C3A7A6CB6A /* Loaf */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
+				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6CB31368E1CFFEB2E3FE3A16FA1C9F69 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6740689D50573DDECA98ECE9B7C93CAC /* Loaf.modulemap */,
+				0CBD6D08CAEC52763A04388C3CC164C9 /* Loaf-dummy.m */,
+				11A04A48FA348CA36FB002A3A33A5E14 /* Loaf-Info.plist */,
+				56F4BD699652658951720034F7A9A017 /* Loaf-prefix.pch */,
+				244BA2E92DC8FE3E601BB6046C78F80A /* Loaf-umbrella.h */,
+				680FEA3C94FD612848B2425A307A5CBF /* Loaf.debug.xcconfig */,
+				6707A343CC32EFD2EDDE13310EEDFF71 /* Loaf.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Loaf";
+			sourceTree = "<group>";
+		};
+		7EB0CDA8014FBA3562CD6D9E04700A29 /* BulletinBoard */ = {
+			isa = PBXGroup;
+			children = (
+				0E49334D9DE3CC02296DD286FEC54DE9 /* ActivityIndicator.swift */,
+				FBC5B1004709E190E458B042FB39115A /* AnimationChain.swift */,
+				FBB67FB928E9639204E84365BDAF5AAA /* BLTNActionItem.swift */,
+				9348A7EB88FB1CDB2CB6A1A34E5FB6CB /* BLTNBackgroundViewStyle.swift */,
+				F8152810CD136B2EECC0B8297BE637C2 /* BLTNBoardSwiftSupport.h */,
+				34F0322749E0EBB5E844D58E50FFC46B /* BLTNContainerView.swift */,
+				1870D8EBF51086B624BB93038556579F /* BLTNHighlightButtonWrapper.swift */,
+				AFBC6566E3D4EC5D454FEB8770263510 /* BLTNInterfaceBuilder.swift */,
+				4B229E86330A8A2634A942C7C0B155B2 /* BLTNItem.swift */,
+				42BC07AAEB42A6AE3C6302528A376649 /* BLTNItemAppearance.swift */,
+				0139D802857675AE4AB60E9D05D31499 /* BLTNItemManager.swift */,
+				873A173E524C72C62830E27524CBD15B /* BLTNItemManager+Helpers.swift */,
+				B44827ECE0FF53C0D7D6D21A1A6D0293 /* BLTNPageItem.swift */,
+				BE7ECAC0B502B1929117962A9F914E2B /* BLTNSpacing.swift */,
+				98E139B67DD81F1DE9354E8B9928AA91 /* BLTNTitleLabelContainer.swift */,
+				620E7504D5E8BE1B364DE71DDC683981 /* BLTNViewPosition.swift */,
+				FDB4CF887A1E92559688EDFB6A5EBB0D /* BulletinBackgroundView.swift */,
+				96DDAB892EE8B3B18344E6F33F472AC0 /* BulletinCloseButton.swift */,
+				3A007796DD84BA4FA0E36DC9E3C74D08 /* BulletinDismissAnimationController.swift */,
+				7D4BA560AAE8658518584CC9DD3D511B /* BulletinPresentationAnimationController.swift */,
+				D126374FCEBB9C041EC58FC5DCBE846D /* BulletinSwipeInteractionController.swift */,
+				C67F2EF8FDE91C6953B7A1658909CC51 /* BulletinViewController.swift */,
+				23C655EF32FA91347BFF44DAF6AC4733 /* ContinuousMaskLayer.swift */,
+				CB0C94EB4EA0055A1A47ECDE809B28E1 /* Deprecations.swift */,
+				014B60360651311815F80397BF3FE791 /* HighlightButton.swift */,
+				A6F0575B4A9F13B7E1952C03A86A3464 /* RoundedViewProtocol.swift */,
+				B72488328EC41FC811DA3F1506069EBB /* UIButton+BackgroundColor.swift */,
+				F15A472D6C512FDF04BA4DCD8897FFEE /* UIColor+Luminance.swift */,
+				169DE66C80C8828AD70192799FCC43BA /* UIView+RoundedView.swift */,
+				AAC63BA4D62DFCC82D38DDD9757BDC70 /* Support Files */,
+			);
+			name = BulletinBoard;
+			path = BulletinBoard;
+			sourceTree = "<group>";
+		};
+		872D138BE9BBCA5CB83458C711495A53 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC839A821CF2FECD31483FAEF749C5FB /* Pods-One Three Five */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8A5B76D00889FE6ABAC227C3A7A6CB6A /* Loaf */ = {
+			isa = PBXGroup;
+			children = (
+				5743D6664D89B1C42E27682C003E4052 /* Animator.swift */,
+				DF11CE421643491C291A0B4BA0E50EF0 /* Controller.swift */,
+				FE8A9333B15E97A764F9DB035B035700 /* Extensions.swift */,
+				586C7B0C1E4A0B902F5D3AEC08989305 /* Icons.swift */,
+				ED209A176A605192E2D44AE730DAA159 /* Loaf.swift */,
+				720B8DC954771F03F30C91CA1650120B /* Manager.swift */,
+				6CB31368E1CFFEB2E3FE3A16FA1C9F69 /* Support Files */,
+			);
+			name = Loaf;
+			path = Loaf;
+			sourceTree = "<group>";
+		};
+		944D81AFA3FA2180C335947AEEE30E2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC4EC27B0970F708A6473BCFDA3C50 /* BLTNBoard.framework */,
+				4BE730510F6EBDAEF7EF02CB99F4B209 /* Loaf.framework */,
+				A8CC2BC52068D174510D8A7BB3564714 /* Pods_One_Three_Five.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAC63BA4D62DFCC82D38DDD9757BDC70 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				73626777A24986BF9906904476FC245D /* BulletinBoard.modulemap */,
+				DC7FD1FAD324F1002EAE68C0B7F37FA4 /* BulletinBoard-dummy.m */,
+				6EE85B662C8DB170EE515E893794E71E /* BulletinBoard-Info.plist */,
+				208E5380502C938836CB0F73DAC83922 /* BulletinBoard-prefix.pch */,
+				FD236D4D5842933F7C2076D40493BBD4 /* BulletinBoard-umbrella.h */,
+				F0399791BD47B87A2DB1D43F80A43024 /* BulletinBoard.debug.xcconfig */,
+				BA2F28EF4778B0D6F2CB0172B976074C /* BulletinBoard.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BulletinBoard";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				49E790709356DF94307C914AF5BE8697 /* Pods */,
+				944D81AFA3FA2180C335947AEEE30E2B /* Products */,
+				872D138BE9BBCA5CB83458C711495A53 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		EC839A821CF2FECD31483FAEF749C5FB /* Pods-One Three Five */ = {
+			isa = PBXGroup;
+			children = (
+				85B90B916EC86B030AE098E732DD6D2E /* Pods-One Three Five.modulemap */,
+				E9FD088E8A8F1529228F1E7DEDE2D7A1 /* Pods-One Three Five-acknowledgements.markdown */,
+				E67DB331A6DAC9B12D58389312BFC54C /* Pods-One Three Five-acknowledgements.plist */,
+				719087F780E14FD028CB677412A02689 /* Pods-One Three Five-dummy.m */,
+				32FC7B6687AD42D9A2B2E32FD24580D4 /* Pods-One Three Five-frameworks.sh */,
+				B98CB033E1A6E55F33FF95F7C67660DD /* Pods-One Three Five-Info.plist */,
+				BA7B23B152FD80DFB875C57F3240188F /* Pods-One Three Five-umbrella.h */,
+				6667810AB1809AC5231809913DFE6B4D /* Pods-One Three Five.debug.xcconfig */,
+				52921EE095E5944B36AA6541CD8118CC /* Pods-One Three Five.release.xcconfig */,
+			);
+			name = "Pods-One Three Five";
+			path = "Target Support Files/Pods-One Three Five";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0954E0AA8155DC33B41BD8B480D1591C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAED190C36D716D9AFB108583FCDE841 /* Pods-One Three Five-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7185561DE34877748AAE048D02B0540B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB8010D31D5EAE7820F975C0F6B63B7B /* BLTNBoardSwiftSupport.h in Headers */,
+				3C5503601AD53E1A2623B04DB6E1695B /* BulletinBoard-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE78FB96F035DE0C0351A1C972482C3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6DDA092BAB26485BEDB22956DA8C85 /* Loaf-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3CBE366D25C3692AAE548A9B678264C8 /* BulletinBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD3DBBD3F567C621752E83AAC2C319A6 /* Build configuration list for PBXNativeTarget "BulletinBoard" */;
+			buildPhases = (
+				7185561DE34877748AAE048D02B0540B /* Headers */,
+				6A780C4DB693BE08CCD23F8E1E1C11E0 /* Sources */,
+				6F44958E5A623862EEB7B9F000BCE718 /* Frameworks */,
+				068CA6102AB840FB1F51D457696D105B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BulletinBoard;
+			productName = BulletinBoard;
+			productReference = C5FC4EC27B0970F708A6473BCFDA3C50 /* BLTNBoard.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3E12D5ED3565D8FCC3DD9B9DD89246A9 /* Loaf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 752A8374DEB2DF434B0E8D3E1E372D6B /* Build configuration list for PBXNativeTarget "Loaf" */;
+			buildPhases = (
+				9BE78FB96F035DE0C0351A1C972482C3 /* Headers */,
+				A107DEA09369E00D9478D5E6170D4082 /* Sources */,
+				2909161863B5A3EBA975E89A3E71680B /* Frameworks */,
+				F807AC81FC7886936591DD3443BCBFBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Loaf;
+			productName = Loaf;
+			productReference = 4BE730510F6EBDAEF7EF02CB99F4B209 /* Loaf.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BD5950F86533457310D4234590406A28 /* Pods-One Three Five */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8B1A27A18116372756307B18C1BD0AB /* Build configuration list for PBXNativeTarget "Pods-One Three Five" */;
+			buildPhases = (
+				0954E0AA8155DC33B41BD8B480D1591C /* Headers */,
+				81F44087C1CDFB01A619DB51677A430A /* Sources */,
+				41844141B33C1EFBB3B41281678FEE5E /* Frameworks */,
+				0E2A580B33652E66BE3E7F5E3EACA7A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				291CBD9C48ED7D583A752548162729C1 /* PBXTargetDependency */,
+				3372B982FCE270B6EDCCBE9EDADB242B /* PBXTargetDependency */,
+			);
+			name = "Pods-One Three Five";
+			productName = "Pods-One Three Five";
+			productReference = A8CC2BC52068D174510D8A7BB3564714 /* Pods_One_Three_Five.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 944D81AFA3FA2180C335947AEEE30E2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3CBE366D25C3692AAE548A9B678264C8 /* BulletinBoard */,
+				3E12D5ED3565D8FCC3DD9B9DD89246A9 /* Loaf */,
+				BD5950F86533457310D4234590406A28 /* Pods-One Three Five */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		068CA6102AB840FB1F51D457696D105B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E2A580B33652E66BE3E7F5E3EACA7A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F807AC81FC7886936591DD3443BCBFBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A780C4DB693BE08CCD23F8E1E1C11E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AC225342F4949A243D0AC02805E3FB4 /* ActivityIndicator.swift in Sources */,
+				55E03F10F4196ACB82F3CF1EE8A80425 /* AnimationChain.swift in Sources */,
+				DC224047E3F50D14131DDB0558C2C215 /* BLTNActionItem.swift in Sources */,
+				63453488DABC83B1C3BA9DC8C9EE27E4 /* BLTNBackgroundViewStyle.swift in Sources */,
+				7A6B76CC013B98E2936B6355CE3FAD69 /* BLTNContainerView.swift in Sources */,
+				F049FC1C15E906610982B082B9628F42 /* BLTNHighlightButtonWrapper.swift in Sources */,
+				950CC0A7034C96EA7EB4B418FC02C874 /* BLTNInterfaceBuilder.swift in Sources */,
+				86ED9D7481710F0B88C3095B58821774 /* BLTNItem.swift in Sources */,
+				5539DEA50DF15BAB199475748B5867AE /* BLTNItemAppearance.swift in Sources */,
+				0C2C9C5D42BB292FF7FB3BD4F6809436 /* BLTNItemManager+Helpers.swift in Sources */,
+				426FB778F42F7A71AFE6E4E1500F59B8 /* BLTNItemManager.swift in Sources */,
+				FBE309BEBDB50F0607D3E56BB111B310 /* BLTNPageItem.swift in Sources */,
+				89F4EE49F68B1E908935CD63085CEC33 /* BLTNSpacing.swift in Sources */,
+				0982556682E8F4D0B0CF9919553175F1 /* BLTNTitleLabelContainer.swift in Sources */,
+				B7B33EA132F32201F759CCA6BAE00D72 /* BLTNViewPosition.swift in Sources */,
+				61D89F814CE3E175EFEAD9123B2FD0D4 /* BulletinBackgroundView.swift in Sources */,
+				68A9160573FEA726120F68A374AE227C /* BulletinBoard-dummy.m in Sources */,
+				19873951184EA4A8B280DCBAB5D05F86 /* BulletinCloseButton.swift in Sources */,
+				5D38B95F9FD5F4C3CCA3E5CE016470F3 /* BulletinDismissAnimationController.swift in Sources */,
+				631FF66C3764B4411BD5D0B023BDE35A /* BulletinPresentationAnimationController.swift in Sources */,
+				7FB558100620CFFD8E4BA366C2CA7EE1 /* BulletinSwipeInteractionController.swift in Sources */,
+				3E275340AA7E04E904203723E7F73B43 /* BulletinViewController.swift in Sources */,
+				3BC29E999BEA31FDA07B9CCD73B5CF54 /* ContinuousMaskLayer.swift in Sources */,
+				8703033B65D40787C7BC827039D35F46 /* Deprecations.swift in Sources */,
+				915AC4004CE246B3088D3E002F3F6FFA /* HighlightButton.swift in Sources */,
+				C9C4F0512D311894394C39A719626449 /* RoundedViewProtocol.swift in Sources */,
+				83E43B7FCF446A4D43BD6E0C0FBC1C7A /* UIButton+BackgroundColor.swift in Sources */,
+				C88E99F8FDDDB00DD3DA5C7FF0C690CD /* UIColor+Luminance.swift in Sources */,
+				3F7DC59656D0DDA71E371D281B69EA08 /* UIView+RoundedView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81F44087C1CDFB01A619DB51677A430A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17BA28E862EAE04BB83E09CC902D4F93 /* Pods-One Three Five-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A107DEA09369E00D9478D5E6170D4082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				721A035134E7957C0227E47DCE0270B4 /* Animator.swift in Sources */,
+				905F6C4AE74097C8490206AAF61F1155 /* Controller.swift in Sources */,
+				EC1B62640BFAA43FF93760C93AA0D5E9 /* Extensions.swift in Sources */,
+				3A0FEA1EC8D5F7D4AE6383A1452C4C95 /* Icons.swift in Sources */,
+				7E3D75A8D56AF9B2FBB453CC9E623BAC /* Loaf-dummy.m in Sources */,
+				68291B4CF16255D3A7B0353C0BE2888F /* Loaf.swift in Sources */,
+				6270527753A2A79739ED04A0E7C2996F /* Manager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		291CBD9C48ED7D583A752548162729C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BulletinBoard;
+			target = 3CBE366D25C3692AAE548A9B678264C8 /* BulletinBoard */;
+			targetProxy = D8AD28A50FD1037EBBADD1E0BECEA250 /* PBXContainerItemProxy */;
+		};
+		3372B982FCE270B6EDCCBE9EDADB242B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Loaf;
+			target = 3E12D5ED3565D8FCC3DD9B9DD89246A9 /* Loaf */;
+			targetProxy = 5117B940AAB75FEB15643ABC5FB6BE91 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13523C320A8D39C254456F3D66068ECC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52921EE095E5944B36AA6541CD8118CC /* Pods-One Three Five.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-One Three Five/Pods-One Three Five-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-One Three Five/Pods-One Three Five.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		470E709B32133213C6175AC854D96834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 680FEA3C94FD612848B2425A307A5CBF /* Loaf.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Loaf/Loaf-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Loaf/Loaf-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Loaf/Loaf.modulemap";
+				PRODUCT_MODULE_NAME = Loaf;
+				PRODUCT_NAME = Loaf;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BC7450F9457737EE3E637BA155B56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		6ED1F030DA45C97604A60561E7FFB433 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6707A343CC32EFD2EDDE13310EEDFF71 /* Loaf.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Loaf/Loaf-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Loaf/Loaf-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Loaf/Loaf.modulemap";
+				PRODUCT_MODULE_NAME = Loaf;
+				PRODUCT_NAME = Loaf;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		900B89E17C56ACA967D6BC9F67B51707 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA2F28EF4778B0D6F2CB0172B976074C /* BulletinBoard.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BulletinBoard/BulletinBoard-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BulletinBoard/BulletinBoard-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/BulletinBoard/BulletinBoard.modulemap";
+				PRODUCT_MODULE_NAME = BLTNBoard;
+				PRODUCT_NAME = BLTNBoard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D01989FAC4E1B019DC916B7DF8AB7169 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0399791BD47B87A2DB1D43F80A43024 /* BulletinBoard.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BulletinBoard/BulletinBoard-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BulletinBoard/BulletinBoard-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/BulletinBoard/BulletinBoard.modulemap";
+				PRODUCT_MODULE_NAME = BLTNBoard;
+				PRODUCT_NAME = BLTNBoard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D8E632B35FC9B2FB76971DE42D886F8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6667810AB1809AC5231809913DFE6B4D /* Pods-One Three Five.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-One Three Five/Pods-One Three Five-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-One Three Five/Pods-One Three Five.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BC7450F9457737EE3E637BA155B56F7 /* Debug */,
+				8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		752A8374DEB2DF434B0E8D3E1E372D6B /* Build configuration list for PBXNativeTarget "Loaf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				470E709B32133213C6175AC854D96834 /* Debug */,
+				6ED1F030DA45C97604A60561E7FFB433 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD3DBBD3F567C621752E83AAC2C319A6 /* Build configuration list for PBXNativeTarget "BulletinBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01989FAC4E1B019DC916B7DF8AB7169 /* Debug */,
+				900B89E17C56ACA967D6BC9F67B51707 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8B1A27A18116372756307B18C1BD0AB /* Build configuration list for PBXNativeTarget "Pods-One Three Five" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8E632B35FC9B2FB76971DE42D886F8C /* Debug */,
+				13523C320A8D39C254456F3D66068ECC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
