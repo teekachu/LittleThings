@@ -3,18 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		300140AFBF59CA88A6E36D0B /* Pods_One_Three_Five.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */; };
-		F430AE8E2576CBCE00DE727B /* OngoingTaskContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AE8D2576CBCE00DE727B /* OngoingTaskContainerView.swift */; };
-		F430AE912576CC6600DE727B /* DoneTaskTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AE902576CC6600DE727B /* DoneTaskTableView.swift */; };
 		F430AEA82576EFC900DE727B /* OngoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */; };
 		F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEAA2576F24900DE727B /* DoneTableViewController.swift */; };
-		F430AEAE2576FA9B00DE727B /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEAD2576FA9B00DE727B /* NewTaskViewController.swift */; };
-		F430AEB12577115500DE727B /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEB02577115500DE727B /* PopUpView.swift */; };
 		F430AEB425772D7000DE727B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F430AEB325772D6F00DE727B /* Podfile */; };
+		F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AED8257825C500DE727B /* DatabaseManager.swift */; };
+		F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F430AEDB257826A900DE727B /* GoogleService-Info.plist */; };
+		F430AEE125782B9900DE727B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE025782B9900DE727B /* Task.swift */; };
+		F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE425782FA900DE727B /* UpdatesTracker.swift */; };
+		F430AEE8257836E300DE727B /* TaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE7257836E300DE727B /* TaskVCDelegate.swift */; };
+		F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */; };
+		F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */; };
+		F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */; };
+		F430AF0525794F0A00DE727B /* DoneTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AF0325794F0A00DE727B /* DoneTaskTableViewCell.xib */; };
+		F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AF092579608600DE727B /* AddNewTaskViewController.swift */; };
+		F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */; };
 		F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E67E2576BEDC00A55C52 /* AppDelegate.swift */; };
 		F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6802576BEDC00A55C52 /* SceneDelegate.swift */; };
 		F433E6832576BEDC00A55C52 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6822576BEDC00A55C52 /* TaskViewController.swift */; };
@@ -31,13 +38,20 @@
 		290345DADBF07C06E3B983BE /* Pods-One Three Five.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.debug.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.debug.xcconfig"; sourceTree = "<group>"; };
 		5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_One_Three_Five.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
-		F430AE8D2576CBCE00DE727B /* OngoingTaskContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTaskContainerView.swift; sourceTree = "<group>"; };
-		F430AE902576CC6600DE727B /* DoneTaskTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableView.swift; sourceTree = "<group>"; };
 		F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTableViewController.swift; sourceTree = "<group>"; };
 		F430AEAA2576F24900DE727B /* DoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewController.swift; sourceTree = "<group>"; };
-		F430AEAD2576FA9B00DE727B /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
-		F430AEB02577115500DE727B /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
-		F430AEB325772D6F00DE727B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		F430AEB325772D6F00DE727B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F430AED8257825C500DE727B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		F430AEDB257826A900DE727B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F430AEE025782B9900DE727B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F430AEE425782FA900DE727B /* UpdatesTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesTracker.swift; sourceTree = "<group>"; };
+		F430AEE7257836E300DE727B /* TaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVCDelegate.swift; sourceTree = "<group>"; };
+		F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTaskTableViewCell.swift; sourceTree = "<group>"; };
+		F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
+		F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCell.swift; sourceTree = "<group>"; };
+		F430AF0325794F0A00DE727B /* DoneTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneTaskTableViewCell.xib; sourceTree = "<group>"; };
+		F430AF092579608600DE727B /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
+		F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewTaskViewController.xib; sourceTree = "<group>"; };
 		F433E67B2576BEDC00A55C52 /* One Three Five.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "One Three Five.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F433E67E2576BEDC00A55C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F433E6802576BEDC00A55C52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +125,7 @@
 		F433E6932576BF1A00A55C52 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				F430AEE7257836E300DE727B /* TaskVCDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -118,6 +133,7 @@
 		F433E6942576BF2100A55C52 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F430AED8257825C500DE727B /* DatabaseManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -125,6 +141,7 @@
 		F433E6952576BF2700A55C52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F430AEE025782B9900DE727B /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +149,7 @@
 		F433E6962576BF4300A55C52 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				F430AEDB257826A900DE727B /* GoogleService-Info.plist */,
 				F433E6872576BEE000A55C52 /* Assets.xcassets */,
 				F433E6802576BEDC00A55C52 /* SceneDelegate.swift */,
 				F433E67E2576BEDC00A55C52 /* AppDelegate.swift */,
@@ -142,9 +160,10 @@
 		F433E6972576BF5100A55C52 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F430AE8D2576CBCE00DE727B /* OngoingTaskContainerView.swift */,
-				F430AE902576CC6600DE727B /* DoneTaskTableView.swift */,
-				F430AEB02577115500DE727B /* PopUpView.swift */,
+				F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */,
+				F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */,
+				F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */,
+				F430AF0325794F0A00DE727B /* DoneTaskTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,7 +174,8 @@
 				F433E6822576BEDC00A55C52 /* TaskViewController.swift */,
 				F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */,
 				F430AEAA2576F24900DE727B /* DoneTableViewController.swift */,
-				F430AEAD2576FA9B00DE727B /* NewTaskViewController.swift */,
+				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
+				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				F433E6A12576C0B100A55C52 /* Extensions.swift */,
+				F430AEE425782FA900DE727B /* UpdatesTracker.swift */,
 				F433E6A42576C0DA00A55C52 /* Constant.swift */,
 				F433E6A72576C0F600A55C52 /* Ext+Date.swift */,
 				F433E6AA2576C13100A55C52 /* AnimatableExt.swift */,
@@ -177,7 +198,6 @@
 				290345DADBF07C06E3B983BE /* Pods-One Three Five.debug.xcconfig */,
 				EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -193,6 +213,7 @@
 				F433E6782576BEDC00A55C52 /* Frameworks */,
 				F433E6792576BEDC00A55C52 /* Resources */,
 				83507AF8347110D31B8B7CF6 /* [CP] Embed Pods Frameworks */,
+				BC338D9D3B7A27C004D66BE1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,9 +262,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F433E68B2576BEE000A55C52 /* LaunchScreen.storyboard in Resources */,
+				F430AF0525794F0A00DE727B /* DoneTaskTableViewCell.xib in Resources */,
+				F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */,
+				F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */,
 				F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */,
 				F430AEB425772D7000DE727B /* Podfile in Resources */,
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
+				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +290,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-One Three Five/Pods-One Three Five-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC338D9D3B7A27C004D66BE1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-One Three Five/Pods-One Three Five-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-One Three Five/Pods-One Three Five-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-One Three Five/Pods-One Three Five-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F108A89197782CB6735DD4CE /* [CP] Check Pods Manifest.lock */ = {
@@ -296,18 +338,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
 				F430AEA82576EFC900DE727B /* OngoingTableViewController.swift in Sources */,
-				F430AEB12577115500DE727B /* PopUpView.swift in Sources */,
 				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
+				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,
 				F433E6832576BEDC00A55C52 /* TaskViewController.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
-				F430AE8E2576CBCE00DE727B /* OngoingTaskContainerView.swift in Sources */,
-				F430AE912576CC6600DE727B /* DoneTaskTableView.swift in Sources */,
+				F430AEE8257836E300DE727B /* TaskVCDelegate.swift in Sources */,
+				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
+				F430AEE125782B9900DE727B /* Task.swift in Sources */,
+				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
+				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
 				F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */,
 				F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */,
 				F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */,
-				F430AEAE2576FA9B00DE727B /* NewTaskViewController.swift in Sources */,
 				F433E6A22576C0B100A55C52 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

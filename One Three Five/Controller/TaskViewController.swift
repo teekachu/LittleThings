@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Loaf
 
 class TaskViewController: UIViewController {
     
     //  MARK: Properties
+    private let databaseManager = DatabaseManager()
+    
     private let segment: UISegmentedControl = {
         let segmentItems = ["Ongoin", "Done"]
         let segment = UISegmentedControl(items: segmentItems)
@@ -30,8 +33,8 @@ class TaskViewController: UIViewController {
     }()
     
     /// container view is going to hold the tableviewcontrollers.
-    private let ongoingTaskContainerView = OngoingTaskContainerView()
-    private let doneTaskContainerView = DoneTaskContainerView()
+    private let ongoingViewController = OngoingTableViewController()
+    private let doneViewController = DoneTableViewController()
     
 //    private lazy var boardmanager: BLTNItemManager = {
 //        let title = "Add Task"
@@ -64,18 +67,19 @@ class TaskViewController: UIViewController {
     @objc func segmentedControl(_ sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
-            ongoingTaskContainerView.isHidden = false
-            doneTaskContainerView.isHidden = true
+            ongoingViewController.view.alpha = 1
+            doneViewController.view.alpha = 0
         case 1:
-            ongoingTaskContainerView.isHidden = true
-            doneTaskContainerView.isHidden = false
+            ongoingViewController.view.alpha = 0
+            doneViewController.view.alpha = 1
         default:
             break
         }
     }
     
     @objc func actionButtonTapped(){
-        let modalVC = NewTaskViewController()
+        let modalVC = AddNewTaskViewController()
+        modalVC.delegate = self
         modalVC.modalPresentationStyle = .overCurrentContext
         modalVC.modalTransitionStyle = .crossDissolve
         present(modalVC, animated: true)
@@ -89,8 +93,6 @@ class TaskViewController: UIViewController {
         navigationItem.titleView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        ongoingTaskContainerView.isHidden = false
-        doneTaskContainerView.isHidden = true
         navigationController?.navigationBar.isHidden = false
     }
     
@@ -127,21 +129,51 @@ class TaskViewController: UIViewController {
     }
     
     private func configureContainerViews(){
-        view.addSubview(ongoingTaskContainerView)
-        ongoingTaskContainerView.anchor(
+
+        addChild(ongoingViewController)
+        view.addSubview(ongoingViewController.view)
+        ongoingViewController.view.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             bottom: bottomView.topAnchor,
             right: view.rightAnchor)
         
-        view.addSubview(doneTaskContainerView)
-        doneTaskContainerView.anchor(
+        addChild(doneViewController)
+        view.addSubview(doneViewController.view)
+        doneViewController.view.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
             bottom: bottomView.topAnchor,
             right: view.rightAnchor)
+        
+        ongoingViewController.view.alpha = 1
+        doneViewController.view.alpha = 0
+        
+        /// layout subviews immedietly
+        ongoingViewController.view.layoutIfNeeded()
+        doneViewController.view.layoutIfNeeded()
     }
 }
 
 
 //  MARK: Extensions
+extension TaskViewController: TaskVCDelegate, Animatable {
+    
+    func didAddTask(for task: Task) {
+        presentedViewController?.dismiss(animated: true, completion: {[unowned self] in
+            
+            self.databaseManager.addTask(task) {[unowned self] (result) in
+                switch result{
+                case .success:
+                    self.showToast(state: .success, message: "New task added!", location: .top, duration: 1.5)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    self.showToast(state: .error, message: "Uh oh, something went wrong.", location: .top, duration: 2)
+                }
+            }
+        })
+    }
+    
+    
+}

@@ -6,10 +6,22 @@ target 'One Three Five' do
   use_frameworks!
 
   # Pods for One Three Five
-
+  
+    # To show toast message on top or bottom
     pod 'Loaf'
+    # To show bulletin card
     pod 'BulletinBoard'
+    # To show the little spinner animation for progress
+    pod 'JGProgressHUD','~>2.0.3'
+    # Firebase stuff
+    pod 'Firebase/Firestore'
+    pod 'FirebaseFirestoreSwift'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Core'
+    pod 'GoogleSignIn'
+    # Onboarding screens
+    pod 'paper-onboarding'
 
-
+    
 
 end

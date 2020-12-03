@@ -29,16 +29,19 @@ struct Constants {
     
 }
 
-struct Helper {
-    
-    static func getKeyboardHeight(notification: Notification) -> CGFloat {
-        guard let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {return 0}
-        return keyboardHeight
-    }
-}
-
 struct toastMessages {
     static let tooManyTasks = "Woah, thats more than your daily 1-3-5 goals. Why don't you try to empty your plates first. "
 }
+
+struct Helper {
+    
+    static func getKeyboardHeight(notification: Notification) -> CGFloat {
+        guard let keyboardHeight = (notification.userInfo? [UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {return 0}
+        return keyboardHeight
+    }
+    
+}
+
+
 
 

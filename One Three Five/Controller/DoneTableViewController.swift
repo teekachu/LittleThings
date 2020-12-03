@@ -7,9 +7,11 @@
 
 import UIKit
 
-class DoneTableViewController: UITableViewController {
+class DoneTableViewController: UIViewController {
     
     //  MARK: Properties
+    let cellID = "doneCell"
+    private var tableView: UITableView!
     
     
     //  MARK: Lifecycle
@@ -23,21 +25,51 @@ class DoneTableViewController: UITableViewController {
     
     //  MARK: Privates
     private func configureUI(){
-        tableView.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-        navigationController?.navigationBar.isHidden = false
-    }
-    
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        let tableView = UITableView()
+        view.addSubview(tableView)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(
+            UINib(nibName: "DoneTaskTableViewCell", bundle: nil),
+            forCellReuseIdentifier: cellID
+        )
+        
+        tableView.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor
+        )
+        
+        self.tableView = tableView
     }
     
 }
 
 //  MARK: Extensions
+extension DoneTableViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    // MARK: - Table view data source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? DoneTaskTableViewCell else {
+            fatalError()
+        }
+        
+      return cell
+    }
+    
+}
+

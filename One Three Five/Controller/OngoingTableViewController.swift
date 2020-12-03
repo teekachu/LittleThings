@@ -7,38 +7,91 @@
 
 import UIKit
 
-class OngoingTableViewController: UITableViewController {
-
+class OngoingTableViewController: UIViewController {
+    
+    private var tableView: UITableView!
+    private let databaseManager = DatabaseManager()
+    
     //  MARK: Properties
+    let cellID = "cell"
+    var tasks: [Task] = [] {
+        didSet{
+            tableView.reloadData()
+        }
+    }
+    
     
     
     //  MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-       
+        addTasksListener() /// Pulls tasks from firebase
     }
+    
+    /// might not need this as included in didSet
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        tableView.reloadData()
+//    }
+    
+    
     //  MARK: Selectors
     
     
     //  MARK: Privates
     private func configureUI(){
-        tableView.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
-        navigationController?.navigationBar.isHidden = false
+        let tableView = UITableView()
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(
+            UINib(nibName: "OngoingTaskTableViewCell", bundle: nil),
+            forCellReuseIdentifier: cellID
+        )
+        
+        tableView.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor
+        )
+        self.tableView = tableView
     }
-
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    /// Pulls task through using the databaseManager
+    private func addTasksListener(){
+        databaseManager.addTaskListender {[weak self] (result) in
+            switch result{
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let decodedTasks):
+                self?.tasks = decodedTasks
+            }
+        }
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
 }
 
 
 //  MARK: Extensions
+extension OngoingTableViewController: UITableViewDelegate, UITableViewDataSource {
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? OngoingTaskTableViewCell else{
+            fatalError("Unable to dequeue")
+        }
+        let eachtask = tasks[indexPath.row]
+        cell.configureTaskCell(with: eachtask)
+        return cell
+    }
+}
