@@ -83,15 +83,15 @@ class AddNewTaskViewController: UIViewController {
         
         typeLabel.text = "Task \nType"
         typeLabel.textAlignment = .center
-//        typeLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        //        typeLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
         typeLabel.layer.cornerRadius = 30
         
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         
-        saveButton.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        saveButton.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1).withAlphaComponent(0.3)
         saveButton.setWidth(width: 44)
-        saveButton.tintColor = .white
+        saveButton.tintColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
         saveButton.layer.cornerRadius = 15
     }
     
@@ -135,13 +135,35 @@ extension AddNewTaskViewController:
         return taskTypeDataSource.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return taskTypeDataSource[row]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = taskTypeDataSource[row]
+        let textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        let myTitle = NSAttributedString(
+            string: titleData,
+            /// TODO: WHY IS THE FONT NOT WORKING
+            attributes: [NSAttributedString.Key.font: UIFont(name: Constants.textFontName, size: 12.0)!,
+                         NSAttributedString.Key.foregroundColor: textColor])
+        return myTitle
     }
+    
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//
+//        let textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+//        var pickerLabel: UILabel? = (view as? UILabel)
+//        if pickerLabel == nil {
+//            pickerLabel = UILabel()
+//            pickerLabel?.font = UIFont(name: Constants.textFontName, size: 12.0)
+//            pickerLabel?.textAlignment = .center
+//        }
+//        pickerLabel?.text = taskTypeDataSource[row]
+//        pickerLabel?.textColor = textColor
+//
+//        return pickerLabel!
+//    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.tasktype = taskTypeDataSource[row]
-        print(taskTypeDataSource[row])
+        //        print(taskTypeDataSource[row])
     }
     
     

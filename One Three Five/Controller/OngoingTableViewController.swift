@@ -81,11 +81,11 @@ class OngoingTableViewController: UIViewController, Animatable {
             
             case .failure(let error):
                 self.showToast(state: .error, message: toastMessages.uhOhErr, location: .top, duration: 2)
-                printDebug(message: error.localizedDescription)
+                self.printDebug(message: error.localizedDescription)
                 
             case .success:
                 /// Using the protocol / extension
-                self.showToast(state: .info, message: "Moved task to done. Good Job!!!", duration: 1.5)
+                self.showToast(state: .success, message: "Moved task to done. Good Job!!!", duration: 1.5)
                 
             }
         }

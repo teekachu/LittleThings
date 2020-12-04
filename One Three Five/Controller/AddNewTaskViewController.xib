@@ -54,6 +54,7 @@
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-4J-gww">
                                                     <rect key="frame" x="54" y="0.0" width="328" height="80"/>
+                                                    <color key="tintColor" red="0.30980392156862746" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="pNo-rm-gd2"/>
                                                     </constraints>

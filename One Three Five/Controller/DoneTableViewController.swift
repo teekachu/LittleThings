@@ -106,6 +106,9 @@ extension DoneTableViewController: UITableViewDelegate, UITableViewDataSource{
             fatalError()
         }
         let eachTask = tasks[indexPath.row]
+        cell.actionButtonDidTap = {[weak self] in
+            self?.handleActionButton(for: eachTask)
+        }
         cell.configureTaskCell(with: eachTask)
         return cell
     }

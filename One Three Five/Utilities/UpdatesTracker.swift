@@ -8,5 +8,12 @@
 import Foundation
 
 /// Update all the colors for UI
-/// Update the animation for when bottomContainerView first showup too early before keyboard
+///
+/// Update the font for :
+    /// Title in navigation controller
+    /// Texts for the scroll view
+///
 /// send reminder notification for things due in 30 min. 
+
+
+/// I think there is a bug for the tasktype when i add new tasks miltiple times in a row 
