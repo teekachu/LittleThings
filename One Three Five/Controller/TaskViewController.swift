@@ -168,7 +168,7 @@ extension TaskViewController: TaskVCDelegate, Animatable {
                     self.showToast(state: .success, message: "New task added!", location: .top, duration: 1.5)
                     
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    printDebug(message: error.localizedDescription)
                     self.showToast(state: .error, message: "Uh oh, something went wrong.", location: .top, duration: 2)
                 }
             }

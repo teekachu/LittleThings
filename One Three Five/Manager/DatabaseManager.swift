@@ -31,26 +31,50 @@ class DatabaseManager {
         }
     }
     
-    
-    func addTaskListender(completion: @escaping (Result<[Task], Error>) -> Void){
-        listener = tasksCollection.addSnapshotListener({ (snapshot, error) in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                /// Empty array that will hode the decodable Tasks
-                var decodedTasks = [Task]()
-                
-                snapshot?.documents.forEach({ (document) in
-                    /// The FirebaseFirestoreSwift pod allow us to use decodable protocol to decode the model
+    /// Added index in firebase maually to help with querying 
+    func addTaskListender(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void){
+        listener = tasksCollection.whereField("isDone", isEqualTo: isDone)
+            .order(by: "createdAt", descending: true) // latest task appear on top
+            .addSnapshotListener({ (snapshot, error) in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    var decodedTasks = [Task]()
                     
-                    if let task = try? document.data(as: Task.self) {
-                        decodedTasks.append(task)
-                    }
-                })
+                do{
+                    decodedTasks = try snapshot?.documents.compactMap({
+                        return try $0.data(as: Task.self)
+                    }) ?? []
+                } catch(let error) {
+                    completion(.failure(error))
+                }
+                
                 completion(.success(decodedTasks))
+                /// Empty array that will hode the decodable Tasks
             }
         })
     }
+    
+    func updateTaskStatus(for id: String, isDone: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        var fields: [String: Any] = [:]
+        
+        if isDone{
+            fields = ["isDone": true,
+                      "doneAt": Date()]
+        } else {
+            fields = ["isDone": false,
+                      "doneAt": FieldValue.delete()]
+        }
+        
+        tasksCollection.document(id).updateData(fields) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+        }
+    }
+}
     
     
     

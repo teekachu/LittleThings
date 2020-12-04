@@ -6,11 +6,9 @@
 //
 
 import UIKit
+import Loaf
 
-class OngoingTableViewController: UIViewController {
-    
-    private var tableView: UITableView!
-    private let databaseManager = DatabaseManager()
+class OngoingTableViewController: UIViewController, Animatable {
     
     //  MARK: Properties
     let cellID = "cell"
@@ -19,6 +17,8 @@ class OngoingTableViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    private var tableView: UITableView!
+    private let databaseManager = DatabaseManager()
     
     
     
@@ -30,10 +30,10 @@ class OngoingTableViewController: UIViewController {
     }
     
     /// might not need this as included in didSet
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        tableView.reloadData()
-//    }
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //        tableView.reloadData()
+    //    }
     
     
     //  MARK: Selectors
@@ -62,12 +62,31 @@ class OngoingTableViewController: UIViewController {
     
     /// Pulls task through using the databaseManager
     private func addTasksListener(){
-        databaseManager.addTaskListender {[weak self] (result) in
+        databaseManager.addTaskListender(forDoneTasks: false) {[weak self] (result) in
             switch result{
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.printDebug(message: error.localizedDescription)
             case .success(let decodedTasks):
                 self?.tasks = decodedTasks
+            }
+        }
+    }
+    
+    private func handleActionButton(for task: Task) {
+        guard let id = task.id else { return }
+        /// update in databasemanager to done.
+        databaseManager.updateTaskStatus(for: id, isDone: true) {[weak self] (result) in
+            guard let self = self else {return}
+            switch result {
+            
+            case .failure(let error):
+                self.showToast(state: .error, message: toastMessages.uhOhErr, location: .top, duration: 2)
+                printDebug(message: error.localizedDescription)
+                
+            case .success:
+                /// Using the protocol / extension
+                self.showToast(state: .info, message: "Moved task to done. Good Job!!!", duration: 1.5)
+                
             }
         }
     }
@@ -91,7 +110,17 @@ extension OngoingTableViewController: UITableViewDelegate, UITableViewDataSource
             fatalError("Unable to dequeue")
         }
         let eachtask = tasks[indexPath.row]
+        /// To update the done status of the task
+        cell.actionButtonDidTap = {[weak self] in
+            self?.handleActionButton(for: eachtask)
+        }
         cell.configureTaskCell(with: eachtask)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        //        let task = tasks[indexPath.row]
+        //        delegate?.showTaskOptions(for: task)
     }
 }

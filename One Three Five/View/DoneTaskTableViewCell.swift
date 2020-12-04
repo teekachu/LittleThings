@@ -9,15 +9,23 @@ import UIKit
 
 class DoneTaskTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    //  MARK: Properties
+    var actionButtonDidTap: (() -> Void)?
+    
+    
+    //  MARK: IB Properties
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeStampLabel: UILabel!
+    @IBAction func actionButtonTapped(){
+        actionButtonDidTap?()
     }
     
+    
+    //  MARK: Public
+    func configureTaskCell(with task: Task){
+        titleLabel.text = task.title
+        
+        guard let completedtime = task.doneAt?.convertToSimplifiedTimeString() else {return}
+        timeStampLabel.text = "Task completed at: \(completedtime)"
+    }
 }
