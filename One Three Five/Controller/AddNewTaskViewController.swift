@@ -13,15 +13,9 @@ class AddNewTaskViewController: UIViewController {
     
     //  MARK: Properties
     @Published private var taskString: String? ///Observe this variable because this is what will be updated as we type into the textfield
-    private var tasktype: String?
-    
+    private var currentTasktype: TaskType = .one
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
     weak var delegate: TaskVCDelegate?
-    
-    private let taskTypeDataSource = [
-        "One large task",
-        "Three medium tasks",
-        "Five small tasks"]
     
     //  MARK: IBProperties
     @IBOutlet weak var backgroundView: UIView!
@@ -35,10 +29,7 @@ class AddNewTaskViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let taskString = self.taskString else {return}
-        guard let tasktype = tasktype else{
-            printDebug(message: "Cannot add tasktype into firebase")
-            fatalError()}
-        let task = Task(title: taskString, taskType: tasktype)
+        let task = Task(title: taskString, taskType: currentTasktype)
         delegate?.didAddTask(for: task)
     }
     
@@ -119,24 +110,21 @@ class AddNewTaskViewController: UIViewController {
         $taskString.sink { (text) in
             self.saveButton.isEnabled = text?.isEmpty == false
         }.store(in: &subscribers)
-        
     }
 }
 
 //  MARK: Extensions
-extension AddNewTaskViewController:
-    
-    UIPickerViewDelegate, UIPickerViewDataSource{
+extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource, Animatable{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return taskTypeDataSource.count
+        return TaskType.allCases.count
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = taskTypeDataSource[row]
+        let titleData = TaskType.allCases[row].rawValue
         let textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
         let myTitle = NSAttributedString(
             string: titleData,
@@ -146,24 +134,35 @@ extension AddNewTaskViewController:
         return myTitle
     }
     
-//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-//
-//        let textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
-//        var pickerLabel: UILabel? = (view as? UILabel)
-//        if pickerLabel == nil {
-//            pickerLabel = UILabel()
-//            pickerLabel?.font = UIFont(name: Constants.textFontName, size: 12.0)
-//            pickerLabel?.textAlignment = .center
-//        }
-//        pickerLabel?.text = taskTypeDataSource[row]
-//        pickerLabel?.textColor = textColor
-//
-//        return pickerLabel!
-//    }
+    //    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    //
+    //        let textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+    //        var pickerLabel: UILabel? = (view as? UILabel)
+    //        if pickerLabel == nil {
+    //            pickerLabel = UILabel()
+    //            pickerLabel?.font = UIFont(name: Constants.textFontName, size: 12.0)
+    //            pickerLabel?.textAlignment = .center
+    //        }
+    //        pickerLabel?.text = taskTypeDataSource[row]
+    //        pickerLabel?.textColor = textColor
+    //
+    //        return pickerLabel!
+    //    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.tasktype = taskTypeDataSource[row]
-        //        print(taskTypeDataSource[row])
+        switch row{
+        case 0:
+            currentTasktype = .one
+        //            printDebug(message: "Selected One large")
+        case 1:
+            currentTasktype = .three
+        //            printDebug(message: "Selected Three mid")
+        case 2:
+            currentTasktype = .five
+        //            printDebug(message: "Selected Five small")
+        default:
+            break
+        }
     }
     
     

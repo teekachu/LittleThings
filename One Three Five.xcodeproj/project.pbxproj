@@ -32,6 +32,8 @@
 		F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A42576C0DA00A55C52 /* Constant.swift */; };
 		F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A72576C0F600A55C52 /* Ext+Date.swift */; };
 		F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6AA2576C13100A55C52 /* AnimatableExt.swift */; };
+		F43A81A3257BEFF80035352C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A2257BEFF80035352C /* TaskType.swift */; };
+		F43A81A6257BF5070035352C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A5257BF5070035352C /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		F433E6A42576C0DA00A55C52 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F433E6A72576C0F600A55C52 /* Ext+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Date.swift"; sourceTree = "<group>"; };
 		F433E6AA2576C13100A55C52 /* AnimatableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableExt.swift; sourceTree = "<group>"; };
+		F43A81A2257BEFF80035352C /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		F43A81A5257BF5070035352C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				F430AEE025782B9900DE727B /* Task.swift */,
+				F43A81A2257BEFF80035352C /* TaskType.swift */,
+				F43A81A5257BF5070035352C /* DataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -350,6 +356,8 @@
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
 				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
+				F43A81A6257BF5070035352C /* DataSource.swift in Sources */,
+				F43A81A3257BEFF80035352C /* TaskType.swift in Sources */,
 				F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */,
 				F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */,
 				F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */,
