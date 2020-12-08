@@ -99,9 +99,9 @@ extension UIView {
 extension UIViewController {
     //    static let hud = JGProgressHUD(style: .dark)
     
-    func configureGradientBackground() {
+    func configureGradientBackground(color1: UIColor, color2: UIColor) {
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
+        gradient.colors = [color1, color2]
         gradient.locations = [0, 1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame

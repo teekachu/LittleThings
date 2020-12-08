@@ -14,10 +14,9 @@
                 <outlet property="TaskPickerView" destination="k8O-4J-gww" id="YpH-XP-E6O"/>
                 <outlet property="TaskTextfield" destination="mD0-Kc-yHa" id="Qw5-t5-ko4"/>
                 <outlet property="backgroundView" destination="SQy-51-la7" id="d94-6x-N0Y"/>
-                <outlet property="containerViewBottomConstraint" destination="fqL-Z5-f54" id="QVY-tx-6I0"/>
+                <outlet property="containerViewBottomConstraint" destination="fqL-Z5-f54" id="pWi-Yv-pyQ"/>
                 <outlet property="deadlineTimeButton" destination="PDY-Ni-hMe" id="JW0-Cx-Ak4"/>
-                <outlet property="saveButton" destination="59K-S3-ZEK" id="43c-Li-7YL"/>
-                <outlet property="typeLabel" destination="Pmp-Xg-7WK" id="gku-Ao-sEb"/>
+                <outlet property="saveButton" destination="84O-8S-X91" id="prl-hg-Wno"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,30 +29,30 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iz1-ZL-0At" userLabel="BottomContainerView">
-                            <rect key="frame" x="0.0" y="636" width="414" height="260"/>
+                            <rect key="frame" x="5" y="640" width="404" height="256"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z4F-qy-jAa">
-                                    <rect key="frame" x="16" y="20" width="382" height="210"/>
+                                    <rect key="frame" x="16" y="20" width="372" height="216"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a task : )" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mD0-Kc-yHa">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="372" height="34"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Cy-bA-RDo">
-                                            <rect key="frame" x="0.0" y="44" width="382" height="80"/>
+                                            <rect key="frame" x="0.0" y="44" width="372" height="80"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmp-Xg-7WK">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="0t9-Lp-bTN"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-4J-gww">
-                                                    <rect key="frame" x="54" y="0.0" width="328" height="80"/>
+                                                    <rect key="frame" x="54" y="0.0" width="318" height="80"/>
                                                     <color key="tintColor" red="0.30980392156862746" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="pNo-rm-gd2"/>
@@ -62,29 +61,30 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="68e-vf-ApS">
-                                            <rect key="frame" x="0.0" y="134" width="382" height="36"/>
+                                            <rect key="frame" x="0.0" y="134" width="372" height="36"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syW-XB-fXW">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="g3T-G0-9Is"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDY-Ni-hMe">
-                                                    <rect key="frame" x="54" y="0.0" width="328" height="36"/>
+                                                    <rect key="frame" x="54" y="0.0" width="318" height="36"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <state key="normal" title="Placeholder Deadline"/>
                                                 </button>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59K-S3-ZEK">
-                                            <rect key="frame" x="0.0" y="180" width="382" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84O-8S-X91">
+                                            <rect key="frame" x="0.0" y="180" width="372" height="36"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="17"/>
                                             <state key="normal" title="Save"/>
                                             <connections>
-                                                <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="oyD-7l-Hnq"/>
+                                                <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="gmX-t4-dcs"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -92,7 +92,7 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="z4F-qy-jAa" secondAttribute="bottom" constant="30" id="B9p-id-86G"/>
+                                <constraint firstAttribute="bottom" secondItem="z4F-qy-jAa" secondAttribute="bottom" constant="20" id="V5v-GR-L3L"/>
                                 <constraint firstAttribute="trailing" secondItem="z4F-qy-jAa" secondAttribute="trailing" constant="16" id="lvZ-Lg-eE0"/>
                                 <constraint firstItem="z4F-qy-jAa" firstAttribute="top" secondItem="Iz1-ZL-0At" secondAttribute="top" constant="20" id="nV3-Bc-DnU"/>
                                 <constraint firstItem="z4F-qy-jAa" firstAttribute="leading" secondItem="Iz1-ZL-0At" secondAttribute="leading" constant="16" id="pL8-mK-V4c"/>
@@ -101,8 +101,8 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Iz1-ZL-0At" secondAttribute="trailing" id="FKL-VP-URD"/>
-                        <constraint firstItem="Iz1-ZL-0At" firstAttribute="leading" secondItem="SQy-51-la7" secondAttribute="leading" id="JvJ-CO-p54"/>
+                        <constraint firstAttribute="trailing" secondItem="Iz1-ZL-0At" secondAttribute="trailing" constant="5" id="FKL-VP-URD"/>
+                        <constraint firstItem="Iz1-ZL-0At" firstAttribute="leading" secondItem="SQy-51-la7" secondAttribute="leading" constant="5" id="JvJ-CO-p54"/>
                         <constraint firstAttribute="bottom" secondItem="Iz1-ZL-0At" secondAttribute="bottom" id="fqL-Z5-f54"/>
                     </constraints>
                 </view>

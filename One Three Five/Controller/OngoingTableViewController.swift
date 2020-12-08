@@ -41,7 +41,7 @@ class OngoingTableViewController: UIViewController {
     
     //  MARK: Privates
     private func configureTableView(){
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.register(
@@ -54,6 +54,8 @@ class OngoingTableViewController: UIViewController {
             bottom: view.bottomAnchor,
             right: view.rightAnchor
         )
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = .white
         self.tableView = tableView
     }
     
@@ -83,6 +85,8 @@ class OngoingTableViewController: UIViewController {
                 self?.handleActionButton(for: task)
             }
             cell.configureTaskCell(with: task)
+//            cell.layer.borderWidth = 3
+//            cell.layer.borderColor = Constants.orangeTintColor.cgColor
             return cell
         })
         

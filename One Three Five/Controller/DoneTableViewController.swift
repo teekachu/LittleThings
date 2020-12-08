@@ -34,8 +34,9 @@ class DoneTableViewController: UIViewController, Animatable {
     //  MARK: Privates
     private func configureUI(){
         
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         view.addSubview(tableView)
+        
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
@@ -46,12 +47,14 @@ class DoneTableViewController: UIViewController, Animatable {
         )
         
         tableView.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
+            top: view.topAnchor,
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor
         )
         
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = .white
         self.tableView = tableView
     }
     
@@ -110,11 +113,15 @@ extension DoneTableViewController: UITableViewDelegate, UITableViewDataSource{
             self?.handleActionButton(for: eachTask)
         }
         cell.configureTaskCell(with: eachTask)
+        
+//        cell.layer.borderWidth = 3
+//        cell.layer.borderColor = Constants.orangeTintColor.cgColor
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
 }

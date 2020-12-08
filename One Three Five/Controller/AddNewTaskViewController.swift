@@ -21,12 +21,10 @@ class AddNewTaskViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var BottomContainerView: UIView!
     @IBOutlet weak var TaskTextfield: UITextField!
-    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var TaskPickerView: UIPickerView!
     @IBOutlet weak var deadlineTimeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
-    
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let taskString = self.taskString else {return}
         let task = Task(title: taskString, taskType: currentTasktype)
@@ -40,6 +38,7 @@ class AddNewTaskViewController: UIViewController {
         setupGesture()
         observeKeyboard()
         observeForm()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +55,7 @@ class AddNewTaskViewController: UIViewController {
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
             /// pushes the bottomVC up by keyboardHeight but down by 20, which is the space of bottom between stackview and container)
-            self?.containerViewBottomConstraint.constant = keyboardHeight - 20
+            self?.containerViewBottomConstraint.constant = keyboardHeight 
             self?.view.layoutIfNeeded()
         }
     }
@@ -69,21 +68,30 @@ class AddNewTaskViewController: UIViewController {
     private func configureUI(){
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
         
-        BottomContainerView.layer.cornerRadius = 25
+        BottomContainerView.layer.cornerRadius = 35
+        BottomContainerView.layer.borderWidth = 5
+        BottomContainerView.layer.borderColor = UIColor.black.cgColor
+        BottomContainerView.backgroundColor = .white
+
         containerViewBottomConstraint.constant = -BottomContainerView.frame.height
         
-        typeLabel.text = "Task \nType"
-        typeLabel.textAlignment = .center
-        //        typeLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
-        typeLabel.layer.cornerRadius = 30
+        TaskTextfield.backgroundColor = .clear
+        TaskTextfield.borderStyle = .roundedRect
+        TaskTextfield.textColor = .black
+        TaskTextfield.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
+        /// customize pickerview
         
-        saveButton.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1).withAlphaComponent(0.3)
-        //        saveButton.setWidth(width: 44)
-        saveButton.tintColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
-        saveButton.layer.cornerRadius = 15
+        TaskPickerView.backgroundColor = .clear
+        TaskPickerView.layer.borderWidth = 3
+        TaskPickerView.layer.borderColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1) /// inner yellow
+        TaskPickerView.layer.cornerRadius = 20
+        
+        saveButton.tintColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1)
+//        saveButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        saveButton.layer.cornerRadius = 10
     }
     
     private func setupGesture(){
@@ -125,7 +133,7 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = TaskType.allCases[row].rawValue
-        let textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        let textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         let myTitle = NSAttributedString(
             string: titleData,
             /// TODO: WHY IS THE FONT NOT WORKING

@@ -15,6 +15,8 @@ import UIKit
 
 struct Constants {
     
+    static let orangeTintColor:UIColor = #colorLiteral(red: 0.9921568627, green: 0.7254901961, blue: 0.01176470588, alpha: 1)
+    
     static let backgroundColor: UIColor = #colorLiteral(red: 0.3098039216, green: 0.3882352941, blue: 0.4039215686, alpha: 1)
     
     static let NavBarTintColor: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9607843137, blue: 0.8588235294, alpha: 1)
