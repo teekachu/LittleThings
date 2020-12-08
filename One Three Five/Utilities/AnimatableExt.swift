@@ -13,7 +13,7 @@ protocol Animatable {
 
 extension Animatable where Self: UIViewController{
     
-    func showToast(state: Loaf.State, message: String, location: Loaf.Location = .top, duration: TimeInterval = 1.5 ){
+    func showToast(state: Loaf.State, message: String, location: Loaf.Location = .top, duration: TimeInterval = 1 ){
         DispatchQueue.main.async {
             Loaf(message,
                  state: state,
@@ -22,4 +22,5 @@ extension Animatable where Self: UIViewController{
                 .show(.custom(duration))
         }
     }
+    
 }

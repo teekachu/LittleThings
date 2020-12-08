@@ -75,12 +75,12 @@ class DoneTableViewController: UIViewController, Animatable {
             switch result {
             
             case .failure(let error):
-                self.showToast(state: .error, message: toastMessages.uhOhErr, location: .top, duration: 2)
+                self.showToast(state: .error, message: toastMessages.uhOhErr)
                 self.printDebug(message: error.localizedDescription)
                 
             case .success:
                 /// Using the protocol / extension
-                self.showToast(state: .info, message: "Still working on that one? No problem.", duration: 1.5)
+                self.showToast(state: .info, message: "Still working on that one? No problem.")
             }
         }
     }

@@ -31,6 +31,16 @@ class DatabaseManager {
         }
     }
     
+    func deleteTask(for id: String, completion: @escaping (Result<Void, Error>) -> Void ){
+        tasksCollection.document(id).delete { (error) in
+            if let error = error{
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     /// Added index in firebase maually to help with querying 
     func addTaskListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void){
         listener = tasksCollection
@@ -42,18 +52,18 @@ class DatabaseManager {
                 } else {
                     var decodedTasks = [Task]()
                     
-                do{
-                    decodedTasks = try snapshot?.documents.compactMap({
-                        return try $0.data(as: Task.self)
-                    }) ?? []
-                } catch(let error) {
-                    completion(.failure(error))
+                    do{
+                        decodedTasks = try snapshot?.documents.compactMap({
+                            return try $0.data(as: Task.self)
+                        }) ?? []
+                    } catch(let error) {
+                        completion(.failure(error))
+                    }
+                    
+                    completion(.success(decodedTasks))
+                    /// Empty array that will hode the decodable Tasks
                 }
-                
-                completion(.success(decodedTasks))
-                /// Empty array that will hode the decodable Tasks
-            }
-        })
+            })
     }
     
     func updateTaskStatus(for id: String, isDone: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
@@ -73,11 +83,7 @@ class DatabaseManager {
                 completion(.failure(error))
             } else {
                 completion(.success(()))
+            }
         }
     }
-}
-    
-    
-    
-    
 }

@@ -8,9 +8,10 @@
 import UIKit
 import Loaf
 
-class TaskViewController: UIViewController {
+class TaskViewController: UIViewController, Animatable {
     
     //  MARK: Properties
+    
     private let databaseManager = DatabaseManager()
     
     private let segment: UISegmentedControl = {
@@ -36,21 +37,21 @@ class TaskViewController: UIViewController {
     private let ongoingViewController = OngoingTableViewController()
     private let doneViewController = DoneTableViewController()
     
-//    private lazy var boardmanager: BLTNItemManager = {
-//        let title = "Add Task"
-//        let item = BLTNPageItem(title: title)
-//        item.image = UIImage(named: "text-editor-icon")
-//        item.actionButtonTitle = "Continue"
-//        item.alternativeButtonTitle = "Maybe later"
-//        item.descriptionText = "Some stuff "
-//        item.actionHandler = { _ in
-//            /// call function
-//        }
-//        item.alternativeHandler = { _ in
-//            /// call function
-//        }
-//        return BLTNItemManager(rootItem: item)
-//    }()
+    //    private lazy var boardmanager: BLTNItemManager = {
+    //        let title = "Add Task"
+    //        let item = BLTNPageItem(title: title)
+    //        item.image = UIImage(named: "text-editor-icon")
+    //        item.actionButtonTitle = "Continue"
+    //        item.alternativeButtonTitle = "Maybe later"
+    //        item.descriptionText = "Some stuff "
+    //        item.actionHandler = { _ in
+    //            /// call function
+    //        }
+    //        item.alternativeHandler = { _ in
+    //            /// call function
+    //        }
+    //        return BLTNItemManager(rootItem: item)
+    //    }()
     
     //  MARK: Lifecycle
     override func viewDidLoad() {
@@ -129,9 +130,10 @@ class TaskViewController: UIViewController {
     }
     
     private func configureContainerViews(){
-
+        
         addChild(ongoingViewController)
         view.addSubview(ongoingViewController.view)
+        ongoingViewController.delegate = self
         ongoingViewController.view.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
@@ -153,11 +155,24 @@ class TaskViewController: UIViewController {
         ongoingViewController.view.layoutIfNeeded()
         doneViewController.view.layoutIfNeeded()
     }
+    
+    private func deleteTask(for id: String){
+        databaseManager.deleteTask(for: id) {[weak self] (result) in
+            guard let self = self else {return}
+            switch result{
+            case.failure(let error):
+                self.printDebug(message: "deleteTask: \(error.localizedDescription)")
+                self.showToast(state: .error, message: "Uh Oh, something went wrong.")
+            case.success:
+                self.showToast(state: .success, message: "Task has been deleted successfully.")
+            }
+        }
+    }
 }
 
 
 //  MARK: Extensions
-extension TaskViewController: TaskVCDelegate, Animatable {
+extension TaskViewController: TaskVCDelegate {
     
     func didAddTask(for task: Task) {
         presentedViewController?.dismiss(animated: true, completion: {[unowned self] in
@@ -165,15 +180,34 @@ extension TaskViewController: TaskVCDelegate, Animatable {
             self.databaseManager.addTask(task) {[unowned self] (result) in
                 switch result{
                 case .success:
-                    self.showToast(state: .success, message: "New task added!", location: .top, duration: 1.5)
+                    self.showToast(state: .success, message: "New task added!")
                     
                 case .failure(let error):
                     printDebug(message: error.localizedDescription)
-                    self.showToast(state: .error, message: "Uh oh, something went wrong.", location: .top, duration: 2)
+                    self.showToast(state: .error, message: "Uh oh, something went wrong.")
                 }
             }
         })
     }
-    
+}
+
+
+extension TaskViewController: OngoingTasksTVCDelegate {
+    /// The parent view will act as the delegate for the child.
+    /// when a cell is selected in the child, the child will be notified ( need an intern to pass on information)
+    /// The parent will act as the intern , take the information and execiutes methods. 
+    func showOptions(for task: Task){
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let delete = UIAlertAction(title: "Delete", style: .destructive) {[unowned self] (_) in
+            /// use unowned self when we are confident that self will never be nil.
+            guard let id = task.id else {return}
+            self.deleteTask(for: id)
+        }
+        alert.addAction(cancel)
+        alert.addAction(delete)
+        present(alert, animated: true)
+    }
     
 }
+

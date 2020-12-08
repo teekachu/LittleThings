@@ -11,6 +11,8 @@ import Loaf
 class OngoingTableViewController: UIViewController {
     
     //  MARK: Properties
+    weak var delegate: OngoingTasksTVCDelegate?
+    
     let cellID = "cell"
     /// Master list of all Task
     public var tasks: [Task] = []
@@ -24,6 +26,7 @@ class OngoingTableViewController: UIViewController {
     private var tableView: UITableView!
     private var datasource: DataSource! /// enum created
     private let databaseManager = DatabaseManager()
+    
     
     //  MARK: Lifecycle
     override func viewDidLoad() {
@@ -40,7 +43,6 @@ class OngoingTableViewController: UIViewController {
     private func configureTableView(){
         let tableView = UITableView()
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.register(
             UINib(nibName: "OngoingTaskTableViewCell", bundle: nil),
@@ -67,7 +69,7 @@ class OngoingTableViewController: UIViewController {
                 self.tasks = decodedTasks
                 self.configureSnapshot(for: self.tasks)
             }
-            }
+        }
     }
     
     private func configureDataSource(){
@@ -89,8 +91,6 @@ class OngoingTableViewController: UIViewController {
     }
     
     private func configureSnapshot(for stored: [Task]){
-        printDebug(message: "Configuring snapshot")
-        
         /// set up initial snapshot
         var snapshot = NSDiffableDataSourceSnapshot<TaskType, Task>()
         
@@ -102,12 +102,9 @@ class OngoingTableViewController: UIViewController {
             let filteredTasks = stored.filter{
                 $0.taskType == type
             }
-            //            /// Example code below using Testdata in Task.swift file
-            //            let filteredTasks = Task.testData().filter {
-            //                $0.taskType == type
-            //            }
+            
             snapshot.appendSections([type]) /// add section to table
-            snapshot.appendItems(filteredTasks)
+            snapshot.appendItems(filteredTasks, toSection: type)
         }
         
         DispatchQueue.main.async {
@@ -123,12 +120,12 @@ class OngoingTableViewController: UIViewController {
             switch result {
             
             case .failure(let error):
-                self.showToast(state: .error, message: toastMessages.uhOhErr, location: .top, duration: 2)
+                self.showToast(state: .error, message: toastMessages.uhOhErr)
                 self.printDebug(message: error.localizedDescription)
                 
             case .success:
                 /// Using the protocol / extension
-                self.showToast(state: .success, message: "Moved task to done. Good Job!!!", duration: 1.5)
+                self.showToast(state: .success, message: "Moved task to done. Good Job!!!")
             }
         }
     }
@@ -137,11 +134,14 @@ class OngoingTableViewController: UIViewController {
 
 //  MARK: Extensions
 extension OngoingTableViewController: UITableViewDelegate, Animatable {
-        // MARK: - Table view data source
+    // MARK: - Table view data source
     
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.deselectRow(at: indexPath, animated: true)
-            //        let task = tasks[indexPath.row]
-            //        delegate?.showTaskOptions(for: task)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let selected = datasource.itemIdentifier(for: indexPath){
+            delegate?.showOptions(for: selected)
         }
+    }
 }
+
