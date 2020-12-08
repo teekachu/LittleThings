@@ -81,7 +81,7 @@ class AddNewTaskViewController: UIViewController {
         TaskPickerView.dataSource = self
         
         saveButton.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1).withAlphaComponent(0.3)
-        saveButton.setWidth(width: 44)
+//        saveButton.setWidth(width: 44)
         saveButton.tintColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
         saveButton.layer.cornerRadius = 15
     }

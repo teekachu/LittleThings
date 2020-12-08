@@ -57,7 +57,7 @@ class DoneTableViewController: UIViewController, Animatable {
     
     /// Pulls task through using the databaseManager
     private func addTasksListener(){
-        databaseManager.addTaskListender(forDoneTasks: true) {[weak self] (result) in
+        databaseManager.addTaskListener(forDoneTasks: true) {[weak self] (result) in
             switch result{
             case .failure(let error):
                 self?.printDebug(message: error.localizedDescription)

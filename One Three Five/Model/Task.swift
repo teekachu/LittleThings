@@ -17,6 +17,7 @@ struct Task: Identifiable, Codable, Hashable {
     var doneAt: Date?
     var taskType: TaskType
     
+    /// I dont even think i need this... DocumentID is already unique / Hashable isnt it ?
 //    /// Implement the hashable property for id
 //    func hash(into hasher: inout Hasher) {
 //        hasher.combine(id)

@@ -32,8 +32,9 @@ class DatabaseManager {
     }
     
     /// Added index in firebase maually to help with querying 
-    func addTaskListender(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void){
-        listener = tasksCollection.whereField("isDone", isEqualTo: isDone)
+    func addTaskListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void){
+        listener = tasksCollection
+            .whereField("isDone", isEqualTo: isDone)
             .order(by: "createdAt", descending: true) // latest task appear on top
             .addSnapshotListener({ (snapshot, error) in
                 if let error = error {
