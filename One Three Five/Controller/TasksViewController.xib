@@ -25,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
-                    <rect key="frame" x="10" y="52" width="394" height="108.5"/>
+                    <rect key="frame" x="10" y="56" width="394" height="113.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="eRi-77-TQ3">
-                            <rect key="frame" x="0.0" y="0.0" width="394" height="45.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="394" height="50.5"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
-                                    <rect key="frame" x="0.0" y="0.0" width="234" height="45.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
+                                    <rect key="frame" x="0.0" y="0.0" width="234" height="50.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 7, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-26-mIc">
                                             <rect key="frame" x="0.0" y="0.0" width="234" height="22"/>
@@ -40,7 +40,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Teeks!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zd-Td-Ig6">
-                                            <rect key="frame" x="0.0" y="22" width="234" height="23.5"/>
+                                            <rect key="frame" x="0.0" y="27" width="234" height="23.5"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egf-kv-99J">
-                                    <rect key="frame" x="294" y="0.0" width="100" height="45.5"/>
+                                    <rect key="frame" x="294" y="0.0" width="100" height="50.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="k1w-FK-2Q3"/>
                                     </constraints>
@@ -57,13 +57,13 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Little things make big days!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ye-oT6">
-                            <rect key="frame" x="0.0" y="50.5" width="394" height="22"/>
+                            <rect key="frame" x="0.0" y="55.5" width="394" height="22"/>
                             <fontDescription key="fontDescription" name="AvenirNext-BoldItalic" family="Avenir Next" pointSize="16"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-1O-suk">
-                            <rect key="frame" x="0.0" y="77.5" width="394" height="32"/>
+                            <rect key="frame" x="0.0" y="82.5" width="394" height="32"/>
                             <segments>
                                 <segment title="First"/>
                                 <segment title="Second"/>
@@ -76,7 +76,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="GFs-2v-C9n"/>
-                <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="Gef-cA-JZD"/>
+                <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="Gef-cA-JZD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sg6-x2-QtB" secondAttribute="trailing" constant="10" id="lVE-Ul-8Ns"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="69.642857142857139"/>

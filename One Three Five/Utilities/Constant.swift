@@ -17,15 +17,17 @@ struct Constants {
     
     static let orangeTintColor:UIColor = #colorLiteral(red: 0.9921568627, green: 0.7254901961, blue: 0.01176470588, alpha: 1)
     
-    static let backgroundColor: UIColor = #colorLiteral(red: 0.3098039216, green: 0.3882352941, blue: 0.4039215686, alpha: 1)
-    
-    static let NavBarTintColor: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9607843137, blue: 0.8588235294, alpha: 1)
-    
-    static let secondaryBackgroundColor: UIColor = #colorLiteral(red: 0.7215686275, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-    
-    static let plusButtonBackgroundColor: UIColor = #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.3333333333, alpha: 1)
-    
-    static let greenColor: UIColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+    static let offBlack: UIColor =  #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
+
+//    static let backgroundColor: UIColor = #colorLiteral(red: 0.3098039216, green: 0.3882352941, blue: 0.4039215686, alpha: 1)
+//    
+//    static let beigeColor: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9607843137, blue: 0.8588235294, alpha: 1)
+//    
+//    static let secondaryBackgroundColor: UIColor = #colorLiteral(red: 0.7215686275, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+//    
+//    static let plusButtonBackgroundColor: UIColor = #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.3333333333, alpha: 1)
+//    
+//    static let greenColor: UIColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
     
     static let textFontName = "Avenir Light"
     

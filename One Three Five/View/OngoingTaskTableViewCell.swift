@@ -25,5 +25,7 @@ class OngoingTaskTableViewCell: UITableViewCell {
     //  MARK: Public
     func configureTaskCell(with task: Task){
         titleLabel.text = task.title
+        guard let createdAt = task.createdAt?.convertToSimplifiedTimeString() else {return}
+        deadlineLabel.text = "Created at: \(createdAt)"
     }
 }

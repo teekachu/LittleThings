@@ -9,7 +9,7 @@ import UIKit
 import Loaf
 
 class TasksViewController: UIViewController, Animatable {
- 
+    
     //  MARK: Properties
     private let databaseManager = DatabaseManager()
     private let ongoingViewController = OngoingTableViewController()
@@ -24,7 +24,7 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var outerStackView: UIStackView!
     
     
-
+    
     //  MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ class TasksViewController: UIViewController, Animatable {
         segment.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         ///TODO: Change date label text
-        dateLabel.text = "May 7, 1992"
+        dateLabel.text = Date().convertToString()
         dateLabel.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         
         /// TODO: Update label text
@@ -79,7 +79,7 @@ class TasksViewController: UIViewController, Animatable {
         quotesLabel.numberOfLines = 0
         quotesLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
-        actionButton.backgroundColor = .black
+        actionButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
         actionButton.tintColor = .white
         actionButton.setTitle("+ Add Task", for: .normal)
         actionButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -136,11 +136,21 @@ class TasksViewController: UIViewController, Animatable {
             }
         }
     }
+    
+    private func editTask(for task: Task){
+        /// open new task vc to edit
+        let modalVC = AddNewTaskViewController()
+        modalVC.delegate = self
+        modalVC.modalPresentationStyle = .overCurrentContext
+        modalVC.modalTransitionStyle = .crossDissolve
+        modalVC.taskToEdit = task
+        present(modalVC, animated: true)
+    }
 }
 
 
 //  MARK: Extensions
-extension TasksViewController: TaskVCDelegate {
+extension TasksViewController: NewTaskVCDelegate {
     
     func didAddTask(for task: Task) {
         presentedViewController?.dismiss(animated: true, completion: {[unowned self] in
@@ -157,6 +167,24 @@ extension TasksViewController: TaskVCDelegate {
             }
         })
     }
+    
+    func didEditTask(for task: Task) {
+        presentedViewController?.dismiss(animated: true, completion: {[weak self] in
+            
+            guard let id = task.id else {return}
+            
+            self?.databaseManager.editTask(for: id, title: task.title, tasktype: task.taskType) {[weak self] (result) in
+                switch result{
+                case .success:
+                    self?.showToast(state: .success, message: "Task updated!")
+                    
+                case .failure(let error):
+                    self?.printDebug(message: error.localizedDescription)
+                    self?.showToast(state: .error, message: "Uh oh, \(error.localizedDescription).")
+                }
+            }
+        })
+    }
 }
 
 
@@ -167,13 +195,20 @@ extension TasksViewController: OngoingTasksTVCDelegate {
     func showOptions(for task: Task){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let edit = UIAlertAction(title: "Edit", style: .default) {[unowned self] (_) in
+            editTask(for: task)
+        }
         let delete = UIAlertAction(title: "Delete", style: .destructive) {[unowned self] (_) in
             /// use unowned self when we are confident that self will never be nil.
             guard let id = task.id else {return}
             self.deleteTask(for: id)
         }
         alert.addAction(cancel)
+        alert.addAction(edit)
         alert.addAction(delete)
+        
+        alert.view.tintColor = #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
+        
         present(alert, animated: true)
     }
     

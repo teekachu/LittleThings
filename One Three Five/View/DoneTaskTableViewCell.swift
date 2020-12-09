@@ -24,8 +24,7 @@ class DoneTaskTableViewCell: UITableViewCell {
     //  MARK: Public
     func configureTaskCell(with task: Task){
         titleLabel.text = task.title
-        
         guard let completedtime = task.doneAt?.convertToSimplifiedTimeString() else {return}
-        timeStampLabel.text = "Task completed at: \(completedtime)"
+        timeStampLabel.text = "Completed at: \(completedtime)"
     }
 }

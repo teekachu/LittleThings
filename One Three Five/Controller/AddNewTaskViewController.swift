@@ -15,7 +15,8 @@ class AddNewTaskViewController: UIViewController {
     @Published private var taskString: String? ///Observe this variable because this is what will be updated as we type into the textfield
     private var currentTasktype: TaskType = .one
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
-    weak var delegate: TaskVCDelegate?
+    weak var delegate: NewTaskVCDelegate?
+    var taskToEdit: Task?
     
     //  MARK: IBProperties
     @IBOutlet weak var backgroundView: UIView!
@@ -27,8 +28,18 @@ class AddNewTaskViewController: UIViewController {
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let taskString = self.taskString else {return}
-        let task = Task(title: taskString, taskType: currentTasktype)
-        delegate?.didAddTask(for: task)
+        var task = Task(title: taskString, taskType: currentTasktype)
+        
+        if let id = taskToEdit?.id{
+            task.id = id
+        }
+        if taskToEdit == nil{
+            /// creating new task
+            delegate?.didAddTask(for: task)
+        } else {
+            /// update task with new info
+            delegate?.didEditTask(for: task)
+        }
     }
     
     //  MARK: Lifecycle
@@ -55,7 +66,7 @@ class AddNewTaskViewController: UIViewController {
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
             /// pushes the bottomVC up by keyboardHeight but down by 20, which is the space of bottom between stackview and container)
-            self?.containerViewBottomConstraint.constant = keyboardHeight 
+            self?.containerViewBottomConstraint.constant = keyboardHeight
             self?.view.layoutIfNeeded()
         }
     }
@@ -69,8 +80,8 @@ class AddNewTaskViewController: UIViewController {
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
         
         BottomContainerView.layer.cornerRadius = 35
-        BottomContainerView.layer.borderWidth = 5
-        BottomContainerView.layer.borderColor = UIColor.black.cgColor
+        BottomContainerView.layer.borderWidth = 4
+        BottomContainerView.layer.borderColor = Constants.offBlack.cgColor
         BottomContainerView.backgroundColor = .white
 
         containerViewBottomConstraint.constant = -BottomContainerView.frame.height
@@ -92,6 +103,14 @@ class AddNewTaskViewController: UIViewController {
         saveButton.tintColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1)
 //        saveButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         saveButton.layer.cornerRadius = 10
+        
+        if let taskToEdit = taskToEdit{
+            TaskTextfield.text = taskToEdit.title
+            taskString = taskToEdit.title
+            currentTasktype = taskToEdit.taskType
+            saveButton.setTitle("Update", for: .normal)
+            /// update time  created to time updated
+        }
     }
     
     private func setupGesture(){
@@ -131,31 +150,21 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         return TaskType.allCases.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = TaskType.allCases[row].rawValue
-        let textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        let myTitle = NSAttributedString(
-            string: titleData,
-            /// TODO: WHY IS THE FONT NOT WORKING
-            attributes: [NSAttributedString.Key.font: UIFont(name: Constants.textFontName, size: 12.0)!,
-                         NSAttributedString.Key.foregroundColor: textColor])
-        return myTitle
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+
+        let textColor = Constants.offBlack
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont.systemFont(ofSize: 16,weight: .semibold)
+            pickerLabel?.textAlignment = .center
+            pickerLabel?.backgroundColor = .white
+        }
+        pickerLabel?.text = TaskType.allCases[row].rawValue
+        pickerLabel?.textColor = textColor
+
+        return pickerLabel!
     }
-    
-    //    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-    //
-    //        let textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
-    //        var pickerLabel: UILabel? = (view as? UILabel)
-    //        if pickerLabel == nil {
-    //            pickerLabel = UILabel()
-    //            pickerLabel?.font = UIFont(name: Constants.textFontName, size: 12.0)
-    //            pickerLabel?.textAlignment = .center
-    //        }
-    //        pickerLabel?.text = taskTypeDataSource[row]
-    //        pickerLabel?.textColor = textColor
-    //
-    //        return pickerLabel!
-    //    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row{

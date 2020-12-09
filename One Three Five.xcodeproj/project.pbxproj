@@ -15,7 +15,7 @@
 		F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F430AEDB257826A900DE727B /* GoogleService-Info.plist */; };
 		F430AEE125782B9900DE727B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE025782B9900DE727B /* Task.swift */; };
 		F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE425782FA900DE727B /* UpdatesTracker.swift */; };
-		F430AEE8257836E300DE727B /* TaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE7257836E300DE727B /* TaskVCDelegate.swift */; };
+		F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */; };
 		F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */; };
 		F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */; };
 		F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */; };
@@ -38,6 +38,7 @@
 		F47BC97E257FDD7700DB0CC4 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */; };
 		F47BC987257FEDD900DB0CC4 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */; };
 		F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */; };
+		F47BC98D258063A400DB0CC4 /* Ext+AlertCont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC98C258063A400DB0CC4 /* Ext+AlertCont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +52,7 @@
 		F430AEDB257826A900DE727B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F430AEE025782B9900DE727B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F430AEE425782FA900DE727B /* UpdatesTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesTracker.swift; sourceTree = "<group>"; };
-		F430AEE7257836E300DE727B /* TaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVCDelegate.swift; sourceTree = "<group>"; };
+		F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVCDelegate.swift; sourceTree = "<group>"; };
 		F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTaskTableViewCell.swift; sourceTree = "<group>"; };
 		F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
 		F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasksViewController.xib; sourceTree = "<group>"; };
+		F47BC98C258063A400DB0CC4 /* Ext+AlertCont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+AlertCont.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +139,7 @@
 		F433E6932576BF1A00A55C52 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				F430AEE7257836E300DE727B /* TaskVCDelegate.swift */,
+				F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */,
 				F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */,
 			);
 			path = Protocols;
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				F433E6A12576C0B100A55C52 /* Extensions.swift */,
+				F47BC98C258063A400DB0CC4 /* Ext+AlertCont.swift */,
 				F430AEE425782FA900DE727B /* UpdatesTracker.swift */,
 				F433E6A42576C0DA00A55C52 /* Constant.swift */,
 				F433E6A72576C0F600A55C52 /* Ext+Date.swift */,
@@ -357,13 +360,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47BC98D258063A400DB0CC4 /* Ext+AlertCont.swift in Sources */,
 				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
 				F430AEA82576EFC900DE727B /* OngoingTableViewController.swift in Sources */,
 				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
 				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,
 				F433E6832576BEDC00A55C52 /* TaskViewController.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
-				F430AEE8257836E300DE727B /* TaskVCDelegate.swift in Sources */,
+				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
 				F430AEE125782B9900DE727B /* Task.swift in Sources */,
 				F43EC7AC257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift in Sources */,
