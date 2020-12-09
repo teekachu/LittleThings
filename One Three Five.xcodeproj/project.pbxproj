@@ -119,6 +119,7 @@
 		F433E67D2576BEDC00A55C52 /* One Three Five */ = {
 			isa = PBXGroup;
 			children = (
+				F430AEE425782FA900DE727B /* UpdatesTracker.swift */,
 				F430AEB325772D6F00DE727B /* Podfile */,
 				F433E6932576BF1A00A55C52 /* Protocols */,
 				F433E6942576BF2100A55C52 /* Manager */,
@@ -202,7 +203,6 @@
 			children = (
 				F433E6A12576C0B100A55C52 /* Extensions.swift */,
 				F47BC98C258063A400DB0CC4 /* Ext+AlertCont.swift */,
-				F430AEE425782FA900DE727B /* UpdatesTracker.swift */,
 				F433E6A42576C0DA00A55C52 /* Constant.swift */,
 				F433E6A72576C0F600A55C52 /* Ext+Date.swift */,
 				F433E6AA2576C13100A55C52 /* AnimatableExt.swift */,

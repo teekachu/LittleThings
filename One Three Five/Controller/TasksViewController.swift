@@ -82,7 +82,7 @@ class TasksViewController: UIViewController, Animatable {
         actionButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
         actionButton.tintColor = .white
         actionButton.setTitle("+ Add Task", for: .normal)
-        actionButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        actionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
         actionButton.layer.cornerRadius = 15
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
