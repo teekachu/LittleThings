@@ -15,6 +15,7 @@ class TasksViewController: UIViewController, Animatable {
     private let ongoingViewController = OngoingTableViewController()
     private let doneViewController = DoneTableViewController()
     
+    
     //  MARK: IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var dateLabel: UILabel!
@@ -22,7 +23,6 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var quotesLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
-    
     
     
     //  MARK: Lifecycle

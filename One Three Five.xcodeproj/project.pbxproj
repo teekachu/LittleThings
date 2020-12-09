@@ -24,7 +24,6 @@
 		F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */; };
 		F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E67E2576BEDC00A55C52 /* AppDelegate.swift */; };
 		F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6802576BEDC00A55C52 /* SceneDelegate.swift */; };
-		F433E6832576BEDC00A55C52 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6822576BEDC00A55C52 /* TaskViewController.swift */; };
 		F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F433E6842576BEDC00A55C52 /* Main.storyboard */; };
 		F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F433E6872576BEE000A55C52 /* Assets.xcassets */; };
 		F433E68B2576BEE000A55C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F433E6892576BEE000A55C52 /* LaunchScreen.storyboard */; };
@@ -62,7 +61,6 @@
 		F433E67B2576BEDC00A55C52 /* One Three Five.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "One Three Five.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F433E67E2576BEDC00A55C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F433E6802576BEDC00A55C52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F433E6822576BEDC00A55C52 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		F433E6852576BEDC00A55C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F433E6872576BEE000A55C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F433E68A2576BEE000A55C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				F430AEAA2576F24900DE727B /* DoneTableViewController.swift */,
 				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
 				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
-				F433E6822576BEDC00A55C52 /* TaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 				F430AEA82576EFC900DE727B /* OngoingTableViewController.swift in Sources */,
 				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
 				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,
-				F433E6832576BEDC00A55C52 /* TaskViewController.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
 				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,

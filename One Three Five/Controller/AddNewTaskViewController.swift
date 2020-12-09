@@ -29,6 +29,9 @@ class AddNewTaskViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let taskString = self.taskString else {return}
         var task = Task(title: taskString, taskType: currentTasktype)
+        /// make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
+        
+        
         
         if let id = taskToEdit?.id{
             task.id = id
@@ -49,7 +52,6 @@ class AddNewTaskViewController: UIViewController {
         setupGesture()
         observeKeyboard()
         observeForm()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,7 +85,7 @@ class AddNewTaskViewController: UIViewController {
         BottomContainerView.layer.borderWidth = 4
         BottomContainerView.layer.borderColor = Constants.offBlack.cgColor
         BottomContainerView.backgroundColor = .white
-
+        
         containerViewBottomConstraint.constant = -BottomContainerView.frame.height
         
         TaskTextfield.backgroundColor = .clear
@@ -101,13 +103,20 @@ class AddNewTaskViewController: UIViewController {
         TaskPickerView.layer.cornerRadius = 20
         
         saveButton.tintColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1)
-//        saveButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         saveButton.layer.cornerRadius = 10
         
-        if let taskToEdit = taskToEdit{
+        if let taskToEdit = taskToEdit {
             TaskTextfield.text = taskToEdit.title
             taskString = taskToEdit.title
             currentTasktype = taskToEdit.taskType
+            switch currentTasktype{
+            case .one:
+                TaskPickerView.selectRow(0, inComponent: 0, animated: false)
+            case.three:
+                TaskPickerView.selectRow(1, inComponent: 0, animated: false)
+            case.five:
+                TaskPickerView.selectRow(2, inComponent: 0, animated: false)
+            }
             saveButton.setTitle("Update", for: .normal)
             /// update time  created to time updated
         }
@@ -151,7 +160,7 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-
+        
         let textColor = Constants.offBlack
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
@@ -162,7 +171,7 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
         pickerLabel?.text = TaskType.allCases[row].rawValue
         pickerLabel?.textColor = textColor
-
+        
         return pickerLabel!
     }
     
