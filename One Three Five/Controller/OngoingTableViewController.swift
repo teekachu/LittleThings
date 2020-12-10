@@ -55,7 +55,7 @@ class OngoingTableViewController: UIViewController {
             right: view.rightAnchor
         )
         tableView.separatorColor = .clear
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = Constants.viewBackgroundWhiteSmoke
         self.tableView = tableView
     }
     
@@ -85,6 +85,8 @@ class OngoingTableViewController: UIViewController {
                 self?.handleActionButton(for: task)
             }
             cell.configureTaskCell(with: task)
+            cell.layer.borderWidth = 1.32
+            cell.layer.borderColor = Constants.whiteWhite?.cgColor
             return cell
         })
         

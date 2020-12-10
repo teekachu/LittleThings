@@ -54,7 +54,7 @@ class DoneTableViewController: UIViewController, Animatable {
         )
         
         tableView.separatorColor = .clear
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = Constants.viewBackgroundWhiteSmoke
         self.tableView = tableView
     }
     
@@ -113,9 +113,8 @@ extension DoneTableViewController: UITableViewDelegate, UITableViewDataSource{
             self?.handleActionButton(for: eachTask)
         }
         cell.configureTaskCell(with: eachTask)
-        
-//        cell.layer.borderWidth = 3
-//        cell.layer.borderColor = Constants.orangeTintColor.cgColor
+        cell.layer.borderWidth = 1.4
+        cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) /// white
         return cell
     }
     

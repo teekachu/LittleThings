@@ -31,6 +31,8 @@ class TasksViewController: UIViewController, Animatable {
         configureUI()
         configureSegmentControlUI()
         configureContainerViews()
+        /// TODO: Need to update this later for auth. 
+//        presentOnboardingController()
     }
     
     
@@ -57,33 +59,36 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     
-    //  MARK: Privates
+    //  MARK: Privates UI-Config
     private func configureUI(){
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        /// white in lightmode, med black in darkmode
+        view.backgroundColor = Constants.navBarColor
         navigationController?.navigationBar.isHidden = true
         
-        segment.backgroundColor = Constants.orangeTintColor
-        segment.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        segment.backgroundColor = Constants.segmentBarBackground
+        segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Constants.blackBlack ?? #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1),
+                                        NSAttributedString.Key.font: UIFont(name: Constants.didotMedium, size: 16)!]
+                                       ,for: UIControl.State.normal)
         
         ///TODO: Change date label text
         dateLabel.text = Date().convertToString()
-        dateLabel.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        dateLabel.textColor = Constants.smallTextNavBarColor
         
         /// TODO: Update label text
         greetingsLabel.text = "Hello, Teeks!"
-        greetingsLabel.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        greetingsLabel.textColor = Constants.smallTextNavBarColor
         
         /// TODO: Update quotes text
         quotesLabel.text = "Little things make big days!"
         quotesLabel.layer.cornerRadius = 5
         quotesLabel.numberOfLines = 0
-        quotesLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        quotesLabel.textColor = Constants.navBarQuoteTextColor
         
-        actionButton.backgroundColor = #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
+        actionButton.backgroundColor = Constants.addTaskButton
         actionButton.tintColor = .white
         actionButton.setTitle("+ Add Task", for: .normal)
-        actionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        actionButton.layer.cornerRadius = 15
+        actionButton.titleLabel?.font = UIFont(name: Constants.didotMedium, size: 16)
+        actionButton.layer.cornerRadius = 12
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
     
@@ -124,6 +129,7 @@ class TasksViewController: UIViewController, Animatable {
         doneViewController.view.layoutIfNeeded()
     }
     
+    //  MARK: Privates methods
     private func deleteTask(for id: String){
         databaseManager.deleteTask(for: id) {[weak self] (result) in
             guard let self = self else {return}
@@ -145,6 +151,12 @@ class TasksViewController: UIViewController, Animatable {
         modalVC.modalTransitionStyle = .crossDissolve
         modalVC.taskToEdit = task
         present(modalVC, animated: true)
+    }
+    
+    private func presentOnboardingController(){
+        let cont = OnboardingViewController()
+        cont.modalPresentationStyle = .fullScreen
+        present(cont, animated: true)
     }
 }
 
@@ -207,7 +219,7 @@ extension TasksViewController: OngoingTasksTVCDelegate {
         alert.addAction(edit)
         alert.addAction(delete)
         
-        alert.view.tintColor = #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
+        alert.view.tintColor = Constants.blackWhite
         
         present(alert, animated: true)
     }

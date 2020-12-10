@@ -68,7 +68,7 @@ class AddNewTaskViewController: UIViewController {
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
             /// pushes the bottomVC up by keyboardHeight but down by 20, which is the space of bottom between stackview and container)
-            self?.containerViewBottomConstraint.constant = keyboardHeight
+            self?.containerViewBottomConstraint.constant = keyboardHeight - 40
             self?.view.layoutIfNeeded()
         }
     }
@@ -82,16 +82,17 @@ class AddNewTaskViewController: UIViewController {
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
         
         BottomContainerView.layer.cornerRadius = 35
-        BottomContainerView.layer.borderWidth = 4
-        BottomContainerView.layer.borderColor = Constants.offBlack.cgColor
-        BottomContainerView.backgroundColor = .white
+        BottomContainerView.layer.borderWidth = 3
+        BottomContainerView.layer.borderColor = Constants.offBlack202020.cgColor
+        BottomContainerView.backgroundColor = UIColor(named: "viewbackgroundWhitesmoke")
         
         containerViewBottomConstraint.constant = -BottomContainerView.frame.height
         
         TaskTextfield.backgroundColor = .clear
-        TaskTextfield.borderStyle = .roundedRect
+        TaskTextfield.borderStyle = .none
+//        TaskTextfield.layer.borderColor = Constants.orangeTintColorFDB903.cgColor
         TaskTextfield.textColor = .black
-        TaskTextfield.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        TaskTextfield.font = UIFont(name: Constants.didotMedium, size: 19)
         
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
@@ -99,11 +100,12 @@ class AddNewTaskViewController: UIViewController {
         
         TaskPickerView.backgroundColor = .clear
         TaskPickerView.layer.borderWidth = 3
-        TaskPickerView.layer.borderColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1) /// inner yellow
+        TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
         TaskPickerView.layer.cornerRadius = 20
         
-        saveButton.tintColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1)
+        saveButton.tintColor = Constants.blackWhite
         saveButton.layer.cornerRadius = 10
+        saveButton.titleLabel?.font = UIFont(name: Constants.didotMedium, size: 19)
         
         if let taskToEdit = taskToEdit {
             TaskTextfield.text = taskToEdit.title
@@ -161,13 +163,13 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        let textColor = Constants.offBlack
+        let textColor = Constants.offBlack202020
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
-            pickerLabel?.font = UIFont.systemFont(ofSize: 16,weight: .semibold)
+            pickerLabel?.font = UIFont(name: Constants.didotMedium, size: 16)
             pickerLabel?.textAlignment = .center
-            pickerLabel?.backgroundColor = .white
+            pickerLabel?.backgroundColor = Constants.pickerLabelBackground
         }
         pickerLabel?.text = TaskType.allCases[row].rawValue
         pickerLabel?.textColor = textColor

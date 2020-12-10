@@ -15,21 +15,54 @@ import UIKit
 
 struct Constants {
     
-    static let orangeTintColor:UIColor = #colorLiteral(red: 0.9921568627, green: 0.7254901961, blue: 0.01176470588, alpha: 1)
+    static let addTaskButton = UIColor(named: "addTaskButton")
     
-    static let offBlack: UIColor =  #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
+    static let blackBlack = UIColor(named: "black black")
+    
+    static let blackWhite = UIColor(named: "black white")
+    
+    static let buttonContainerBackground = UIColor(named: "bottonContainerBackground")
+    
+    static let cellColorWhiteGray = UIColor(named: "cellColor white Gray")
+    
+    static let navBarQuoteTextColor = UIColor(named: "Navbar quote text color")
+    
+    static let navBarColor = UIColor(named: "navBarColor")
+    
+    /// single orange color
+    static let orangeFDB903 = UIColor(named: "OrangeTintFDB903")
+    
+    static let segmentBarBackground = UIColor(named: "segment background")
+    
+    static let smallTextNavBarColor = UIColor(named: "smalltext nav bar color")
+    
+    static let viewBackgroundWhiteSmoke = UIColor(named: "viewbackgroundWhitesmoke")
+    
+    static let whiteOffblack = UIColor(named: "white offblack")
+    
+    static let pickerLabelBackground = UIColor(named: "pickerLabelBackground")
+    
+    static let whiteWhite = UIColor(named: "white white")
+    
+    static let orangeTintColorFDB903:UIColor = #colorLiteral(red: 0.9921568627, green: 0.7254901961, blue: 0.01176470588, alpha: 1)
+    
+    static let offBlack202020: UIColor =  #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
 
-//    static let backgroundColor: UIColor = #colorLiteral(red: 0.3098039216, green: 0.3882352941, blue: 0.4039215686, alpha: 1)
-//    
-//    static let beigeColor: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9607843137, blue: 0.8588235294, alpha: 1)
-//    
-//    static let secondaryBackgroundColor: UIColor = #colorLiteral(red: 0.7215686275, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-//    
-//    static let plusButtonBackgroundColor: UIColor = #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.3333333333, alpha: 1)
-//    
-//    static let greenColor: UIColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+    static let mediumBlack3f3f3f: UIColor = #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)
     
-    static let textFontName = "Avenir Light"
+    static let grayBlack707070: UIColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
+    
+    static let lightGrayCDCDCD: UIColor = #colorLiteral(red: 0.8039215686, green: 0.8039215686, blue: 0.8039215686, alpha: 1)
+    
+    static let innerYellowFCD12A: UIColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1)
+    
+    static let webYellowFFDF6C: UIColor = #colorLiteral(red: 1, green: 0.8745098039, blue: 0.4235294118, alpha: 1)
+    
+    /// Texs
+    static let didot = "Didot"
+    static let didotMedium = "Didot-Bold"
+    static let didotItalic = "Didot-Italic"
+    
     
 }
 

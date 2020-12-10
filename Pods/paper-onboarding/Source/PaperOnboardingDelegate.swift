@@ -50,7 +50,7 @@ public protocol PaperOnboardingDelegate {
 
 // This extension will make the delegate method optional
 public extension PaperOnboardingDelegate {
-    func onboardingWillTransitonToIndex(_: Int) {}
+    func onboardingWillTransitonToIndex(_ index: Int) {}
     func onboardingDidTransitonToIndex(_: Int) {}
     func onboardingWillTransitonToLeaving() {}
     func onboardingConfigurationItem(_: OnboardingContentViewItem, index _: Int) {}
