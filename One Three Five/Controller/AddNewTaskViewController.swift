@@ -12,12 +12,14 @@ import Loaf
 class AddNewTaskViewController: UIViewController {
     
     //  MARK: Properties
+    private let taskManager: TaskManager
+    private var task: Task
+    private let isEditingTask: Bool
+    
     @Published private var taskString: String? ///Observe this variable because this is what will be updated as we type into the textfield
     private var currentTasktype: TaskType = .one
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
     weak var delegate: NewTaskVCDelegate?
-    weak var delegate2: OngoingTasksDelegate?  /// 135
-    var taskToEdit: Task?
     
     //  MARK: IBProperties
     @IBOutlet weak var backgroundView: UIView!
@@ -33,32 +35,34 @@ class AddNewTaskViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let taskString = self.taskString else {return}
-        var task = Task(title: taskString, taskType: currentTasktype)
-        
-        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
-        delegate2?.currentTasktypeMeetsRestriction(for: task) { [weak self] (errorText) in
-            
-            if errorText != nil {
-                self?.errorMsgLabel.text = errorText
-                self?.errorMsgLabel.textColor = .red
-                return
-            }
-            /// otherwise continue
-            print("Did not have 9 tasks, continue")
+        updateTask()
+        guard taskString != nil else {
+            showToast(state: .error, message: "Please enter a title")
+            return
         }
-        
-        /// Continue if did met criteria of taskType number
-        if let id = taskToEdit?.id{
-            task.id = id
+
+        guard isAble(toAdd: task) else {
+            return
         }
-        if taskToEdit == nil{
-            /// creating new task
-            delegate?.didAddTask(for: task)
-        } else {
+
+        if isEditingTask {
             /// update task with new info
             delegate?.didEditTask(for: task)
+        } else {
+            /// creating new task
+            delegate?.didAddTask(for: task)
         }
+    }
+    
+    init(taskManager: TaskManager, task: Task, isEditingTask: Bool = false) {
+        self.taskManager = taskManager
+        self.task = task
+        self.isEditingTask = isEditingTask
+        super.init(nibName: "AddNewTaskViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //  MARK: Lifecycle
@@ -72,6 +76,8 @@ class AddNewTaskViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         TaskTextfield.becomeFirstResponder()
+        updateTask()
+        isAble(toAdd: task)
     }
     
     //  MARK: Selectors
@@ -122,21 +128,20 @@ class AddNewTaskViewController: UIViewController {
         saveButton.layer.cornerRadius = 10
         saveButton.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 19)
         
-        if let taskToEdit = taskToEdit {
-            TaskTextfield.text = taskToEdit.title
-            taskString = taskToEdit.title
-            currentTasktype = taskToEdit.taskType
-            switch currentTasktype{
-            case .one:
-                TaskPickerView.selectRow(0, inComponent: 0, animated: false)
-            case.three:
-                TaskPickerView.selectRow(1, inComponent: 0, animated: false)
-            case.five:
-                TaskPickerView.selectRow(2, inComponent: 0, animated: false)
-            }
-            saveButton.setTitle("Update", for: .normal)
-            /// update time  created to time updated
+        TaskTextfield.text = task.title
+        taskString = task.title
+        currentTasktype = task.taskType
+        switch currentTasktype {
+        case .one:
+            TaskPickerView.selectRow(0, inComponent: 0, animated: false)
+        case.three:
+            TaskPickerView.selectRow(1, inComponent: 0, animated: false)
+        case.five:
+            TaskPickerView.selectRow(2, inComponent: 0, animated: false)
         }
+        let title = isEditingTask ? "Update" : "Save"
+        saveButton.setTitle(title, for: .normal)
+        /// update time  created to time updated
     }
     
     private func setupGesture(){
@@ -163,6 +168,30 @@ class AddNewTaskViewController: UIViewController {
         $taskString.sink { (text) in
             self.saveButton.isEnabled = text?.isEmpty == false
         }.store(in: &subscribers)
+    }
+    
+    private func updateTask() {
+        task.title = taskString
+        task.taskType = currentTasktype
+    }
+    
+    @discardableResult private func isAble(toAdd task: Task) -> Bool {
+        
+        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
+        let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
+            
+        if errorText != nil {
+            errorMsgLabel.text = errorText
+            errorMsgLabel.textColor = .red
+            /// otherwise continue
+            print("Did not have 9 tasks, continue")
+            return false
+        } else {
+            errorMsgLabel.text = "One little thing at a time."
+            errorMsgLabel.textColor = .orange
+        }
+        
+        return true
     }
 }
 
@@ -203,5 +232,8 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         default:
             break
         }
+
+        updateTask()
+        isAble(toAdd: task)
     }
 }

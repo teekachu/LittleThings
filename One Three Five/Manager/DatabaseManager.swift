@@ -31,8 +31,9 @@ class DatabaseManager {
         }
     }
     
-    func editTask(for id : String, title: String, tasktype: TaskType, completion: @escaping (Result<Void, Error>) -> Void){
-        let data: [String: Any] = ["title": title, "taskType": tasktype.rawValue]
+    func edit(_ task: Task, completion: @escaping (Result<Void, Error>) -> Void){
+        guard let id = task.id else {return}
+        let data: [String: Any] = ["title": task.title ?? "", "taskType": task.taskType.rawValue]
         tasksCollection.document(id).updateData(data) { (error) in
             if let error = error{
                 completion(.failure(error))

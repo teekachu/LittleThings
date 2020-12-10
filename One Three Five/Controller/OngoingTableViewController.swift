@@ -11,27 +11,26 @@ import Loaf
 class OngoingTableViewController: UIViewController {
     
     //  MARK: Properties
+    private let taskManager: TaskManager
     weak var delegate: OngoingTasksTVCDelegate?
     
     let cellID = "cell"
-    /// Master list of all Task
-    public var tasks: [Task] = []
-    {
-        didSet{
-            DispatchQueue.main.async {[weak self] in
-                self?.tableView.reloadData()
-            }
-        }
-    }
     private var tableView: UITableView!
     private var datasource: DataSource! /// enum created
-    private let databaseManager = DatabaseManager()
     
+    init(taskManager: TaskManager) {
+        self.taskManager = taskManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //  MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        addTasksListener() /// Pulls tasks from firebase
+        addTaskObserver() /// Pulls tasks from firebase
         configureTableView()
         configureDataSource()
 //        bridgeToAddNewTaskVC() ///135
@@ -61,16 +60,12 @@ class OngoingTableViewController: UIViewController {
     }
     
     /// Pulls task through using the databaseManager
-    private func addTasksListener(){
-        databaseManager.addTaskListener(forDoneTasks: false) {[weak self] (result) in
-            guard let self = self else{return}
-            switch result{
-            case .failure(let error):
-                self.printDebug(message: "addTaskListener: \(error.localizedDescription)")
-                
-            case .success(let decodedTasks):
-                self.tasks = decodedTasks
-                self.configureSnapshot(for: self.tasks)
+    private func addTaskObserver() {
+        taskManager.setTaskObserver { [weak self] tasks in
+            print("✅ tasks", tasks)
+            self?.configureSnapshot(for: tasks)
+            DispatchQueue.main.async {[weak self] in
+                self?.tableView.reloadData()
             }
         }
     }
@@ -118,20 +113,8 @@ class OngoingTableViewController: UIViewController {
     }
     
     private func handleActionButton(for task: Task) {
-        guard let id = task.id else { return }
-        /// update in databasemanager to done.
-        databaseManager.updateTaskStatus(for: id, isDone: true) {[weak self] (result) in
-            guard let self = self else {return}
-            switch result {
-            
-            case .failure(let error):
-                self.showToast(state: .error, message: toastMessages.uhOhErr)
-                self.printDebug(message: error.localizedDescription)
-                
-            case .success:
-                /// Using the protocol / extension
-                self.showToast(state: .success, message: "Moved task to done. Good Job!!!")
-            }
+        taskManager.update(task) { [weak self] (status, message) in
+            self?.showToast(state: status, message: message)
         }
     }
     
@@ -154,33 +137,3 @@ extension OngoingTableViewController: UITableViewDelegate, Animatable {
         }
     }
 }
-
-///135
-extension OngoingTableViewController: OngoingTasksDelegate {
-    
-    func currentTasktypeMeetsRestriction(for task: Task, completion: @escaping ((String?) -> Void)) {
-        
-        /// basically determine whether the user is adding too many tasks or not.
-        
-        let typeOne = tasks.filter{ $0.taskType == .one }
-        let typeThree = tasks.filter{ $0.taskType == .three }
-        let typeFive = tasks.filter{ $0.taskType == .five }
-        
-        if typeOne.count == 1
-            && typeThree.count == 3
-            && typeFive.count == 5 {
-            completion("Currently have 9 tasks ongoing already")
-        } else {
-            if task.taskType == .one && typeOne.count == 1 {
-                completion("Already have 1 large task")
-            } else if task.taskType == .three && typeThree.count == 3 {
-                completion("Already have 3 medium tasks")
-            } else if task.taskType == .five && typeFive.count == 5 {
-                completion("Already have 5 small tasks")
-            }
-        }
-        
-        completion(nil)
-    }
-}
-

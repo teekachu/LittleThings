@@ -11,9 +11,9 @@ import Loaf
 class TasksViewController: UIViewController, Animatable {
     
     //  MARK: Properties
-    private let databaseManager = DatabaseManager()
-    private let ongoingViewController = OngoingTableViewController()
-    private let doneViewController = DoneTableViewController()
+    private let taskManager: TaskManager
+    private let ongoingViewController: OngoingTableViewController
+    private let doneViewController: DoneTableViewController
     
     
     //  MARK: IB Properties
@@ -35,6 +35,16 @@ class TasksViewController: UIViewController, Animatable {
 //        presentOnboardingController()
     }
     
+    init(taskManager: TaskManager) {
+        self.taskManager = taskManager
+        self.ongoingViewController = OngoingTableViewController(taskManager: taskManager)
+        self.doneViewController = DoneTableViewController()
+        super.init(nibName: "TasksViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //  MARK: Selectors
     @objc func segmentedControl(_ sender: UISegmentedControl){
@@ -51,7 +61,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     @objc func actionButtonTapped(){
-        let modalVC = AddNewTaskViewController()
+        let modalVC = AddNewTaskViewController(taskManager: taskManager, task: .basic)
         modalVC.delegate = self
         modalVC.modalPresentationStyle = .overCurrentContext
         modalVC.modalTransitionStyle = .crossDissolve
@@ -130,26 +140,19 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     //  MARK: Privates methods
-    private func deleteTask(for id: String){
-        databaseManager.deleteTask(for: id) {[weak self] (result) in
+    private func deleteTask(_ task: Task){
+        taskManager.delete(task) {[weak self] (status, message) in
             guard let self = self else {return}
-            switch result{
-            case.failure(let error):
-                self.printDebug(message: "deleteTask: \(error.localizedDescription)")
-                self.showToast(state: .error, message: "Uh Oh, something went wrong.")
-            case.success:
-                self.showToast(state: .success, message: "Task has been deleted successfully.")
-            }
+            self.showToast(state: status, message: message)
         }
     }
     
     private func editTask(for task: Task){
         /// open new task vc to edit
-        let modalVC = AddNewTaskViewController()
+        let modalVC = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
         modalVC.delegate = self
         modalVC.modalPresentationStyle = .overCurrentContext
         modalVC.modalTransitionStyle = .crossDissolve
-        modalVC.taskToEdit = task
         present(modalVC, animated: true)
     }
     
@@ -165,17 +168,10 @@ class TasksViewController: UIViewController, Animatable {
 extension TasksViewController: NewTaskVCDelegate {
     
     func didAddTask(for task: Task) {
-        presentedViewController?.dismiss(animated: true, completion: {[unowned self] in
+        presentedViewController?.dismiss(animated: true, completion: {[weak self] in
             
-            self.databaseManager.addTask(task) {[unowned self] (result) in
-                switch result{
-                case .success:
-                    self.showToast(state: .success, message: "New task added!")
-                    
-                case .failure(let error):
-                    printDebug(message: error.localizedDescription)
-                    self.showToast(state: .error, message: "Uh oh, something went wrong.")
-                }
+            self?.taskManager.store(task) {[weak self] (status, message) in
+                self?.showToast(state: status, message: message)
             }
         })
     }
@@ -183,17 +179,8 @@ extension TasksViewController: NewTaskVCDelegate {
     func didEditTask(for task: Task) {
         presentedViewController?.dismiss(animated: true, completion: {[weak self] in
             
-            guard let id = task.id else {return}
-            
-            self?.databaseManager.editTask(for: id, title: task.title, tasktype: task.taskType) {[weak self] (result) in
-                switch result{
-                case .success:
-                    self?.showToast(state: .success, message: "Task updated!")
-                    
-                case .failure(let error):
-                    self?.printDebug(message: error.localizedDescription)
-                    self?.showToast(state: .error, message: "Uh oh, \(error.localizedDescription).")
-                }
+            self?.taskManager.update(task) {[weak self] (status, message) in
+                self?.showToast(state: status, message: message)
             }
         })
     }
@@ -212,10 +199,8 @@ extension TasksViewController: OngoingTasksTVCDelegate {
         let edit = UIAlertAction(title: "Edit", style: .default) {[unowned self] (_) in
             editTask(for: task)
         }
-        let delete = UIAlertAction(title: "Delete", style: .destructive) {[unowned self] (_) in
-            /// use unowned self when we are confident that self will never be nil.
-            guard let id = task.id else {return}
-            self.deleteTask(for: id)
+        let delete = UIAlertAction(title: "Delete", style: .destructive) {[weak self] (_) in
+            self?.deleteTask(task)
         }
         alert.addAction(cancel)
         alert.addAction(edit)

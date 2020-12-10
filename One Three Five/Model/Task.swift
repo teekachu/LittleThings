@@ -12,10 +12,14 @@ struct Task: Identifiable, Codable, Hashable {
     
     @DocumentID var id: String?  /// This is Hashable
     @ServerTimestamp var createdAt: Date?
-    let title: String
+    var title: String?
     var isDone: Bool = false
     var doneAt: Date?
     var taskType: TaskType
+    
+    public static var basic: Task {
+        return Task(title: nil, taskType: .one)
+    }
 }
 
 

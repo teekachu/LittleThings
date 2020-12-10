@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		300140AFBF59CA88A6E36D0B /* Pods_One_Three_Five.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */; };
+		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
 		F430AEA82576EFC900DE727B /* OngoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */; };
 		F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEAA2576F24900DE727B /* DoneTableViewController.swift */; };
 		F430AEB425772D7000DE727B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F430AEB325772D6F00DE727B /* Podfile */; };
@@ -33,7 +34,6 @@
 		F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6AA2576C13100A55C52 /* AnimatableExt.swift */; };
 		F435B81625815762007BB7E1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435B81525815762007BB7E1 /* OnboardingViewController.swift */; };
 		F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */; };
-		F438A64725828E1D004F639B /* OngoingTasksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A64625828E1D004F639B /* OngoingTasksDelegate.swift */; };
 		F43A81A3257BEFF80035352C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A2257BEFF80035352C /* TaskType.swift */; };
 		F43A81A6257BF5070035352C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A5257BF5070035352C /* DataSource.swift */; };
 		F43EC7AC257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */; };
@@ -47,6 +47,7 @@
 		290345DADBF07C06E3B983BE /* Pods-One Three Five.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.debug.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.debug.xcconfig"; sourceTree = "<group>"; };
 		5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_One_Three_Five.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
+		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTableViewController.swift; sourceTree = "<group>"; };
 		F430AEAA2576F24900DE727B /* DoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewController.swift; sourceTree = "<group>"; };
 		F430AEB325772D6F00DE727B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -74,7 +75,6 @@
 		F433E6AA2576C13100A55C52 /* AnimatableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableExt.swift; sourceTree = "<group>"; };
 		F435B81525815762007BB7E1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		F438A64625828E1D004F639B /* OngoingTasksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksDelegate.swift; sourceTree = "<group>"; };
 		F43A81A2257BEFF80035352C /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		F43A81A5257BF5070035352C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTVCDelegate.swift; sourceTree = "<group>"; };
@@ -145,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */,
-				F438A64625828E1D004F639B /* OngoingTasksDelegate.swift */,
 				F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */,
 			);
 			path = Protocols;
@@ -155,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F430AED8257825C500DE727B /* DatabaseManager.swift */,
+				F34CF6872582B6D100B8FD7C /* TaskManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -381,13 +381,13 @@
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
 				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
 				F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */,
-				F438A64725828E1D004F639B /* OngoingTasksDelegate.swift in Sources */,
 				F43A81A6257BF5070035352C /* DataSource.swift in Sources */,
 				F43A81A3257BEFF80035352C /* TaskType.swift in Sources */,
 				F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */,
 				F47BC97E257FDD7700DB0CC4 /* MenuSection.swift in Sources */,
 				F47BC987257FEDD900DB0CC4 /* TasksViewController.swift in Sources */,
 				F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */,
+				F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */,
 				F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */,
 				F433E6A22576C0B100A55C52 /* Extensions.swift in Sources */,
 			);
