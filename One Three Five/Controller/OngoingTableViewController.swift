@@ -34,6 +34,7 @@ class OngoingTableViewController: UIViewController {
         addTasksListener() /// Pulls tasks from firebase
         configureTableView()
         configureDataSource()
+//        bridgeToAddNewTaskVC() ///135
     }
     
     //  MARK: Selectors
@@ -133,6 +134,11 @@ class OngoingTableViewController: UIViewController {
             }
         }
     }
+    
+//    private func bridgeToAddNewTaskVC(){
+//        let avc = AddNewTaskViewController()
+//        avc.delegate2 = self
+//    }
 }
 
 
@@ -146,6 +152,35 @@ extension OngoingTableViewController: UITableViewDelegate, Animatable {
         if let selected = datasource.itemIdentifier(for: indexPath){
             delegate?.showOptions(for: selected)
         }
+    }
+}
+
+///135
+extension OngoingTableViewController: OngoingTasksDelegate {
+    
+    func currentTasktypeMeetsRestriction(for task: Task, completion: @escaping ((String?) -> Void)) {
+        
+        /// basically determine whether the user is adding too many tasks or not.
+        
+        let typeOne = tasks.filter{ $0.taskType == .one }
+        let typeThree = tasks.filter{ $0.taskType == .three }
+        let typeFive = tasks.filter{ $0.taskType == .five }
+        
+        if typeOne.count == 1
+            && typeThree.count == 3
+            && typeFive.count == 5 {
+            completion("Currently have 9 tasks ongoing already")
+        } else {
+            if task.taskType == .one && typeOne.count == 1 {
+                completion("Already have 1 large task")
+            } else if task.taskType == .three && typeThree.count == 3 {
+                completion("Already have 3 medium tasks")
+            } else if task.taskType == .five && typeFive.count == 5 {
+                completion("Already have 5 small tasks")
+            }
+        }
+        
+        completion(nil)
     }
 }
 

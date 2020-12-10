@@ -16,6 +16,7 @@ class AddNewTaskViewController: UIViewController {
     private var currentTasktype: TaskType = .one
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
     weak var delegate: NewTaskVCDelegate?
+    weak var delegate2: OngoingTasksDelegate?  /// 135
     var taskToEdit: Task?
     
     //  MARK: IBProperties
@@ -34,8 +35,20 @@ class AddNewTaskViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let taskString = self.taskString else {return}
         var task = Task(title: taskString, taskType: currentTasktype)
-        /// make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
         
+        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
+        delegate2?.currentTasktypeMeetsRestriction(for: task) { [weak self] (errorText) in
+            
+            if errorText != nil {
+                self?.errorMsgLabel.text = errorText
+                self?.errorMsgLabel.textColor = .red
+                return
+            }
+            /// otherwise continue
+            print("Did not have 9 tasks, continue")
+        }
+        
+        /// Continue if did met criteria of taskType number
         if let id = taskToEdit?.id{
             task.id = id
         }
@@ -191,6 +204,4 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
             break
         }
     }
-    
-    
 }

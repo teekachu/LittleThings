@@ -33,6 +33,7 @@
 		F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6AA2576C13100A55C52 /* AnimatableExt.swift */; };
 		F435B81625815762007BB7E1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435B81525815762007BB7E1 /* OnboardingViewController.swift */; };
 		F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */; };
+		F438A64725828E1D004F639B /* OngoingTasksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A64625828E1D004F639B /* OngoingTasksDelegate.swift */; };
 		F43A81A3257BEFF80035352C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A2257BEFF80035352C /* TaskType.swift */; };
 		F43A81A6257BF5070035352C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A5257BF5070035352C /* DataSource.swift */; };
 		F43EC7AC257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */; };
@@ -73,6 +74,7 @@
 		F433E6AA2576C13100A55C52 /* AnimatableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableExt.swift; sourceTree = "<group>"; };
 		F435B81525815762007BB7E1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		F438A64625828E1D004F639B /* OngoingTasksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksDelegate.swift; sourceTree = "<group>"; };
 		F43A81A2257BEFF80035352C /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		F43A81A5257BF5070035352C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTVCDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */,
+				F438A64625828E1D004F639B /* OngoingTasksDelegate.swift */,
 				F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */,
 			);
 			path = Protocols;
@@ -378,6 +381,7 @@
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
 				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
 				F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */,
+				F438A64725828E1D004F639B /* OngoingTasksDelegate.swift in Sources */,
 				F43A81A6257BF5070035352C /* DataSource.swift in Sources */,
 				F43A81A3257BEFF80035352C /* TaskType.swift in Sources */,
 				F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */,
