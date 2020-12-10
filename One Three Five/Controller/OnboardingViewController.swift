@@ -25,7 +25,7 @@ class OnboardingViewController: UIViewController {
         butn.setTitle("Get Started", for: .normal)
         butn.setTitleColor(.white, for: .normal)
         butn.alpha = 0
-        butn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 15)
+        butn.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 18)
         return butn
     }()
     
@@ -72,18 +72,19 @@ class OnboardingViewController: UIViewController {
     }
     
     private func configureOnboardingDatasource(){
+        
         /// set up onboarding items
         let itemOne = OnboardingItemInfo(
             informationImage: #imageLiteral(resourceName: "stars")
                 .withRenderingMode(.alwaysOriginal),
             title: "Hey there!",
-            description: "Welcome to Little things.",
+            description: "Welcome to Little Things, your daily task manager.",
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
             titleColor: Constants.lightGrayCDCDCD,
             descriptionColor: Constants.orangeTintColorFDB903,
-            titleFont: UIFont(name: "AvenirNext-Medium", size: 20)!,
-            descriptionFont: UIFont(name: "AvenirNext-Medium", size: 16)!,
+            titleFont: UIFont(name: Constants.titleTextFont, size: 25)!,
+            descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 19)!,
             descriptionLabelPadding: 0,
             titleLabelPadding: 0)
         
@@ -96,8 +97,8 @@ class OnboardingViewController: UIViewController {
             color: Constants.offBlack202020,
             titleColor: Constants.orangeTintColorFDB903,
             descriptionColor: Constants.lightGrayCDCDCD,
-            titleFont: UIFont(name: "AvenirNext-Medium", size: 18)!,
-            descriptionFont: UIFont(name: "AvenirNext-Medium", size: 16)!,
+            titleFont: UIFont(name: Constants.titleTextFont, size: 21)!,
+            descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 18)!,
             descriptionLabelPadding: 0,
             titleLabelPadding: 20)
         
@@ -105,13 +106,13 @@ class OnboardingViewController: UIViewController {
             informationImage: #imageLiteral(resourceName: "orangeSqigg")
                 .withRenderingMode(.alwaysOriginal),
             title: "Use the 1-3-5 rule to prioritize and tackle!",
-            description: "And focus your energy to things that matters.",
+            description: "Focus your energy on things that matter.",
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
             titleColor: Constants.orangeTintColorFDB903,
             descriptionColor: Constants.lightGrayCDCDCD,
-            titleFont: UIFont(name: "AvenirNext-Medium", size: 19)!,
-            descriptionFont: UIFont(name: "AvenirNext-Medium", size: 15)!,
+            titleFont: UIFont(name: Constants.titleTextFont, size: 20)!,
+            descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 18)!,
             descriptionLabelPadding: 0,
             titleLabelPadding: 0)
         

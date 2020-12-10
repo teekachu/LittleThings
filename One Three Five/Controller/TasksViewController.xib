@@ -25,30 +25,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
-                    <rect key="frame" x="10" y="56" width="394" height="118.5"/>
+                    <rect key="frame" x="13" y="56" width="388" height="109.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="eRi-77-TQ3">
-                            <rect key="frame" x="0.0" y="0.0" width="394" height="50.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="388" height="45"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
-                                    <rect key="frame" x="0.0" y="0.0" width="234" height="50.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="228" height="45"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 7, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-26-mIc">
-                                            <rect key="frame" x="0.0" y="0.0" width="234" height="21.5"/>
-                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="228" height="19"/>
+                                            <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Teeks!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zd-Td-Ig6">
-                                            <rect key="frame" x="0.0" y="26.5" width="234" height="24"/>
-                                            <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="19"/>
+                                            <rect key="frame" x="0.0" y="24" width="228" height="21"/>
+                                            <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="19"/>
                                             <color key="textColor" name="smalltext nav bar color"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egf-kv-99J">
-                                    <rect key="frame" x="294" y="0.0" width="100" height="50.5"/>
+                                    <rect key="frame" x="288" y="0.0" width="100" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="k1w-FK-2Q3"/>
                                     </constraints>
@@ -57,13 +57,13 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Little things make big days!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ye-oT6">
-                            <rect key="frame" x="0.0" y="55.5" width="394" height="27"/>
-                            <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="21"/>
+                            <rect key="frame" x="0.0" y="50" width="388" height="23.5"/>
+                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="21"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-1O-suk">
-                            <rect key="frame" x="0.0" y="87.5" width="394" height="32"/>
+                            <rect key="frame" x="0.0" y="78.5" width="388" height="32"/>
                             <segments>
                                 <segment title="First"/>
                                 <segment title="Second"/>
@@ -75,9 +75,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="whiteish mediumblack"/>
             <constraints>
-                <constraint firstItem="sg6-x2-QtB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="GFs-2v-C9n"/>
+                <constraint firstItem="sg6-x2-QtB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="GFs-2v-C9n"/>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="Gef-cA-JZD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sg6-x2-QtB" secondAttribute="trailing" constant="10" id="lVE-Ul-8Ns"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sg6-x2-QtB" secondAttribute="trailing" constant="13" id="lVE-Ul-8Ns"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="69.642857142857139"/>
         </view>

@@ -32,7 +32,7 @@ class TasksViewController: UIViewController, Animatable {
         configureSegmentControlUI()
         configureContainerViews()
         /// TODO: Need to update this later for auth. 
-//        presentOnboardingController()
+        presentOnboardingController()
     }
     
     
@@ -67,7 +67,7 @@ class TasksViewController: UIViewController, Animatable {
         
         segment.backgroundColor = Constants.segmentBarBackground
         segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Constants.blackBlack ?? #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1),
-                                        NSAttributedString.Key.font: UIFont(name: Constants.didotMedium, size: 16)!]
+                                        NSAttributedString.Key.font: UIFont(name: Constants.fontMedium, size: 16)!]
                                        ,for: UIControl.State.normal)
         
         ///TODO: Change date label text
@@ -87,14 +87,14 @@ class TasksViewController: UIViewController, Animatable {
         actionButton.backgroundColor = Constants.addTaskButton
         actionButton.tintColor = .white
         actionButton.setTitle("+ Add Task", for: .normal)
-        actionButton.titleLabel?.font = UIFont(name: Constants.didotMedium, size: 16)
+        actionButton.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 16)
         actionButton.layer.cornerRadius = 12
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
     
     private func configureSegmentControlUI(){
         segment.removeAllSegments()
-        segment.insertSegment(withTitle: "Ongoin", at: 0, animated: false)
+        segment.insertSegment(withTitle: "Ongoing", at: 0, animated: false)
         segment.insertSegment(withTitle: "Done", at: 1, animated: false)
         segment.selectedSegmentIndex = 0
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
