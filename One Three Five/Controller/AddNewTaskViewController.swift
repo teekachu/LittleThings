@@ -36,8 +36,6 @@ class AddNewTaskViewController: UIViewController {
         var task = Task(title: taskString, taskType: currentTasktype)
         /// make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
         
-        
-        
         if let id = taskToEdit?.id{
             task.id = id
         }

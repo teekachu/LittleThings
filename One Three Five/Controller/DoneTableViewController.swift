@@ -113,8 +113,8 @@ extension DoneTableViewController: UITableViewDelegate, UITableViewDataSource{
             self?.handleActionButton(for: eachTask)
         }
         cell.configureTaskCell(with: eachTask)
-        cell.layer.borderWidth = 1.4
-        cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) /// white
+        cell.layer.borderWidth = 1.3
+        cell.layer.borderColor = Constants.cellBorderColor?.cgColor
         return cell
     }
     

@@ -85,8 +85,8 @@ class OngoingTableViewController: UIViewController {
                 self?.handleActionButton(for: task)
             }
             cell.configureTaskCell(with: task)
-            cell.layer.borderWidth = 1.32
-            cell.layer.borderColor = Constants.whiteWhite?.cgColor
+            cell.layer.borderWidth = 1.3
+            cell.layer.borderColor = Constants.cellBorderColor?.cgColor
             return cell
         })
         

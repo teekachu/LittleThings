@@ -42,7 +42,7 @@ struct Constants {
     
     static let pickerLabelBackground = UIColor(named: "pickerLabelBackground")
     
-    static let whiteWhite = UIColor(named: "white white")
+    static let cellBorderColor = UIColor(named: "white mediumBlack")
     
     static let blackYellow = UIColor(named: "black yellow")
     
