@@ -11,14 +11,10 @@ import FirebaseFirestoreSwift
 
 class DatabaseManager {
     
-    private let db = Firestore.firestore()
-    
-    private lazy var tasksCollection = db.collection("tasks")
-    
-    private var listener: ListenerRegistration?
+    private let tasksCollection = Firestore.firestore().collection("tasks")
     
     /// To add new task into firebase
-    func addTask(_ task: Task, completion: @escaping (Result<Void, Error>) -> Void) {
+    public func addTask(_ task: Task, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             _ = try tasksCollection.addDocument(from: task, completion: { (error) in
                 if let error = error{
@@ -33,7 +29,7 @@ class DatabaseManager {
     }
     
     /// To delete task from firebase
-    func deleteTask(for id: String, completion: @escaping (Result<Void, Error>) -> Void ){
+    public func deleteTask(for id: String, completion: @escaping (Result<Void, Error>) -> Void ){
         tasksCollection.document(id).delete { (error) in
             if let error = error{
                 completion(.failure(error))
@@ -44,7 +40,7 @@ class DatabaseManager {
     }
     
     /// To edit content for a spcific task taking into the id.
-    func editTask(for task: Task, completion: @escaping (Result<Void, Error>) -> Void){
+    public func editTask(for task: Task, completion: @escaping (Result<Void, Error>) -> Void){
         guard let id = task.id else {return}
         let data: [String: Any] = ["title": task.title ?? "", "taskType": task.taskType.rawValue]
         tasksCollection.document(id).updateData(data) { (error) in
@@ -57,7 +53,7 @@ class DatabaseManager {
     }
     
     /// To update whether a task is done or not. move back and forth between Done &&  Ongoing tab
-    func updateTaskStatus(for id: String, isDone: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
+    public func updateTaskStatus(for id: String, isDone: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
         var fields: [String: Any] = [:]
         
         if isDone{
@@ -78,27 +74,27 @@ class DatabaseManager {
     }
     
     /// Added index in firebase maually to help with querying
-    func addTaskListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void){
-        listener = tasksCollection
-            .whereField("isDone", isEqualTo: isDone)
+    public func getTasks(onLoad: @escaping ([Task]) -> Void){
+        tasksCollection
             .order(by: "createdAt", descending: true) // latest task appear on top
-            .addSnapshotListener({ (snapshot, error) in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    var decodedTasks = [Task]()
-                    
-                    do{
-                        decodedTasks = try snapshot?.documents.compactMap({
-                            return try $0.data(as: Task.self)
-                        }) ?? []
-                    } catch(let error) {
-                        completion(.failure(error))
-                    }
-                    
-                    completion(.success(decodedTasks))
-                    /// Empty array that will hold the decodable Tasks
+            .addSnapshotListener { (snapshot, error) in
+                
+                guard error == nil else {
+                    print("error in getTasks \(error!.localizedDescription)")
+                    return
                 }
-            })
+                
+                do {
+                    
+                    let decodedTasks = try snapshot?.documents.compactMap {
+                        return try $0.data(as: Task.self)
+                    } ?? []
+                    
+                    onLoad(decodedTasks)
+                    
+                } catch let error {
+                    print("error in getTasks \(error.localizedDescription)")
+                }
+            }
     }
 }

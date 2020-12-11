@@ -12,9 +12,20 @@ class TasksViewController: UIViewController, Animatable {
     
     //  MARK: Properties
     private let taskManager: TaskManager
-    private let ongoingViewController: OngoingTableViewController
-    private let doneViewController: DoneTableViewController
-    
+    private var dataSource: DataSource!
+    private var isDoneActive: Bool = false {
+        didSet {
+            tasks = tasks + []
+        }
+    }
+    private var tasks: [Task] = [] {
+        didSet {
+            configureSnapshot(for: tasks.filter { $0.isDone == isDoneActive})
+            DispatchQueue.main.async {[weak self] in
+                self?.tableView.reloadData()
+            }
+        }
+    }
     
     //  MARK: IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
@@ -23,22 +34,12 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var quotesLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
+    @IBOutlet weak var tableView: UITableView!
     
     
     //  MARK: Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-        configureSegmentControlUI()
-        configureContainerViews()
-        /// TODO: Need to update this later for auth. 
-//        presentOnboardingController()
-    }
-    
     init(taskManager: TaskManager) {
         self.taskManager = taskManager
-        self.ongoingViewController = OngoingTableViewController(taskManager: taskManager)
-        self.doneViewController = DoneTableViewController()
         super.init(nibName: "TasksViewController", bundle: nil)
     }
     
@@ -46,28 +47,33 @@ class TasksViewController: UIViewController, Animatable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = Constants.viewBackgroundWhiteSmoke
+        tableView.registerCell(.ongoing)
+        tableView.registerCell(.done)
+        configureDataSource()
+        addTaskObserver()
+        
+        configureUI()
+        segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
+//        presentOnboardingController()
+    }
+    
     //  MARK: Selectors
     @objc func segmentedControl(_ sender: UISegmentedControl){
-        switch sender.selectedSegmentIndex {
-        case 0:
-            ongoingViewController.view.alpha = 1
-            doneViewController.view.alpha = 0
-        case 1:
-            ongoingViewController.view.alpha = 0
-            doneViewController.view.alpha = 1
-        default:
-            break
-        }
+        isDoneActive = sender.selectedSegmentIndex != 0
     }
     
-    @objc func actionButtonTapped(){
-        let modalVC = AddNewTaskViewController(taskManager: taskManager, task: .basic)
-        modalVC.delegate = self
-        modalVC.modalPresentationStyle = .overCurrentContext
-        modalVC.modalTransitionStyle = .crossDissolve
-        present(modalVC, animated: true)
+    @objc func didPressAddTaskButton() {
+        let controller = AddNewTaskViewController(taskManager: taskManager, task: .basic)
+        controller.delegate = self
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
     }
-    
     
     //  MARK: Privates UI-Config
     private func configureUI(){
@@ -99,44 +105,7 @@ class TasksViewController: UIViewController, Animatable {
         actionButton.setTitle("+ Add Task", for: .normal)
         actionButton.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 16)
         actionButton.layer.cornerRadius = 12
-        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
-    }
-    
-    private func configureSegmentControlUI(){
-        segment.removeAllSegments()
-        segment.insertSegment(withTitle: "Ongoing", at: 0, animated: false)
-        segment.insertSegment(withTitle: "Done", at: 1, animated: false)
-        segment.selectedSegmentIndex = 0
-        segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
-    }
-    
-    private func configureContainerViews(){
-        
-        addChild(ongoingViewController)
-        view.addSubview(ongoingViewController.view)
-        ongoingViewController.delegate = self
-        ongoingViewController.view.anchor(
-            top: outerStackView.bottomAnchor,
-            left: view.leftAnchor,
-            bottom: view.bottomAnchor,
-            right: view.rightAnchor,
-            paddingTop: 5)
-        
-        addChild(doneViewController)
-        view.addSubview(doneViewController.view)
-        doneViewController.view.anchor(
-            top: outerStackView.bottomAnchor,
-            left: view.leftAnchor,
-            bottom: view.bottomAnchor,
-            right: view.rightAnchor,
-            paddingTop: 5)
-        
-        ongoingViewController.view.alpha = 1
-        doneViewController.view.alpha = 0
-        
-        /// layout subviews immedietly
-        ongoingViewController.view.layoutIfNeeded()
-        doneViewController.view.layoutIfNeeded()
+        actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)
     }
     
     //  MARK: Privates methods
@@ -149,11 +118,11 @@ class TasksViewController: UIViewController, Animatable {
     
     private func editTask(for task: Task){
         /// open new task vc to edit
-        let modalVC = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
-        modalVC.delegate = self
-        modalVC.modalPresentationStyle = .overCurrentContext
-        modalVC.modalTransitionStyle = .crossDissolve
-        present(modalVC, animated: true)
+        let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
+        controller.delegate = self
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
     }
     
     private func presentOnboardingController(){
@@ -161,15 +130,77 @@ class TasksViewController: UIViewController, Animatable {
         cont.modalPresentationStyle = .fullScreen
         present(cont, animated: true)
     }
+    
+    /// Pulls task through using the databaseManager
+    private func addTaskObserver() {
+        taskManager.setTaskObserver { [weak self] tasks in
+            self?.tasks = tasks
+        }
+    }
+    
+    private func configureDataSource() {
+        dataSource = DataSource(tableView: tableView, cellProvider: { [weak self] (tableview, indexpath, task) -> UITableViewCell? in
+            let identifier = self!.isDoneActive ? "DoneTaskTableViewCell" :  "OngoingTaskTableViewCell"
+            let cell = self!.tableView.dequeueReusableCell(withIdentifier: identifier, for: indexpath)
+            cell.layer.borderWidth = 1.3
+            cell.layer.borderColor = Constants.cellBorderColor?.cgColor
+            (cell as! Taskable).configureTaskCell(with: task)
+            (cell as! Taskable).setTapObserver { [weak self] in
+                self?.didTapActionButton(for: task)
+            }
+            return cell
+        })
+        
+        /// set up type of animation
+        dataSource.defaultRowAnimation = .fade
+    }
+    
+    private func configureSnapshot(for stored: [Task]) {
+        /// set up initial snapshot
+        var snapshot = NSDiffableDataSourceSnapshot<TaskType, Task>()
+
+        /// populate snapshot with sections and items for each section
+        /// Case iterable allows iterating through all cases
+
+        for type in TaskType.allCases {
+            /// filter  [tasks] array items for particular tasktype item
+            let filteredTasks = stored.filter {
+                $0.taskType == type
+            }
+
+            snapshot.appendSections([type]) /// add section to table
+            snapshot.appendItems(filteredTasks, toSection: type)
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource.apply(snapshot, animatingDifferences: true)
+        }
+    }
+    
+    private func didTapActionButton(for task: Task) {
+        taskManager.updateTaskStatus(task, isDone: true) {[weak self] (status, message) in
+            self?.showToast(state: status, message: message)
+        }
+    }
 }
 
+//  MARK: - UITableViewDelegate
+extension TasksViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let selected = dataSource.itemIdentifier(for: indexPath){
+            showOptions(for: selected)
+        }
+    }
+}
 
-//  MARK: Extensions
+//  MARK: - NewTaskVCDelegate
 extension TasksViewController: NewTaskVCDelegate {
     
     func didAddTask(for task: Task) {
         presentedViewController?.dismiss(animated: true, completion: {[weak self] in
-            
             self?.taskManager.store(task) {[weak self] (status, message) in
                 self?.showToast(state: status, message: message)
             }
@@ -183,32 +214,22 @@ extension TasksViewController: NewTaskVCDelegate {
             })
         })
     }
-    
-    
 }
 
-
+//  MARK: - OngoingTasksTVCDelegate
 extension TasksViewController: OngoingTasksTVCDelegate {
     /// The parent view will act as the delegate for the child.
     /// when a cell is selected in the child, the child will be notified ( need an intern to pass on information)
     /// The parent will act as the intern , take the information and execiutes methods.
     func showOptions(for task: Task){
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        let edit = UIAlertAction(title: "Edit", style: .default) {[unowned self] (_) in
-            editTask(for: task)
+        let controller = UIAlertController.addTask { didSelectEdit in
+            if didSelectEdit {
+                self.editTask(for: task)
+            } else {
+                self.deleteTask(task)
+            }
         }
-        let delete = UIAlertAction(title: "Delete", style: .destructive) {[weak self] (_) in
-            self?.deleteTask(task)
-        }
-        alert.addAction(cancel)
-        alert.addAction(edit)
-        alert.addAction(delete)
-        
-        alert.view.tintColor = Constants.blackWhite
-        
-        present(alert, animated: true)
+        present(controller, animated: true)
     }
-    
 }
 

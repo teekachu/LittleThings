@@ -119,16 +119,9 @@ class TaskManager {
     // MARK: - Private
     
     /// Pulls task through using the databaseManager
-    private func addTasksListener(){
-        databaseManager.addTaskListener(forDoneTasks: false) {[weak self] (result) in
-            guard let self = self else{return}
-            switch result{
-            case .failure(let error):
-                print("addTaskListener: \(error.localizedDescription)")
-                
-            case .success(let decodedTasks):
-                self.tasks = decodedTasks
-            }
+    private func addTasksListener() {
+        databaseManager.getTasks { [weak self] tasks in
+            self?.tasks = tasks
         }
     }
 }

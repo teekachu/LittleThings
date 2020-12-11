@@ -9,22 +9,26 @@ import UIKit
 
 class DoneTaskTableViewCell: UITableViewCell {
 
-    //  MARK: Properties
-    var actionButtonDidTap: (() -> Void)?
-    
-    
-    //  MARK: IB Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
-    @IBAction func actionButtonTapped(){
-        actionButtonDidTap?()
+    
+    private var tapObserver: (() -> Void)?
+    
+    @IBAction func actionButtonTapped() {
+        tapObserver?()
     }
+}
+
+// MARK: - Taskable
+extension DoneTaskTableViewCell: Taskable {
     
-    
-    //  MARK: Public
     func configureTaskCell(with task: Task){
         titleLabel.text = task.title
         guard let completedtime = task.doneAt?.convertToSimplifiedTimeString() else {return}
         timeStampLabel.text = "Completed at: \(completedtime)"
+    }
+    
+    func setTapObserver(onTab: @escaping () -> Void) {
+        tapObserver = onTab
     }
 }

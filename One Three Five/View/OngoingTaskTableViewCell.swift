@@ -8,24 +8,27 @@
 import UIKit
 
 class OngoingTaskTableViewCell: UITableViewCell {
-
-    //  MARK: Properties
-    var actionButtonDidTap: (() -> Void)?
     
-    
-    //  MARK: IB Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var deadlineLabel: UILabel!
     
-    @IBAction func actionButtonTapped(){
-        /// inform the OngoingTaskTableViewController using a closure ( or can use protocol/delegate)
-        actionButtonDidTap?()
-    }
+    private var tapObserver: (() -> Void)?
     
-    //  MARK: Public
+    @IBAction func actionButtonTapped() {
+        tapObserver?()
+    }
+}
+ 
+// MARK: - Taskable
+extension OngoingTaskTableViewCell: Taskable {
+    
     func configureTaskCell(with task: Task){
         titleLabel.text = task.title
         guard let createdAt = task.createdAt?.convertToSimplifiedTimeString() else {return}
         deadlineLabel.text = "Created at: \(createdAt)"
+    }
+    
+    func setTapObserver(onTab: @escaping () -> Void) {
+        tapObserver = onTab
     }
 }

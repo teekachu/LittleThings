@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		300140AFBF59CA88A6E36D0B /* Pods_One_Three_Five.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */; };
 		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
-		F430AEA82576EFC900DE727B /* OngoingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */; };
-		F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEAA2576F24900DE727B /* DoneTableViewController.swift */; };
+		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
+		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
+		F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */; };
 		F430AEB425772D7000DE727B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F430AEB325772D6F00DE727B /* Podfile */; };
 		F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AED8257825C500DE727B /* DatabaseManager.swift */; };
 		F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F430AEDB257826A900DE727B /* GoogleService-Info.plist */; };
@@ -48,8 +49,9 @@
 		5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_One_Three_Five.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
 		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
-		F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTableViewController.swift; sourceTree = "<group>"; };
-		F430AEAA2576F24900DE727B /* DoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTableViewController.swift; sourceTree = "<group>"; };
+		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
+		F3B1CCF8258319270048D6F8 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		F430AEB325772D6F00DE727B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F430AED8257825C500DE727B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		F430AEDB257826A900DE727B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -104,6 +106,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F3B1CCF7258319120048D6F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F3B1CCF8258319270048D6F8 /* UITableView.swift */,
+				F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F433E6722576BEDC00A55C52 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +144,7 @@
 				F433E6972576BF5100A55C52 /* View */,
 				F433E6982576BF5900A55C52 /* Controller */,
 				F433E6992576BF6300A55C52 /* Utilities */,
+				F3B1CCF7258319120048D6F8 /* Extensions */,
 				F433E6962576BF4300A55C52 /* Support */,
 				F433E6842576BEDC00A55C52 /* Main.storyboard */,
 				F433E6892576BEE000A55C52 /* LaunchScreen.storyboard */,
@@ -146,6 +158,7 @@
 			children = (
 				F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */,
 				F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */,
+				F3B1CCF4258316CC0048D6F8 /* Taskable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -198,8 +211,6 @@
 			children = (
 				F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */,
 				F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */,
-				F430AEA72576EFC900DE727B /* OngoingTableViewController.swift */,
-				F430AEAA2576F24900DE727B /* DoneTableViewController.swift */,
 				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
 				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
 				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
@@ -367,10 +378,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47BC98D258063A400DB0CC4 /* Ext+AlertCont.swift in Sources */,
+				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
 				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
-				F430AEA82576EFC900DE727B /* OngoingTableViewController.swift in Sources */,
 				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
 				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,
+				F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
 				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
@@ -379,11 +391,11 @@
 				F43EC7AC257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift in Sources */,
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
+				F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */,
 				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
 				F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */,
 				F43A81A6257BF5070035352C /* DataSource.swift in Sources */,
 				F43A81A3257BEFF80035352C /* TaskType.swift in Sources */,
-				F430AEAB2576F24900DE727B /* DoneTableViewController.swift in Sources */,
 				F47BC97E257FDD7700DB0CC4 /* MenuSection.swift in Sources */,
 				F47BC987257FEDD900DB0CC4 /* TasksViewController.swift in Sources */,
 				F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */,

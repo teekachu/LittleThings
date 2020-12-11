@@ -197,7 +197,7 @@ class AddNewTaskViewController: UIViewController {
     }
 }
 
-//  MARK: Extensions
+//  MARK: UIGestureRecognizerDelegate
 extension AddNewTaskViewController: UIGestureRecognizerDelegate{
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if BottomContainerView.isDescendant(of: view){
