@@ -41,9 +41,9 @@ class AddNewTaskViewController: UIViewController {
             return
         }
         
-        guard isAble(toAdd: task) else {
-            return
-        }
+//        guard isAble(toAdd: task) else {
+//            return
+//        }
         
         if isEditingTask {
             /// update task with new info
@@ -77,7 +77,7 @@ class AddNewTaskViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         TaskTextfield.becomeFirstResponder()
         updateTask()
-        isAble(toAdd: task)
+//        isAble(toAdd: task)
     }
     
     //  MARK: Selectors
@@ -177,24 +177,24 @@ class AddNewTaskViewController: UIViewController {
         task.taskType = currentTasktype
     }
     
-    @discardableResult private func isAble(toAdd task: Task) -> Bool {
-        
-        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
-        let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
-        
-        if errorText != nil {
-            errorMsgLabel.text = errorText
-            errorMsgLabel.textColor = .red
-            /// otherwise continue
-            print("Did not have 9 tasks, continue")
-            return false
-        } else {
-            errorMsgLabel.text = "One little thing at a time."
-            errorMsgLabel.textColor = Constants.orangeTintColorFDB903
-        }
-        
-        return true
-    }
+//    @discardableResult private func isAble(toAdd task: Task) -> Bool {
+//
+//        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
+//        let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
+//
+//        if errorText != nil {
+//            errorMsgLabel.text = errorText
+//            errorMsgLabel.textColor = .red
+//            /// otherwise continue
+//            print("Did not have 9 tasks, continue")
+//            return false
+//        } else {
+//            errorMsgLabel.text = "One little thing at a time."
+//            errorMsgLabel.textColor = Constants.orangeTintColorFDB903
+//        }
+//
+//        return true
+//    }
 }
 
 //  MARK: UIGestureRecognizerDelegate
@@ -249,6 +249,6 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
         
         updateTask()
-        isAble(toAdd: task)
+//        isAble(toAdd: task)
     }
 }

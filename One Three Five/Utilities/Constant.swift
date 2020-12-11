@@ -21,6 +21,8 @@ struct Constants {
     
     static let blackWhite = UIColor(named: "black white")
     
+    static let blueDoneCellText = UIColor(named: "blue Blue")
+    
     static let buttonContainerBackground = UIColor(named: "bottonContainerBackground")
     
     static let cellColorWhiteGray = UIColor(named: "cellColor white Gray")

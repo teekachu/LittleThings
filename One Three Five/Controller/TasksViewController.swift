@@ -59,6 +59,7 @@ class TasksViewController: UIViewController, Animatable {
         
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
+        
 //        presentOnboardingController()
     }
     
@@ -178,7 +179,8 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func didTapActionButton(for task: Task) {
-        taskManager.updateTaskStatus(task, isDone: true) {[weak self] (status, message) in
+        let currentDoneStatus = task.isDone
+        taskManager.updateTaskStatus(task, isDone: !currentDoneStatus) {[weak self] (status, message) in
             self?.showToast(state: status, message: message)
         }
     }
