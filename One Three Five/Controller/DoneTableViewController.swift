@@ -12,13 +12,15 @@ class DoneTableViewController: UIViewController, Animatable {
     
     //  MARK: Properties
     let cellID = "doneCell"
+    private var tableView: UITableView!
+    
+    private let databaseManager = DatabaseManager()
+    
     var tasks: [Task] = [] {
         didSet{
             tableView.reloadData()
         }
     }
-    private var tableView: UITableView!
-    private let databaseManager = DatabaseManager()
     
     
     //  MARK: Lifecycle
@@ -36,7 +38,6 @@ class DoneTableViewController: UIViewController, Animatable {
         
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         view.addSubview(tableView)
-        
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
@@ -73,21 +74,21 @@ class DoneTableViewController: UIViewController, Animatable {
     private func handleActionButton(for task: Task) {
         guard let id = task.id else { return }
         /// update in databasemanager to done.
+    
         databaseManager.updateTaskStatus(for: id, isDone: false) {[weak self] (result) in
             guard let self = self else {return}
             switch result {
-            
+
             case .failure(let error):
                 self.showToast(state: .error, message: toastMessages.uhOhErr)
                 self.printDebug(message: error.localizedDescription)
-                
+
             case .success:
                 /// Using the protocol / extension
                 self.showToast(state: .info, message: "Still working on that one? No problem.")
             }
         }
     }
-    
 }
 
 //  MARK: Extensions

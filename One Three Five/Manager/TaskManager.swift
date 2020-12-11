@@ -12,6 +12,7 @@ class TaskManager {
     
     private let databaseManager: DatabaseManager
     
+    /// only pulling tasks are are NOT done.
     init(databaseManager: DatabaseManager) {
         self.databaseManager = databaseManager
         addTasksListener()
@@ -32,8 +33,8 @@ class TaskManager {
         taskObserver?(tasks)
     }
     
+    /// Determine if adding this task will break the 1-3-5 rule?
     public func currentTasktypeMeetsRestriction(for task: Task) -> String? {
-        
         /// basically determine whether the user is adding too many tasks or not.
         
         let typeOne = tasks.filter{ $0.taskType == .one }
@@ -53,12 +54,12 @@ class TaskManager {
                 return "Already have 5 small tasks"
             }
         }
-        
         return nil
     }
     
+    /// Storing task
     public func store(_ task: Task, onResult: @escaping (Loaf.State, String) -> Void) {
-        databaseManager.addTask(task) {[unowned self] (result) in
+        databaseManager.addTask(task) { result in
             switch result{
             case .success:
                 onResult(.success, "New task added!")
@@ -70,18 +71,34 @@ class TaskManager {
         }
     }
     
-    public func update(_ task: Task, onResult: @escaping (Loaf.State, String) -> Void) {
+    /// to update whether a task is done or not
+    public func updateTaskStatus(_ task: Task, isDone: Bool, onResult: @escaping (Loaf.State, String) -> Void) {
         guard let id = task.id else { return }
-        databaseManager.updateTaskStatus(for: id, isDone: true) { result in
-          
+        databaseManager.updateTaskStatus(for: id, isDone: isDone) { result in
             switch result {
             case .failure(let error):
-                onResult(.error, toastMessages.uhOhErr)
                 print(error.localizedDescription)
+                onResult(.error, toastMessages.uhOhErr)
                 
             case .success:
-                /// Using the protocol / extension
-                onResult(.success, "Moved task to done. Good Job!!!")
+                switch isDone{
+                case true:
+                    onResult(.success, "Moved task to done. Good job!")
+                case false:
+                    onResult(.success, "Still working on that? No problem!")
+                }
+            }
+        }
+    }
+    
+    public func edit(task: Task, onResult: @escaping (Loaf.State, String) -> Void){
+        databaseManager.editTask(for: task) { (result) in
+            switch result{
+            case .failure(let error):
+                print(error.localizedDescription)
+                onResult(.error, toastMessages.uhOhErr)
+            case .success:
+                onResult(.success, "Updated task successfully!")
             }
         }
     }

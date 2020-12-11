@@ -11,12 +11,12 @@ import Loaf
 class OngoingTableViewController: UIViewController {
     
     //  MARK: Properties
-    private let taskManager: TaskManager
-    weak var delegate: OngoingTasksTVCDelegate?
-    
     let cellID = "cell"
     private var tableView: UITableView!
     private var datasource: DataSource! /// enum created
+    
+    private let taskManager: TaskManager
+    weak var delegate: OngoingTasksTVCDelegate?
     
     init(taskManager: TaskManager) {
         self.taskManager = taskManager
@@ -33,7 +33,6 @@ class OngoingTableViewController: UIViewController {
         addTaskObserver() /// Pulls tasks from firebase
         configureTableView()
         configureDataSource()
-//        bridgeToAddNewTaskVC() ///135
     }
     
     //  MARK: Selectors
@@ -113,15 +112,10 @@ class OngoingTableViewController: UIViewController {
     }
     
     private func handleActionButton(for task: Task) {
-        taskManager.update(task) { [weak self] (status, message) in
+        taskManager.updateTaskStatus(task, isDone: true) {[weak self] (status, message) in
             self?.showToast(state: status, message: message)
         }
     }
-    
-//    private func bridgeToAddNewTaskVC(){
-//        let avc = AddNewTaskViewController()
-//        avc.delegate2 = self
-//    }
 }
 
 

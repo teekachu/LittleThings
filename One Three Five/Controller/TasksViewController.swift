@@ -178,10 +178,9 @@ extension TasksViewController: NewTaskVCDelegate {
     
     func didEditTask(for task: Task) {
         presentedViewController?.dismiss(animated: true, completion: {[weak self] in
-            
-            self?.taskManager.update(task) {[weak self] (status, message) in
+            self?.taskManager.edit(task: task, onResult: { (status, message) in
                 self?.showToast(state: status, message: message)
-            }
+            })
         })
     }
     

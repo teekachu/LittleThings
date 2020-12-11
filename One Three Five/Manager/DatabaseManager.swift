@@ -17,6 +17,7 @@ class DatabaseManager {
     
     private var listener: ListenerRegistration?
     
+    /// To add new task into firebase
     func addTask(_ task: Task, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             _ = try tasksCollection.addDocument(from: task, completion: { (error) in
@@ -31,7 +32,19 @@ class DatabaseManager {
         }
     }
     
-    func edit(_ task: Task, completion: @escaping (Result<Void, Error>) -> Void){
+    /// To delete task from firebase
+    func deleteTask(for id: String, completion: @escaping (Result<Void, Error>) -> Void ){
+        tasksCollection.document(id).delete { (error) in
+            if let error = error{
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    /// To edit content for a spcific task taking into the id.
+    func editTask(for task: Task, completion: @escaping (Result<Void, Error>) -> Void){
         guard let id = task.id else {return}
         let data: [String: Any] = ["title": task.title ?? "", "taskType": task.taskType.rawValue]
         tasksCollection.document(id).updateData(data) { (error) in
@@ -43,9 +56,20 @@ class DatabaseManager {
         }
     }
     
-    func deleteTask(for id: String, completion: @escaping (Result<Void, Error>) -> Void ){
-        tasksCollection.document(id).delete { (error) in
-            if let error = error{
+    /// To update whether a task is done or not. move back and forth between Done &&  Ongoing tab
+    func updateTaskStatus(for id: String, isDone: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
+        var fields: [String: Any] = [:]
+        
+        if isDone{
+            fields = ["isDone": true,
+                      "doneAt": Date()]
+        } else {
+            fields = ["isDone": false,
+                      "doneAt": FieldValue.delete()]
+        }
+        
+        tasksCollection.document(id).updateData(fields) { (error) in
+            if let error = error {
                 completion(.failure(error))
             } else {
                 completion(.success(()))
@@ -53,7 +77,7 @@ class DatabaseManager {
         }
     }
     
-    /// Added index in firebase maually to help with querying 
+    /// Added index in firebase maually to help with querying
     func addTaskListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void){
         listener = tasksCollection
             .whereField("isDone", isEqualTo: isDone)
@@ -73,29 +97,8 @@ class DatabaseManager {
                     }
                     
                     completion(.success(decodedTasks))
-                    /// Empty array that will hode the decodable Tasks
+                    /// Empty array that will hold the decodable Tasks
                 }
             })
-    }
-    
-    func updateTaskStatus(for id: String, isDone: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
-        
-        var fields: [String: Any] = [:]
-        
-        if isDone{
-            fields = ["isDone": true,
-                      "doneAt": Date()]
-        } else {
-            fields = ["isDone": false,
-                      "doneAt": FieldValue.delete()]
-        }
-        
-        tasksCollection.document(id).updateData(fields) { (error) in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(()))
-            }
-        }
     }
 }

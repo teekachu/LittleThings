@@ -40,11 +40,11 @@ class AddNewTaskViewController: UIViewController {
             showToast(state: .error, message: "Please enter a title")
             return
         }
-
+        
         guard isAble(toAdd: task) else {
             return
         }
-
+        
         if isEditingTask {
             /// update task with new info
             delegate?.didEditTask(for: task)
@@ -103,6 +103,7 @@ class AddNewTaskViewController: UIViewController {
     private func configureUI(){
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
         
+        
         BottomContainerView.layer.cornerRadius = 35
         BottomContainerView.layer.borderWidth = 3
         BottomContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
@@ -146,6 +147,7 @@ class AddNewTaskViewController: UIViewController {
     
     private func setupGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissViewController))
+        tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
     }
     
@@ -179,7 +181,7 @@ class AddNewTaskViewController: UIViewController {
         
         /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
         let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
-            
+        
         if errorText != nil {
             errorMsgLabel.text = errorText
             errorMsgLabel.textColor = .red
@@ -188,7 +190,7 @@ class AddNewTaskViewController: UIViewController {
             return false
         } else {
             errorMsgLabel.text = "One little thing at a time."
-            errorMsgLabel.textColor = .orange
+            errorMsgLabel.textColor = Constants.orangeTintColorFDB903
         }
         
         return true
@@ -196,6 +198,19 @@ class AddNewTaskViewController: UIViewController {
 }
 
 //  MARK: Extensions
+extension AddNewTaskViewController: UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if BottomContainerView.isDescendant(of: view){
+            if touch.view?.isDescendant(of: BottomContainerView) == false{
+                /// touch anywhere else thats not bottomContainer to dismiss bottomContainerView
+                dismiss(animated: true)
+            }
+            return false
+        }
+        return true
+    }
+}
+
 extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource, Animatable{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -232,7 +247,7 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         default:
             break
         }
-
+        
         updateTask()
         isAble(toAdd: task)
     }
