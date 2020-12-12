@@ -18,7 +18,7 @@ struct Task: Identifiable, Codable, Hashable {
     var taskType: TaskType
     
     public static var basic: Task {
-        return Task(title: nil, taskType: .one)
+        return Task(title: nil, taskType: .three)
     }
 }
 

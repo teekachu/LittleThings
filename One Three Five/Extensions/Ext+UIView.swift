@@ -2,12 +2,10 @@
 //  Extensions.swift
 //  OnboardingTutorial
 //
-//  Created by Stephen Dowless on 3/18/20.
-//  Copyright © 2020 Stephan Dowless. All rights reserved.
+//  Created by Ting Becker on 12/12/20.
 //
 
 import UIKit
-//import JGProgressHUD
 
 extension UIView {
     func anchor(top: NSLayoutYAxisAnchor? = nil,
@@ -96,79 +94,3 @@ extension UIView {
     }
 }
 
-extension UIViewController {
-    //    static let hud = JGProgressHUD(style: .dark)
-    
-    func configureGradientBackground(color1: UIColor, color2: UIColor) {
-        let gradient = CAGradientLayer()
-        gradient.colors = [color1, color2]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-    }
-    
-    //    func showLoader(_ show: Bool) {
-    //        view.endEditing(true)
-    //
-    //        if show {
-    //            UIViewController.hud.show(in: view)
-    //        } else {
-    //            UIViewController.hud.dismiss()
-    //        }
-    //    }
-    //
-    
-    func showMessage(withTitle title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func printDebug(message: String){
-        print("Debug: \(message)")
-    }
-}
-
-extension CATransition {
-    
-    //New viewController will appear from bottom of screen.
-    func segueFromBottom() -> CATransition {
-        self.duration = 0.375 //set the duration to whatever you'd like.
-        self.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        self.type = CATransitionType.moveIn
-        self.subtype = CATransitionSubtype.fromTop
-        return self
-    }
-    //New viewController will appear from top of screen.
-    func segueFromTop() -> CATransition {
-        self.duration = 0.375 //set the duration to whatever you'd like.
-        self.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        self.type = CATransitionType.moveIn
-        self.subtype = CATransitionSubtype.fromBottom
-        return self
-    }
-    //New viewController will appear from left side of screen.
-    func segueFromLeft() -> CATransition {
-        self.duration = 0.1 //set the duration to whatever you'd like.
-        self.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        self.type = CATransitionType.moveIn
-        self.subtype = CATransitionSubtype.fromLeft
-        return self
-    }
-    //New viewController will pop from right side of screen.
-    func popFromRight() -> CATransition {
-        self.duration = 0.1 //set the duration to whatever you'd like.
-        self.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        self.type = CATransitionType.reveal
-        self.subtype = CATransitionSubtype.fromRight
-        return self
-    }
-    //New viewController will appear from left side of screen.
-    func popFromLeft() -> CATransition {
-        self.duration = 0.1 //set the duration to whatever you'd like.
-        self.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        self.type = CATransitionType.reveal
-        self.subtype = CATransitionSubtype.fromLeft
-        return self
-    }
-}

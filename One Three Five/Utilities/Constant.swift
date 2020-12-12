@@ -5,16 +5,19 @@
 //  Created by Tee Becker on 11/27/20.
 //
 
-//  MARK: Properties
-//  MARK: Lifecycle
-//  MARK: Selectors
-//  MARK: Privates
-//  MARK: Extensions
+//  MARK: - Properties
+//  MARK: - IB Properties
+//  MARK: - Lifecycle
+//  MARK: - Selectors
+//  MARK: - Privates
+//  MARK: - Extensions
 
 import UIKit
 
+
 struct Constants {
     
+    //  MARK: - Colors
     static let addTaskButton = UIColor(named: "addTaskButton")
     
     static let blackBlack = UIColor(named: "black black")
@@ -31,7 +34,6 @@ struct Constants {
     
     static let navBarColor = UIColor(named: "navBarColor")
     
-    /// single orange color
     static let orangeFDB903 = UIColor(named: "OrangeTintFDB903")
     
     static let segmentBarBackground = UIColor(named: "segment background")
@@ -55,7 +57,7 @@ struct Constants {
     static let orangeTintColorFDB903:UIColor = #colorLiteral(red: 0.9921568627, green: 0.7254901961, blue: 0.01176470588, alpha: 1)
     
     static let offBlack202020: UIColor =  #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
-
+    
     static let mediumBlack3f3f3f: UIColor = #colorLiteral(red: 0.2470588235, green: 0.2470588235, blue: 0.2470588235, alpha: 1)
     
     static let grayBlack707070: UIColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
@@ -66,9 +68,7 @@ struct Constants {
     
     static let webYellowFFDF6C: UIColor = #colorLiteral(red: 1, green: 0.8745098039, blue: 0.4235294118, alpha: 1)
     
-    
-    
-    /// Texs
+    //  MARK: - Fonts
     static let fontBold = "Palatino-Bold"
     
     static let fontBoldItalic = "Palatino-BoldItalic"
@@ -83,6 +83,8 @@ struct Constants {
     
 }
 
+
+//  MARK: - Toast messages
 struct toastMessages {
     static let tooManyTasks = "Woah, thats more than your daily 1-3-5 goals. Why don't you try to empty your plates first. "
     
@@ -91,6 +93,8 @@ struct toastMessages {
     static let uhOhErr = "Uh Oh, something went wrong..."
 }
 
+
+//  MARK: - Helper functions
 struct Helper {
     
     static func getKeyboardHeight(notification: Notification) -> CGFloat {

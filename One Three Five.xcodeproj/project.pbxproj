@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		300140AFBF59CA88A6E36D0B /* Pods_One_Three_Five.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */; };
+		A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */; };
+		A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */; };
 		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
 		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
 		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
@@ -31,7 +33,7 @@
 		F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F433E6842576BEDC00A55C52 /* Main.storyboard */; };
 		F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F433E6872576BEE000A55C52 /* Assets.xcassets */; };
 		F433E68B2576BEE000A55C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F433E6892576BEE000A55C52 /* LaunchScreen.storyboard */; };
-		F433E6A22576C0B100A55C52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A12576C0B100A55C52 /* Extensions.swift */; };
+		F433E6A22576C0B100A55C52 /* Ext+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A12576C0B100A55C52 /* Ext+UIView.swift */; };
 		F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A42576C0DA00A55C52 /* Constant.swift */; };
 		F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A72576C0F600A55C52 /* Ext+Date.swift */; };
 		F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6AA2576C13100A55C52 /* AnimatableExt.swift */; };
@@ -43,12 +45,14 @@
 		F47BC97E257FDD7700DB0CC4 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */; };
 		F47BC987257FEDD900DB0CC4 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */; };
 		F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */; };
-		F47BC98D258063A400DB0CC4 /* Ext+AlertCont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC98C258063A400DB0CC4 /* Ext+AlertCont.swift */; };
+		F47BC98D258063A400DB0CC4 /* Ext+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC98C258063A400DB0CC4 /* Ext+AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		290345DADBF07C06E3B983BE /* Pods-One Three Five.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.debug.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.debug.xcconfig"; sourceTree = "<group>"; };
 		5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_One_Three_Five.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIViewController.swift"; sourceTree = "<group>"; };
+		A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CATransition.swift"; sourceTree = "<group>"; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
 		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 		F433E6872576BEE000A55C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F433E68A2576BEE000A55C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F433E68C2576BEE000A55C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F433E6A12576C0B100A55C52 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F433E6A12576C0B100A55C52 /* Ext+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+UIView.swift"; sourceTree = "<group>"; };
 		F433E6A42576C0DA00A55C52 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F433E6A72576C0F600A55C52 /* Ext+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Date.swift"; sourceTree = "<group>"; };
 		F433E6AA2576C13100A55C52 /* AnimatableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableExt.swift; sourceTree = "<group>"; };
@@ -87,7 +91,7 @@
 		F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasksViewController.xib; sourceTree = "<group>"; };
-		F47BC98C258063A400DB0CC4 /* Ext+AlertCont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+AlertCont.swift"; sourceTree = "<group>"; };
+		F47BC98C258063A400DB0CC4 /* Ext+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+AlertController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,11 @@
 		F3B1CCF7258319120048D6F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F433E6A12576C0B100A55C52 /* Ext+UIView.swift */,
+				A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */,
+				A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */,
+				F47BC98C258063A400DB0CC4 /* Ext+AlertController.swift */,
+				F433E6A72576C0F600A55C52 /* Ext+Date.swift */,
 				F3B1CCF8258319270048D6F8 /* UITableView.swift */,
 				F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */,
 			);
@@ -227,10 +236,7 @@
 		F433E6992576BF6300A55C52 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F433E6A12576C0B100A55C52 /* Extensions.swift */,
-				F47BC98C258063A400DB0CC4 /* Ext+AlertCont.swift */,
 				F433E6A42576C0DA00A55C52 /* Constant.swift */,
-				F433E6A72576C0F600A55C52 /* Ext+Date.swift */,
 				F433E6AA2576C13100A55C52 /* AnimatableExt.swift */,
 			);
 			path = Utilities;
@@ -384,12 +390,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F47BC98D258063A400DB0CC4 /* Ext+AlertCont.swift in Sources */,
+				A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */,
+				F47BC98D258063A400DB0CC4 /* Ext+AlertController.swift in Sources */,
 				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
 				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
 				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
 				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,
 				F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */,
+				A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
 				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
@@ -409,7 +417,7 @@
 				F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */,
 				F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */,
 				F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */,
-				F433E6A22576C0B100A55C52 /* Extensions.swift in Sources */,
+				F433E6A22576C0B100A55C52 /* Ext+UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

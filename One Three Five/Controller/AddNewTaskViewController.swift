@@ -11,7 +11,7 @@ import Loaf
 
 class AddNewTaskViewController: UIViewController {
     
-    //  MARK: Properties
+    //  MARK: - Properties
     private let taskManager: TaskManager
     private var task: Task
     private let isEditingTask: Bool
@@ -21,17 +21,21 @@ class AddNewTaskViewController: UIViewController {
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
     weak var delegate: NewTaskVCDelegate?
     
-    //  MARK: IBProperties
+    
+    //  MARK: - IBProperties
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var BottomContainerView: UIView!
     @IBOutlet weak var TaskTextfield: UITextField!
+    @IBOutlet weak var descriptionCharCountLabel: UILabel! = {
+        let lbl = UILabel()
+        return lbl
+    }()
     @IBOutlet weak var TaskPickerView: UIPickerView!
     @IBOutlet weak var errorMsgLabel: UILabel! = {
         let lbl = UILabel()
         lbl.textColor = Constants.brightOrange
         return lbl
     }()
-    
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -41,9 +45,9 @@ class AddNewTaskViewController: UIViewController {
             return
         }
         
-//        guard isAble(toAdd: task) else {
-//            return
-//        }
+        //        guard isAble(toAdd: task) else {
+        //            return
+        //        }
         
         if isEditingTask {
             /// update task with new info
@@ -65,7 +69,8 @@ class AddNewTaskViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //  MARK: Lifecycle
+    
+    //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -77,10 +82,11 @@ class AddNewTaskViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         TaskTextfield.becomeFirstResponder()
         updateTask()
-//        isAble(toAdd: task)
+        //        isAble(toAdd: task)
     }
     
-    //  MARK: Selectors
+    
+    //  MARK: - Selectors
     @objc func tapToDismissViewController(){
         dismiss(animated: true, completion: nil)
     }
@@ -89,7 +95,6 @@ class AddNewTaskViewController: UIViewController {
         let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
-            /// pushes the bottomVC up by keyboardHeight but down by 20, which is the space of bottom between stackview and container)
             self?.containerViewBottomConstraint.constant = keyboardHeight - 40
             self?.view.layoutIfNeeded()
         }
@@ -99,10 +104,10 @@ class AddNewTaskViewController: UIViewController {
         containerViewBottomConstraint.constant = -BottomContainerView.frame.height
     }
     
-    //  MARK: Privates
+    
+    //  MARK: - Privates
     private func configureUI(){
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
-        
         
         BottomContainerView.layer.cornerRadius = 35
         BottomContainerView.layer.borderWidth = 3
@@ -115,10 +120,8 @@ class AddNewTaskViewController: UIViewController {
         TaskTextfield.borderStyle = .none
         TaskTextfield.textColor =  Constants.blackWhite
         TaskTextfield.font = UIFont(name: Constants.fontMedium, size: 20)
-        
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
-        /// customize pickerview
         
         TaskPickerView.backgroundColor = .clear
         TaskPickerView.layer.borderWidth = 3
@@ -157,7 +160,8 @@ class AddNewTaskViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    //  MARK: Combine
+    
+    //  MARK: - Combine
     private func observeForm() {
         let notificationName = UITextField.textDidChangeNotification
         NotificationCenter.default.publisher(for: notificationName).map { (notification) -> String? in
@@ -170,6 +174,13 @@ class AddNewTaskViewController: UIViewController {
         $taskString.sink { (text) in
             self.saveButton.isEnabled = text?.isEmpty == false
         }.store(in: &subscribers)
+        
+        /// monitor character count for textfield
+        $taskString.sink { (text) in
+            guard let text = text else { return }
+            self.descriptionCharCountLabel.alpha = self.updateAlphaPerCharCount(for: text)
+            self.descriptionCharCountLabel.text = "- \(text.count - 3)"
+        }.store(in: &subscribers)
     }
     
     private func updateTask() {
@@ -177,27 +188,45 @@ class AddNewTaskViewController: UIViewController {
         task.taskType = currentTasktype
     }
     
-//    @discardableResult private func isAble(toAdd task: Task) -> Bool {
-//
-//        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
-//        let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
-//
-//        if errorText != nil {
-//            errorMsgLabel.text = errorText
-//            errorMsgLabel.textColor = .red
-//            /// otherwise continue
-//            print("Did not have 9 tasks, continue")
-//            return false
-//        } else {
-//            errorMsgLabel.text = "One little thing at a time."
-//            errorMsgLabel.textColor = Constants.orangeTintColorFDB903
-//        }
-//
-//        return true
-//    }
+    private func updateAlphaPerCharCount(for text: String) -> CGFloat{
+        /// set 3 as the limit
+        if text.count < 3{
+            return 0
+        }
+        return 1
+    }
+    
+    private func enableButtonPerCharCount(for text: String) -> Bool {
+        if text.count < 3{
+            return true
+        }
+        return false
+    }
+    
+    
+    
+    //    @discardableResult private func isAble(toAdd task: Task) -> Bool {
+    //
+    //        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
+    //        let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
+    //
+    //        if errorText != nil {
+    //            errorMsgLabel.text = errorText
+    //            errorMsgLabel.textColor = .red
+    //            /// otherwise continue
+    //            print("Did not have 9 tasks, continue")
+    //            return false
+    //        } else {
+    //            errorMsgLabel.text = "One little thing at a time."
+    //            errorMsgLabel.textColor = Constants.orangeTintColorFDB903
+    //        }
+    //
+    //        return true
+    //    }
 }
 
-//  MARK: UIGestureRecognizerDelegate
+
+//  MARK: - UIGestureRecognizerDelegate
 extension AddNewTaskViewController: UIGestureRecognizerDelegate{
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if BottomContainerView.isDescendant(of: view){
@@ -211,10 +240,11 @@ extension AddNewTaskViewController: UIGestureRecognizerDelegate{
     }
 }
 
+
+//  MARK: - UIPickerViewDelegate
 extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource, Animatable{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return TaskType.allCases.count
@@ -249,6 +279,7 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
         
         updateTask()
-//        isAble(toAdd: task)
+        //        isAble(toAdd: task)
     }
 }
+

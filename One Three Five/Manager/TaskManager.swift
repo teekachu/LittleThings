@@ -12,7 +12,6 @@ class TaskManager {
     
     private let databaseManager: DatabaseManager
     
-    /// only pulling tasks are are NOT done.
     init(databaseManager: DatabaseManager) {
         self.databaseManager = databaseManager
         addTasksListener()
@@ -34,30 +33,29 @@ class TaskManager {
     }
     
     /// Delete - Determine if adding this task will break the 1-3-5 rule?
-//    public func currentTasktypeMeetsRestriction(for task: Task) -> String? {
-//        /// basically determine whether the user is adding too many tasks or not.
-//
-//        let typeOne = tasks.filter{ $0.taskType == .one }
-//        let typeThree = tasks.filter{ $0.taskType == .three }
-//        let typeFive = tasks.filter{ $0.taskType == .five }
-//
-//        if typeOne.count == 1
-//            && typeThree.count == 3
-//            && typeFive.count == 5 {
-//            return "Currently have 9 tasks ongoing already"
-//        } else {
-//            if task.taskType == .one && typeOne.count > 0 {
-//                return "Already have 1 large task"
-//            } else if task.taskType == .three && typeThree.count > 2 {
-//                return "Already have 3 medium tasks"
-//            } else if task.taskType == .five && typeFive.count > 4 {
-//                return "Already have 5 small tasks"
-//            }
-//        }
-//        return nil
-//    }
+    //    public func currentTasktypeMeetsRestriction(for task: Task) -> String? {
+    //        /// basically determine whether the user is adding too many tasks or not.
+    //
+    //        let typeOne = tasks.filter{ $0.taskType == .one }
+    //        let typeThree = tasks.filter{ $0.taskType == .three }
+    //        let typeFive = tasks.filter{ $0.taskType == .five }
+    //
+    //        if typeOne.count == 1
+    //            && typeThree.count == 3
+    //            && typeFive.count == 5 {
+    //            return "Currently have 9 tasks ongoing already"
+    //        } else {
+    //            if task.taskType == .one && typeOne.count > 0 {
+    //                return "Already have 1 large task"
+    //            } else if task.taskType == .three && typeThree.count > 2 {
+    //                return "Already have 3 medium tasks"
+    //            } else if task.taskType == .five && typeFive.count > 4 {
+    //                return "Already have 5 small tasks"
+    //            }
+    //        }
+    //        return nil
+    //    }
     
-    /// Storing task
     public func store(_ task: Task, onResult: @escaping (Loaf.State, String) -> Void) {
         databaseManager.addTask(task) { result in
             switch result{
@@ -71,7 +69,6 @@ class TaskManager {
         }
     }
     
-    /// to update whether a task is done or not
     public func updateTaskStatus(_ task: Task, isDone: Bool, onResult: @escaping (Loaf.State, String) -> Void) {
         guard let id = task.id else { return }
         databaseManager.updateTaskStatus(for: id, isDone: isDone) { result in
