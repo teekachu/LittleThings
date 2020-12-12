@@ -12,6 +12,8 @@
 		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
 		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
 		F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */; };
+		F42F7C2725833E1B00E6B2C1 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */; };
+		F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */; };
 		F430AEB425772D7000DE727B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F430AEB325772D6F00DE727B /* Podfile */; };
 		F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AED8257825C500DE727B /* DatabaseManager.swift */; };
 		F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F430AEDB257826A900DE727B /* GoogleService-Info.plist */; };
@@ -52,6 +54,8 @@
 		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
 		F3B1CCF8258319270048D6F8 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoViewController.xib; sourceTree = "<group>"; };
 		F430AEB325772D6F00DE727B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F430AED8257825C500DE727B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		F430AEDB257826A900DE727B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
 				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
 				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
+				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
+				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 				F430AEB425772D7000DE727B /* Podfile in Resources */,
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
 				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
+				F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */,
 				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +400,7 @@
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
 				F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */,
 				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
+				F42F7C2725833E1B00E6B2C1 /* AppInfoViewController.swift in Sources */,
 				F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */,
 				F43A81A6257BF5070035352C /* DataSource.swift in Sources */,
 				F43A81A3257BEFF80035352C /* TaskType.swift in Sources */,

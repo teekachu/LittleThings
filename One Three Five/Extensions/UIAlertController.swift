@@ -13,11 +13,10 @@ extension UIAlertController {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         let edit = UIAlertAction(title: "Edit", style: .default) { _ in
-            onTap(true)
-        }
+            onTap(true)}
         let delete = UIAlertAction(title: "Delete", style: .destructive) { _ in
-            onTap(false)
-        }
+            onTap(false)}
+        
         controller.addAction(cancel)
         controller.addAction(edit)
         controller.addAction(delete)

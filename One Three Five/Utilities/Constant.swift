@@ -50,6 +50,8 @@ struct Constants {
     
     static let bottomContainerBorder = UIColor(named: "gray offblack")
     
+    static let brightOrange = UIColor(named: "orangeQuoteLabel")
+    
     static let orangeTintColorFDB903:UIColor = #colorLiteral(red: 0.9921568627, green: 0.7254901961, blue: 0.01176470588, alpha: 1)
     
     static let offBlack202020: UIColor =  #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
@@ -63,6 +65,8 @@ struct Constants {
     static let innerYellowFCD12A: UIColor = #colorLiteral(red: 0.9882352941, green: 0.8196078431, blue: 0.1647058824, alpha: 1)
     
     static let webYellowFFDF6C: UIColor = #colorLiteral(red: 1, green: 0.8745098039, blue: 0.4235294118, alpha: 1)
+    
+    
     
     /// Texs
     static let fontBold = "Palatino-Bold"

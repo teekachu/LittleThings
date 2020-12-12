@@ -28,7 +28,7 @@ class AddNewTaskViewController: UIViewController {
     @IBOutlet weak var TaskPickerView: UIPickerView!
     @IBOutlet weak var errorMsgLabel: UILabel! = {
         let lbl = UILabel()
-        lbl.textColor = Constants.orangeTintColorFDB903
+        lbl.textColor = Constants.brightOrange
         return lbl
     }()
     

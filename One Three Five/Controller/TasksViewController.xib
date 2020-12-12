@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,11 +27,27 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
-                    <rect key="frame" x="13" y="56" width="388" height="109.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
+                    <rect key="frame" x="13" y="49" width="388" height="151.5"/>
                     <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-J7-EPp">
+                            <rect key="frame" x="0.0" y="0.0" width="388" height="22"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-MK-W8A" userLabel="InfoButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="388" height="22"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <color key="tintColor" name="black white"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="questionmark.square" catalog="system" symbolScale="large"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTapInfoButton:" destination="-1" eventType="touchUpInside" id="c5a-gf-aEl"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="eRi-77-TQ3">
-                            <rect key="frame" x="0.0" y="0.0" width="388" height="45"/>
+                            <rect key="frame" x="0.0" y="32" width="388" height="45"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
                                     <rect key="frame" x="0.0" y="0.0" width="228" height="45"/>
@@ -59,13 +76,13 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Little things make big days!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ye-oT6">
-                            <rect key="frame" x="0.0" y="50" width="388" height="23.5"/>
+                            <rect key="frame" x="0.0" y="87" width="388" height="23.5"/>
                             <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="21"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-1O-suk">
-                            <rect key="frame" x="0.0" y="78.5" width="388" height="32"/>
+                            <rect key="frame" x="0.0" y="120.5" width="388" height="32"/>
                             <segments>
                                 <segment title="Ongoing"/>
                                 <segment title="Done"/>
@@ -74,7 +91,7 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-xr-O7i">
-                    <rect key="frame" x="0.0" y="165.5" width="414" height="696.5"/>
+                    <rect key="frame" x="0.0" y="200.5" width="414" height="661.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -84,7 +101,7 @@
                 <constraint firstItem="SJy-xr-O7i" firstAttribute="top" secondItem="sg6-x2-QtB" secondAttribute="bottom" id="6yN-Hv-8Rh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SJy-xr-O7i" secondAttribute="bottom" id="84k-2p-Hm4"/>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="GFs-2v-C9n"/>
-                <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="Gef-cA-JZD"/>
+                <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="Gef-cA-JZD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sg6-x2-QtB" secondAttribute="trailing" constant="13" id="lVE-Ul-8Ns"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SJy-xr-O7i" secondAttribute="trailing" id="nEL-8c-gle"/>
                 <constraint firstItem="SJy-xr-O7i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wgW-hj-maA"/>
@@ -93,6 +110,10 @@
         </view>
     </objects>
     <resources>
+        <image name="questionmark.square" catalog="system" width="128" height="114"/>
+        <namedColor name="black white">
+            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="smalltext nav bar color">
             <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

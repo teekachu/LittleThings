@@ -13,3 +13,4 @@ import Foundation
 /// Cell size that contains the task, if task too long it dissapears.
 /// either restraint the number of text a text label can have to constraint the text label to show everything. 
 
+/// see whether i could only edit cells if the task is not done 

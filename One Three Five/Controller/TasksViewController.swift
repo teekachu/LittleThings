@@ -35,6 +35,12 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func didTapInfoButton(_ sender: Any) {
+        let infoController = AppInfoViewController()
+        infoController.modalPresentationStyle = .overCurrentContext
+        infoController.modalTransitionStyle = .crossDissolve
+        present(infoController, animated: true)
+    }
     
     
     //  MARK: Lifecycle

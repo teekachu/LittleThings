@@ -75,7 +75,7 @@ class OnboardingViewController: UIViewController {
         
         /// set up onboarding items
         let itemOne = OnboardingItemInfo(
-            informationImage: #imageLiteral(resourceName: "stars")
+            informationImage: #imageLiteral(resourceName: "moreStars")
                 .withRenderingMode(.alwaysOriginal),
             title: "Hey there!",
             description: "Welcome to Little Things, your daily task manager.",
