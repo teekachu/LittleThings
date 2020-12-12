@@ -15,6 +15,7 @@ class AddNewTaskViewController: UIViewController {
     private let taskManager: TaskManager
     private var task: Task
     private let isEditingTask: Bool
+    private let taskCharacterCount = 200
     
     @Published private var taskString: String? ///Observe this variable because this is what will be updated as we type into the textfield
     private var currentTasktype: TaskType = .one
@@ -120,9 +121,9 @@ class AddNewTaskViewController: UIViewController {
         TaskTextfield.borderStyle = .none
         TaskTextfield.textColor =  Constants.blackWhite
         TaskTextfield.font = UIFont(name: Constants.fontMedium, size: 20)
+    
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
-        
         TaskPickerView.backgroundColor = .clear
         TaskPickerView.layer.borderWidth = 3
         TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
@@ -171,15 +172,19 @@ class AddNewTaskViewController: UIViewController {
         }.store(in: &subscribers)
         
         /// change button enable status based on taskString is empty or not
-        $taskString.sink { (text) in
-            self.saveButton.isEnabled = text?.isEmpty == false
+        $taskString.sink {[weak self] (text) in
+            guard let self = self else { return }
+            self.saveButton.isEnabled =
+                text?.isEmpty == false &&
+                text?.meetsCharCount(of: self.taskCharacterCount) == true
         }.store(in: &subscribers)
         
         /// monitor character count for textfield
-        $taskString.sink { (text) in
+        $taskString.sink {[weak self] (text) in
+            guard let self = self else { return }
             guard let text = text else { return }
             self.descriptionCharCountLabel.alpha = self.updateAlphaPerCharCount(for: text)
-            self.descriptionCharCountLabel.text = "- \(text.count - 3)"
+            self.descriptionCharCountLabel.text = "- \(text.count - self.taskCharacterCount)"
         }.store(in: &subscribers)
     }
     
@@ -189,22 +194,19 @@ class AddNewTaskViewController: UIViewController {
     }
     
     private func updateAlphaPerCharCount(for text: String) -> CGFloat{
-        /// set 3 as the limit
-        if text.count < 3{
+        if text.count < taskCharacterCount{
             return 0
         }
         return 1
     }
     
     private func enableButtonPerCharCount(for text: String) -> Bool {
-        if text.count < 3{
+        if text.count < taskCharacterCount{
             return true
         }
         return false
     }
-    
-    
-    
+
     //    @discardableResult private func isAble(toAdd task: Task) -> Bool {
     //
     //        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5

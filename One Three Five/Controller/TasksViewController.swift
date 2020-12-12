@@ -44,7 +44,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     
-    //  MARK: Lifecycle
+    //  MARK: - Lifecycle
     init(taskManager: TaskManager) {
         self.taskManager = taskManager
         super.init(nibName: "TasksViewController", bundle: nil)

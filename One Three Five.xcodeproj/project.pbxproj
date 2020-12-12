@@ -10,6 +10,7 @@
 		300140AFBF59CA88A6E36D0B /* Pods_One_Three_Five.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */; };
 		A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */; };
 		A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */; };
+		A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20B2585615400AC77F3 /* Ext+String.swift */; };
 		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
 		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
 		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
@@ -53,6 +54,7 @@
 		5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_One_Three_Five.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIViewController.swift"; sourceTree = "<group>"; };
 		A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CATransition.swift"; sourceTree = "<group>"; };
+		A745A20B2585615400AC77F3 /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
 		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */,
 				F47BC98C258063A400DB0CC4 /* Ext+AlertController.swift */,
 				F433E6A72576C0F600A55C52 /* Ext+Date.swift */,
+				A745A20B2585615400AC77F3 /* Ext+String.swift */,
 				F3B1CCF8258319270048D6F8 /* UITableView.swift */,
 				F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */,
 			);
@@ -402,6 +405,7 @@
 				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
 				F430AEE125782B9900DE727B /* Task.swift in Sources */,
+				A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */,
 				F435B81625815762007BB7E1 /* OnboardingViewController.swift in Sources */,
 				F43EC7AC257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift in Sources */,
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,

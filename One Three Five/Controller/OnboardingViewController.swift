@@ -14,7 +14,7 @@ protocol OnboardingControllerDelegate: class {
 }
 
 class OnboardingViewController: UIViewController {
-    //MARK: Properties
+    //MARK: - Properties
     /// 2) create a delegate of this onboardingController
     weak var delegate: OnboardingControllerDelegate?
     
@@ -30,16 +30,16 @@ class OnboardingViewController: UIViewController {
     }()
     
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureUI()
         configureOnboardingDatasource()
     }
     
     
-    //MARK: Helpers
+    //MARK: - Helpers
     private func animateGetStartedButton(_ shouldShow: Bool) {
         let alpha: CGFloat = shouldShow ? 1 : 0
         UIView.animate(withDuration: 0.5) {
@@ -48,15 +48,15 @@ class OnboardingViewController: UIViewController {
     }
     
     
-    //MARK: Selectors
+    //MARK: - Selectors
     @objc func dismissOnboarding(){
         /// 3) call delegate
         dismiss(animated: true, completion: nil)
-//        delegate?.controllerWantsToDismiss(self)
+        //        delegate?.controllerWantsToDismiss(self)
     }
     
     
-    //MARK: Privates
+    //MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         view.addSubview(onboardingView)
@@ -126,6 +126,7 @@ class OnboardingViewController: UIViewController {
 }
 
 
+//MARK: - PaperOnboardingDataSource
 extension OnboardingViewController: PaperOnboardingDataSource{
     func onboardingItemsCount() -> Int {
         return onboardingItems.count
@@ -136,6 +137,8 @@ extension OnboardingViewController: PaperOnboardingDataSource{
     }
 }
 
+
+//MARK: - PaperOnboardingDelegate
 extension OnboardingViewController: PaperOnboardingDelegate{
     func onboardingWillTransitonToIndex(_ index: Int) {
         /// using viewmodels instead.

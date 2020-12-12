@@ -39,7 +39,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QME-Pc-CE8">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="75"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a task : )" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mD0-Kc-yHa">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a task : )" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mD0-Kc-yHa">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
