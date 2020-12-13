@@ -1,45 +1,34 @@
 //
-//  LoginViewController.swift
+//  SignUpViewController.swift
 //  One Three Five
 //
-//  Created by Ting Becker on 12/12/20.
+//  Created by Ting Becker on 12/13/20.
 //
 
 import UIKit
 
-protocol AuthenticationDelegate: class{
-    func authenticationComplete()
-}
+class SignUpViewController: UIViewController {
 
-class LoginViewController: UIViewController {
-    
     //  MARK: - Properties
     weak var delegate: AuthenticationDelegate?
-    private var viewmodel = LoginViewModel()
+    private var viewmodel = RegistrationViewModel()
     
     
     //  MARK: - IB Properties
     @IBOutlet weak var emailTFUnderline: UIImageView!
     @IBOutlet weak var pswdTFUnderline: UIImageView!
+    @IBOutlet weak var nameTFUnderline: UIImageView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var nameTextfield: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBAction func loginButtonTapped(_ sender: Any) {
         print("I want to login")
     }
-    @IBAction func forgotPasswordTapped(_ sender: Any) {
-        print("I forgot my password")
+    @IBAction func goBackToLoginTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
-    @IBOutlet weak var signInWithGoogle: UIButton!
-    @IBAction func signInWithGoogleTapped(_ sender: Any) {
-        print("I want to sign in with google")
-    }
-    @IBAction func signUpTapped(_ sender: Any) {
-        let svc = SignUpViewController()
-        svc.modalPresentationStyle = .overCurrentContext
-        svc.modalTransitionStyle = .crossDissolve
-        navigationController?.pushViewController(svc, animated: true)
-    }
+    @IBOutlet weak var errorLabel: UILabel!
     
     
     //  MARK: - Lifecycle
@@ -49,7 +38,7 @@ class LoginViewController: UIViewController {
         addTapGestureToDismiss()
         notificationObserver()
     }
-    
+
     
     //  MARK: - Selectors
     @objc func dismissKeyboard(){
@@ -59,21 +48,26 @@ class LoginViewController: UIViewController {
     @objc func didBeginEditing(_ sender: UITextField){
         if sender == emailTextfield{
             emailTextfield.placeholder = nil
-        } else {
+        } else if sender == passwordTextfield {
             passwordTextfield.placeholder = nil
+        } else {
+            nameTextfield.placeholder = nil
         }
     }
     
     @objc func didEndEditing(_ sender: UITextField) {
         emailTextfield.placeholder = "Email"
         passwordTextfield.placeholder = "Password"
+        nameTextfield.placeholder = "What should we call you?"
     }
     
     @objc func textDidChange(_ sender: UITextField) {
         if sender == emailTextfield{
             viewmodel.email = emailTextfield.text
-        } else {
+        } else if sender == passwordTextfield {
             viewmodel.password = passwordTextfield.text
+        } else {
+            viewmodel.fullname = nameTextfield.text
         }
         /// enables button and changes color based on criteria above
         updateForm()
@@ -84,8 +78,10 @@ class LoginViewController: UIViewController {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
-        emailTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
-        pswdTFUnderline.image = #imageLiteral(resourceName: "lines1").withRenderingMode(.alwaysOriginal)
+        /// TODO: Update
+        emailTFUnderline.image = #imageLiteral(resourceName: "lines1").withRenderingMode(.alwaysOriginal)
+        pswdTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
+        nameTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
         
         emailTextfield.keyboardType = .emailAddress
         emailTextfield.attributedPlaceholder = NSAttributedString(
@@ -96,12 +92,14 @@ class LoginViewController: UIViewController {
         passwordTextfield.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
-
-        loginButton.tintColor = Constants.mediumBlack3f3f3f
         
-        let googleIconImage = #imageLiteral(resourceName: "googleLogo").withRenderingMode(.alwaysOriginal)
-        signInWithGoogle.setImage(googleIconImage, for: .normal)
-        signInWithGoogle.imageView?.contentMode = .scaleAspectFit
+        nameTextfield.keyboardType = .default
+        nameTextfield.attributedPlaceholder = NSAttributedString(
+            string: "What should we call you?",
+            attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
+
+        signUpButton.tintColor = Constants.mediumBlack3f3f3f
+        signUpButton.isEnabled = false
     }
     
     private func addTapGestureToDismiss(){
@@ -112,19 +110,24 @@ class LoginViewController: UIViewController {
     private func notificationObserver(){
         emailTextfield.addTarget(self, action: #selector(didBeginEditing), for: .editingDidBegin)
         passwordTextfield.addTarget(self, action: #selector(didBeginEditing), for: .editingDidBegin)
+        nameTextfield.addTarget(self, action: #selector(didBeginEditing), for: .editingDidBegin)
         
         emailTextfield.addTarget(self, action: #selector(didEndEditing(_:)), for: .editingDidEnd)
         passwordTextfield.addTarget(self, action: #selector(didEndEditing(_:)), for: .editingDidEnd)
+        nameTextfield.addTarget(self, action: #selector(didEndEditing(_:)), for: .editingDidEnd)
         
         emailTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        nameTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
+
 }
 
 //  MARK: - FormViewModel
-extension LoginViewController: FormViewModel {
+extension SignUpViewController: FormViewModel {
+    
     func updateForm() {
-        loginButton.isEnabled = viewmodel.shouldEnableButton
-        loginButton.tintColor = viewmodel.buttonTitleColor
+        signUpButton.isEnabled = viewmodel.shouldEnableButton
+        signUpButton.tintColor = viewmodel.buttonTitleColor
     }
 }

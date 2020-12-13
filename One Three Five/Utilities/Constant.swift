@@ -34,7 +34,7 @@ struct Constants {
     
     static let navBarColor = UIColor(named: "navBarColor")
     
-    static let orangeEEAE45 = UIColor(named: "OrangeTintEEAE45")
+    static let orangeFDB903 = UIColor(named: "OrangeTintFDB903")
     
     static let segmentBarBackground = UIColor(named: "segment background")
     

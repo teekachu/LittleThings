@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // set up your background color view
         let colorView = UIView()
-        colorView.backgroundColor = Constants.orangeEEAE45
+        colorView.backgroundColor = Constants.orangeFDB903
         
         // use UITableViewCell.appearance() to configure
         // the default appearance of all UITableViewCells in your app

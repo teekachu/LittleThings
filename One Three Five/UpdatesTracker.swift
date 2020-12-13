@@ -16,3 +16,6 @@ import Foundation
 /// look into making textfield height dynamic
 ///
 /// clean up the { if its by itself in a line
+
+/// Change the underline images and look into colors
+

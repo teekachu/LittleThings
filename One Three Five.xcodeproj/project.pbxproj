@@ -11,6 +11,8 @@
 		A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */; };
 		A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */; };
 		A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20B2585615400AC77F3 /* Ext+String.swift */; };
+		A7461AD72586808500CB1BAE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AD52586808500CB1BAE /* SignUpViewController.swift */; };
+		A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7461AD62586808500CB1BAE /* SignUpViewController.xib */; };
 		A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666672585A20A0043D22D /* LoginViewController.swift */; };
 		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
 		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
@@ -59,6 +61,8 @@
 		A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIViewController.swift"; sourceTree = "<group>"; };
 		A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CATransition.swift"; sourceTree = "<group>"; };
 		A745A20B2585615400AC77F3 /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
+		A7461AD52586808500CB1BAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A7461AD62586808500CB1BAE /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		A7A666672585A20A0043D22D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
 				A7A666672585A20A0043D22D /* LoginViewController.swift */,
 				A7A666682585A20A0043D22D /* LoginViewController.xib */,
+				A7461AD52586808500CB1BAE /* SignUpViewController.swift */,
+				A7461AD62586808500CB1BAE /* SignUpViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
 				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
 				F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */,
+				A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */,
 				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7461AD72586808500CB1BAE /* SignUpViewController.swift in Sources */,
 				A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */,
 				F47BC98D258063A400DB0CC4 /* Ext+AlertController.swift in Sources */,
 				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
