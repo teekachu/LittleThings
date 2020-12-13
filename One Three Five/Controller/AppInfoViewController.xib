@@ -53,7 +53,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Little things make big days !  Enjoy." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDB-aA-aIE">
                             <rect key="frame" x="0.0" y="526.5" width="374" height="22.5"/>
                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
-                            <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.93333333333333335" green="0.68235294117647061" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>

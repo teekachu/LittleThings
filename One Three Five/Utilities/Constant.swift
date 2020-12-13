@@ -34,7 +34,7 @@ struct Constants {
     
     static let navBarColor = UIColor(named: "navBarColor")
     
-    static let orangeFDB903 = UIColor(named: "OrangeTintFDB903")
+    static let orangeEEAE45 = UIColor(named: "OrangeTintEEAE45")
     
     static let segmentBarBackground = UIColor(named: "segment background")
     
@@ -54,7 +54,9 @@ struct Constants {
     
     static let brightOrange = UIColor(named: "orangeQuoteLabel")
     
-    static let orangeTintColorFDB903:UIColor = #colorLiteral(red: 0.9921568627, green: 0.7254901961, blue: 0.01176470588, alpha: 1)
+//    static let orangeTintColorEEAE45:UIColor = #colorLiteral(red: 0.9333333333, green: 0.6823529412, blue: 0.2705882353, alpha: 1)
+    
+    static let whiteSmoke: UIColor =  #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
     
     static let offBlack202020: UIColor =  #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)
     

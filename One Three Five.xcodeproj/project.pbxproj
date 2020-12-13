@@ -11,6 +11,10 @@
 		A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */; };
 		A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */; };
 		A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20B2585615400AC77F3 /* Ext+String.swift */; };
+		A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666672585A20A0043D22D /* LoginViewController.swift */; };
+		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
+		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
+		A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */; };
 		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
 		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
 		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
@@ -55,6 +59,10 @@
 		A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIViewController.swift"; sourceTree = "<group>"; };
 		A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CATransition.swift"; sourceTree = "<group>"; };
 		A745A20B2585615400AC77F3 /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
+		A7A666672585A20A0043D22D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
 		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
@@ -192,10 +200,12 @@
 			isa = PBXGroup;
 			children = (
 				F430AEE025782B9900DE727B /* Task.swift */,
+				A7A6666C2585A4150043D22D /* User.swift */,
 				F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */,
 				F43A81A2257BEFF80035352C /* TaskType.swift */,
 				F43A81A5257BF5070035352C /* DataSource.swift */,
 				F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */,
+				A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +242,8 @@
 				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
 				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
 				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
+				A7A666672585A20A0043D22D /* LoginViewController.swift */,
+				A7A666682585A20A0043D22D /* LoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,6 +328,7 @@
 			files = (
 				F433E68B2576BEE000A55C52 /* LaunchScreen.storyboard in Resources */,
 				F430AF0525794F0A00DE727B /* DoneTaskTableViewCell.xib in Resources */,
+				A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */,
 				F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */,
 				F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */,
 				F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */,
@@ -397,6 +410,8 @@
 				F47BC98D258063A400DB0CC4 /* Ext+AlertController.swift in Sources */,
 				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
 				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
+				A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */,
+				A7A6666D2585A4150043D22D /* User.swift in Sources */,
 				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
 				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,
 				F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */,
@@ -411,6 +426,7 @@
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
 				F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */,
+				A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */,
 				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
 				F42F7C2725833E1B00E6B2C1 /* AppInfoViewController.swift in Sources */,
 				F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */,

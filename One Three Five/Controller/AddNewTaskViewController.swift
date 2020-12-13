@@ -125,7 +125,7 @@ class AddNewTaskViewController: UIViewController {
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         TaskPickerView.backgroundColor = .clear
-        TaskPickerView.layer.borderWidth = 3
+        TaskPickerView.layer.borderWidth = 1.7
         TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
         TaskPickerView.layer.cornerRadius = 20
         

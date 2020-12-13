@@ -52,6 +52,11 @@ class OnboardingViewController: UIViewController {
     @objc func dismissOnboarding(){
         /// 3) call delegate
         dismiss(animated: true, completion: nil)
+        
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .overCurrentContext
+        loginVC.modalTransitionStyle = .crossDissolve
+        present(loginVC, animated: true)
         //        delegate?.controllerWantsToDismiss(self)
     }
     
@@ -82,7 +87,7 @@ class OnboardingViewController: UIViewController {
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
             titleColor: Constants.lightGrayCDCDCD,
-            descriptionColor: Constants.orangeTintColorFDB903,
+            descriptionColor: Constants.orangeEEAE45!,
             titleFont: UIFont(name: Constants.titleTextFont, size: 25)!,
             descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 19)!,
             descriptionLabelPadding: 0,
@@ -95,7 +100,7 @@ class OnboardingViewController: UIViewController {
             description: "Keep your daily to-do items short and sweet!",
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
-            titleColor: Constants.orangeTintColorFDB903,
+            titleColor: Constants.orangeEEAE45!,
             descriptionColor: Constants.lightGrayCDCDCD,
             titleFont: UIFont(name: Constants.titleTextFont, size: 21)!,
             descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 18)!,
@@ -109,7 +114,7 @@ class OnboardingViewController: UIViewController {
             description: "Focus your energy on things that matter.",
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
-            titleColor: Constants.orangeTintColorFDB903,
+            titleColor: Constants.orangeEEAE45!,
             descriptionColor: Constants.lightGrayCDCDCD,
             titleFont: UIFont(name: Constants.titleTextFont, size: 20)!,
             descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 18)!,
