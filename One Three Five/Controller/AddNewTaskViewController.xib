@@ -128,7 +128,7 @@
     </objects>
     <resources>
         <namedColor name="OrangeTintFDB903">
-            <color red="0.99215686274509807" green="0.72549019607843135" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.99199998378753662" green="0.72500002384185791" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

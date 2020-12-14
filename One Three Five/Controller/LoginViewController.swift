@@ -28,7 +28,11 @@ class LoginViewController: UIViewController {
         print("I want to login")
     }
     @IBAction func forgotPasswordTapped(_ sender: Any) {
-        print("I forgot my password")
+        let vc = ResetPasswordViewController()
+        vc.email = emailTextfield.text
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController?.pushViewController(vc, animated: true)
     }
     @IBOutlet weak var signInWithGoogle: UIButton!
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
@@ -96,7 +100,7 @@ class LoginViewController: UIViewController {
         passwordTextfield.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
-
+        
         loginButton.tintColor = Constants.mediumBlack3f3f3f
         
         let googleIconImage = #imageLiteral(resourceName: "googleLogo").withRenderingMode(.alwaysOriginal)

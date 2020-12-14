@@ -8,7 +8,7 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-
+    
     //  MARK: - Properties
     weak var delegate: AuthenticationDelegate?
     private var viewmodel = RegistrationViewModel()
@@ -22,8 +22,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBAction func loginButtonTapped(_ sender: Any) {
-        print("I want to login")
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        print("I want to sign up")
     }
     @IBAction func goBackToLoginTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -38,12 +38,11 @@ class SignUpViewController: UIViewController {
         addTapGestureToDismiss()
         notificationObserver()
     }
-
+    
     
     //  MARK: - Selectors
-    @objc func dismissKeyboard(){
-        view.endEditing(true)
-    }
+    @objc public func dismissKeyboard(){
+        view.endEditing(true) }
     
     @objc func didBeginEditing(_ sender: UITextField){
         if sender == emailTextfield{
@@ -97,13 +96,13 @@ class SignUpViewController: UIViewController {
         nameTextfield.attributedPlaceholder = NSAttributedString(
             string: "What should we call you?",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
-
+        
         signUpButton.tintColor = Constants.mediumBlack3f3f3f
         signUpButton.isEnabled = false
     }
     
     private func addTapGestureToDismiss(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         view.addGestureRecognizer(gesture)
     }
     
@@ -120,7 +119,7 @@ class SignUpViewController: UIViewController {
         passwordTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         nameTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
-
+    
 }
 
 //  MARK: - FormViewModel

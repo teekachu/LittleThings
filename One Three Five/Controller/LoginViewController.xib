@@ -53,7 +53,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qlj-dJ-qcf">
                                     <rect key="frame" x="0.0" y="94" width="324" height="64"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qsl-if-XRl" userLabel="PASSWORD">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qsl-if-XRl">
                                             <rect key="frame" x="0.0" y="0.0" width="324" height="50"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
