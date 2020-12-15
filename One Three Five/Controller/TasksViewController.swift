@@ -9,6 +9,10 @@ import UIKit
 import Loaf
 import Firebase
 
+protocol TasksViewControllerDelegate: class {
+    func showOptions(for task: Task)
+}
+
 class TasksViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
@@ -27,13 +31,12 @@ class TasksViewController: UIViewController, Animatable {
             }
         }
     }
-    private var user: User?
-    //    {
-    //        didSet{
-    //            presentOnboardingIfNecessary()
-    ////            showWelcomeLabel() /// change the name  in " Hello teeks " to the user's name
-    //        }
-    //    }
+    private var user: User? {
+        didSet{
+            presentOnboardingIfNecessary()
+            showWelcomeLabel()
+        }
+    }
     
     
     //  MARK: - IB Properties
@@ -68,13 +71,12 @@ class TasksViewController: UIViewController, Animatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        authenticatedUser()
+        authenticateUser()
         configureTableView()
         configureDataSource()
         addTaskObserver()
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
-        //        presentOnboardingController()
     }
     
     //  MARK: - Selectors
@@ -159,8 +161,8 @@ class TasksViewController: UIViewController, Animatable {
         dateLabel.textColor = Constants.smallTextNavBarColor
         
         /// TODO: Update label text
-        greetingsLabel.text = "Hello, Teeks!"
         greetingsLabel.textColor = Constants.smallTextNavBarColor
+        greetingsLabel.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
         /// TODO: Update quotes text
         quotesLabel.text = "Little things make big days!"
@@ -200,17 +202,32 @@ class TasksViewController: UIViewController, Animatable {
         present(controller, animated: true)
     }
     
-    private func presentOnboardingController(){
-        let cont = OnboardingViewController()
-        cont.modalPresentationStyle = .fullScreen
-        present(cont, animated: true)
-    }
-    
     private func didTapActionButton(for task: Task) {
         let currentDoneStatus = task.isDone
         taskManager.updateTaskStatus(task, isDone: !currentDoneStatus) {[weak self] (status, message) in
             self?.showToast(state: status, message: message)
         }
+    }
+    
+    private func showWelcomeLabel(){
+        guard let user = user else {
+            print("Cannot fetch user in showWelcomeLabel")
+            return}
+        guard user.hasSeenOnboardingPage else {return}
+        
+        greetingsLabel.text = "Hello \(user.fullname)"
+        greetingsLabel.numberOfLines = 1
+        greetingsLabel.textAlignment = .left
+    }
+    
+    private func presentOnboardingIfNecessary() {
+        guard let user = user else {return}
+        guard !user.hasSeenOnboardingPage else {return}
+        
+        let cont = OnboardingViewController()
+        cont.delegate = self
+        cont.modalPresentationStyle = .fullScreen
+        self.present(cont, animated: true)
     }
     
     // MARK: - Auth
@@ -226,48 +243,32 @@ class TasksViewController: UIViewController, Animatable {
         present(ac, animated: true)
     }
     
-    private func authenticatedUser(){
+    private func authenticateUser(){
         if Auth.auth().currentUser?.uid == nil{
+            print("DEBUG: No users logged in")
             presentLoginVC()
         } else {
-            AuthManager.fetchUserFromFirestore { (user) in
-                print("User \(user.fullname) is logged in.")
-            }
-            
-            //            fetchUserFromFirestore()
+            fetchUser()
         }
     }
     
     private func presentLoginVC() {
         DispatchQueue.main.async {[weak self] in
             let controller = LoginViewController()
-            //            controller.delegate = self
+            controller.delegate = self
             let nav = UINavigationController(rootViewController: controller)
             nav.modalPresentationStyle = .fullScreen
             self?.present(nav, animated: true)
         }
     }
     
-    /// Fetch from Firestore
-    //    func fetchUserFromFirestore(){
-    //        AuthManager.fetchUserFromFirestore { (user) in
-    //            self.user = user
-    //        }
-    //    }
     
-    //    fileprivate func presentOnboardingIfNecessary() {
-    //        /// make sure user exist
-    //        guard let user = user else {return}
-    //
-    //        /// make sure user has not seen onboarding
-    //        guard !user.hasSeenOnboardingPage else {return}
-    //
-    //        /// show onboarding stuff
-    //        let controller = OnboardingViewController()
-    //        /// Set the onboardingController's delegate to self, so the homeview will be the one passing information around
-    //        controller.delegate = self
-    //        self.present(controller, animated: true)
-    //    }
+    private func fetchUser(){
+        AuthManager.fetchUser { (user) in
+            print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is\(user.uid)")
+            self.user = user
+        }
+    }
 }
 
 
@@ -304,7 +305,7 @@ extension TasksViewController: NewTaskVCDelegate {
 }
 
 //  MARK: - OngoingTasksTVCDelegate
-extension TasksViewController: OngoingTasksTVCDelegate {
+extension TasksViewController: TasksViewControllerDelegate {
     /// The parent view will act as the delegate for the child.
     /// when a cell is selected in the child, the child will be notified ( need an intern to pass on information)
     /// The parent will act as the intern , take the information and execiutes methods.
@@ -325,17 +326,24 @@ extension TasksViewController: OngoingTasksTVCDelegate {
 extension TasksViewController: OnboardingControllerDelegate {
     func controllerWantsToDismiss(_ controller: OnboardingViewController) {
         dismiss(animated: true)
-        /// after onboarding controller dismiss, update value un firebase for " updateUserHasSeenOnboardingInFirestore"
         
-        //        /// After the onboarding controller dismiss,  update the value in firestore.
-        //        Service.updateUserHasSeenOnboardingInFirestore {[weak self] (error) in
-        //            if let error = error {
-        //                self?.showMessage(withTitle: "Error", message: error.localizedDescription)
-        //            }
-        //
-        //            self?.user?.hasSeenOnboardingPage = true
-        //        }
+        AuthManager.updateUserHasSeenOnboardingInDatabase {[weak self] (error) in
+            if let error = error {
+                print("Error in controllerWantsToDismiss() \(error.localizedDescription)")
+                return
+            }
+            self?.user?.hasSeenOnboardingPage = true
+        }
     }
+}
+
+//  MARK: - AuthenticationDelegate
+extension TasksViewController: AuthenticationDelegate {
+    func authenticationComplete() {
+        dismiss(animated: true, completion: nil)
+        fetchUser()
+    }
+    
 }
 
 

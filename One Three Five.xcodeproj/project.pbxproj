@@ -31,7 +31,6 @@
 		F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F430AEDB257826A900DE727B /* GoogleService-Info.plist */; };
 		F430AEE125782B9900DE727B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE025782B9900DE727B /* Task.swift */; };
 		F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE425782FA900DE727B /* UpdatesTracker.swift */; };
-		F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */; };
 		F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */; };
 		F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */; };
 		F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */; };
@@ -51,7 +50,6 @@
 		F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */; };
 		F43A81A3257BEFF80035352C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A2257BEFF80035352C /* TaskType.swift */; };
 		F43A81A6257BF5070035352C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A5257BF5070035352C /* DataSource.swift */; };
-		F43EC7AC257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */; };
 		F47BC97E257FDD7700DB0CC4 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */; };
 		F47BC987257FEDD900DB0CC4 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */; };
 		F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */; };
@@ -85,7 +83,6 @@
 		F430AEDB257826A900DE727B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F430AEE025782B9900DE727B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F430AEE425782FA900DE727B /* UpdatesTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesTracker.swift; sourceTree = "<group>"; };
-		F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVCDelegate.swift; sourceTree = "<group>"; };
 		F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTaskTableViewCell.swift; sourceTree = "<group>"; };
 		F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
 		F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,7 +104,6 @@
 		F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F43A81A2257BEFF80035352C /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		F43A81A5257BF5070035352C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTasksTVCDelegate.swift; sourceTree = "<group>"; };
 		F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasksViewController.xib; sourceTree = "<group>"; };
@@ -190,8 +186,6 @@
 		F433E6932576BF1A00A55C52 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */,
-				F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */,
 				F3B1CCF4258316CC0048D6F8 /* Taskable.swift */,
 			);
 			path = Protocols;
@@ -212,11 +206,11 @@
 			children = (
 				F430AEE025782B9900DE727B /* Task.swift */,
 				A7A6666C2585A4150043D22D /* User.swift */,
-				F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */,
 				F43A81A2257BEFF80035352C /* TaskType.swift */,
 				F43A81A5257BF5070035352C /* DataSource.swift */,
 				F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */,
 				A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */,
+				F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,12 +430,10 @@
 				F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */,
 				A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
-				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
 				F430AEE125782B9900DE727B /* Task.swift in Sources */,
 				A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */,
 				F435B81625815762007BB7E1 /* OnboardingViewController.swift in Sources */,
-				F43EC7AC257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift in Sources */,
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
 				A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,

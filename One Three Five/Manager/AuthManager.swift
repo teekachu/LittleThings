@@ -65,18 +65,27 @@ struct AuthManager{
                 return
             }
             
-            /// pull the user's id, email and fullname FROM google credentials
-            guard let uid = result?.user.uid else{return}
-            guard let email = result?.user.email else{return}
-            guard let fullname = result?.user.displayName else{return}
-            
-            let values = [
-                "email": email,
-                "fullname": fullname,
-                "hasSeenOnboardingPage": false
-            ] as [String: Any]
-            
-            REF_USERS.document(uid).setData(values, completion: completion)
+            /// check if user exists
+            if result?.additionalUserInfo?.isNewUser == true{
+                
+                /// pull the user's id, email and fullname FROM google credentials
+                guard let uid = result?.user.uid else{return}
+                guard let email = result?.user.email else{return}
+                guard let fullname = result?.user.displayName else{return}
+
+                let values = [
+                    "email": email,
+                    "fullname": fullname,
+                    "hasSeenOnboardingPage": false,
+                    "uid": uid
+                ] as [String: Any]
+                
+                REF_USERS.document(uid).setData(values, completion: completion)
+                
+            } else {
+                print("DEBUG: User already exist, nothing needs to be done.")
+                completion(nil)
+            }
         }
     }
     
@@ -86,12 +95,14 @@ struct AuthManager{
     }
     
     
-    static func fetchUserFromFirestore(completion: @escaping (User) -> Void){
-        guard let uid = Auth.auth().currentUser?.uid else{return}
+    static func fetchUser(completion: @escaping (User) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("DEBUG: Cannot fetch user in fetchUser()")
+            return}
         
         REF_USERS.document(uid).getDocument { (snapshot, error) in
-            guard let dictionary = snapshot?.data() else {return}
-            let user = User(dictionary: dictionary)
+            guard let dict = snapshot?.data() else {return}
+            let user = User(dictionary: dict)
             completion(user)
         }
     }
@@ -104,6 +115,15 @@ struct AuthManager{
             print("Error in signUserOut()")
         }
     }
+    
+    
+    static func updateUserHasSeenOnboardingInDatabase(completion: @escaping (FirebaseCompletion)){
+        /// find the unique id of the current user
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let hasSeenOnboardingData = ["hasSeenOnboardingPage": true]
+        
+        REF_USERS.document(uid).updateData(hasSeenOnboardingData, completion: completion)
+    }
 }
 
 
@@ -111,14 +131,7 @@ struct AuthManager{
 //struct Service{
 //
 //
-//    static func updateUserHasSeenOnboardingInDatabase(completion: @escaping (DatabaseCompletion)){
-//        /// find the unique id of the current user
-//        guard let uid = Auth.auth().currentUser?.uid else {return}
 //
-//        /// use that current id to access the "hasSeenOnboardingPage" key, then set the value to true.
-//        /// Once they are all done, execute the completion handler
-//        REF_USERS.child(uid).child("hasSeenOnboardingPage").setValue(true, withCompletionBlock: completion)
-//    }
 //
 //
 //    static func resetPassword(for email: String, completion: SendPasswordResetCallback?) {

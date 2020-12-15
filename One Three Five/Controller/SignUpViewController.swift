@@ -11,6 +11,7 @@ class SignUpViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private var viewmodel = RegistrationViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     //  MARK: - IB Properties
     @IBOutlet weak var emailTFUnderline: UIImageView!
@@ -136,11 +137,10 @@ class SignUpViewController: UIViewController, Animatable {
                 self?.showToast(state: .error, message: "Uh oh, \(error.localizedDescription)")
                 return
             }
-            
-            self?.dismiss(animated: true) {
-                print("This sign up page should dismiss now")
-            }
-            
+            self?.delegate?.authenticationComplete()
+//            self?.dismiss(animated: true) {
+//                print("DEBUG: This sign up page should dismiss now")
+//            }
         }
     }
 }

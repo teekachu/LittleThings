@@ -48,6 +48,7 @@ class OnboardingViewController: UIViewController {
     
     //MARK: - Selectors
     @objc func dismissOnboardingScreen(){
+//        dismiss(animated: true)
         delegate?.controllerWantsToDismiss(self)
     }
     

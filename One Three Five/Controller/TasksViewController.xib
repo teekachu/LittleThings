@@ -14,7 +14,7 @@
             <connections>
                 <outlet property="actionButton" destination="Egf-kv-99J" id="MY5-a3-bh4"/>
                 <outlet property="dateLabel" destination="Yhg-26-mIc" id="nQV-w6-xMI"/>
-                <outlet property="greetingsLabel" destination="lj8-ye-oT6" id="jNw-uy-zeN"/>
+                <outlet property="greetingsLabel" destination="8zd-Td-Ig6" id="0Tp-zh-AVl"/>
                 <outlet property="outerStackView" destination="sg6-x2-QtB" id="OsH-rd-u3y"/>
                 <outlet property="quotesLabel" destination="lj8-ye-oT6" id="XnZ-uu-s0q"/>
                 <outlet property="segment" destination="dCR-1O-suk" id="wXb-bR-6Dg"/>
@@ -81,7 +81,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Teeks!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zd-Td-Ig6">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zd-Td-Ig6">
                                             <rect key="frame" x="0.0" y="24" width="228" height="21"/>
                                             <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="19"/>
                                             <color key="textColor" name="smalltext nav bar color"/>

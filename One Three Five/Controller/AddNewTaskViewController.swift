@@ -9,8 +9,12 @@ import UIKit
 import Combine
 import Loaf
 
+protocol NewTaskVCDelegate: class {
+    func didAddTask(for task: Task)
+    func didEditTask(for task: Task)
+}
+
 class AddNewTaskViewController: UIViewController, Animatable {
-    
     //  MARK: - Properties
     private let taskManager: TaskManager
     private var task: Task

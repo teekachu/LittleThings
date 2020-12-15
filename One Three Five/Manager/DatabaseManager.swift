@@ -80,12 +80,11 @@ class DatabaseManager {
             .addSnapshotListener { (snapshot, error) in
                 
                 guard error == nil else {
-                    print("error in getTasks \(error!.localizedDescription)")
+                    print("DEBUG: error in getTasks \(error!.localizedDescription)")
                     return
                 }
                 
                 do {
-                    
                     let decodedTasks = try snapshot?.documents.compactMap {
                         return try $0.data(as: Task.self)
                     } ?? []
@@ -93,7 +92,7 @@ class DatabaseManager {
                     onLoad(decodedTasks)
                     
                 } catch let error {
-                    print("error in getTasks \(error.localizedDescription)")
+                    print("DEBUG: error in getTasks \(error.localizedDescription)")
                 }
             }
     }

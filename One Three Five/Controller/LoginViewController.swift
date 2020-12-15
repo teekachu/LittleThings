@@ -9,10 +9,15 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
+protocol AuthenticationDelegate: class{
+    func authenticationComplete()
+}
+
 class LoginViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private var viewmodel = LoginViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     //  MARK: - IB Properties
     @IBOutlet weak var emailTFUnderline: UIImageView!
@@ -32,6 +37,7 @@ class LoginViewController: UIViewController, Animatable {
     
     @IBAction func signUpTapped(_ sender: Any) {
         let svc = SignUpViewController()
+        svc.delegate = delegate
         svc.modalPresentationStyle = .overCurrentContext
         svc.modalTransitionStyle = .crossDissolve
         navigationController?.pushViewController(svc, animated: true)}
@@ -134,9 +140,9 @@ class LoginViewController: UIViewController, Animatable {
             case.failure(let error):
                 self?.showToast(state: .error, message: "\(error.localizedDescription)")
             case .success:
-                print("handleLogin()successful for user: \(email)")
-                self?.dismiss(animated: true, completion: nil)
-            //                self?.delegate?.authenticationComplete()
+                print("DEBUG: handleLogin()successful for user: \(email)")
+                self?.delegate?.authenticationComplete()
+//                self?.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -179,8 +185,11 @@ extension LoginViewController: GIDSignInDelegate{
                 self?.showToast(state: .error, message: error.localizedDescription)
             }
             
-            self?.dismiss(animated: true)
-            
+            AuthManager.fetchUser { (user) in
+                print("DEBUG: Logged in with google for user: \(user.fullname)")
+            }
+            self?.delegate?.authenticationComplete()
+//            self?.dismiss(animated: true)
         }
     }
 }

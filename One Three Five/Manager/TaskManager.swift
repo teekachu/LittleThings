@@ -106,7 +106,7 @@ class TaskManager {
         databaseManager.deleteTask(for: id) { result in
             switch result{
             case.failure(let error):
-                print("deleteTask: \(error.localizedDescription)")
+                print("DEBUG: deleteTask: \(error.localizedDescription)")
                 onResult(.error, "Uh Oh, something went wrong.")
             case.success:
                 onResult(.success, "Task has been deleted successfully.")
