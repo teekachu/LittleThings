@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestoreSwift
 
+
 struct Task: Identifiable, Codable, Hashable {
     
     @DocumentID var id: String?  /// This is Hashable
@@ -16,10 +17,15 @@ struct Task: Identifiable, Codable, Hashable {
     var isDone: Bool = false
     var doneAt: Date?
     var taskType: TaskType
+    let uid: String
     
     public static var basic: Task {
-        return Task(title: nil, taskType: .three)
+        return Task(
+            title: nil,
+            taskType: .three,
+            uid: AuthManager.fetchUserUID()! )
     }
 }
+
 
 

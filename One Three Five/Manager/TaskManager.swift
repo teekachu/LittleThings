@@ -12,6 +12,7 @@ class TaskManager {
     
     private let databaseManager: DatabaseManager
     
+    
     init(databaseManager: DatabaseManager) {
         self.databaseManager = databaseManager
         addTasksListener()
@@ -121,4 +122,5 @@ class TaskManager {
             self?.tasks = tasks
         }
     }
+    
 }

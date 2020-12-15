@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import Loaf
 
-class AddNewTaskViewController: UIViewController {
+class AddNewTaskViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private let taskManager: TaskManager
@@ -244,7 +244,7 @@ extension AddNewTaskViewController: UIGestureRecognizerDelegate{
 
 
 //  MARK: - UIPickerViewDelegate
-extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource, Animatable{
+extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
     

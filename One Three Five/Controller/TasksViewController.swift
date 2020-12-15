@@ -230,8 +230,10 @@ class TasksViewController: UIViewController, Animatable {
         if Auth.auth().currentUser?.uid == nil{
             presentLoginVC()
         } else {
-            print("user is logged in, fetch user")
-            //            fetchUser()
+            AuthManager.fetchUserFromFirestore { (user) in
+                print("User \(user.fullname) is logged in.")
+            }
+            
             //            fetchUserFromFirestore()
         }
     }
@@ -336,11 +338,4 @@ extension TasksViewController: OnboardingControllerDelegate {
     }
 }
 
-//  MARK: - AuthenticationDelegate
-extension TasksViewController: AuthenticationDelegate {
-    func authenticationComplete() {
-        dismiss(animated: true, completion: nil)
-        //        fetchUser()
-        //        fetchUserFromFirestore()
-    }
-}
+

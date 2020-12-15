@@ -20,7 +20,6 @@
 		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
 		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
 		A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */; };
-		A7DC302F25884D39002CBA5B /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DC302E25884D39002CBA5B /* AuthenticationDelegate.swift */; };
 		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
 		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
 		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
@@ -74,7 +73,6 @@
 		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
-		A7DC302E25884D39002CBA5B /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
 		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */,
 				F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */,
 				F3B1CCF4258316CC0048D6F8 /* Taskable.swift */,
-				A7DC302E25884D39002CBA5B /* AuthenticationDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 				A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
 				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
-				A7DC302F25884D39002CBA5B /* AuthenticationDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
 				F430AEE125782B9900DE727B /* Task.swift in Sources */,
 				A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */,

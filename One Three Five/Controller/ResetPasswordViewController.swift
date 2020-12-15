@@ -10,7 +10,6 @@ import UIKit
 class ResetPasswordViewController: UIViewController {
     
     //  MARK: - Properties
-    weak var delegate: AuthenticationDelegate?
     private var viewmodel = ResetPasswordViewModel()
     var email: String?
     

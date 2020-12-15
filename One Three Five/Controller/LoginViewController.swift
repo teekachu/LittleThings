@@ -12,7 +12,6 @@ import GoogleSignIn
 class LoginViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
-    weak var delegate: AuthenticationDelegate?
     private var viewmodel = LoginViewModel()
     
     //  MARK: - IB Properties
@@ -35,7 +34,6 @@ class LoginViewController: UIViewController, Animatable {
         let svc = SignUpViewController()
         svc.modalPresentationStyle = .overCurrentContext
         svc.modalTransitionStyle = .crossDissolve
-        svc.delegate = delegate
         navigationController?.pushViewController(svc, animated: true)}
     
     
@@ -136,6 +134,7 @@ class LoginViewController: UIViewController, Animatable {
             case.failure(let error):
                 self?.showToast(state: .error, message: "\(error.localizedDescription)")
             case .success:
+                print("handleLogin()successful for user: \(email)")
                 self?.dismiss(animated: true, completion: nil)
             //                self?.delegate?.authenticationComplete()
             }
@@ -170,13 +169,18 @@ extension LoginViewController: GIDSignInDelegate{
     /// this gets called after user input their google account information into auth.
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
+        if let error = error{
+            print(error.localizedDescription)
+            return
+        }
+        
         AuthManager.signInWithGoogle(didSignInFor: user) {[weak self] (error) in
             if let error = error {
                 self?.showToast(state: .error, message: error.localizedDescription)
             }
             
             self?.dismiss(animated: true)
-            //            self?.delegate?.authenticationComplete()
+            
         }
     }
 }

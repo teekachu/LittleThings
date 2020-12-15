@@ -10,7 +10,6 @@ import UIKit
 class SignUpViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
-    weak var delegate: AuthenticationDelegate?
     private var viewmodel = RegistrationViewModel()
     
     //  MARK: - IB Properties
@@ -142,7 +141,6 @@ class SignUpViewController: UIViewController, Animatable {
                 print("This sign up page should dismiss now")
             }
             
-            //            self?.delegate?.authenticationComplete()
         }
     }
 }
