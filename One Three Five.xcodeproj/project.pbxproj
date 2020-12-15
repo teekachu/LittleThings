@@ -15,10 +15,12 @@
 		A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7461AD62586808500CB1BAE /* SignUpViewController.xib */; };
 		A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */; };
 		A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */; };
+		A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AE32587EB7600CB1BAE /* AuthManager.swift */; };
 		A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666672585A20A0043D22D /* LoginViewController.swift */; };
 		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
 		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
 		A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */; };
+		A7DC302F25884D39002CBA5B /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DC302E25884D39002CBA5B /* AuthenticationDelegate.swift */; };
 		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
 		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
 		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
@@ -67,10 +69,12 @@
 		A7461AD62586808500CB1BAE /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
+		A7461AE32587EB7600CB1BAE /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		A7A666672585A20A0043D22D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		A7DC302E25884D39002CBA5B /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		EB72C10ECD0EE99C21CBCE33 /* Pods-One Three Five.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-One Three Five.release.xcconfig"; path = "Target Support Files/Pods-One Three Five/Pods-One Three Five.release.xcconfig"; sourceTree = "<group>"; };
 		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 				F430AEE7257836E300DE727B /* NewTaskVCDelegate.swift */,
 				F43EC7AB257EFDAF00C69FAF /* OngoingTasksTVCDelegate.swift */,
 				F3B1CCF4258316CC0048D6F8 /* Taskable.swift */,
+				A7DC302E25884D39002CBA5B /* AuthenticationDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			children = (
 				F430AED8257825C500DE727B /* DatabaseManager.swift */,
 				F34CF6872582B6D100B8FD7C /* TaskManager.swift */,
+				A7461AE32587EB7600CB1BAE /* AuthManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -243,19 +249,19 @@
 		F433E6982576BF5900A55C52 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */,
-				F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */,
-				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
-				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
-				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
-				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
-				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
 				A7A666672585A20A0043D22D /* LoginViewController.swift */,
 				A7A666682585A20A0043D22D /* LoginViewController.xib */,
 				A7461AD52586808500CB1BAE /* SignUpViewController.swift */,
 				A7461AD62586808500CB1BAE /* SignUpViewController.xib */,
 				A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */,
 				A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */,
+				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
+				F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */,
+				F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */,
+				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
+				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
+				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
+				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 			files = (
 				A7461AD72586808500CB1BAE /* SignUpViewController.swift in Sources */,
 				A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */,
+				A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */,
 				F47BC98D258063A400DB0CC4 /* Ext+AlertController.swift in Sources */,
 				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
 				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
@@ -433,6 +440,7 @@
 				A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */,
 				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
 				F430AEE8257836E300DE727B /* NewTaskVCDelegate.swift in Sources */,
+				A7DC302F25884D39002CBA5B /* AuthenticationDelegate.swift in Sources */,
 				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
 				F430AEE125782B9900DE727B /* Task.swift in Sources */,
 				A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */,

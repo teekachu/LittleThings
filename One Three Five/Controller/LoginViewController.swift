@@ -6,17 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
-protocol AuthenticationDelegate: class{
-    func authenticationComplete()
-}
-
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     weak var delegate: AuthenticationDelegate?
     private var viewmodel = LoginViewModel()
-    
     
     //  MARK: - IB Properties
     @IBOutlet weak var emailTFUnderline: UIImageView!
@@ -25,25 +21,39 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginButtonTapped(_ sender: Any) {
-        print("I want to login")
+        guard let email = emailTextfield.text else {return}
+        guard let password = passwordTextfield.text else {return}
+        
+        AuthManager.logUserInWith(email: email, password: password) {[weak self] (result) in
+            switch result{
+            case.failure(let error):
+                self?.showToast(state: .error, message: "\(error.localizedDescription)")
+            case .success:
+                print("successfully logged in")
+                self?.dismiss(animated: true, completion: nil)
+//                self?.delegate?.authenticationComplete()
+                
+            }
+        }
     }
     @IBAction func forgotPasswordTapped(_ sender: Any) {
         let vc = ResetPasswordViewController()
         vc.email = emailTextfield.text
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
-        navigationController?.pushViewController(vc, animated: true)
-    }
+        navigationController?.pushViewController(vc, animated: true)}
+    
     @IBOutlet weak var signInWithGoogle: UIButton!
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
         print("I want to sign in with google")
+        /// google login selector
     }
     @IBAction func signUpTapped(_ sender: Any) {
         let svc = SignUpViewController()
         svc.modalPresentationStyle = .overCurrentContext
         svc.modalTransitionStyle = .crossDissolve
-        navigationController?.pushViewController(svc, animated: true)
-    }
+        //        svc.delegate = delegate
+        navigationController?.pushViewController(svc, animated: true)}
     
     
     //  MARK: - Lifecycle
@@ -132,3 +142,12 @@ extension LoginViewController: FormViewModel {
         loginButton.tintColor = viewmodel.buttonTitleColor
     }
 }
+
+
+//extension LoginViewController: ResetPasswordViewControllerDelegate, Animatable {
+//    func didSendResetPasswordLink() {
+//        navigationController?.popViewController(animated: true)
+//        showToast(state: .success, message: "We have sent an email to the email address provided, please follow instructions to retrive your password")
+//    }
+//}
+

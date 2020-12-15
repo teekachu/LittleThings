@@ -7,6 +7,7 @@
 
 import UIKit
 import Loaf
+import Firebase
 
 class TasksViewController: UIViewController, Animatable {
     
@@ -26,6 +27,13 @@ class TasksViewController: UIViewController, Animatable {
             }
         }
     }
+    private var user: User?
+    //    {
+    //        didSet{
+    //            presentOnboardingIfNecessary()
+    ////            showWelcomeLabel() /// change the name  in " Hello teeks " to the user's name
+    //        }
+    //    }
     
     
     //  MARK: - IB Properties
@@ -42,6 +50,9 @@ class TasksViewController: UIViewController, Animatable {
         infoController.modalTransitionStyle = .crossDissolve
         present(infoController, animated: true)
     }
+    @IBAction func ShowMenuTapped(_ sender: Any) {
+        handleLogOut()
+    }
     
     
     //  MARK: - Lifecycle
@@ -56,12 +67,13 @@ class TasksViewController: UIViewController, Animatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authenticatedUser()
         configureTableView()
         configureDataSource()
         addTaskObserver()
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
-//        presentOnboardingController()
+        //        presentOnboardingController()
     }
     
     //  MARK: - Selectors
@@ -106,20 +118,20 @@ class TasksViewController: UIViewController, Animatable {
     private func configureSnapshot(for stored: [Task]) {
         /// set up initial snapshot
         var snapshot = NSDiffableDataSourceSnapshot<TaskType, Task>()
-
+        
         /// populate snapshot with sections and items for each section
         /// Case iterable allows iterating through all cases
-
+        
         for type in TaskType.allCases {
             /// filter  [tasks] array items for particular tasktype item
             let filteredTasks = stored.filter {
                 $0.taskType == type
             }
-
+            
             snapshot.appendSections([type]) /// add section to table
             snapshot.appendItems(filteredTasks, toSection: type)
         }
-
+        
         DispatchQueue.main.async { [weak self] in
             self?.dataSource.apply(snapshot, animatingDifferences: true)
         }
@@ -199,6 +211,71 @@ class TasksViewController: UIViewController, Animatable {
             self?.showToast(state: status, message: message)
         }
     }
+    
+    // MARK: - Auth
+    private func handleLogOut(){
+        let ac = UIAlertController.logUserOut {[weak self] (didSelectLogOut) in
+            if didSelectLogOut{
+                AuthManager.signUserOut()
+                self?.presentLoginVC()
+            } else {
+                return
+            }
+        }
+        present(ac, animated: true)
+    }
+    
+    private func authenticatedUser(){
+        if Auth.auth().currentUser?.uid == nil{
+            presentLoginVC()
+        } else {
+            print("user is logged in, fetch user")
+            //            fetchUser()
+            //            fetchUserFromFirestore()
+        }
+    }
+    
+    //    func showOptions(for task: Task){
+    //        let controller = UIAlertController.addTask { didSelectEdit in
+    //            if didSelectEdit {
+    //                self.editTask(for: task)
+    //            } else {
+    //                self.deleteTask(task)
+    //            }
+    //        }
+    //        present(controller, animated: true)
+    //    }
+    
+    private func presentLoginVC() {
+        DispatchQueue.main.async {[weak self] in
+            let controller = LoginViewController()
+            //            controller.delegate = self
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self?.present(nav, animated: true)
+        }
+    }
+    
+    /// Fetch from Firestore
+    //    func fetchUserFromFirestore(){
+    //        AuthManager.fetchUserFromFirestore { (user) in
+    //            self.user = user
+    //        }
+    //    }
+    
+    //    fileprivate func presentOnboardingIfNecessary() {
+    //        /// make sure user exist
+    //        guard let user = user else {return}
+    //
+    //        /// make sure user has not seen onboarding
+    //        guard !user.hasSeenOnboardingPage else {return}
+    //
+    //        /// show onboarding stuff
+    //        let controller = OnboardingViewController()
+    //        /// Set the onboardingController's delegate to self, so the homeview will be the one passing information around
+    //        controller.delegate = self
+    //        self.present(controller, animated: true)
+    //    }
 }
 
 
@@ -254,3 +331,30 @@ extension TasksViewController: OngoingTasksTVCDelegate {
     }
 }
 
+//  MARK: - OnboardingControllerDelegate
+extension TasksViewController: OnboardingControllerDelegate {
+    func controllerWantsToDismiss(_ controller: OnboardingViewController) {
+        dismiss(animated: true)
+        /// after onboarding controller dismiss, update value un firebase for " updateUserHasSeenOnboardingInFirestore"
+        
+        //        /// After the onboarding controller dismiss,  update the value in firestore.
+        //        Service.updateUserHasSeenOnboardingInFirestore {[weak self] (error) in
+        //            if let error = error {
+        //                self?.showMessage(withTitle: "Error", message: error.localizedDescription)
+        //            }
+        //
+        //            self?.user?.hasSeenOnboardingPage = true
+        //        }
+    }
+}
+
+//  MARK: - AuthenticationDelegate
+extension TasksViewController: AuthenticationDelegate {
+    func authenticationComplete() {
+        dismiss(animated: true, completion: nil)
+        //        fetchUser()
+        //        fetchUserFromFirestore()
+    }
+    
+    
+}

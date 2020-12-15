@@ -24,4 +24,18 @@ extension UIAlertController {
         controller.view.tintColor = Constants.blackWhite
         return controller
     }
+    
+    
+    static func logUserOut(onTap: @escaping (Bool) -> Void) -> UIAlertController {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let logOut = UIAlertAction(title: "Log out", style: .default) { _ in
+            onTap(true)}
+       
+        controller.addAction(cancel)
+        controller.addAction(logOut)
+        
+        controller.view.tintColor = Constants.blackWhite
+        return controller
+    }
 }

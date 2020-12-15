@@ -7,12 +7,11 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     weak var delegate: AuthenticationDelegate?
     private var viewmodel = RegistrationViewModel()
-    
     
     //  MARK: - IB Properties
     @IBOutlet weak var emailTFUnderline: UIImageView!
@@ -23,7 +22,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        print("I want to sign up")
+        handleSignup()
     }
     @IBAction func goBackToLoginTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -118,6 +117,30 @@ class SignUpViewController: UIViewController {
         emailTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         nameTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    // MARK: - Auth
+    private func handleSignup(){
+        guard let emailtf = emailTextfield.text else {return}
+        guard let passwordtf = passwordTextfield.text else {return}
+        guard let fullnametf = nameTextfield.text else {return}
+        
+        //        showLoader(true)
+
+        AuthManager.registerUserWithFirebase(
+            email: emailtf, password: passwordtf,
+            fullname: fullnametf,
+            hasSeenOnboardingPage: false) {[weak self] (error, ref) in
+            
+            //            self?.showLoader(false)
+            
+            if let error = error {
+                self?.showToast(state: .error, message: "Uh oh, \(error.localizedDescription)")
+                return
+            }
+            
+            self?.delegate?.authenticationComplete()
+        }
     }
     
 }

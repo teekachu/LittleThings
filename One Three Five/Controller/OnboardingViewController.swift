@@ -14,10 +14,9 @@ protocol OnboardingControllerDelegate: class {
 }
 
 class OnboardingViewController: UIViewController {
-    //MARK: - Properties
-    /// 2) create a delegate of this onboardingController
-    weak var delegate: OnboardingControllerDelegate?
     
+    //MARK: - Properties
+    weak var delegate: OnboardingControllerDelegate?
     private var onboardingItems = [OnboardingItemInfo]()
     private var onboardingView = PaperOnboarding()
     private let getStartedButton: UIButton = {
@@ -33,7 +32,6 @@ class OnboardingViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
         configureOnboardingDatasource()
     }
@@ -49,15 +47,8 @@ class OnboardingViewController: UIViewController {
     
     
     //MARK: - Selectors
-    @objc func dismissOnboarding(){
-        /// 3) call delegate
-        dismiss(animated: true, completion: nil)
-        
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .overCurrentContext
-        loginVC.modalTransitionStyle = .crossDissolve
-        present(loginVC, animated: true)
-        //        delegate?.controllerWantsToDismiss(self)
+    @objc func dismissOnboardingScreen(){
+        delegate?.controllerWantsToDismiss(self)
     }
     
     
@@ -69,7 +60,7 @@ class OnboardingViewController: UIViewController {
         onboardingView.delegate = self
         
         view.addSubview(getStartedButton)
-        getStartedButton.addTarget(self, action: #selector(dismissOnboarding), for: .touchUpInside)
+        getStartedButton.addTarget(self, action: #selector(dismissOnboardingScreen), for: .touchUpInside)
         getStartedButton.centerX(inView: view)
         getStartedButton.anchor(
             bottom: view.bottomAnchor,
@@ -77,7 +68,6 @@ class OnboardingViewController: UIViewController {
     }
     
     private func configureOnboardingDatasource(){
-        
         /// set up onboarding items
         let itemOne = OnboardingItemInfo(
             informationImage: #imageLiteral(resourceName: "moreStars")
@@ -142,7 +132,6 @@ extension OnboardingViewController: PaperOnboardingDataSource{
     }
 }
 
-
 //MARK: - PaperOnboardingDelegate
 extension OnboardingViewController: PaperOnboardingDelegate{
     func onboardingWillTransitonToIndex(_ index: Int) {
@@ -152,3 +141,5 @@ extension OnboardingViewController: PaperOnboardingDelegate{
         animateGetStartedButton(shouldshow)
     }
 }
+
+

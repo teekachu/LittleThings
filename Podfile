@@ -19,9 +19,9 @@ target 'One Three Five' do
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'GoogleSignIn'
+    pod 'Firebase/Database'
     # Onboarding screens
     pod 'paper-onboarding'
 
-    
 
 end
