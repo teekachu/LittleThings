@@ -51,7 +51,8 @@ class TasksViewController: UIViewController, Animatable {
         present(infoController, animated: true)
     }
     @IBAction func ShowMenuTapped(_ sender: Any) {
-        handleLogOut()
+        /// TODO:  so far only log out option in menu, need to add more functionalities later
+        handleMenuOptions()
     }
     
     
@@ -89,6 +90,7 @@ class TasksViewController: UIViewController, Animatable {
         present(controller, animated: true)
     }
     
+    
     //  MARK: - Configuration Setup
     private func configureTableView() {
         tableView.delegate = self
@@ -111,7 +113,6 @@ class TasksViewController: UIViewController, Animatable {
             return cell
         })
         
-        /// set up type of animation
         dataSource.defaultRowAnimation = .fade
     }
     
@@ -176,7 +177,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     
-    //  MARK: - Private Methods
+    //  MARK: - Privates
     private func deleteTask(_ task: Task){
         taskManager.delete(task) {[weak self] (status, message) in
             guard let self = self else {return}
@@ -213,7 +214,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     // MARK: - Auth
-    private func handleLogOut(){
+    private func handleMenuOptions(){
         let ac = UIAlertController.logUserOut {[weak self] (didSelectLogOut) in
             if didSelectLogOut{
                 AuthManager.signUserOut()
@@ -234,17 +235,6 @@ class TasksViewController: UIViewController, Animatable {
             //            fetchUserFromFirestore()
         }
     }
-    
-    //    func showOptions(for task: Task){
-    //        let controller = UIAlertController.addTask { didSelectEdit in
-    //            if didSelectEdit {
-    //                self.editTask(for: task)
-    //            } else {
-    //                self.deleteTask(task)
-    //            }
-    //        }
-    //        present(controller, animated: true)
-    //    }
     
     private func presentLoginVC() {
         DispatchQueue.main.async {[weak self] in
@@ -291,7 +281,6 @@ extension TasksViewController: UITableViewDelegate {
     }
 }
 
-
 //  MARK: - NewTaskVCDelegate
 extension TasksViewController: NewTaskVCDelegate {
     
@@ -311,7 +300,6 @@ extension TasksViewController: NewTaskVCDelegate {
         })
     }
 }
-
 
 //  MARK: - OngoingTasksTVCDelegate
 extension TasksViewController: OngoingTasksTVCDelegate {
@@ -355,6 +343,4 @@ extension TasksViewController: AuthenticationDelegate {
         //        fetchUser()
         //        fetchUserFromFirestore()
     }
-    
-    
 }

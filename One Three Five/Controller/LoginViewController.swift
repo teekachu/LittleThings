@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class LoginViewController: UIViewController, Animatable {
     
@@ -21,38 +22,20 @@ class LoginViewController: UIViewController, Animatable {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginButtonTapped(_ sender: Any) {
-        guard let email = emailTextfield.text else {return}
-        guard let password = passwordTextfield.text else {return}
-        
-        AuthManager.logUserInWith(email: email, password: password) {[weak self] (result) in
-            switch result{
-            case.failure(let error):
-                self?.showToast(state: .error, message: "\(error.localizedDescription)")
-            case .success:
-                print("successfully logged in")
-                self?.dismiss(animated: true, completion: nil)
-//                self?.delegate?.authenticationComplete()
-                
-            }
-        }
-    }
+        handleLogin()}
+    
     @IBAction func forgotPasswordTapped(_ sender: Any) {
-        let vc = ResetPasswordViewController()
-        vc.email = emailTextfield.text
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        navigationController?.pushViewController(vc, animated: true)}
+        handleForgotPassword()}
     
     @IBOutlet weak var signInWithGoogle: UIButton!
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
-        print("I want to sign in with google")
-        /// google login selector
-    }
+        handleGoogleLogin()}
+    
     @IBAction func signUpTapped(_ sender: Any) {
         let svc = SignUpViewController()
         svc.modalPresentationStyle = .overCurrentContext
         svc.modalTransitionStyle = .crossDissolve
-        //        svc.delegate = delegate
+        svc.delegate = delegate
         navigationController?.pushViewController(svc, animated: true)}
     
     
@@ -62,6 +45,7 @@ class LoginViewController: UIViewController, Animatable {
         configureUI()
         addTapGestureToDismiss()
         notificationObserver()
+        configureGoogleLogIn()
     }
     
     
@@ -133,6 +117,43 @@ class LoginViewController: UIViewController, Animatable {
         emailTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
+    
+    private func configureGoogleLogIn(){
+        /// When GIDSignIn is called, show the viewcontroller for google signin
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        /// and make the viewcontroller the delegate for google signin
+        GIDSignIn.sharedInstance()?.delegate = self
+    }
+    
+    
+    //MARK: - Auth
+    private func handleLogin(){
+        guard let email = emailTextfield.text else {return}
+        guard let password = passwordTextfield.text else {return}
+        
+        AuthManager.logUserInWith(email: email, password: password) {[weak self] (result) in
+            switch result{
+            case.failure(let error):
+                self?.showToast(state: .error, message: "\(error.localizedDescription)")
+            case .success:
+                self?.dismiss(animated: true, completion: nil)
+            //                self?.delegate?.authenticationComplete()
+            }
+        }
+    }
+    
+    private func handleGoogleLogin(){
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    private func handleForgotPassword(){
+        let vc = ResetPasswordViewController()
+        vc.email = emailTextfield.text
+        //        vc.delegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 //  MARK: - FormViewModel
@@ -143,11 +164,31 @@ extension LoginViewController: FormViewModel {
     }
 }
 
+//  MARK: - GIDSignInDelegate
+extension LoginViewController: GIDSignInDelegate{
+    
+    /// this gets called after user input their google account information into auth.
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        print("Sign in with google")
+        
+//        AuthManager.signInWithGoogle(didSignInFor: user) { [weak self] (error, ref) in
+//            if let error = error {
+//                self?.showToast(state: .error, message: error.localizedDescription)
+//            }
+//            
+//            self?.dismiss(animated: true, completion: nil)
+//            //            self?.delegate?.authenticationComplete()
+//        }
+    }
+}
 
-//extension LoginViewController: ResetPasswordViewControllerDelegate, Animatable {
+////  MARK: - ResetPasswordViewControllerDelegate
+//extension LoginViewController: ResetPasswordViewControllerDelegate {
 //    func didSendResetPasswordLink() {
 //        navigationController?.popViewController(animated: true)
-//        showToast(state: .success, message: "We have sent an email to the email address provided, please follow instructions to retrive your password")
+//        showToast(state: .success,
+//                  message: "We have sent an email to the email address provided, please follow instructions to retrive your password")
 //    }
 //}
 

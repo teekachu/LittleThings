@@ -126,24 +126,28 @@ class SignUpViewController: UIViewController, Animatable {
         guard let fullnametf = nameTextfield.text else {return}
         
         //        showLoader(true)
-
-        AuthManager.registerUserWithFirebase(
-            email: emailtf, password: passwordtf,
+        
+        // create user in Firestore
+        AuthManager.registerUserWithFirestore(
+            email: emailtf,
+            password: passwordtf,
             fullname: fullnametf,
-            hasSeenOnboardingPage: false) {[weak self] (error, ref) in
-            
-            //            self?.showLoader(false)
-            
+            hasSeenOnboardingPage: false) {[weak self] (error) in
             if let error = error {
                 self?.showToast(state: .error, message: "Uh oh, \(error.localizedDescription)")
                 return
             }
             
-            self?.delegate?.authenticationComplete()
+            self?.dismiss(animated: true) {
+                print("This sign up page should dismiss now")
+            }
+            
+            //            self?.delegate?.authenticationComplete()
         }
     }
-    
 }
+
+
 
 //  MARK: - FormViewModel
 extension SignUpViewController: FormViewModel {
