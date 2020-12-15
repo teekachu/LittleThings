@@ -27,7 +27,7 @@ struct AuthManager{
         }
     }
     
-
+    
     static func registerUserWithFirestore(email: String, password: String, fullname: String, hasSeenOnboardingPage: Bool, completion: ((Error?) -> Void)?){
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
@@ -52,7 +52,7 @@ struct AuthManager{
     }
     
     
-    static func signInWithGoogle(didSignInFor user: GIDGoogleUser, completion: @escaping DatabaseCompletion){
+    static func signInWithGoogle(didSignInFor user: GIDGoogleUser, completion: ((Error?) -> Void)?) {
         
         guard let auth = user.authentication else {return}
         let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken,
@@ -63,8 +63,8 @@ struct AuthManager{
             
             /// handle error
             if let error = error {
-                print("Debug: error in signInWithGoogle(), \(error.localizedDescription) ")
-                completion(error, REF_USERS)
+                print("Debug: error when signing in with google credentials, \(error.localizedDescription) ")
+                completion!(error)
                 return
             }
             
@@ -73,29 +73,17 @@ struct AuthManager{
             guard let email = result?.user.email else{return}
             guard let fullname = result?.user.displayName else{return}
             
-            /// To check if this user exists as google sign in, if no, then save the structure in firebase.
-            /// make API call
-            REF_USERS.child(uid).observeSingleEvent(of: .value) { (snapshot) in
-                if !snapshot.exists(){
-                    
-                    print("DEBUG: User does not exist, create user")
-                    let structure = [
-                        "email": email,
-                        "fullname": fullname,
-                        "hasSeenOnboardingPage": false
-                        
-                    ] as [String: Any]
-                    
-                    REF_USERS.child(uid).updateChildValues(structure, withCompletionBlock: completion)
-                    
-                } else {
-                    /// basically do nothing
-                    print("DEBUG: User already exist")
-                    completion(error, REF_USERS.child(uid))
-                }
-            }
+            let values = [
+                "email": email,
+                "fullname": fullname,
+                "hasSeenOnboardingPage": false
+            ] as [String: Any]
+            
+            Firestore.firestore().collection("Users").document(uid).setData(values, completion: completion)
+            
         }
     }
+    
     
     static func signUserOut(){
         do{

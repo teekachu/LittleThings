@@ -170,16 +170,14 @@ extension LoginViewController: GIDSignInDelegate{
     /// this gets called after user input their google account information into auth.
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        print("Sign in with google")
-        
-//        AuthManager.signInWithGoogle(didSignInFor: user) { [weak self] (error, ref) in
-//            if let error = error {
-//                self?.showToast(state: .error, message: error.localizedDescription)
-//            }
-//            
-//            self?.dismiss(animated: true, completion: nil)
-//            //            self?.delegate?.authenticationComplete()
-//        }
+        AuthManager.signInWithGoogle(didSignInFor: user) {[weak self] (error) in
+            if let error = error {
+                self?.showToast(state: .error, message: error.localizedDescription)
+            }
+            
+            self?.dismiss(animated: true)
+            //            self?.delegate?.authenticationComplete()
+        }
     }
 }
 
