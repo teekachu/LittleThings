@@ -114,6 +114,10 @@ class TaskManager {
         }
     }
     
+    public func emptyTasksBeforeLogOut(){
+        self.tasks = []
+    }
+    
     // MARK: - Private
     /// Pulls task through using the databaseManager
     private func addTasksListener() {

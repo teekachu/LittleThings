@@ -233,6 +233,8 @@ class TasksViewController: UIViewController, Animatable {
     private func handleMenuOptions(){
         let ac = UIAlertController.logUserOut {[weak self] (didSelectLogOut) in
             if didSelectLogOut{
+                /// TODO: empty tasks manually in taskmanager
+                self?.taskManager.emptyTasksBeforeLogOut()
                 AuthManager.signUserOut()
                 self?.presentLoginVC()
             } else {
