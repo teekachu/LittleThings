@@ -19,9 +19,7 @@ class TasksViewController: UIViewController, Animatable {
     private let taskManager: TaskManager
     private var dataSource: DataSource!
     private var isDoneActive: Bool = false {
-        didSet {
-            tasks = tasks + []
-        }
+        didSet { tasks = tasks + [] }
     }
     private var tasks: [Task] = [] {
         didSet {
@@ -35,6 +33,7 @@ class TasksViewController: UIViewController, Animatable {
         didSet{
             presentOnboardingIfNecessary()
             showWelcomeLabel()
+            addTaskObserver()
         }
     }
     

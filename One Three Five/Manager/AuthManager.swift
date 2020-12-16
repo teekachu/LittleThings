@@ -95,7 +95,7 @@ struct AuthManager{
     }
     
     
-    static func fetchUser(completion: @escaping (User) -> Void) {
+    static func fetchUser(_ completion: @escaping (User) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("DEBUG: Cannot fetch user in fetchUser()")
             return}

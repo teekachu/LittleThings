@@ -12,7 +12,6 @@ class TaskManager {
     
     private let databaseManager: DatabaseManager
     
-    
     init(databaseManager: DatabaseManager) {
         self.databaseManager = databaseManager
         addTasksListener()
@@ -29,6 +28,7 @@ class TaskManager {
     // MARK: - Public
     
     public func setTaskObserver(onChange: @escaping ([Task]) -> Void) {
+        addTasksListener()
         taskObserver = onChange
         taskObserver?(tasks)
     }
@@ -106,7 +106,7 @@ class TaskManager {
         databaseManager.deleteTask(for: id) { result in
             switch result{
             case.failure(let error):
-                print("DEBUG: deleteTask: \(error.localizedDescription)")
+                print("DEBUG: error in deleteTask: \(error.localizedDescription)")
                 onResult(.error, "Uh Oh, something went wrong.")
             case.success:
                 onResult(.success, "Task has been deleted successfully.")
@@ -115,10 +115,14 @@ class TaskManager {
     }
     
     // MARK: - Private
-    
     /// Pulls task through using the databaseManager
     private func addTasksListener() {
-        databaseManager.getTasks { [weak self] tasks in
+        guard let currentUserUID = AuthManager.fetchUserUID() else {
+            print("DEBUG error in addTasksListener: Cannot fetch uid")
+            return
+        }
+        
+        databaseManager.getTasks(for: currentUserUID) { [weak self] tasks in
             self?.tasks = tasks
         }
     }

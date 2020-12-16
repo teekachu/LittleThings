@@ -74,8 +74,9 @@ class DatabaseManager {
     }
     
     /// Added index in firebase maually to help with querying
-    public func getTasks(onLoad: @escaping ([Task]) -> Void){
+    public func getTasks(for uid: String, onLoad: @escaping ([Task]) -> Void){
         tasksCollection
+            .whereField("uid", isEqualTo: uid)
             .order(by: "createdAt", descending: true) // latest task appear on top
             .addSnapshotListener { (snapshot, error) in
                 
