@@ -349,6 +349,7 @@ PODS:
   - JGProgressHUD (2.0.4)
   - leveldb-library (1.22)
   - Loaf (0.7.0)
+  - lottie-ios (3.1.9)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -367,6 +368,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - JGProgressHUD (~> 2.0.3)
   - Loaf
+  - lottie-ios
   - paper-onboarding
 
 SPEC REPOS:
@@ -395,6 +397,7 @@ SPEC REPOS:
     - JGProgressHUD
     - leveldb-library
     - Loaf
+    - lottie-ios
     - nanopb
     - paper-onboarding
     - PromisesObjC
@@ -424,10 +427,11 @@ SPEC CHECKSUMS:
   JGProgressHUD: 62658b14e72cccf179efc7a13bcb54d30b92fc22
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   paper-onboarding: fede1799b1da6988f3788e3b71654583c6f3bce1
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
 
-PODFILE CHECKSUM: e73f122810587bc7f86bb9e1a5e326e8e27ee7f8
+PODFILE CHECKSUM: 765a6727bd92279c311477dc4e21fcd8b1724f71
 
 COCOAPODS: 1.10.0

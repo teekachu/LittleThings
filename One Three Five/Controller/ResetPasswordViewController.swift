@@ -7,31 +7,39 @@
 
 import UIKit
 
-class ResetPasswordViewController: UIViewController {
+protocol ResetPasswordViewControllerDelegate: class {
+    func controllerDidResetPassword()
+}
+
+class ResetPasswordViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private var viewmodel = ResetPasswordViewModel()
     var email: String?
+    weak var delegate: ResetPasswordViewControllerDelegate?
+    
     
     //  MARK: - IB Properties
     @IBOutlet weak var emailTFUnderline: UIImageView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var resetButton: UIButton!
     @IBAction func resetButtonTapped(_ sender: Any) {
-        print("retrive my password")
-    }
+        handleResetPassword()}
+    
     @IBAction func goBackToLoginTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
+        navigationController?.popViewController(animated: true)}
+    
     @IBOutlet weak var errorLabel: UILabel!
+    
     
     //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        loadEmail()
         notificationObserver()
         addTapGestureToDismiss()
-        loadEmail()
+        
     }
     
     
@@ -46,8 +54,7 @@ class ResetPasswordViewController: UIViewController {
     }
     
     @objc func didEndEditing(_ sender: UITextField) {
-        emailTextfield.placeholder = "Email"
-    }
+        emailTextfield.placeholder = "Email"}
     
     @objc func textDidChange(_ sender: UITextField) {
         if sender == emailTextfield{
@@ -64,7 +71,6 @@ class ResetPasswordViewController: UIViewController {
         /// TODO: Update
         emailTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
         
-        emailTextfield.keyboardType = .emailAddress
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -91,6 +97,26 @@ class ResetPasswordViewController: UIViewController {
         updateForm()
     }
     
+    // MARK: - Auth
+    private func handleResetPassword(){
+        
+        email = emailTextfield.text
+        guard let email = email else {return}
+        showLoaderAnimation(true)
+        
+        AuthManager.resetPassword(for: email) {[weak self](error) in
+            self?.showLoaderAnimation(false)
+            
+            if let error = error {
+                self?.showToast(state: .error, message: error.localizedDescription)
+                print("DEBUG: error in handleResetPassword = \(error.localizedDescription)")
+                return
+            }
+            
+            print("did reset password")
+            self?.delegate?.controllerDidResetPassword()
+        }
+    }
 }
 
 

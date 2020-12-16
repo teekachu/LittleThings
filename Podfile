@@ -9,10 +9,10 @@ target 'One Three Five' do
   
     # To show toast message on top or bottom
     pod 'Loaf'
+    
     # To show bulletin card
     pod 'BulletinBoard'
-    # To show the little spinner animation for progress
-    pod 'JGProgressHUD','~>2.0.3'
+  
     # Firebase stuff
     pod 'Firebase/Firestore'
     pod 'FirebaseFirestoreSwift'
@@ -20,8 +20,15 @@ target 'One Three Five' do
     pod 'Firebase/Core'
     pod 'GoogleSignIn'
     pod 'Firebase/Database'
+    
     # Onboarding screens
     pod 'paper-onboarding'
+    
+    # Lottie loading animation
+    pod 'lottie-ios'
 
+    #DELETE USELESS PODS:
+    # To show the little spinner animation for progress
+    pod 'JGProgressHUD','~>2.0.3'
 
 end

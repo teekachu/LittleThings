@@ -89,7 +89,6 @@ class LoginViewController: UIViewController, Animatable {
         emailTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
         pswdTFUnderline.image = #imageLiteral(resourceName: "lines1").withRenderingMode(.alwaysOriginal)
         
-        emailTextfield.keyboardType = .emailAddress
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -134,15 +133,18 @@ class LoginViewController: UIViewController, Animatable {
     private func handleLogin(){
         guard let email = emailTextfield.text else {return}
         guard let password = passwordTextfield.text else {return}
+        showLoaderAnimation(true)
         
         AuthManager.logUserInWith(email: email, password: password) {[weak self] (result) in
+            
+            self?.showLoaderAnimation(false)
+
             switch result{
             case.failure(let error):
                 self?.showToast(state: .error, message: "\(error.localizedDescription)")
             case .success:
                 print("DEBUG: handleLogin()successful for user: \(email)")
                 self?.delegate?.authenticationComplete()
-//                self?.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -154,12 +156,13 @@ class LoginViewController: UIViewController, Animatable {
     private func handleForgotPassword(){
         let vc = ResetPasswordViewController()
         vc.email = emailTextfield.text
-        //        vc.delegate = self
+        vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 
 //  MARK: - FormViewModel
 extension LoginViewController: FormViewModel {
@@ -179,27 +182,32 @@ extension LoginViewController: GIDSignInDelegate{
             print(error.localizedDescription)
             return
         }
+        showLoaderAnimation(true)
         
         AuthManager.signInWithGoogle(didSignInFor: user) {[weak self] (error) in
+            self?.showLoaderAnimation(false)
+            
             if let error = error {
                 self?.showToast(state: .error, message: error.localizedDescription)
             }
-            
+
             AuthManager.fetchUser { (user) in
                 print("DEBUG: Logged in with google for user: \(user.fullname)")
             }
+            
             self?.delegate?.authenticationComplete()
-//            self?.dismiss(animated: true)
         }
     }
 }
 
-////  MARK: - ResetPasswordViewControllerDelegate
-//extension LoginViewController: ResetPasswordViewControllerDelegate {
-//    func didSendResetPasswordLink() {
-//        navigationController?.popViewController(animated: true)
-//        showToast(state: .success,
-//                  message: "We have sent an email to the email address provided, please follow instructions to retrive your password")
-//    }
-//}
+//  MARK: - ResetPasswordViewControllerDelegate
+extension LoginViewController: ResetPasswordViewControllerDelegate {
+    func controllerDidResetPassword() {
+        navigationController?.popViewController(animated: true)
+        showToast(state: .success,
+                  message: "We have sent an email to the email address provided, please follow instructions to retrive your password.",
+                  location: .top, duration: 3)
+        
+    }
+}
 

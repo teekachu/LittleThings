@@ -81,7 +81,6 @@ class SignUpViewController: UIViewController, Animatable {
         pswdTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
         nameTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
         
-        emailTextfield.keyboardType = .emailAddress
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -91,7 +90,6 @@ class SignUpViewController: UIViewController, Animatable {
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
-        nameTextfield.keyboardType = .default
         nameTextfield.attributedPlaceholder = NSAttributedString(
             string: "What should we call you?",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -124,8 +122,7 @@ class SignUpViewController: UIViewController, Animatable {
         guard let emailtf = emailTextfield.text else {return}
         guard let passwordtf = passwordTextfield.text else {return}
         guard let fullnametf = nameTextfield.text else {return}
-        
-        //        showLoader(true)
+        showLoaderAnimation(true)
         
         // create user in Firestore
         AuthManager.registerUserWithFirestore(
@@ -133,14 +130,14 @@ class SignUpViewController: UIViewController, Animatable {
             password: passwordtf,
             fullname: fullnametf,
             hasSeenOnboardingPage: false) {[weak self] (error) in
+            
+            self?.showLoaderAnimation(false)
+            
             if let error = error {
                 self?.showToast(state: .error, message: "Uh oh, \(error.localizedDescription)")
                 return
             }
             self?.delegate?.authenticationComplete()
-//            self?.dismiss(animated: true) {
-//                print("DEBUG: This sign up page should dismiss now")
-//            }
         }
     }
 }

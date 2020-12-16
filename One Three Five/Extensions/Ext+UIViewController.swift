@@ -22,18 +22,31 @@ extension UIViewController {
     //    }
     //
     
-    func configureGradientBackground(color1: UIColor, color2: UIColor) {
-        let gradient = CAGradientLayer()
-        gradient.colors = [color1, color2]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-    }
+    //    func configureGradientBackground(color1: UIColor, color2: UIColor) {
+    //        let gradient = CAGradientLayer()
+    //        gradient.colors = [color1, color2]
+    //        gradient.locations = [0, 1]
+    //        view.layer.addSublayer(gradient)
+    //        gradient.frame = view.frame
+    //    }
     
     func showMessage(withTitle title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-
+    
+    func showLoaderAnimation(_ show: Bool){
+        if show{
+            let vc = LottieLoadingAnimationViewController()
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true)
+        } else {
+            dismiss(animated: true)
+        }
+    }
+    
+    
+    
 }

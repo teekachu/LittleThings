@@ -90,6 +90,20 @@ struct AuthManager{
     }
     
     
+    static func resetPassword(for email: String, completion: SendPasswordResetCallback?) {
+        Auth.auth().sendPasswordReset(withEmail: email, completion: completion)
+    }
+    
+    
+    static func signUserOut(){
+        do{
+            try Auth.auth().signOut()
+        } catch {
+            print("Error in signUserOut()")
+        }
+    }
+    
+    
     static func fetchUserUID() -> String? {
         return Auth.auth().currentUser?.uid
     }
@@ -108,15 +122,6 @@ struct AuthManager{
     }
     
     
-    static func signUserOut(){
-        do{
-            try Auth.auth().signOut()
-        } catch {
-            print("Error in signUserOut()")
-        }
-    }
-    
-    
     static func updateUserHasSeenOnboardingInDatabase(completion: @escaping (FirebaseCompletion)){
         /// find the unique id of the current user
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -126,16 +131,4 @@ struct AuthManager{
     }
 }
 
-
-
-//struct Service{
-//
-//
-//
-//
-//
-//    static func resetPassword(for email: String, completion: SendPasswordResetCallback?) {
-//        Auth.auth().sendPasswordReset(withEmail: email, completion: completion)
-//    }
-//
 

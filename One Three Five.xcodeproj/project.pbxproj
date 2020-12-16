@@ -16,6 +16,10 @@
 		A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */; };
 		A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */; };
 		A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AE32587EB7600CB1BAE /* AuthManager.swift */; };
+		A74B90C8258A685300DA221D /* notepad.json in Resources */ = {isa = PBXBuildFile; fileRef = A74B90C6258A685300DA221D /* notepad.json */; };
+		A74B90C9258A685300DA221D /* yellowWheel.json in Resources */ = {isa = PBXBuildFile; fileRef = A74B90C7258A685300DA221D /* yellowWheel.json */; };
+		A74B90D9258A7FF900DA221D /* LottieLoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B90D7258A7FF900DA221D /* LottieLoadingAnimationViewController.swift */; };
+		A74B90DA258A7FF900DA221D /* LottieLoadingAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74B90D8258A7FF900DA221D /* LottieLoadingAnimationViewController.xib */; };
 		A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666672585A20A0043D22D /* LoginViewController.swift */; };
 		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
 		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
@@ -67,6 +71,10 @@
 		A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		A7461AE32587EB7600CB1BAE /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		A74B90C6258A685300DA221D /* notepad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = notepad.json; path = ../../../../../Downloads/notepad.json; sourceTree = "<group>"; };
+		A74B90C7258A685300DA221D /* yellowWheel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = yellowWheel.json; path = ../../../../../Downloads/yellowWheel.json; sourceTree = "<group>"; };
+		A74B90D7258A7FF900DA221D /* LottieLoadingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingAnimationViewController.swift; sourceTree = "<group>"; };
+		A74B90D8258A7FF900DA221D /* LottieLoadingAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingAnimationViewController.xib; sourceTree = "<group>"; };
 		A7A666672585A20A0043D22D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -128,6 +136,15 @@
 				5332B45D8AE08EB508689114 /* Pods_One_Three_Five.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A74B90C4258A682A00DA221D /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				A74B90C6258A685300DA221D /* notepad.json */,
+				A74B90C7258A685300DA221D /* yellowWheel.json */,
+			);
+			path = "Lottie Animations";
 			sourceTree = "<group>";
 		};
 		F3B1CCF7258319120048D6F8 /* Extensions */ = {
@@ -218,6 +235,7 @@
 		F433E6962576BF4300A55C52 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A74B90C4258A682A00DA221D /* Lottie Animations */,
 				F430AEDB257826A900DE727B /* GoogleService-Info.plist */,
 				F433E6872576BEE000A55C52 /* Assets.xcassets */,
 				F433E6802576BEDC00A55C52 /* SceneDelegate.swift */,
@@ -253,6 +271,8 @@
 				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
 				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
 				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
+				A74B90D7258A7FF900DA221D /* LottieLoadingAnimationViewController.swift */,
+				A74B90D8258A7FF900DA221D /* LottieLoadingAnimationViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -342,12 +362,15 @@
 				F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */,
 				F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */,
 				F430AEB425772D7000DE727B /* Podfile in Resources */,
+				A74B90DA258A7FF900DA221D /* LottieLoadingAnimationViewController.xib in Resources */,
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
 				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
 				F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */,
+				A74B90C9258A685300DA221D /* yellowWheel.json in Resources */,
 				A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */,
 				A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */,
 				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
+				A74B90C8258A685300DA221D /* notepad.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +460,7 @@
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
 				A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
+				A74B90D9258A7FF900DA221D /* LottieLoadingAnimationViewController.swift in Sources */,
 				F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */,
 				A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */,
 				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
