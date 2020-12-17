@@ -91,7 +91,7 @@ struct AuthManager{
     }
     
     
-    static func resetPassword(for email: String, completion: SendPasswordResetCallback?) {
+    static func resetPassword(for email: String, completion: FirebaseCompletion?) {
         Auth.auth().sendPasswordReset(withEmail: email, completion: completion)
     }
     

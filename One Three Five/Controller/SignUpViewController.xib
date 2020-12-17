@@ -50,7 +50,7 @@
                                         <constraint firstAttribute="height" constant="50" id="ger-HD-d4L"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-J3-bEu">
@@ -73,7 +73,7 @@
                                         <constraint firstAttribute="height" constant="50" id="DMS-NX-Y3G"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSL-EI-YDR">
@@ -96,7 +96,7 @@
                                         <constraint firstAttribute="height" constant="50" id="lEg-Tb-efJ"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-QV-iF3">
@@ -124,14 +124,14 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBK-ve-vmc">
-                    <rect key="frame" x="107" y="445" width="200" height="23.5"/>
+                    <rect key="frame" x="107" y="463.5" width="200" height="23.5"/>
                     <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="21"/>
                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-af-c2r">
-                    <rect key="frame" x="25" y="104" width="364" height="54.5"/>
-                    <string key="text">This is Jon. Jon is stranded on an island because he has too much on his plate and forgot to book a return flight. Don't be like Jon, take control of your to-do list!</string>
+                    <rect key="frame" x="25" y="104" width="364" height="73"/>
+                    <string key="text">This is guy. guy is stranded on an island because he has too much on his plate and forgot to book a return flight. Don't be like guy, take control of your to-do list!</string>
                     <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="16.5"/>
                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -151,7 +151,7 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach" translatesAutoresizingMaskIntoConstraints="NO" id="d1V-4f-Wna">
-                    <rect key="frame" x="22" y="188.5" width="370" height="250"/>
+                    <rect key="frame" x="22" y="207" width="370" height="250"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="Ptz-Ub-akR"/>
                         <constraint firstAttribute="width" constant="370" id="p3f-Qu-Wcq"/>

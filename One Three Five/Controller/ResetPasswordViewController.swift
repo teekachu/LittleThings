@@ -11,7 +11,7 @@ protocol ResetPasswordViewControllerDelegate: class {
     func controllerDidResetPassword()
 }
 
-class ResetPasswordViewController: UIViewController, Animatable {
+class ResetPasswordViewController: UIViewController {
     
     //  MARK: - Properties
     private var viewmodel = ResetPasswordViewModel()
@@ -20,10 +20,10 @@ class ResetPasswordViewController: UIViewController, Animatable {
     
     
     //  MARK: - IB Properties
-    @IBOutlet weak var emailTFUnderline: UIImageView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var resetButton: UIButton!
     @IBAction func resetButtonTapped(_ sender: Any) {
+        dismissKeyboard()
         handleResetPassword()}
     
     @IBAction func goBackToLoginTapped(_ sender: Any) {
@@ -68,15 +68,15 @@ class ResetPasswordViewController: UIViewController, Animatable {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
-        /// TODO: Update
-        emailTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
-        
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
         resetButton.tintColor = Constants.mediumBlack3f3f3f
         resetButton.isEnabled = false
+        
+        errorLabel.textColor = .red
+        errorLabel.textAlignment = .center
     }
     
     private func addTapGestureToDismiss(){
@@ -102,14 +102,17 @@ class ResetPasswordViewController: UIViewController, Animatable {
         
         email = emailTextfield.text
         guard let email = email else {return}
-//        showLoaderAnimation(true)
+        showLottieAnimation(true)
         
         AuthManager.resetPassword(for: email) {[weak self](error) in
-//            self?.showLoaderAnimation(false)
+            self?.showLottieAnimation(false)
             
             if let error = error {
-                self?.showToast(state: .error, message: error.localizedDescription)
+                self?.errorLabel.text = "\(error.localizedDescription)"
                 print("DEBUG: error in handleResetPassword = \(error.localizedDescription)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    self?.errorLabel.text = ""
+                }
                 return
             }
             

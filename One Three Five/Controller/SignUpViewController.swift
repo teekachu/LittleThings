@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController, Animatable {
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBAction func signUpButtonTapped(_ sender: Any) {
+        dismissKeyboard()
         showLottieAnimation(true)
         handleSignup()
     }

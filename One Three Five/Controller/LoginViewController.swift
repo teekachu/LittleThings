@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, Animatable {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBAction func loginButtonTapped(_ sender: Any) {
+        dismissKeyboard()
         handleLogin()}
     
     @IBAction func forgotPasswordTapped(_ sender: Any) {
@@ -212,7 +213,8 @@ extension LoginViewController: ResetPasswordViewControllerDelegate {
     func controllerDidResetPassword() {
         navigationController?.popViewController(animated: true)
         errorLabel.text = "We have sent an email to the email address provided, please follow instructions to retrive your password."
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {[weak self] in
+        errorLabel.textColor = .green
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {[weak self] in
             self?.errorLabel.text = ""
         }
     }
