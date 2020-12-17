@@ -76,15 +76,18 @@ class SignUpViewController: UIViewController, Animatable {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
+        emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
         passwordTextfield.isSecureTextEntry = true
+        passwordTextfield.delegate = self
         passwordTextfield.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
+        nameTextfield.delegate = self
         nameTextfield.attributedPlaceholder = NSAttributedString(
             string: "What should we call you?",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -118,9 +121,9 @@ class SignUpViewController: UIViewController, Animatable {
     
     // MARK: - Auth
     private func handleSignup(){
-        guard let emailtf = emailTextfield.text else {return}
-        guard let passwordtf = passwordTextfield.text else {return}
-        guard let fullnametf = nameTextfield.text else {return}
+        guard let emailtf = emailTextfield.text else { return }
+        guard let passwordtf = passwordTextfield.text else { return }
+        guard let fullnametf = nameTextfield.text else { return }
         
         showLottieAnimation(false)
         
@@ -153,5 +156,14 @@ extension SignUpViewController: FormViewModel {
     func updateForm() {
         signUpButton.isEnabled = viewmodel.shouldEnableButton
         signUpButton.tintColor = viewmodel.buttonTitleColor
+    }
+}
+
+
+//  MARK: - UITextfieldDelegate
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

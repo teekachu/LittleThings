@@ -64,7 +64,7 @@ class TaskManager {
                 onResult(.success, "New task added!")
                 
             case .failure(let error):
-                print(error.localizedDescription)
+                print("DEBUG: error in store(), \(error.localizedDescription)")
                 onResult(.error, "Uh oh, something went wrong.")
             }
         }
@@ -75,8 +75,8 @@ class TaskManager {
         databaseManager.updateTaskStatus(for: id, isDone: isDone) { result in
             switch result {
             case .failure(let error):
-                print(error.localizedDescription)
-                onResult(.error, toastMessages.uhOhErr)
+                print("DEBUG: error in updateTaskStatus(), \(error.localizedDescription)")
+                onResult(.error, "Uh oh, something went wrong...")
                 
             case .success:
                 switch isDone{
@@ -93,8 +93,8 @@ class TaskManager {
         databaseManager.editTask(for: task) { (result) in
             switch result{
             case .failure(let error):
-                print(error.localizedDescription)
-                onResult(.error, toastMessages.uhOhErr)
+                print("DEBUG: error in edit(), \(error.localizedDescription)")
+                onResult(.error, "Uh oh, something went wrong...")
             case .success:
                 onResult(.success, "Updated task successfully!")
             }
@@ -122,7 +122,6 @@ class TaskManager {
     /// Pulls task through using the databaseManager
     private func addTasksListener() {
         guard let currentUserUID = AuthManager.fetchUserUID() else {
-            print("DEBUG error in addTasksListener: Cannot fetch uid")
             return
         }
         

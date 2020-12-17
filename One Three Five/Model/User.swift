@@ -13,14 +13,14 @@ struct User{
     let fullname: String
     var hasSeenOnboardingPage: Bool  /// subject to change
 
-    /// For realtime database
-    init(uid: String, dictionary: [String: Any]) {
-        self.uid = uid
-        
-        self.email = dictionary["email"] as? String ?? ""
-        self.fullname = dictionary["fullname"] as? String ?? ""
-        self.hasSeenOnboardingPage = dictionary["hasSeenOnboardingPage"] as? Bool ?? false
-    }
+//    /// For realtime database
+//    init(uid: String, dictionary: [String: Any]) {
+//        self.uid = uid
+//        
+//        self.email = dictionary["email"] as? String ?? ""
+//        self.fullname = dictionary["fullname"] as? String ?? ""
+//        self.hasSeenOnboardingPage = dictionary["hasSeenOnboardingPage"] as? Bool ?? false
+//    }
     
     /// For firestore
     init(dictionary: [String: Any]){

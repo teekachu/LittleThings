@@ -41,7 +41,7 @@ class DatabaseManager {
     
     /// To edit content for a spcific task taking into the id.
     public func editTask(for task: Task, completion: @escaping (Result<Void, Error>) -> Void){
-        guard let id = task.id else {return}
+        guard let id = task.id else { return }
         let data: [String: Any] = ["title": task.title ?? "", "taskType": task.taskType.rawValue]
         tasksCollection.document(id).updateData(data) { (error) in
             if let error = error{

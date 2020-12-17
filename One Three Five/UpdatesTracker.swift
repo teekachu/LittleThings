@@ -14,7 +14,6 @@ import Foundation
 
 /// look into making textfield height dynamic
 
-/// Change the underline images and look into colors
 
 // MARK: - Brainstorm
 /// set constraint for number of tasks one can have at the same time :

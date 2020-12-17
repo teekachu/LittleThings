@@ -181,7 +181,7 @@ class TasksViewController: UIViewController, Animatable {
     //  MARK: - Privates
     private func deleteTask(_ task: Task){
         taskManager.delete(task) {[weak self] (status, message) in
-            guard let self = self else {return}
+            guard let self = self else { return }
             self.showToast(state: status, message: message)
         }
     }
@@ -191,7 +191,7 @@ class TasksViewController: UIViewController, Animatable {
             showToast(state: .error,
                       message: "This task has already been done. Please move it to ongoing if you are still working on it. ",
                       location: .top, duration: 2)
-            return}
+            return }
         
         /// open new task vc to edit
         let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
@@ -211,8 +211,8 @@ class TasksViewController: UIViewController, Animatable {
     private func showWelcomeLabel(){
         guard let user = user else {
             print("Cannot fetch user in showWelcomeLabel")
-            return}
-        guard user.hasSeenOnboardingPage else {return}
+            return }
+        guard user.hasSeenOnboardingPage else { return }
         
         greetingsLabel.text = "Hello \(user.fullname)"
         greetingsLabel.numberOfLines = 1
@@ -220,8 +220,8 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func presentOnboardingIfNecessary() {
-        guard let user = user else {return}
-        guard !user.hasSeenOnboardingPage else {return}
+        guard let user = user else { return }
+        guard !user.hasSeenOnboardingPage else { return }
         
         let cont = OnboardingViewController()
         cont.delegate = self
@@ -341,7 +341,7 @@ extension TasksViewController: OnboardingControllerDelegate {
 extension TasksViewController: AuthenticationDelegate {
     func authenticationComplete() {
         dismiss(animated: true, completion: nil)
-        fetchUser()
+        self.fetchUser()
     }
     
 }

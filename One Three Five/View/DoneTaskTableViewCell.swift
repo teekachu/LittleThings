@@ -24,7 +24,7 @@ extension DoneTaskTableViewCell: Taskable {
     
     func configureTaskCell(with task: Task){
         titleLabel.text = task.title
-        guard let completedtime = task.doneAt?.convertToSimplifiedTimeString() else {return}
+        guard let completedtime = task.doneAt?.convertToSimplifiedTimeString() else { return }
         timeStampLabel.text = "Completed at: \(completedtime)"
     }
     

@@ -68,6 +68,7 @@ class ResetPasswordViewController: UIViewController {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
+        emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -91,7 +92,7 @@ class ResetPasswordViewController: UIViewController {
     }
     
     private func loadEmail(){
-        guard let email = email else {return}
+        guard let email = email else { return }
         emailTextfield.text = email
         viewmodel.email = email
         updateForm()
@@ -101,7 +102,7 @@ class ResetPasswordViewController: UIViewController {
     private func handleResetPassword(){
         
         email = emailTextfield.text
-        guard let email = email else {return}
+        guard let email = email else { return }
         showLottieAnimation(true)
         
         AuthManager.resetPassword(for: email) {[weak self](error) in
@@ -129,5 +130,15 @@ extension ResetPasswordViewController: FormViewModel {
     func updateForm() {
         resetButton.isEnabled = viewmodel.shouldEnableButton
         resetButton.tintColor = viewmodel.buttonTitleColor
+    }
+}
+
+
+//  MARK: - UITextfieldDelegate
+extension ResetPasswordViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

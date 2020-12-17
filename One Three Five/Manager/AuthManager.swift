@@ -36,7 +36,7 @@ struct AuthManager{
                 return
             }
             /// To save result in database. First set the unique identifier to the uid created by firebase for user.
-            guard let uid = result?.user.uid else {return}
+            guard let uid = result?.user.uid else { return }
             
             /// create data dictionary / data structure. Don't need to save the pswd.
             let structure = [
@@ -53,7 +53,7 @@ struct AuthManager{
     
     static func signInWithGoogle(didSignInFor user: GIDGoogleUser, completion: @escaping FirebaseCompletion) {
         
-        guard let auth = user.authentication else {return}
+        guard let auth = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken,
                                                        accessToken: auth.accessToken)
         
@@ -70,9 +70,9 @@ struct AuthManager{
             if result?.additionalUserInfo?.isNewUser == true{
                 
                 /// pull the user's id, email and fullname FROM google credentials
-                guard let uid = result?.user.uid else{return}
-                guard let email = result?.user.email else{return}
-                guard let fullname = result?.user.displayName else{return}
+                guard let uid = result?.user.uid else{ return }
+                guard let email = result?.user.email else{ return }
+                guard let fullname = result?.user.displayName else{ return }
 
                 let values = [
                     "email": email,
@@ -84,7 +84,6 @@ struct AuthManager{
                 REF_USERS.document(uid).setData(values, completion: completion)
                 
             } else {
-                print("DEBUG: User already exist, nothing needs to be done.")
                 completion(nil)
             }
         }
@@ -100,7 +99,7 @@ struct AuthManager{
         do{
             try Auth.auth().signOut()
         } catch {
-            print("Error in signUserOut()")
+            print("DEBUG: Error in signUserOut()")
         }
     }
     
@@ -111,12 +110,10 @@ struct AuthManager{
     
     
     static func fetchUser(_ completion: @escaping (User) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            print("DEBUG: Cannot fetch user in fetchUser()")
-            return}
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
         REF_USERS.document(uid).getDocument { (snapshot, error) in
-            guard let dict = snapshot?.data() else {return}
+            guard let dict = snapshot?.data() else { return }
             let user = User(dictionary: dict)
             completion(user)
         }
@@ -125,7 +122,7 @@ struct AuthManager{
     
     static func updateUserHasSeenOnboardingInDatabase(completion: @escaping (FirebaseCompletion)){
         /// find the unique id of the current user
-        guard let uid = Auth.auth().currentUser?.uid else {return}
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         let hasSeenOnboardingData = ["hasSeenOnboardingPage": true]
         
         REF_USERS.document(uid).updateData(hasSeenOnboardingData, completion: completion)

@@ -31,8 +31,8 @@
                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Rbx-O7-Pel">
-                    <rect key="frame" x="60" y="237.5" width="294" height="178"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rbx-O7-Pel">
+                    <rect key="frame" x="60" y="237.5" width="294" height="148"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3iD-76-SAm">
                             <rect key="frame" x="0.0" y="0.0" width="294" height="42"/>
@@ -58,7 +58,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qlj-dJ-qcf">
-                            <rect key="frame" x="0.0" y="77" width="294" height="42"/>
+                            <rect key="frame" x="0.0" y="62" width="294" height="42"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qsl-if-XRl">
                                     <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
@@ -81,7 +81,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK6-0f-RDK" userLabel="Login Button">
-                            <rect key="frame" x="0.0" y="154" width="294" height="24"/>
+                            <rect key="frame" x="0.0" y="124" width="294" height="24"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal">
                                 <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
@@ -150,7 +150,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-sF-hv5" userLabel="Error label">
-                    <rect key="frame" x="25" y="435.5" width="364" height="0.0"/>
+                    <rect key="frame" x="25" y="405.5" width="364" height="0.0"/>
                     <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
                     <color key="textColor" systemColor="systemRedColor"/>
                     <nil key="highlightedColor"/>

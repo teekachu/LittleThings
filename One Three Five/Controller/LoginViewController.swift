@@ -19,9 +19,8 @@ class LoginViewController: UIViewController, Animatable {
     private var viewmodel = LoginViewModel()
     weak var delegate: AuthenticationDelegate?
     
+    
     //  MARK: - IB Properties
-    //    @IBOutlet weak var emailTFUnderline: UIImageView!
-    //    @IBOutlet weak var pswdTFUnderline: UIImageView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -88,11 +87,14 @@ class LoginViewController: UIViewController, Animatable {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
+        emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
+        
         passwordTextfield.isSecureTextEntry = true
+        passwordTextfield.delegate = self
         passwordTextfield.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -130,8 +132,8 @@ class LoginViewController: UIViewController, Animatable {
     
     //MARK: - Auth
     private func handleLogin(){
-        guard let email = emailTextfield.text else {return}
-        guard let password = passwordTextfield.text else {return}
+        guard let email = emailTextfield.text else { return }
+        guard let password = passwordTextfield.text else { return }
         showLottieAnimation(true)
         
         AuthManager.logUserInWith(email: email, password: password) {[weak self] (result) in
@@ -221,3 +223,10 @@ extension LoginViewController: ResetPasswordViewControllerDelegate {
 }
 
 
+//  MARK: - UITextfieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+}

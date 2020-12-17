@@ -87,13 +87,13 @@ struct Constants {
 
 
 //  MARK: - Toast messages
-struct toastMessages {
-    static let tooManyTasks = "Woah, thats more than your daily 1-3-5 goals. Why don't you try to empty your plates first. "
-    
-    static let cannotMarkCompleted = "Hmm, something is wrong. I can't seem to make this task completed. Please try again later"
-    
-    static let uhOhErr = "Uh Oh, something went wrong..."
-}
+//struct toastMessages {
+//    static let tooManyTasks = "Woah, thats more than your daily 1-3-5 goals. Why don't you try to empty your plates first. "
+//    
+//    static let cannotMarkCompleted = "Hmm, something is wrong. I can't seem to make this task completed. Please try again later"
+//    
+//    static let uhOhErr = "Uh Oh, something went wrong..."
+//}
 
 
 //  MARK: - Helper functions
