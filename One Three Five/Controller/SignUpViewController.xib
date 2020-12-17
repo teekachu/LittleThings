@@ -25,19 +25,19 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL1-Q3-wAz" userLabel="Error Label">
-                    <rect key="frame" x="25" y="792" width="364" height="50"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL1-Q3-wAz" userLabel="Error Label">
+                    <rect key="frame" x="25" y="797" width="364" height="60"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="8DY-An-51I"/>
+                        <constraint firstAttribute="height" constant="60" id="8DY-An-51I"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
                     <color key="textColor" systemColor="systemRedColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="04U-vC-aeV">
-                    <rect key="frame" x="60" y="491" width="294" height="261"/>
+                    <rect key="frame" x="60" y="531" width="294" height="261"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-lZ-Lw3">
                             <rect key="frame" x="0.0" y="0.0" width="294" height="52"/>
@@ -55,7 +55,7 @@
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-J3-bEu">
                                     <rect key="frame" x="0.0" y="50" width="294" height="2"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="h2u-zA-9PX"/>
                                     </constraints>
@@ -78,7 +78,7 @@
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSL-EI-YDR">
                                     <rect key="frame" x="0.0" y="50" width="294" height="2"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="FJJ-ZX-QLk"/>
                                     </constraints>
@@ -101,7 +101,7 @@
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-QV-iF3">
                                     <rect key="frame" x="0.0" y="50" width="294" height="2"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="OLJ-8u-2g9"/>
                                     </constraints>
@@ -123,8 +123,8 @@
                         </button>
                     </subviews>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up below " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBK-ve-vmc">
-                    <rect key="frame" x="138.5" y="445" width="137" height="23.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBK-ve-vmc">
+                    <rect key="frame" x="107" y="445" width="200" height="23.5"/>
                     <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="21"/>
                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -162,7 +162,7 @@
             <color key="backgroundColor" name="black black"/>
             <constraints>
                 <constraint firstItem="d1V-4f-Wna" firstAttribute="top" secondItem="NL0-af-c2r" secondAttribute="bottom" constant="30" id="1RL-Lo-R5L"/>
-                <constraint firstItem="CL1-Q3-wAz" firstAttribute="top" secondItem="04U-vC-aeV" secondAttribute="bottom" constant="40" id="2KZ-rs-PQl"/>
+                <constraint firstItem="CL1-Q3-wAz" firstAttribute="top" secondItem="04U-vC-aeV" secondAttribute="bottom" constant="5" id="2KZ-rs-PQl"/>
                 <constraint firstItem="04U-vC-aeV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2Pk-OO-00d"/>
                 <constraint firstItem="cBK-ve-vmc" firstAttribute="bottom" secondItem="d1V-4f-Wna" secondAttribute="bottom" constant="30" id="CmC-Yp-ZPc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="04U-vC-aeV" secondAttribute="trailing" constant="60" id="DQp-a7-mc2"/>
@@ -181,7 +181,7 @@
                 <constraint firstAttribute="trailing" secondItem="NL0-af-c2r" secondAttribute="trailing" constant="25" id="qTB-Qh-gvT"/>
                 <constraint firstItem="cBK-ve-vmc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sHR-56-OqA"/>
                 <constraint firstItem="04U-vC-aeV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="sfc-lF-WJm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CL1-Q3-wAz" secondAttribute="bottom" constant="20" id="yR0-Gb-ijv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CL1-Q3-wAz" secondAttribute="bottom" constant="5" id="yR0-Gb-ijv"/>
             </constraints>
             <point key="canvasLocation" x="34.782608695652179" y="84.375"/>
         </view>
@@ -193,9 +193,6 @@
         <namedColor name="black black">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
