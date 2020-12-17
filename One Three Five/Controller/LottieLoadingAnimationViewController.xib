@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LottieLoadingAnimationViewController" customModule="One_Three_Five" customModuleProvider="target">
             <connections>
-                <outlet property="animationView" destination="zOC-YI-RFr" id="akg-Vv-Wn3"/>
-                <outlet property="backgroundView" destination="xiW-Im-8SF" id="VpU-sw-TqT"/>
+                <outlet property="animationView" destination="pK3-CF-9Li" id="Ac7-Rz-7pt"/>
+                <outlet property="backgroundView" destination="lSm-e0-QDb" id="gT6-4i-UbC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,15 +20,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiW-Im-8SF">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSm-e0-QDb">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOC-YI-RFr" customClass="AnimationView" customModule="Lottie">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pK3-CF-9Li" customClass="AnimationView" customModule="Lottie">
                             <rect key="frame" x="82" y="323" width="250" height="250"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="250" id="GYu-im-6TV"/>
-                                <constraint firstAttribute="width" constant="250" id="Iqp-tH-jHM"/>
+                                <constraint firstAttribute="width" constant="250" id="QDB-9j-0iN"/>
+                                <constraint firstAttribute="height" constant="250" id="p90-Zo-Qoe"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="notepad"/>
@@ -37,24 +37,24 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="zOC-YI-RFr" firstAttribute="centerY" secondItem="xiW-Im-8SF" secondAttribute="centerY" id="7wN-e9-gf9"/>
-                        <constraint firstItem="zOC-YI-RFr" firstAttribute="centerX" secondItem="xiW-Im-8SF" secondAttribute="centerX" id="bZJ-pK-dh3"/>
+                        <constraint firstItem="pK3-CF-9Li" firstAttribute="centerX" secondItem="lSm-e0-QDb" secondAttribute="centerX" id="HBY-22-uMj"/>
+                        <constraint firstItem="pK3-CF-9Li" firstAttribute="centerY" secondItem="lSm-e0-QDb" secondAttribute="centerY" id="PzZ-5U-Ri0"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="xiW-Im-8SF" secondAttribute="bottom" id="6oY-Sl-SjW"/>
-                <constraint firstItem="xiW-Im-8SF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="HbZ-Yt-cXX"/>
-                <constraint firstItem="xiW-Im-8SF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IdQ-eK-2by"/>
-                <constraint firstItem="xiW-Im-8SF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zjG-PZ-od9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lSm-e0-QDb" secondAttribute="trailing" id="2oR-dX-0C3"/>
+                <constraint firstItem="lSm-e0-QDb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IgK-tP-it3"/>
+                <constraint firstItem="lSm-e0-QDb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Vab-PC-HSa"/>
+                <constraint firstAttribute="bottom" secondItem="lSm-e0-QDb" secondAttribute="bottom" id="nio-bi-bk3"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
+            <point key="canvasLocation" x="137.68115942028987" y="69.642857142857139"/>
         </view>
     </objects>
     <designables>
-        <designable name="zOC-YI-RFr"/>
+        <designable name="pK3-CF-9Li"/>
     </designables>
     <resources>
         <systemColor name="systemBackgroundColor">

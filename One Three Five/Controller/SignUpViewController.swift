@@ -14,14 +14,13 @@ class SignUpViewController: UIViewController, Animatable {
     weak var delegate: AuthenticationDelegate?
     
     //  MARK: - IB Properties
-    @IBOutlet weak var emailTFUnderline: UIImageView!
-    @IBOutlet weak var pswdTFUnderline: UIImageView!
-    @IBOutlet weak var nameTFUnderline: UIImageView!
+    
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBAction func signUpButtonTapped(_ sender: Any) {
+        showLottieAnimation(true)
         handleSignup()
     }
     @IBAction func goBackToLoginTapped(_ sender: Any) {
@@ -76,11 +75,6 @@ class SignUpViewController: UIViewController, Animatable {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
-        /// TODO: Update
-        emailTFUnderline.image = #imageLiteral(resourceName: "lines1").withRenderingMode(.alwaysOriginal)
-        pswdTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
-        nameTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
-        
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -96,6 +90,10 @@ class SignUpViewController: UIViewController, Animatable {
         
         signUpButton.tintColor = Constants.mediumBlack3f3f3f
         signUpButton.isEnabled = false
+        
+        errorLabel.textColor = .red
+        errorLabel.textAlignment = .center
+        
     }
     
     private func addTapGestureToDismiss(){
@@ -122,7 +120,8 @@ class SignUpViewController: UIViewController, Animatable {
         guard let emailtf = emailTextfield.text else {return}
         guard let passwordtf = passwordTextfield.text else {return}
         guard let fullnametf = nameTextfield.text else {return}
-        showLoaderAnimation(true)
+        
+        showLottieAnimation(false)
         
         // create user in Firestore
         AuthManager.registerUserWithFirestore(
@@ -131,12 +130,15 @@ class SignUpViewController: UIViewController, Animatable {
             fullname: fullnametf,
             hasSeenOnboardingPage: false) {[weak self] (error) in
             
-            self?.showLoaderAnimation(false)
-            
             if let error = error {
-                self?.showToast(state: .error, message: "Uh oh, \(error.localizedDescription)")
+                self?.errorLabel.text = "\(error.localizedDescription)"
+                print("DEBUG error in handleSignup(), \(error.localizedDescription) ")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    self?.errorLabel.text = ""
+                }
                 return
             }
+            
             self?.delegate?.authenticationComplete()
         }
     }

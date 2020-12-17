@@ -10,30 +10,26 @@ import Lottie
 
 class LottieLoadingAnimationViewController: UIViewController {
 
-    @IBOutlet weak var backgroundView: UIView!
+    //  MARK: - Properties
     
     //  MARK: - IB Properties
-    @IBOutlet weak var animationView: AnimationView?
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var animationView: AnimationView!
     
+    
+    
+    //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        // Do any additional setup after loading the view.
-    }
-
-
-    private func configureUI(){
         navigationController?.navigationBar.isHidden = true
-        
         backgroundView.backgroundColor = Constants.offBlack202020.withAlphaComponent(0.9)
+    
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 0.9
+        animationView.play(toProgress: 0.9)
         
-        animationView?.backgroundColor = Constants.offBlack202020
-        animationView?.contentMode = .scaleAspectFit
-        animationView?.loopMode = .loop
-        animationView?.animationSpeed = 0.9
-        animationView?.play()
     }
-
     
 }
 

@@ -16,5 +16,5 @@ extension UIAlertController {
             contentView.backgroundColor = color
         }
     }
-    
+
 }

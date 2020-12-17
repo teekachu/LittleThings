@@ -32,6 +32,7 @@ struct AuthManager{
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("DEBUG: Error occured during creating user: \(error.localizedDescription)")
+                completion(error)
                 return
             }
             /// To save result in database. First set the unique identifier to the uid created by firebase for user.

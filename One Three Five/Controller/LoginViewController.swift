@@ -20,11 +20,12 @@ class LoginViewController: UIViewController, Animatable {
     weak var delegate: AuthenticationDelegate?
     
     //  MARK: - IB Properties
-    @IBOutlet weak var emailTFUnderline: UIImageView!
-    @IBOutlet weak var pswdTFUnderline: UIImageView!
+    //    @IBOutlet weak var emailTFUnderline: UIImageView!
+    //    @IBOutlet weak var pswdTFUnderline: UIImageView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBAction func loginButtonTapped(_ sender: Any) {
         handleLogin()}
     
@@ -86,9 +87,6 @@ class LoginViewController: UIViewController, Animatable {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
-        emailTFUnderline.image = #imageLiteral(resourceName: "lines3").withRenderingMode(.alwaysOriginal)
-        pswdTFUnderline.image = #imageLiteral(resourceName: "lines1").withRenderingMode(.alwaysOriginal)
-        
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
@@ -133,15 +131,19 @@ class LoginViewController: UIViewController, Animatable {
     private func handleLogin(){
         guard let email = emailTextfield.text else {return}
         guard let password = passwordTextfield.text else {return}
-        showLoaderAnimation(true)
+        showLottieAnimation(true)
         
         AuthManager.logUserInWith(email: email, password: password) {[weak self] (result) in
+            self?.showLottieAnimation(false)
             
-            self?.showLoaderAnimation(false)
-
             switch result{
             case.failure(let error):
-                self?.showToast(state: .error, message: "\(error.localizedDescription)")
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
+                    self?.errorLabel.text = "\(error.localizedDescription)"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self?.errorLabel.text = ""
+                    }
+                }
             case .success:
                 print("DEBUG: handleLogin()successful for user: \(email)")
                 self?.delegate?.authenticationComplete()
@@ -182,15 +184,20 @@ extension LoginViewController: GIDSignInDelegate{
             print(error.localizedDescription)
             return
         }
-        showLoaderAnimation(true)
+        showLottieAnimation(true)
         
         AuthManager.signInWithGoogle(didSignInFor: user) {[weak self] (error) in
-            self?.showLoaderAnimation(false)
+            self?.showLottieAnimation(false)
             
             if let error = error {
-                self?.showToast(state: .error, message: error.localizedDescription)
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
+                    self?.errorLabel.text = "\(error.localizedDescription)"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        self?.errorLabel.text = ""
+                    }
+                }
             }
-
+            
             AuthManager.fetchUser { (user) in
                 print("DEBUG: Logged in with google for user: \(user.fullname)")
             }
@@ -204,10 +211,11 @@ extension LoginViewController: GIDSignInDelegate{
 extension LoginViewController: ResetPasswordViewControllerDelegate {
     func controllerDidResetPassword() {
         navigationController?.popViewController(animated: true)
-        showToast(state: .success,
-                  message: "We have sent an email to the email address provided, please follow instructions to retrive your password.",
-                  location: .top, duration: 3)
-        
+        errorLabel.text = "We have sent an email to the email address provided, please follow instructions to retrive your password."
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {[weak self] in
+            self?.errorLabel.text = ""
+        }
     }
 }
+
 

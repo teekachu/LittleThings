@@ -102,10 +102,10 @@ class ResetPasswordViewController: UIViewController, Animatable {
         
         email = emailTextfield.text
         guard let email = email else {return}
-        showLoaderAnimation(true)
+//        showLoaderAnimation(true)
         
         AuthManager.resetPassword(for: email) {[weak self](error) in
-            self?.showLoaderAnimation(false)
+//            self?.showLoaderAnimation(false)
             
             if let error = error {
                 self?.showToast(state: .error, message: error.localizedDescription)

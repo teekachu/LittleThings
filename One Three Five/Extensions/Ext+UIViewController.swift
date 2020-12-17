@@ -6,29 +6,9 @@
 //
 
 import UIKit
-//import JGProgressHUD
+import Lottie
 
 extension UIViewController {
-    //    static let hud = JGProgressHUD(style: .dark)
-    
-    //    func showLoader(_ show: Bool) {
-    //        view.endEditing(true)
-    //
-    //        if show {
-    //            UIViewController.hud.show(in: view)
-    //        } else {
-    //            UIViewController.hud.dismiss()
-    //        }
-    //    }
-    //
-    
-    //    func configureGradientBackground(color1: UIColor, color2: UIColor) {
-    //        let gradient = CAGradientLayer()
-    //        gradient.colors = [color1, color2]
-    //        gradient.locations = [0, 1]
-    //        view.layer.addSublayer(gradient)
-    //        gradient.frame = view.frame
-    //    }
     
     func showMessage(withTitle title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -36,17 +16,17 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showLoaderAnimation(_ show: Bool){
+    func showLottieAnimation(_ show: Bool){
         if show{
             let vc = LottieLoadingAnimationViewController()
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true)
+            
         } else {
+            
             dismiss(animated: true)
         }
     }
-    
-    
     
 }
