@@ -31,12 +31,11 @@ class TasksViewController: UIViewController, Animatable {
     }
     private var user: User? {
         didSet{
-            presentOnboardingIfNecessary()
+//            presentOnboardingIfNecessary()
             showWelcomeLabel()
             addTaskObserver()
         }
     }
-    
     
     //  MARK: - IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
@@ -212,7 +211,6 @@ class TasksViewController: UIViewController, Animatable {
         guard let user = user else {
             print("Cannot fetch user in showWelcomeLabel")
             return }
-        guard user.hasSeenOnboardingPage else { return }
         
         greetingsLabel.text = "Hello \(user.fullname)"
         greetingsLabel.numberOfLines = 1
@@ -220,13 +218,16 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func presentOnboardingIfNecessary() {
-        guard let user = user else { return }
-        guard !user.hasSeenOnboardingPage else { return }
         
-        let cont = OnboardingViewController()
-        cont.delegate = self
-        cont.modalPresentationStyle = .fullScreen
-        self.present(cont, animated: true)
+        guard let user = user else {return}
+        print("User has seen onboarding page status: \(user.hasSeenOnboardingPage)")
+        
+        if !user.hasSeenOnboardingPage {
+            let cont = OnboardingViewController()
+            cont.delegate = self
+            cont.modalPresentationStyle = .fullScreen
+            self.present(cont, animated: true)
+        }
     }
     
     // MARK: - Auth
@@ -244,11 +245,11 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func authenticateUser(){
+        
         if Auth.auth().currentUser?.uid == nil{
-            print("DEBUG: No users logged in")
             presentLoginVC()
         } else {
-            fetchUser()
+            updateUserToCurrentUser()
         }
     }
     
@@ -263,10 +264,10 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     
-    private func fetchUser(){
-        AuthManager.fetchUser { (user) in
-            print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is\(user.uid)")
+    func updateUserToCurrentUser(){
+        AuthManager.fetchUserFromFirestore { (user) in
             self.user = user
+            print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is\(user.uid)")
         }
     }
 }
@@ -340,10 +341,12 @@ extension TasksViewController: OnboardingControllerDelegate {
 //  MARK: - AuthenticationDelegate
 extension TasksViewController: AuthenticationDelegate {
     func authenticationComplete() {
-        dismiss(animated: true, completion: nil)
-        self.fetchUser()
+        updateUserToCurrentUser()
+        
+        dismiss(animated: true) {[weak self] in
+            self?.presentOnboardingIfNecessary()
+        }
     }
-    
 }
 
 

@@ -39,6 +39,11 @@ class DatabaseManager {
         }
     }
     
+    /// To delete all tasks that are marked done from firebase
+    public func deleteAllDoneTasks(for isDone: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+    }
+    
     /// To edit content for a spcific task taking into the id.
     public func editTask(for task: Task, completion: @escaping (Result<Void, Error>) -> Void){
         guard let id = task.id else { return }

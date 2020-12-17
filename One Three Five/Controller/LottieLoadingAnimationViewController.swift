@@ -30,6 +30,5 @@ class LottieLoadingAnimationViewController: UIViewController {
         animationView.play(toProgress: 0.9)
         
     }
-    
 }
 

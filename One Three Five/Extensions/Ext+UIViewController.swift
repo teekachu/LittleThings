@@ -24,7 +24,6 @@ extension UIViewController {
             present(vc, animated: true)
             
         } else {
-            
             dismiss(animated: true)
         }
     }

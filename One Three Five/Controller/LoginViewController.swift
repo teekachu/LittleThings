@@ -201,10 +201,7 @@ extension LoginViewController: GIDSignInDelegate{
                 }
             }
             
-            AuthManager.fetchUser { (user) in
-                print("DEBUG: Logged in with google for user: \(user.fullname)")
-            }
-            
+            print("DEBUG: does this get called?")
             self?.delegate?.authenticationComplete()
         }
     }

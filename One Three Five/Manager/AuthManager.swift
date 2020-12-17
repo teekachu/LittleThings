@@ -108,13 +108,15 @@ struct AuthManager{
         return Auth.auth().currentUser?.uid
     }
     
-    
-    static func fetchUser(_ completion: @escaping (User) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+    /// fetch actual user
+    static func fetchUserFromFirestore(completion: @escaping (User) -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else{return}
         
         REF_USERS.document(uid).getDocument { (snapshot, error) in
-            guard let dict = snapshot?.data() else { return }
-            let user = User(dictionary: dict)
+            print("Debug: snapshot is \(snapshot?.data())")
+            
+            guard let dictionary = snapshot?.data() else {return}
+            let user = User(dictionary: dictionary)
             completion(user)
         }
     }
