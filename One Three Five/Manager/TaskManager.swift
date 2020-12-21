@@ -118,6 +118,11 @@ class TaskManager {
         self.tasks = []
     }
     
+    public func deleteAll(tasks: [Task]){
+        databaseManager.deleteAll(in: tasks)
+    }
+     
+    
     // MARK: - Private
     /// Pulls task through using the databaseManager
     private func addTasksListener() {

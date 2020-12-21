@@ -31,7 +31,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     private var user: User? {
         didSet{
-//            presentOnboardingIfNecessary()
+            //            presentOnboardingIfNecessary()
             showWelcomeLabel()
             addTaskObserver()
         }
@@ -238,7 +238,9 @@ class TasksViewController: UIViewController, Animatable {
                 AuthManager.signUserOut()
                 self?.presentLoginVC()
             } else {
-                return
+                if let filtered = self?.tasks.filter({ $0.isDone}){
+                    self?.taskManager.deleteAll(tasks: filtered)
+                }
             }
         }
         present(ac, animated: true)
