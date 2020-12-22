@@ -1,0 +1,684 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E154FC29D9C4FA18C924469 /* Pods_LittleThings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC7752D440A0D4D62BCE27E /* Pods_LittleThings.framework */; };
+		A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */; };
+		A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */; };
+		A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A745A20B2585615400AC77F3 /* Ext+String.swift */; };
+		A7461AD72586808500CB1BAE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AD52586808500CB1BAE /* SignUpViewController.swift */; };
+		A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7461AD62586808500CB1BAE /* SignUpViewController.xib */; };
+		A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */; };
+		A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */; };
+		A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AE32587EB7600CB1BAE /* AuthManager.swift */; };
+		A74B90C8258A685300DA221D /* notepad.json in Resources */ = {isa = PBXBuildFile; fileRef = A74B90C6258A685300DA221D /* notepad.json */; };
+		A74B90C9258A685300DA221D /* yellowWheel.json in Resources */ = {isa = PBXBuildFile; fileRef = A74B90C7258A685300DA221D /* yellowWheel.json */; };
+		A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */; };
+		A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */; };
+		A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666672585A20A0043D22D /* LoginViewController.swift */; };
+		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
+		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
+		A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */; };
+		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
+		F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF4258316CC0048D6F8 /* Taskable.swift */; };
+		F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCF8258319270048D6F8 /* UITableView.swift */; };
+		F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */; };
+		F42F7C2725833E1B00E6B2C1 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */; };
+		F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */; };
+		F430AEB425772D7000DE727B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F430AEB325772D6F00DE727B /* Podfile */; };
+		F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AED8257825C500DE727B /* DatabaseManager.swift */; };
+		F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F430AEDB257826A900DE727B /* GoogleService-Info.plist */; };
+		F430AEE125782B9900DE727B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE025782B9900DE727B /* Task.swift */; };
+		F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE425782FA900DE727B /* UpdatesTracker.swift */; };
+		F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */; };
+		F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */; };
+		F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */; };
+		F430AF0525794F0A00DE727B /* DoneTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AF0325794F0A00DE727B /* DoneTaskTableViewCell.xib */; };
+		F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AF092579608600DE727B /* AddNewTaskViewController.swift */; };
+		F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */; };
+		F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E67E2576BEDC00A55C52 /* AppDelegate.swift */; };
+		F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6802576BEDC00A55C52 /* SceneDelegate.swift */; };
+		F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F433E6842576BEDC00A55C52 /* Main.storyboard */; };
+		F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F433E6872576BEE000A55C52 /* Assets.xcassets */; };
+		F433E68B2576BEE000A55C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F433E6892576BEE000A55C52 /* LaunchScreen.storyboard */; };
+		F433E6A22576C0B100A55C52 /* Ext+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A12576C0B100A55C52 /* Ext+UIView.swift */; };
+		F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A42576C0DA00A55C52 /* Constant.swift */; };
+		F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6A72576C0F600A55C52 /* Ext+Date.swift */; };
+		F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433E6AA2576C13100A55C52 /* AnimatableExt.swift */; };
+		F435B81625815762007BB7E1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435B81525815762007BB7E1 /* OnboardingViewController.swift */; };
+		F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */; };
+		F43A81A3257BEFF80035352C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A2257BEFF80035352C /* TaskType.swift */; };
+		F43A81A6257BF5070035352C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A81A5257BF5070035352C /* DataSource.swift */; };
+		F47BC97E257FDD7700DB0CC4 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */; };
+		F47BC987257FEDD900DB0CC4 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */; };
+		F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */; };
+		F47BC98D258063A400DB0CC4 /* Ext+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BC98C258063A400DB0CC4 /* Ext+AlertController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D6D4D4110122D09289BFC31 /* Pods-LittleThings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleThings.debug.xcconfig"; path = "Target Support Files/Pods-LittleThings/Pods-LittleThings.debug.xcconfig"; sourceTree = "<group>"; };
+		8EC7752D440A0D4D62BCE27E /* Pods_LittleThings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleThings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIViewController.swift"; sourceTree = "<group>"; };
+		A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CATransition.swift"; sourceTree = "<group>"; };
+		A745A20B2585615400AC77F3 /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
+		A7461AD52586808500CB1BAE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A7461AD62586808500CB1BAE /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
+		A7461AE32587EB7600CB1BAE /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		A74B90C6258A685300DA221D /* notepad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = notepad.json; path = ../../../../../Downloads/notepad.json; sourceTree = "<group>"; };
+		A74B90C7258A685300DA221D /* yellowWheel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = yellowWheel.json; path = ../../../../../Downloads/yellowWheel.json; sourceTree = "<group>"; };
+		A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingAnimationViewController.swift; sourceTree = "<group>"; };
+		A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingAnimationViewController.xib; sourceTree = "<group>"; };
+		A7A666672585A20A0043D22D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		ABB7A4D708151C012645AD3F /* Pods-LittleThings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleThings.release.xcconfig"; path = "Target Support Files/Pods-LittleThings/Pods-LittleThings.release.xcconfig"; sourceTree = "<group>"; };
+		F34CF6872582B6D100B8FD7C /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		F3B1CCF4258316CC0048D6F8 /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
+		F3B1CCF8258319270048D6F8 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoViewController.xib; sourceTree = "<group>"; };
+		F430AEB325772D6F00DE727B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F430AED8257825C500DE727B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		F430AEDB257826A900DE727B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F430AEE025782B9900DE727B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F430AEE425782FA900DE727B /* UpdatesTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesTracker.swift; sourceTree = "<group>"; };
+		F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTaskTableViewCell.swift; sourceTree = "<group>"; };
+		F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
+		F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCell.swift; sourceTree = "<group>"; };
+		F430AF0325794F0A00DE727B /* DoneTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneTaskTableViewCell.xib; sourceTree = "<group>"; };
+		F430AF092579608600DE727B /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
+		F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewTaskViewController.xib; sourceTree = "<group>"; };
+		F433E67B2576BEDC00A55C52 /* LittleThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F433E67E2576BEDC00A55C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F433E6802576BEDC00A55C52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F433E6852576BEDC00A55C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F433E6872576BEE000A55C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F433E68A2576BEE000A55C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F433E68C2576BEE000A55C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F433E6A12576C0B100A55C52 /* Ext+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ext+UIView.swift"; sourceTree = "<group>"; };
+		F433E6A42576C0DA00A55C52 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		F433E6A72576C0F600A55C52 /* Ext+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Date.swift"; sourceTree = "<group>"; };
+		F433E6AA2576C13100A55C52 /* AnimatableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableExt.swift; sourceTree = "<group>"; };
+		F435B81525815762007BB7E1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		F43A81A2257BEFF80035352C /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		F43A81A5257BF5070035352C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasksViewController.xib; sourceTree = "<group>"; };
+		F47BC98C258063A400DB0CC4 /* Ext+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+AlertController.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F433E6782576BEDC00A55C52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E154FC29D9C4FA18C924469 /* Pods_LittleThings.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65FF30737FD3BCCCE56697BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EC7752D440A0D4D62BCE27E /* Pods_LittleThings.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A74B90C4258A682A00DA221D /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				A74B90C6258A685300DA221D /* notepad.json */,
+				A74B90C7258A685300DA221D /* yellowWheel.json */,
+			);
+			path = "Lottie Animations";
+			sourceTree = "<group>";
+		};
+		F3B1CCF7258319120048D6F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F433E6A12576C0B100A55C52 /* Ext+UIView.swift */,
+				A745A20625855E7F00AC77F3 /* Ext+CATransition.swift */,
+				A745A20325855DF100AC77F3 /* Ext+UIViewController.swift */,
+				F47BC98C258063A400DB0CC4 /* Ext+AlertController.swift */,
+				F433E6A72576C0F600A55C52 /* Ext+Date.swift */,
+				A745A20B2585615400AC77F3 /* Ext+String.swift */,
+				F3B1CCF8258319270048D6F8 /* UITableView.swift */,
+				F3B1CCFC25831A930048D6F8 /* UIAlertController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F433E6722576BEDC00A55C52 = {
+			isa = PBXGroup;
+			children = (
+				F433E67D2576BEDC00A55C52 /* LittleThings */,
+				F433E67C2576BEDC00A55C52 /* Products */,
+				FFA903E3BF9F790000E5E19D /* Pods */,
+				65FF30737FD3BCCCE56697BA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F433E67C2576BEDC00A55C52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F433E67B2576BEDC00A55C52 /* LittleThings.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F433E67D2576BEDC00A55C52 /* LittleThings */ = {
+			isa = PBXGroup;
+			children = (
+				F430AEE425782FA900DE727B /* UpdatesTracker.swift */,
+				F430AEB325772D6F00DE727B /* Podfile */,
+				F433E6932576BF1A00A55C52 /* Protocols */,
+				F433E6942576BF2100A55C52 /* Manager */,
+				F433E6952576BF2700A55C52 /* Model */,
+				F433E6972576BF5100A55C52 /* View */,
+				F433E6982576BF5900A55C52 /* Controller */,
+				F433E6992576BF6300A55C52 /* Utilities */,
+				F3B1CCF7258319120048D6F8 /* Extensions */,
+				F433E6962576BF4300A55C52 /* Support */,
+				F433E6842576BEDC00A55C52 /* Main.storyboard */,
+				F433E6892576BEE000A55C52 /* LaunchScreen.storyboard */,
+				F433E68C2576BEE000A55C52 /* Info.plist */,
+			);
+			path = LittleThings;
+			sourceTree = "<group>";
+		};
+		F433E6932576BF1A00A55C52 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F3B1CCF4258316CC0048D6F8 /* Taskable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F433E6942576BF2100A55C52 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F430AED8257825C500DE727B /* DatabaseManager.swift */,
+				F34CF6872582B6D100B8FD7C /* TaskManager.swift */,
+				A7461AE32587EB7600CB1BAE /* AuthManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F433E6952576BF2700A55C52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F430AEE025782B9900DE727B /* Task.swift */,
+				A7A6666C2585A4150043D22D /* User.swift */,
+				F43A81A2257BEFF80035352C /* TaskType.swift */,
+				F43A81A5257BF5070035352C /* DataSource.swift */,
+				F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */,
+				A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */,
+				F435B818258161E8007BB7E1 /* OnboardingViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F433E6962576BF4300A55C52 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A74B90C4258A682A00DA221D /* Lottie Animations */,
+				F430AEDB257826A900DE727B /* GoogleService-Info.plist */,
+				F433E6872576BEE000A55C52 /* Assets.xcassets */,
+				F433E6802576BEDC00A55C52 /* SceneDelegate.swift */,
+				F433E67E2576BEDC00A55C52 /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		F433E6972576BF5100A55C52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */,
+				F430AEF52578905A00DE727B /* OngoingTaskTableViewCell.xib */,
+				F430AF0225794F0A00DE727B /* DoneTaskTableViewCell.swift */,
+				F430AF0325794F0A00DE727B /* DoneTaskTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F433E6982576BF5900A55C52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A7A666672585A20A0043D22D /* LoginViewController.swift */,
+				A7A666682585A20A0043D22D /* LoginViewController.xib */,
+				A7461AD52586808500CB1BAE /* SignUpViewController.swift */,
+				A7461AD62586808500CB1BAE /* SignUpViewController.xib */,
+				A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */,
+				A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */,
+				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
+				F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */,
+				F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */,
+				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
+				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
+				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
+				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
+				A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */,
+				A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F433E6992576BF6300A55C52 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F433E6A42576C0DA00A55C52 /* Constant.swift */,
+				F433E6AA2576C13100A55C52 /* AnimatableExt.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FFA903E3BF9F790000E5E19D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D6D4D4110122D09289BFC31 /* Pods-LittleThings.debug.xcconfig */,
+				ABB7A4D708151C012645AD3F /* Pods-LittleThings.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F433E67A2576BEDC00A55C52 /* LittleThings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F433E68F2576BEE000A55C52 /* Build configuration list for PBXNativeTarget "LittleThings" */;
+			buildPhases = (
+				AAEAF8619AF4DBEAA740D715 /* [CP] Check Pods Manifest.lock */,
+				F433E6772576BEDC00A55C52 /* Sources */,
+				F433E6782576BEDC00A55C52 /* Frameworks */,
+				F433E6792576BEDC00A55C52 /* Resources */,
+				3BBB951229DE5515BF082E01 /* [CP] Embed Pods Frameworks */,
+				A19FD757C9AD566C45F17E8E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LittleThings;
+			productName = "One Three Five";
+			productReference = F433E67B2576BEDC00A55C52 /* LittleThings.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F433E6732576BEDC00A55C52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					F433E67A2576BEDC00A55C52 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = F433E6762576BEDC00A55C52 /* Build configuration list for PBXProject "LittleThings" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F433E6722576BEDC00A55C52;
+			productRefGroup = F433E67C2576BEDC00A55C52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F433E67A2576BEDC00A55C52 /* LittleThings */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F433E6792576BEDC00A55C52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F433E68B2576BEE000A55C52 /* LaunchScreen.storyboard in Resources */,
+				F430AF0525794F0A00DE727B /* DoneTaskTableViewCell.xib in Resources */,
+				A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */,
+				F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */,
+				F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */,
+				F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */,
+				F430AEB425772D7000DE727B /* Podfile in Resources */,
+				A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */,
+				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
+				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
+				F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */,
+				A74B90C9258A685300DA221D /* yellowWheel.json in Resources */,
+				A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */,
+				A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */,
+				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
+				A74B90C8258A685300DA221D /* notepad.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BBB951229DE5515BF082E01 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A19FD757C9AD566C45F17E8E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAEAF8619AF4DBEAA740D715 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LittleThings-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F433E6772576BEDC00A55C52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7461AD72586808500CB1BAE /* SignUpViewController.swift in Sources */,
+				A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */,
+				A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */,
+				F47BC98D258063A400DB0CC4 /* Ext+AlertController.swift in Sources */,
+				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
+				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
+				A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */,
+				A7A6666D2585A4150043D22D /* User.swift in Sources */,
+				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
+				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,
+				F3B1CCF9258319270048D6F8 /* UITableView.swift in Sources */,
+				A745A20425855DF100AC77F3 /* Ext+UIViewController.swift in Sources */,
+				F433E67F2576BEDC00A55C52 /* AppDelegate.swift in Sources */,
+				F430AF0B2579608600DE727B /* AddNewTaskViewController.swift in Sources */,
+				F430AEE125782B9900DE727B /* Task.swift in Sources */,
+				A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */,
+				F435B81625815762007BB7E1 /* OnboardingViewController.swift in Sources */,
+				A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */,
+				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
+				A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */,
+				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
+				F3B1CCFD25831A930048D6F8 /* UIAlertController.swift in Sources */,
+				A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */,
+				F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */,
+				F42F7C2725833E1B00E6B2C1 /* AppInfoViewController.swift in Sources */,
+				F435B819258161E8007BB7E1 /* OnboardingViewModel.swift in Sources */,
+				F43A81A6257BF5070035352C /* DataSource.swift in Sources */,
+				F43A81A3257BEFF80035352C /* TaskType.swift in Sources */,
+				F47BC97E257FDD7700DB0CC4 /* MenuSection.swift in Sources */,
+				F47BC987257FEDD900DB0CC4 /* TasksViewController.swift in Sources */,
+				F433E6A82576C0F600A55C52 /* Ext+Date.swift in Sources */,
+				F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */,
+				F433E6812576BEDC00A55C52 /* SceneDelegate.swift in Sources */,
+				F433E6A22576C0B100A55C52 /* Ext+UIView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F433E6842576BEDC00A55C52 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F433E6852576BEDC00A55C52 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F433E6892576BEE000A55C52 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F433E68A2576BEE000A55C52 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F433E68D2576BEE000A55C52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = LittleThings;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F433E68E2576BEE000A55C52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = LittleThings;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F433E6902576BEE000A55C52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D6D4D4110122D09289BFC31 /* Pods-LittleThings.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9G2243U9KY;
+				INFOPLIST_FILE = LittleThings/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TeeksCode.LittleThings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F433E6912576BEE000A55C52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABB7A4D708151C012645AD3F /* Pods-LittleThings.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9G2243U9KY;
+				INFOPLIST_FILE = LittleThings/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = TeeksCode.LittleThings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F433E6762576BEDC00A55C52 /* Build configuration list for PBXProject "LittleThings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F433E68D2576BEE000A55C52 /* Debug */,
+				F433E68E2576BEE000A55C52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F433E68F2576BEE000A55C52 /* Build configuration list for PBXNativeTarget "LittleThings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F433E6902576BEE000A55C52 /* Debug */,
+				F433E6912576BEE000A55C52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F433E6732576BEDC00A55C52 /* Project object */;
+}
