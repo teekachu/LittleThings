@@ -21,8 +21,23 @@ class OnboardingViewController: UIViewController {
     private var onboardingView = PaperOnboarding()
     private let getStartedButton: UIButton = {
         let butn = UIButton()
-        butn.setTitle("Get Started", for: .normal)
-        butn.setTitleColor(.white, for: .normal)
+        butn.setTitle("I'm ready to get Started ", for: .normal)
+        butn.setTitleColor(Constants.whiteSmoke, for: .normal)
+        butn.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        butn.tintColor = Constants.whiteSmoke
+        butn.semanticContentAttribute = .forceRightToLeft
+        butn.alpha = 0
+        butn.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 18)
+        return butn
+    }()
+    
+    private let learnMoreButton: UIButton = {
+        let butn = UIButton()
+        butn.setTitle("Umm, what is this 1-3-5 rule? ", for: .normal)
+        butn.setTitleColor(Constants.whiteSmoke, for: .normal)
+        butn.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        butn.tintColor = Constants.whiteSmoke
+        butn.semanticContentAttribute = .forceRightToLeft
         butn.alpha = 0
         butn.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 18)
         return butn
@@ -42,14 +57,20 @@ class OnboardingViewController: UIViewController {
         let alpha: CGFloat = shouldShow ? 1 : 0
         UIView.animate(withDuration: 0.5) {
             self.getStartedButton.alpha = alpha
+            self.learnMoreButton.alpha = alpha
         }
     }
     
     
     //MARK: - Selectors
     @objc func dismissOnboardingScreen(){
-//        dismiss(animated: true)
         delegate?.controllerWantsToDismiss(self)
+    }
+    
+    @objc func learnMoreTapped(){
+        let vc = AppInfoViewController()
+        present(vc, animated: true)
+//        print("Show me what this is about... ")
     }
     
     
@@ -60,18 +81,28 @@ class OnboardingViewController: UIViewController {
         onboardingView.fillSuperview()
         onboardingView.delegate = self
         
+        view.addSubview(learnMoreButton)
+        learnMoreButton.addTarget(self, action: #selector(learnMoreTapped), for: .touchUpInside)
+        learnMoreButton.centerX(inView: view)
+        learnMoreButton.anchor(
+            bottom: view.bottomAnchor,
+            paddingBottom: 130,
+            height: 44)
+        
         view.addSubview(getStartedButton)
         getStartedButton.addTarget(self, action: #selector(dismissOnboardingScreen), for: .touchUpInside)
         getStartedButton.centerX(inView: view)
-        getStartedButton.anchor(
-            bottom: view.bottomAnchor,
-            paddingBottom: 130)
+        getStartedButton.anchor(bottom: learnMoreButton.topAnchor,
+                                paddingBottom: 10, height: 44)
+        
+        
+        
     }
     
     private func configureOnboardingDatasource(){
         /// set up onboarding items
         let itemOne = OnboardingItemInfo(
-            informationImage: #imageLiteral(resourceName: "moreStars")
+            informationImage: #imageLiteral(resourceName: "stars")
                 .withRenderingMode(.alwaysOriginal),
             title: "Hey there!",
             description: "Welcome to Little Things, your daily task manager.",
@@ -99,14 +130,14 @@ class OnboardingViewController: UIViewController {
             titleLabelPadding: 20)
         
         let itemThree = OnboardingItemInfo(
-            informationImage: #imageLiteral(resourceName: "orangeSqigg")
+            informationImage: #imageLiteral(resourceName: "urban-line-274")
                 .withRenderingMode(.alwaysOriginal),
             title: "Use the 1-3-5 rule to prioritize and tackle!",
             description: "Focus your energy on things that matter.",
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
-            titleColor: Constants.innerYellowFCD12A,
-            descriptionColor: Constants.lightGrayCDCDCD,
+            titleColor: Constants.orangeFDB903!,
+            descriptionColor: Constants.innerYellowFCD12A,
             titleFont: UIFont(name: Constants.titleTextFont, size: 20)!,
             descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 18)!,
             descriptionLabelPadding: 0,
