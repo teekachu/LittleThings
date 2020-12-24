@@ -25,7 +25,7 @@ extension OngoingTaskTableViewCell: Taskable {
     func configureTaskCell(with task: Task){
         titleLabel.text = task.title
         guard let createdAt = task.createdAt?.convertToSimplifiedTimeString() else { return }
-        deadlineLabel.text = "Created at: \(createdAt)"
+        deadlineLabel.text = "\(createdAt)"
     }
     
     func setTapObserver(onTab: @escaping () -> Void) {

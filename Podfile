@@ -19,16 +19,16 @@ target 'LittleThings' do
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'GoogleSignIn'
-    pod 'Firebase/Database'
+#    pod 'Firebase/Database'
     
     # Onboarding screens
     pod 'paper-onboarding'
     
     # Lottie loading animation
     pod 'lottie-ios'
-
-    #DELETE USELESS PODS:
-    # To show the little spinner animation for progress
-    pod 'JGProgressHUD','~>2.0.3'
+    
+    # Side Menu
+    pod 'SideMenu'
+    
 
 end

@@ -9,6 +9,7 @@ import UIKit
 import Loaf
 import Firebase
 
+
 protocol TasksViewControllerDelegate: class {
     func showOptions(for task: Task)
 }
@@ -51,9 +52,13 @@ class TasksViewController: UIViewController, Animatable {
         infoController.modalTransitionStyle = .crossDissolve
         present(infoController, animated: true)
     }
+    @IBAction func calendarButtonTapped(_ sender: Any) {
+        print("Show me calendar view.")
+    }
     @IBAction func ShowMenuTapped(_ sender: Any) {
-        /// TODO:  so far only log out option in menu, need to add more functionalities later
-        handleMenuOptions()
+        
+        
+//        handleMenuOptions() // shows the log out & clear all alert
     }
     
     
@@ -75,6 +80,7 @@ class TasksViewController: UIViewController, Animatable {
         addTaskObserver()
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
+        
     }
     
     //  MARK: - Selectors
@@ -159,6 +165,8 @@ class TasksViewController: UIViewController, Animatable {
         dateLabel.textColor = Constants.smallTextNavBarColor
         
         /// TODO: Update label text
+        greetingsLabel.alpha = 0
+        greetingsLabel.text = " "
         greetingsLabel.textColor = Constants.smallTextNavBarColor
         greetingsLabel.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
@@ -215,6 +223,9 @@ class TasksViewController: UIViewController, Animatable {
         greetingsLabel.text = "Hello \(user.fullname)"
         greetingsLabel.numberOfLines = 1
         greetingsLabel.textAlignment = .left
+        UIView.animate(withDuration: 0.9) {[weak self] in
+            self?.greetingsLabel.alpha = 1
+        }
     }
     
     private func presentOnboardingIfNecessary() {

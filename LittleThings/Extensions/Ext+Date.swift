@@ -17,7 +17,7 @@ extension Date {
     
     func convertToSimplifiedTimeString() -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.dateFormat = "h:mm a, MMM d"
         return dateFormatter.string(from: self)
     }
     

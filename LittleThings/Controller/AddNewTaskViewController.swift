@@ -125,6 +125,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskTextfield.borderStyle = .none
         TaskTextfield.textColor =  Constants.blackWhite
         TaskTextfield.font = UIFont(name: Constants.fontMedium, size: 20)
+        TaskTextfield.autocapitalizationType = .sentences
     
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
