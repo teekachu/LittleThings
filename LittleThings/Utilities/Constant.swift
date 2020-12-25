@@ -83,6 +83,8 @@ struct Constants {
     
     static let detailSubtitleTextFont = "Palatino-BoldItalic"
     
+    static let menuFont = "Futura-Medium"
+    
 }
 
 

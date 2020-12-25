@@ -12,7 +12,7 @@ class SideMenuTableViewController: UIViewController {
     
     //  MARK: - Properties
     private let cellIdentifier = "SidemenuTableViewCell"
-    var delegate: MenuControllerDelegate?
+    var delegate: UINavigationControllerDelegate?
     
     //  MARK: - IB Properties
     private var tableview: UITableView!
@@ -61,14 +61,14 @@ extension SideMenuTableViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 80
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Close menu and show the new VC
         tableView.deselectRow(at: indexPath, animated: true)
         let menuOption = MenuOption(rawValue: indexPath.row)
-        delegate?.handleMenuToggle(for: menuOption)
+//        delegate?.handleMenuToggle(for: menuOption)
         //        print("Selected \(indexPath.item)")
     }
 }

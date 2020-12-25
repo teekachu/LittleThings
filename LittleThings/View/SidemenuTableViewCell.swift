@@ -12,6 +12,7 @@ class SidemenuTableViewCell: UITableViewCell {
     //  MARK: - Properties
     let imageHeight:CGFloat = 25
     
+    
     let iconImageview: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFit
@@ -24,7 +25,7 @@ class SidemenuTableViewCell: UITableViewCell {
     let menuCellLabel: UILabel = {
        let lbl = UILabel()
         lbl.textColor = Constants.whiteSmoke
-        lbl.font = UIFont(name: Constants.fontMedium, size: 16)
+        lbl.font = UIFont(name: Constants.menuFont, size: 16)
         lbl.text = "Sample Text"
         return lbl
     }()
@@ -50,7 +51,7 @@ class SidemenuTableViewCell: UITableViewCell {
     private func configureUI(){
         backgroundColor = .clear
         textLabel?.textColor = Constants.whiteSmoke
-        textLabel?.font = UIFont(name: Constants.fontMedium, size: 15)
+        textLabel?.font = UIFont(name: Constants.menuFont, size: 15)
     }
 
     private func configureIconImageView(){

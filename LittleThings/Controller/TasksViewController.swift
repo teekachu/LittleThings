@@ -36,6 +36,7 @@ class TasksViewController: UIViewController, Animatable {
             addTaskObserver()
         }
     }
+    
     private let sidemenu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
     
     //  MARK: - IB Properties
@@ -187,6 +188,7 @@ class TasksViewController: UIViewController, Animatable {
     
     private func configureSideMenu(){
         sidemenu.leftSide = true
+        sidemenu.delegate = self
         SideMenuManager.default.leftMenuNavigationController = sidemenu
         SideMenuManager.default.addPanGestureToPresent(toView: view)
     }
@@ -370,9 +372,10 @@ extension TasksViewController: AuthenticationDelegate {
     }
 }
 
- //MARK: - MenuControllerDelegate
+ //MARK: - MenuControllerDelegate OR is it  UINavigationControllerDelegate
 
-extension TasksViewController: MenuControllerDelegate {
+extension TasksViewController: UINavigationControllerDelegate {
+    
     func handleMenuToggle(for menuOption: MenuOption?) {
         switch menuOption {
         case .supportDevelopment:
@@ -381,16 +384,16 @@ extension TasksViewController: MenuControllerDelegate {
             print("share")
         case .some(.sendSuggestions):
             print("send suggestions")
-        case .some(.contactDeveloper):
-            print("contact somebody")
+//        case .some(.contactDeveloper):
+//            print("contact somebody")
         case .some(.whatIs135):
             print("show 1-3-5 detail page")
         case .some(.reportBug):
             print("report bug via email")
-        case .some(.privacyPolicy):
-            print("show privacy policy")
-        case .some(.termsCondition):
-            print("show terms and conditions")
+//        case .some(.privacyPolicy):
+//            print("show privacy policy")
+//        case .some(.termsCondition):
+//            print("show terms and conditions")
         case .some(.about):
             print("show about us page")
         case .some(.clearDone):

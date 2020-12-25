@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MenuControllerDelegate {
-    func handleMenuToggle(for menuOption: MenuOption?)
-}
+//protocol MenuControllerDelegate {
+//    func handleMenuToggle(for menuOption: MenuOption?)
+//}
