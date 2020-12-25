@@ -11,3 +11,5 @@ protocol Taskable {
     func configureTaskCell(with task: Task)
     func setTapObserver(onTab: @escaping () -> Void)
 }
+
+

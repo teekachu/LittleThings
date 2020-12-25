@@ -8,7 +8,7 @@
 import UIKit
 import Loaf
 import Firebase
-
+import SideMenu
 
 protocol TasksViewControllerDelegate: class {
     func showOptions(for task: Task)
@@ -32,11 +32,11 @@ class TasksViewController: UIViewController, Animatable {
     }
     private var user: User? {
         didSet{
-            //            presentOnboardingIfNecessary()
             showWelcomeLabel()
             addTaskObserver()
         }
     }
+    private let sidemenu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
     
     //  MARK: - IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
@@ -56,9 +56,10 @@ class TasksViewController: UIViewController, Animatable {
         print("Show me calendar view.")
     }
     @IBAction func ShowMenuTapped(_ sender: Any) {
+        present(sidemenu, animated: true)
         
-        
-//        handleMenuOptions() // shows the log out & clear all alert
+        // shows the log out & clear all alert
+        //        handleMenuOptions()
     }
     
     
@@ -80,7 +81,7 @@ class TasksViewController: UIViewController, Animatable {
         addTaskObserver()
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
-        
+        configureSideMenu()
     }
     
     //  MARK: - Selectors
@@ -184,6 +185,12 @@ class TasksViewController: UIViewController, Animatable {
         actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)
     }
     
+    private func configureSideMenu(){
+        sidemenu.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = sidemenu
+        SideMenuManager.default.addPanGestureToPresent(toView: view)
+    }
+    
     
     //  MARK: - Privates
     private func deleteTask(_ task: Task){
@@ -249,6 +256,7 @@ class TasksViewController: UIViewController, Animatable {
                 AuthManager.signUserOut()
                 self?.presentLoginVC()
             } else {
+                /// Once implemented calender button , This function will no longer be needed 
                 if let filtered = self?.tasks.filter({ $0.isDone}){
                     self?.taskManager.deleteAll(tasks: filtered)
                 }
@@ -362,4 +370,36 @@ extension TasksViewController: AuthenticationDelegate {
     }
 }
 
+ //MARK: - MenuControllerDelegate
 
+extension TasksViewController: MenuControllerDelegate {
+    func handleMenuToggle(for menuOption: MenuOption?) {
+        switch menuOption {
+        case .supportDevelopment:
+            print("support devs")
+        case .some(.shareWithFriends):
+            print("share")
+        case .some(.sendSuggestions):
+            print("send suggestions")
+        case .some(.contactDeveloper):
+            print("contact somebody")
+        case .some(.whatIs135):
+            print("show 1-3-5 detail page")
+        case .some(.reportBug):
+            print("report bug via email")
+        case .some(.privacyPolicy):
+            print("show privacy policy")
+        case .some(.termsCondition):
+            print("show terms and conditions")
+        case .some(.about):
+            print("show about us page")
+        case .some(.clearDone):
+            print("clear all in done for the day")
+        case .some(.logOut):
+            print("log me outta here")
+        case .none:
+            break
+        }
+
+    }
+}
