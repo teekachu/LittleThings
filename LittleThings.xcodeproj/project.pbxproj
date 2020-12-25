@@ -16,8 +16,6 @@
 		A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */; };
 		A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */; };
 		A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AE32587EB7600CB1BAE /* AuthManager.swift */; };
-		A74B90C8258A685300DA221D /* notepad.json in Resources */ = {isa = PBXBuildFile; fileRef = A74B90C6258A685300DA221D /* notepad.json */; };
-		A74B90C9258A685300DA221D /* yellowWheel.json in Resources */ = {isa = PBXBuildFile; fileRef = A74B90C7258A685300DA221D /* yellowWheel.json */; };
 		A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */; };
 		A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */; };
 		A795179A25955EF100831605 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795179825955EF100831605 /* SideMenuTableViewController.swift */; };
@@ -380,11 +378,9 @@
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
 				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
 				F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */,
-				A74B90C9258A685300DA221D /* yellowWheel.json in Resources */,
 				A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */,
 				A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */,
 				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
-				A74B90C8258A685300DA221D /* notepad.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +641,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9G2243U9KY;
 				INFOPLIST_FILE = LittleThings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -666,6 +663,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9G2243U9KY;
 				INFOPLIST_FILE = LittleThings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

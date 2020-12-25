@@ -37,7 +37,7 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     
-    private let sidemenu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
+    private var sidemenu: SideMenuNavigationController!
     
     //  MARK: - IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
@@ -76,6 +76,8 @@ class TasksViewController: UIViewController, Animatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let sideMenuController = SideMenuTableViewController(delegate: self)
+        sidemenu = SideMenuNavigationController(rootViewController: sideMenuController)
         authenticateUser()
         configureTableView()
         configureDataSource()
@@ -295,6 +297,12 @@ class TasksViewController: UIViewController, Animatable {
     }
 }
 
+// MARK: - SideMenuDelegate
+extension TasksViewController: SideMenuDelegate {
+    func sideMenu(didSelect option: MenuOption) {
+        print("option: ", option)
+    }
+}
 
 //  MARK: - UITableViewDelegate
 extension TasksViewController: UITableViewDelegate {
