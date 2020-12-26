@@ -21,6 +21,7 @@
 		A795179A25955EF100831605 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795179825955EF100831605 /* SideMenuTableViewController.swift */; };
 		A79517AA259579F700831605 /* SidemenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79517A8259579F700831605 /* SidemenuTableViewCell.swift */; };
 		A79517B025959B4700831605 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79517AF25959B4700831605 /* MenuOption.swift */; };
+		A79517BD2597093200831605 /* notepad.json in Resources */ = {isa = PBXBuildFile; fileRef = A79517BC2597093200831605 /* notepad.json */; };
 		A7A666692585A20A0043D22D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666672585A20A0043D22D /* LoginViewController.swift */; };
 		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
 		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
@@ -72,14 +73,13 @@
 		A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		A7461AE32587EB7600CB1BAE /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		A74B90C6258A685300DA221D /* notepad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = notepad.json; path = ../../../../../Downloads/notepad.json; sourceTree = "<group>"; };
-		A74B90C7258A685300DA221D /* yellowWheel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = yellowWheel.json; path = ../../../../../Downloads/yellowWheel.json; sourceTree = "<group>"; };
 		A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingAnimationViewController.xib; sourceTree = "<group>"; };
 		A75290FF2592648300647771 /* LittleThings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleThings.entitlements; sourceTree = "<group>"; };
 		A795179825955EF100831605 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		A79517A8259579F700831605 /* SidemenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuTableViewCell.swift; sourceTree = "<group>"; };
 		A79517AF25959B4700831605 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
+		A79517BC2597093200831605 /* notepad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notepad.json; sourceTree = "<group>"; };
 		A7A666672585A20A0043D22D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -146,8 +146,7 @@
 		A74B90C4258A682A00DA221D /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
-				A74B90C6258A685300DA221D /* notepad.json */,
-				A74B90C7258A685300DA221D /* yellowWheel.json */,
+				A79517BC2597093200831605 /* notepad.json */,
 			);
 			path = "Lottie Animations";
 			sourceTree = "<group>";
@@ -378,6 +377,7 @@
 				A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */,
 				A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */,
 				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
+				A79517BD2597093200831605 /* notepad.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
