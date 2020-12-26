@@ -58,9 +58,6 @@ class TasksViewController: UIViewController, Animatable {
     }
     @IBAction func ShowMenuTapped(_ sender: Any) {
         present(sidemenu, animated: true)
-        
-        // shows the log out & clear all alert
-        //        handleMenuOptions()
     }
     
     
@@ -189,8 +186,9 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func configureSideMenu(){
+        let sideMenuController = SideMenuTableViewController(delegate: self)
+        sidemenu = SideMenuNavigationController(rootViewController: sideMenuController)
         sidemenu.leftSide = true
-        sidemenu.delegate = self
         SideMenuManager.default.leftMenuNavigationController = sidemenu
         SideMenuManager.default.addPanGestureToPresent(toView: view)
     }
@@ -253,22 +251,6 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     // MARK: - Auth
-    private func handleMenuOptions(){
-        let ac = UIAlertController.logUserOut {[weak self] (didSelectLogOut) in
-            if didSelectLogOut{
-                self?.taskManager.emptyTasksBeforeLogOut()
-                AuthManager.signUserOut()
-                self?.presentLoginVC()
-            } else {
-                /// Once implemented calender button , This function will no longer be needed 
-                if let filtered = self?.tasks.filter({ $0.isDone}){
-                    self?.taskManager.deleteAll(tasks: filtered)
-                }
-            }
-        }
-        present(ac, animated: true)
-    }
-    
     private func authenticateUser(){
         
         if Auth.auth().currentUser?.uid == nil{
@@ -294,13 +276,6 @@ class TasksViewController: UIViewController, Animatable {
             self.user = user
             print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is\(user.uid)")
         }
-    }
-}
-
-// MARK: - SideMenuDelegate
-extension TasksViewController: SideMenuDelegate {
-    func sideMenu(didSelect option: MenuOption) {
-        print("option: ", option)
     }
 }
 
@@ -380,37 +355,40 @@ extension TasksViewController: AuthenticationDelegate {
     }
 }
 
- //MARK: - MenuControllerDelegate OR is it  UINavigationControllerDelegate
+//MARK: - MenuControllerDelegate OR is it  UINavigationControllerDelegate
 
-extension TasksViewController: UINavigationControllerDelegate {
+extension TasksViewController: SideMenuDelegate {
     
-    func handleMenuToggle(for menuOption: MenuOption?) {
-        switch menuOption {
+    func sidemenu(didSelect option: MenuOption) {
+        switch option {
         case .supportDevelopment:
             print("support devs")
-        case .some(.shareWithFriends):
+            
+        case .shareWithFriends:
             print("share")
-        case .some(.sendSuggestions):
+            
+        case .sendSuggestions:
             print("send suggestions")
-//        case .some(.contactDeveloper):
-//            print("contact somebody")
-        case .some(.whatIs135):
+            
+        case .whatIs135:
             print("show 1-3-5 detail page")
-        case .some(.reportBug):
+            
+        case .reportBug:
             print("report bug via email")
-//        case .some(.privacyPolicy):
-//            print("show privacy policy")
-//        case .some(.termsCondition):
-//            print("show terms and conditions")
-        case .some(.about):
+            
+        case .about:
             print("show about us page")
-        case .some(.clearDone):
-            print("clear all in done for the day")
-        case .some(.logOut):
-            print("log me outta here")
-        case .none:
-            break
+            
+        case .clearDone:
+            /// Once implemented calender button , This function will no longer be needed
+            let filtered = tasks.filter({ $0.isDone})
+            taskManager.deleteAll(tasks: filtered)
+            
+        case .logOut:
+            taskManager.emptyTasksBeforeLogOut()
+            AuthManager.signUserOut()
+            presentLoginVC()
         }
-
     }
+    
 }

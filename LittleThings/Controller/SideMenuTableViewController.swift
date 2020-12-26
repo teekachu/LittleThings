@@ -7,25 +7,25 @@
 
 import UIKit
 
-protocol SideMenuDelegate: class {
-    func sideMenu(didSelect option: MenuOption)
+
+protocol SideMenuDelegate {
+    func sidemenu(didSelect option: MenuOption)
 }
 
 class SideMenuTableViewController: UIViewController {
     
     //  MARK: - Properties
     private let cellIdentifier = "SidemenuTableViewCell"
-    private let delegate: SideMenuDelegate
-    //var delegate: UINavigationControllerDelegate?
+    var delegate: SideMenuDelegate?
     
     //  MARK: - IB Properties
     private var tableview: UITableView!
-
+    
     init(delegate: SideMenuDelegate) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -78,14 +78,10 @@ extension SideMenuTableViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Close menu and show the new VC
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let menuOption = MenuOption(rawValue: indexPath.row) else { return }
-
-        dismiss(animated: true) { [weak self] in
-            self?.delegate.sideMenu(didSelect: menuOption)
+        guard let menuOption = MenuOption(rawValue: indexPath.row) else {return}
+        dismiss(animated: true) {[weak self] in
+            self?.delegate?.sidemenu(didSelect: menuOption)
         }
-//        delegate?.handleMenuToggle(for: menuOption)
-        //        print("Selected \(indexPath.item)")
     }
 }

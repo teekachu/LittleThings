@@ -18,13 +18,13 @@ class SidemenuTableViewCell: UITableViewCell {
         img.contentMode = .scaleAspectFit
         img.clipsToBounds = true
         img.backgroundColor = .clear
-        img.tintColor = Constants.whiteSmoke
+        img.tintColor = Constants.sidemenufontWhite
         return img
     }()
     
     let menuCellLabel: UILabel = {
        let lbl = UILabel()
-        lbl.textColor = Constants.whiteSmoke
+        lbl.textColor = Constants.sidemenufontWhite
         lbl.font = UIFont(name: Constants.menuFont, size: 16)
         lbl.text = "Sample Text"
         return lbl

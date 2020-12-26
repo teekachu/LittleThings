@@ -70,6 +70,8 @@ struct Constants {
     
     static let webYellowFFDF6C: UIColor = #colorLiteral(red: 1, green: 0.8745098039, blue: 0.4235294118, alpha: 1)
     
+    static let sidemenufontWhite: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
+    
     //  MARK: - Fonts
     static let fontBold = "Palatino-Bold"
     
