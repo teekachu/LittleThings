@@ -47,14 +47,14 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXQ-fs-dj4" userLabel="FlexView">
-                                    <rect key="frame" x="40" y="0.0" width="268" height="30"/>
+                                    <rect key="frame" x="40" y="0.0" width="308" height="30"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Z6p-J3-UhY"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fww-5W-VUv" userLabel="CalendarButton">
-                                    <rect key="frame" x="318" y="0.0" width="30" height="22"/>
+                                    <rect key="frame" x="358" y="0.0" width="30" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="o5o-pV-c9o"/>
                                     </constraints>
@@ -64,20 +64,6 @@
                                     </state>
                                     <connections>
                                         <action selector="calendarButtonTapped:" destination="-1" eventType="touchUpInside" id="zMd-Lu-ik1"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-MK-W8A" userLabel="InfoButton">
-                                    <rect key="frame" x="358" y="0.0" width="30" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="hhV-PI-Pah"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <color key="tintColor" name="black white"/>
-                                    <state key="normal">
-                                        <imageReference key="image" image="questionmark.square" catalog="system" symbolScale="large"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="InfoButtonTapped:" destination="-1" eventType="touchUpInside" id="c5a-gf-aEl"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -148,7 +134,6 @@
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
-        <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <namedColor name="black white">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

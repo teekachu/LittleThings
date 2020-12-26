@@ -47,12 +47,6 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func InfoButtonTapped(_ sender: Any) {
-        let infoController = AppInfoViewController()
-        infoController.modalPresentationStyle = .overCurrentContext
-        infoController.modalTransitionStyle = .crossDissolve
-        present(infoController, animated: true)
-    }
     @IBAction func calendarButtonTapped(_ sender: Any) {
         print("Show me calendar view.")
     }
@@ -368,10 +362,17 @@ extension TasksViewController: SideMenuDelegate {
             print("share")
             
         case .sendSuggestions:
-            print("send suggestions")
+            let emailAddress = "mailto:ting.becker@outlook.com"
+            guard let emailURL = URL(string: emailAddress) else { return }
+            UIApplication.shared.open(emailURL,
+                                      options: [:],
+                                      completionHandler: nil)
             
         case .whatIs135:
-            print("show 1-3-5 detail page")
+            let infoController = AppInfoViewController()
+            infoController.modalPresentationStyle = .overCurrentContext
+            infoController.modalTransitionStyle = .crossDissolve
+            present(infoController, animated: true)
             
         case .reportBug:
             print("report bug via email")
