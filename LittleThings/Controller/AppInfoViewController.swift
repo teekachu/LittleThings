@@ -12,18 +12,22 @@ class AppInfoViewController: UIViewController {
     //MARK: - IB Properties
     @IBOutlet weak var mainTextLabel: UILabel!
     @IBOutlet weak var detailTextLabel: UILabel!
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        tapToDismissVC()
+    }
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
-        configureTapGesture()
+//        configureTapGesture()
         
     }
     
     //MARK: - Selector
-    @objc func tapToDismissVC(){
+   private func tapToDismissVC(){
         dismiss(animated: true)
     }
     
@@ -34,8 +38,8 @@ class AppInfoViewController: UIViewController {
         
     }
     
-    private func configureTapGesture(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissVC))
-        view.addGestureRecognizer(tapGesture)
-    }
+//    private func configureTapGesture(){
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissVC))
+//        view.addGestureRecognizer(tapGesture)
+//    }
 }

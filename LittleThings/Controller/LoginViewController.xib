@@ -26,13 +26,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH3-Sk-h0q">
-                    <rect key="frame" x="117" y="154" width="180.5" height="25.5"/>
-                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="23"/>
+                    <rect key="frame" x="83" y="154" width="248.5" height="41"/>
+                    <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="30"/>
                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rbx-O7-Pel">
-                    <rect key="frame" x="60" y="239.5" width="294" height="148"/>
+                    <rect key="frame" x="60" y="255" width="294" height="154"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3iD-76-SAm">
                             <rect key="frame" x="0.0" y="0.0" width="294" height="42"/>
@@ -45,7 +45,7 @@
                                         <constraint firstAttribute="height" constant="40" id="Rhl-7q-8si"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q58-vn-6Av">
@@ -68,7 +68,7 @@
                                         <constraint firstAttribute="height" constant="40" id="UBa-jj-IL0"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-I4-AoW">
@@ -80,11 +80,13 @@
                                 </view>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK6-0f-RDK" userLabel="Login Button">
-                            <rect key="frame" x="0.0" y="124" width="294" height="24"/>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK6-0f-RDK" userLabel="Login Button">
+                            <rect key="frame" x="0.0" y="124" width="294" height="30"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <color key="tintColor" red="0.98823529409999999" green="0.81960784310000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal">
-                                <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
+                                <imageReference key="image" image="arrowshape.turn.up.right.fill" catalog="system" symbolScale="large"/>
                             </state>
                             <connections>
                                 <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="XcR-yX-FLR"/>
@@ -100,14 +102,14 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="PFg-c8-Q13">
-                    <rect key="frame" x="120.5" y="654.5" width="173" height="105.5"/>
+                    <rect key="frame" x="116.5" y="654.5" width="181" height="105.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3p-vW-Buy">
-                            <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="181" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="yQ7-Lz-Vkm"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="17"/>
                             <state key="normal" title="Forgot password?">
                                 <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -116,17 +118,17 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HM3-mq-pkJ">
-                            <rect key="frame" x="0.0" y="45" width="173" height="15.5"/>
+                            <rect key="frame" x="0.0" y="45" width="181" height="15.5"/>
                             <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="14"/>
                             <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIx-0N-Lqs">
-                            <rect key="frame" x="0.0" y="75.5" width="173" height="30"/>
+                            <rect key="frame" x="0.0" y="75.5" width="181" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="pcf-Ue-6Jm"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="17"/>
                             <state key="normal" title=" Sign in with Google" image="google.png">
                                 <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -137,11 +139,11 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzd-u6-5OV">
-                    <rect key="frame" x="118" y="815" width="178" height="35"/>
+                    <rect key="frame" x="111.5" y="815" width="191" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="zxI-Fo-Qyy"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="17"/>
                     <state key="normal" title="First time here? Sign up">
                         <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -150,7 +152,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-sF-hv5" userLabel="Error label">
-                    <rect key="frame" x="25" y="407.5" width="364" height="0.0"/>
+                    <rect key="frame" x="25" y="429" width="364" height="0.0"/>
                     <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
                     <color key="textColor" systemColor="systemRedColor"/>
                     <nil key="highlightedColor"/>
@@ -181,7 +183,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="dots" width="913" height="158"/>
         <image name="google.png" width="18" height="18"/>
         <namedColor name="black black">

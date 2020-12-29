@@ -73,19 +73,21 @@ struct Constants {
     static let sidemenufontWhite: UIColor = #colorLiteral(red: 0.9333333333, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
     
     //  MARK: - Fonts
-    static let fontBold = "Palatino-Bold"
+    static let fontBold = "Avenir-Heavy"
     
-    static let fontBoldItalic = "Palatino-BoldItalic"
+    static let fontBoldItalic = "Avenir-HeavyOblique"
     
-    static let fontMedium = "Palatino-Roman"
+    static let fontMedium = "Avenir-Medium"
     
-    static let fontItalic = "Palatino-Italic "
+    static let fontItalic = "Avenir-LightOblique"
     
-    static let titleTextFont = "Palatino-Bold"
+    static let titleTextFont = "Avenir-Heavy"
     
-    static let detailSubtitleTextFont = "Palatino-BoldItalic"
+    static let detailSubtitleTextFont = "Avenir-HeavyOblique"
     
-    static let menuFont = "Futura-Medium"
+    static let avenirBlackSuperBold = "Avenir-Black"
+    
+    static let menuFont = "Avenir-Roman"
     
 }
 

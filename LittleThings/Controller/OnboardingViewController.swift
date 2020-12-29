@@ -69,8 +69,9 @@ class OnboardingViewController: UIViewController {
     
     @objc func learnMoreTapped(){
         let vc = AppInfoViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true)
-//        print("Show me what this is about... ")
     }
     
     
@@ -94,9 +95,6 @@ class OnboardingViewController: UIViewController {
         getStartedButton.centerX(inView: view)
         getStartedButton.anchor(bottom: learnMoreButton.topAnchor,
                                 paddingBottom: 10, height: 44)
-        
-        
-        
     }
     
     private func configureOnboardingDatasource(){

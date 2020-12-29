@@ -115,7 +115,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
         
         BottomContainerView.layer.cornerRadius = 35
-        BottomContainerView.layer.borderWidth = 3
+        BottomContainerView.layer.borderWidth = 1
         BottomContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
         BottomContainerView.backgroundColor = UIColor(named: "viewbackgroundWhitesmoke")
         
@@ -130,13 +130,13 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         TaskPickerView.backgroundColor = .clear
-        TaskPickerView.layer.borderWidth = 1.7
+        TaskPickerView.layer.borderWidth = 0.2
         TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
         TaskPickerView.layer.cornerRadius = 20
         
-        saveButton.tintColor = Constants.blackWhite
+        saveButton.tintColor = .white
         saveButton.layer.cornerRadius = 10
-        saveButton.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 19)
+        saveButton.titleLabel?.font = UIFont(name: Constants.avenirBlackSuperBold, size: 19)
         
         TaskTextfield.text = task.title
         taskString = task.title
@@ -149,7 +149,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         case.five:
             TaskPickerView.selectRow(2, inComponent: 0, animated: false)
         }
-        let title = isEditingTask ? "Update" : "Save"
+        let title = isEditingTask ? "Update Task" : "Save Task"
         saveButton.setTitle(title, for: .normal)
         /// update time  created to time updated
     }

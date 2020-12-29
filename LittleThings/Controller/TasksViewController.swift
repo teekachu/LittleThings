@@ -47,6 +47,10 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func additionalInfoTapped(_ sender: Any) {
+        print("Show custom alert controller with tips.")
+    }
+    
     @IBAction func calendarButtonTapped(_ sender: Any) {
         print("Show me calendar view.")
     }
@@ -349,8 +353,7 @@ extension TasksViewController: AuthenticationDelegate {
     }
 }
 
-//MARK: - MenuControllerDelegate OR is it  UINavigationControllerDelegate
-
+//MARK: - SideMenuDelegate
 extension TasksViewController: SideMenuDelegate {
     
     func sidemenu(didSelect option: MenuOption) {

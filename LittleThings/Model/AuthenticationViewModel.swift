@@ -29,7 +29,8 @@ struct LoginViewModel: AuthenticationViewModel {
     var shouldEnableButton: Bool{ return formIsValid }
 
     var buttonTitleColor: UIColor {
-        return formIsValid ? Constants.whiteSmoke : Constants.mediumBlack3f3f3f }
+        /// Color for true was Constants.whiteSmoke
+        return formIsValid ? Constants.innerYellowFCD12A : Constants.mediumBlack3f3f3f }
 }
 
 struct RegistrationViewModel: AuthenticationViewModel{
@@ -46,7 +47,7 @@ struct RegistrationViewModel: AuthenticationViewModel{
     var shouldEnableButton: Bool { return formIsValid }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? Constants.whiteSmoke : Constants.mediumBlack3f3f3f }
+        return formIsValid ? Constants.innerYellowFCD12A : Constants.mediumBlack3f3f3f }
 }
 
 struct ResetPasswordViewModel: AuthenticationViewModel{
@@ -58,6 +59,6 @@ struct ResetPasswordViewModel: AuthenticationViewModel{
     var shouldEnableButton: Bool { return formIsValid }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? Constants.whiteSmoke : Constants.mediumBlack3f3f3f }
+        return formIsValid ? Constants.innerYellowFCD12A : Constants.mediumBlack3f3f3f }
 }
     

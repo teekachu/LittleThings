@@ -25,8 +25,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="04U-vC-aeV">
-                    <rect key="frame" x="60" y="621" width="294" height="231"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="04U-vC-aeV">
+                    <rect key="frame" x="60" y="606" width="294" height="246"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-lZ-Lw3">
                             <rect key="frame" x="0.0" y="0.0" width="294" height="52"/>
@@ -39,7 +39,7 @@
                                         <constraint firstAttribute="height" constant="50" id="ger-HD-d4L"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-J3-bEu">
@@ -52,7 +52,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7KR-vi-wV4">
-                            <rect key="frame" x="0.0" y="67" width="294" height="52"/>
+                            <rect key="frame" x="0.0" y="72" width="294" height="52"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LJ6-6x-Vcu">
                                     <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
@@ -62,7 +62,7 @@
                                         <constraint firstAttribute="height" constant="50" id="DMS-NX-Y3G"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSL-EI-YDR">
@@ -75,7 +75,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-Wq-hZT">
-                            <rect key="frame" x="0.0" y="134" width="294" height="52"/>
+                            <rect key="frame" x="0.0" y="144" width="294" height="52"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="What should we call you?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Bk-wy-eT9" userLabel="Name">
                                     <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
@@ -85,7 +85,7 @@
                                         <constraint firstAttribute="height" constant="50" id="lEg-Tb-efJ"/>
                                     </constraints>
                                     <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-QV-iF3">
@@ -97,14 +97,15 @@
                                 </view>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-OO-Ju4" userLabel="Sign up button">
-                            <rect key="frame" x="0.0" y="201" width="294" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktj-OO-Ju4" userLabel="Sign up button">
+                            <rect key="frame" x="0.0" y="216" width="294" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="AlB-lc-aU2"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <state key="normal">
                                 <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <imageReference key="image" image="arrow.right.circle" catalog="system" symbolScale="large"/>
+                                <imageReference key="image" image="arrowshape.turn.up.right.fill" catalog="system" symbolScale="large"/>
                             </state>
                             <connections>
                                 <action selector="signUpButtonTapped:" destination="-1" eventType="touchUpInside" id="6gk-j2-rXx"/>
@@ -113,36 +114,36 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-E8-oHy">
-                    <rect key="frame" x="25" y="104" width="364" height="364"/>
+                    <rect key="frame" x="25" y="104" width="364" height="399.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-af-c2r">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="79.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="98.5"/>
                             <string key="text">This is Guy. Guy is stranded on an island because he has too much on his plate and forgot to book a return flight. Don't be like Guy, take control of your to-do list!</string>
-                            <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="18"/>
                             <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach" translatesAutoresizingMaskIntoConstraints="NO" id="d1V-4f-Wna">
-                            <rect key="frame" x="0.0" y="84.5" width="364" height="220"/>
+                            <rect key="frame" x="0.0" y="103.5" width="364" height="220"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="220" id="Ptz-Ub-akR"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBK-ve-vmc">
-                            <rect key="frame" x="0.0" y="309.5" width="364" height="24.5"/>
-                            <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="22"/>
+                            <rect key="frame" x="0.0" y="328.5" width="364" height="41"/>
+                            <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="30"/>
                             <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L82-Pn-XTy">
-                            <rect key="frame" x="0.0" y="339" width="364" height="20"/>
+                            <rect key="frame" x="0.0" y="374.5" width="364" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="fMD-Nb-ubP"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL1-Q3-wAz" userLabel="Error Label">
-                            <rect key="frame" x="0.0" y="364" width="364" height="0.0"/>
+                            <rect key="frame" x="0.0" y="399.5" width="364" height="0.0"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
@@ -184,7 +185,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="beach" width="1216" height="912"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <namedColor name="black black">

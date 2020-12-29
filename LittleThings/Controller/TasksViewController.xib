@@ -28,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
-                    <rect key="frame" x="13" y="49" width="388" height="188.5"/>
+                    <rect key="frame" x="13" y="49" width="388" height="195"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-J7-EPp">
                             <rect key="frame" x="0.0" y="0.0" width="388" height="30"/>
@@ -47,16 +47,16 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXQ-fs-dj4" userLabel="FlexView">
-                                    <rect key="frame" x="40" y="0.0" width="308" height="30"/>
+                                    <rect key="frame" x="40" y="0.0" width="248" height="30"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Z6p-J3-UhY"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fww-5W-VUv" userLabel="CalendarButton">
-                                    <rect key="frame" x="358" y="0.0" width="30" height="22"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fww-5W-VUv" userLabel="CalendarButton">
+                                    <rect key="frame" x="298" y="0.0" width="40" height="22"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="o5o-pV-c9o"/>
+                                        <constraint firstAttribute="width" constant="40" id="o5o-pV-c9o"/>
                                     </constraints>
                                     <color key="tintColor" name="black white"/>
                                     <state key="normal">
@@ -66,30 +66,43 @@
                                         <action selector="calendarButtonTapped:" destination="-1" eventType="touchUpInside" id="zMd-Lu-ik1"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuQ-R0-MFG" userLabel="AdditionalInfoButton">
+                                    <rect key="frame" x="348" y="0.0" width="40" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="6T2-k2-pNC"/>
+                                    </constraints>
+                                    <color key="tintColor" name="black white"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="questionmark.square" catalog="system" symbolScale="large"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="additionalInfoTapped:" destination="-1" eventType="touchUpInside" id="oLZ-y6-Mps"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="eRi-77-TQ3">
-                            <rect key="frame" x="0.0" y="40" width="388" height="74"/>
+                            <rect key="frame" x="0.0" y="40" width="388" height="75"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
-                                    <rect key="frame" x="0.0" y="0.0" width="228" height="74"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
+                                    <rect key="frame" x="0.0" y="0.0" width="228" height="75"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="May 7, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-26-mIc">
-                                            <rect key="frame" x="0.0" y="0.0" width="228" height="19"/>
-                                            <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="228" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Oblique" family="Avenir" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zd-Td-Ig6">
-                                            <rect key="frame" x="0.0" y="24" width="228" height="50"/>
-                                            <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="19"/>
+                                            <rect key="frame" x="0.0" y="25" width="228" height="50"/>
+                                            <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="17"/>
                                             <color key="textColor" name="smalltext nav bar color"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egf-kv-99J">
-                                    <rect key="frame" x="288" y="0.0" width="100" height="74"/>
+                                    <rect key="frame" x="288" y="0.0" width="100" height="75"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="k1w-FK-2Q3"/>
                                     </constraints>
@@ -98,13 +111,13 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; Little things make big days! &quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ye-oT6">
-                            <rect key="frame" x="0.0" y="124" width="388" height="23.5"/>
-                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="21"/>
+                            <rect key="frame" x="0.0" y="125" width="388" height="29"/>
+                            <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="21"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-1O-suk">
-                            <rect key="frame" x="0.0" y="157.5" width="388" height="32"/>
+                            <rect key="frame" x="0.0" y="164" width="388" height="32"/>
                             <segments>
                                 <segment title="Ongoing"/>
                                 <segment title="Done"/>
@@ -113,7 +126,7 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-xr-O7i">
-                    <rect key="frame" x="0.0" y="237.5" width="414" height="624.5"/>
+                    <rect key="frame" x="0.0" y="249" width="414" height="613"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -124,6 +137,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SJy-xr-O7i" secondAttribute="bottom" id="84k-2p-Hm4"/>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="GFs-2v-C9n"/>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="Gef-cA-JZD"/>
+                <constraint firstItem="SJy-xr-O7i" firstAttribute="top" secondItem="sg6-x2-QtB" secondAttribute="bottom" constant="5" id="dEg-GE-gPf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sg6-x2-QtB" secondAttribute="trailing" constant="13" id="lVE-Ul-8Ns"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SJy-xr-O7i" secondAttribute="trailing" id="nEL-8c-gle"/>
                 <constraint firstItem="SJy-xr-O7i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wgW-hj-maA"/>
@@ -134,6 +148,7 @@
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
+        <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <namedColor name="black white">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -10,18 +10,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OngoingTaskTableViewCell" rowHeight="60" id="KGk-i7-Jjw" customClass="OngoingTaskTableViewCell" customModule="LittleThings" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="322" height="60"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OngoingTaskTableViewCell" rowHeight="65" id="KGk-i7-Jjw" customClass="OngoingTaskTableViewCell" customModule="LittleThings" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="322" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="322" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="322" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-x9-NsE">
-                        <rect key="frame" x="10" y="5" width="302" height="50"/>
+                        <rect key="frame" x="10" y="5" width="302" height="56"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je5-8Q-X7S">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="hNT-2W-L4v"/>
                                 </constraints>
@@ -32,17 +32,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="KGV-qb-bbo">
-                                <rect key="frame" x="50" y="0.0" width="252" height="50"/>
+                                <rect key="frame" x="50" y="0.0" width="252" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Puppy kitty ipsum" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awo-FQ-i1N">
-                                        <rect key="frame" x="0.0" y="0.0" width="252" height="32"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="252" height="34"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <color key="textColor" name="black white"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Due in 12 hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlG-r0-azj">
-                                        <rect key="frame" x="0.0" y="34.5" width="252" height="15.5"/>
-                                        <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="36.5" width="252" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="14"/>
                                         <color key="textColor" name="smalltext nav bar color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -65,7 +65,7 @@
                 <outlet property="deadlineLabel" destination="DlG-r0-azj" id="37i-mF-rHb"/>
                 <outlet property="titleLabel" destination="Awo-FQ-i1N" id="sfJ-mN-KbL"/>
             </connections>
-            <point key="canvasLocation" x="140.57971014492756" y="69.642857142857139"/>
+            <point key="canvasLocation" x="140.57971014492756" y="70.3125"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -99,6 +99,7 @@ class LoginViewController: UIViewController, Animatable {
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
+        /// same as not valid
         loginButton.tintColor = Constants.mediumBlack3f3f3f
         
         let googleIconImage = #imageLiteral(resourceName: "googleLogo").withRenderingMode(.alwaysOriginal)
