@@ -134,7 +134,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
         TaskPickerView.layer.cornerRadius = 20
         
-        saveButton.tintColor = .white
+        saveButton.tintColor = Constants.blackWhite
         saveButton.layer.cornerRadius = 10
         saveButton.titleLabel?.font = UIFont(name: Constants.avenirBlackSuperBold, size: 19)
         

@@ -9,6 +9,23 @@ import UIKit
 
 extension UIAlertController {
     
+    func setBackgroundColor(color: UIColor) {
+        if let bgView = self.view.subviews.first,
+           let groupView = bgView.subviews.first,
+           let contentView = groupView.subviews.first {
+            contentView.backgroundColor = color
+        }
+    }
+
+    
+    static func showTipsInAlert(message: String) -> UIAlertController{
+        let controller = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Sounds Good!", style: .cancel)
+        controller.addAction(okay)
+        controller.view.tintColor = Constants.blackWhite
+        return controller
+    }
+    
     static func addTask(onTap: @escaping (Bool) -> Void) -> UIAlertController {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)

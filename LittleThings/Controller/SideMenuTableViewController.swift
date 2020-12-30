@@ -70,7 +70,6 @@ extension SideMenuTableViewController: UITableViewDataSource, UITableViewDelegat
         cell.iconImageview.image = menuOption?.image
         cell.menuCellLabel.text = menuOption?.debugDescription
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

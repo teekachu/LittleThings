@@ -48,7 +48,10 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func additionalInfoTapped(_ sender: Any) {
-        print("Show custom alert controller with tips.")
+        let controller = CustomAlertViewController()
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
     }
     
     @IBAction func calendarButtonTapped(_ sender: Any) {
