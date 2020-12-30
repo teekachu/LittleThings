@@ -86,7 +86,7 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <color key="tintColor" red="0.98823529409999999" green="0.81960784310000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal">
-                                <imageReference key="image" image="arrowshape.turn.up.right.fill" catalog="system" symbolScale="large"/>
+                                <imageReference key="image" image="arrow.forward.circle.fill" catalog="system" symbolScale="large"/>
                             </state>
                             <connections>
                                 <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="XcR-yX-FLR"/>
@@ -183,7 +183,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
+        <image name="arrow.forward.circle.fill" catalog="system" width="128" height="121"/>
         <image name="dots" width="913" height="158"/>
         <image name="google.png" width="18" height="18"/>
         <namedColor name="black black">
