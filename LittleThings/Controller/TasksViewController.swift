@@ -206,8 +206,8 @@ class TasksViewController: UIViewController, Animatable {
     private func editTask(for task: Task){
         guard task.isDone != true else {
             showToast(state: .error,
-                      message: "This task has already been done. Please move it to ongoing if you are still working on it. ",
-                      location: .top, duration: 2)
+                      message: "This is a completed task. Click on the checkmark to move back to ongoing if you need more time. ",
+                      location: .top, duration: 3.5)
             return }
         
         /// open new task vc to edit

@@ -38,7 +38,7 @@ class ResetPasswordViewController: UIViewController {
         configureUI()
         loadEmail()
         notificationObserver()
-        addTapGestureToDismiss()
+        addGestureToDismiss()
         
     }
     
@@ -80,8 +80,9 @@ class ResetPasswordViewController: UIViewController {
         errorLabel.textAlignment = .center
     }
     
-    private func addTapGestureToDismiss(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(ResetPasswordViewController.dismissKeyboard))
+    private func addGestureToDismiss(){
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(ResetPasswordViewController.dismissKeyboard))
+        gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
     

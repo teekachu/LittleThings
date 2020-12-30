@@ -81,7 +81,8 @@ class TaskManager {
             case .success:
                 switch isDone{
                 case true:
-                    onResult(.success, "Moved task to done. Good job!")
+//                    break
+                    onResult(.success, "Good job on wrapping this up!")
                 case false:
                     onResult(.success, "Still working on that? No problem!")
                 }
@@ -96,7 +97,7 @@ class TaskManager {
                 print("DEBUG: error in edit(), \(error.localizedDescription)")
                 onResult(.error, "Uh oh, something went wrong...")
             case .success:
-                onResult(.success, "Updated task successfully!")
+                onResult(.success, "Updated successfully!")
             }
         }
     }
@@ -109,7 +110,8 @@ class TaskManager {
                 print("DEBUG: error in deleteTask: \(error.localizedDescription)")
                 onResult(.error, "Uh Oh, something went wrong.")
             case.success:
-                onResult(.success, "Task has been deleted successfully.")
+                break
+//                onResult(.success, "Task has been deleted successfully.")
             }
         }
     }

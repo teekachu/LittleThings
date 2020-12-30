@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController, Animatable {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        addTapGestureToDismiss()
+        addGestureToDismiss()
         notificationObserver()
         observeKeyboard()
     }
@@ -113,8 +113,9 @@ class SignUpViewController: UIViewController, Animatable {
         
     }
     
-    private func addTapGestureToDismiss(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
+    private func addGestureToDismiss(){
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
+        gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
     

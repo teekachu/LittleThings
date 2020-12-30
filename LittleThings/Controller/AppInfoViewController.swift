@@ -22,8 +22,6 @@ class AppInfoViewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-//        configureTapGesture()
-        
     }
     
     //MARK: - Selector
@@ -38,8 +36,4 @@ class AppInfoViewController: UIViewController {
         
     }
     
-//    private func configureTapGesture(){
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissVC))
-//        view.addGestureRecognizer(tapGesture)
-//    }
 }

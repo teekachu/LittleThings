@@ -45,7 +45,8 @@ class AddNewTaskViewController: UIViewController, Animatable {
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateTask()
-        guard taskString != nil else {
+        guard taskString != nil
+        else {
             showToast(state: .error, message: "Please enter a title")
             return
         }
@@ -126,7 +127,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskTextfield.textColor =  Constants.blackWhite
         TaskTextfield.font = UIFont(name: Constants.fontMedium, size: 20)
         TaskTextfield.autocapitalizationType = .sentences
-    
+        
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         TaskPickerView.backgroundColor = .clear
@@ -155,9 +156,9 @@ class AddNewTaskViewController: UIViewController, Animatable {
     }
     
     private func setupGesture(){
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissViewController))
-        tapGesture.delegate = self
-        view.addGestureRecognizer(tapGesture)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissViewController))
+        gesture.delegate = self
+        view.addGestureRecognizer(gesture)
     }
     
     private func observeKeyboard(){
@@ -181,7 +182,9 @@ class AddNewTaskViewController: UIViewController, Animatable {
             guard let self = self else { return }
             self.saveButton.isEnabled =
                 text?.isEmpty == false &&
-                text?.meetsCharCount(of: self.taskCharacterCount) == true
+                text?.meetsCharCount(of: self.taskCharacterCount) == true &&
+                text?.trimmingCharacters(in: .whitespaces) != ""
+            
         }.store(in: &subscribers)
         
         /// monitor character count for textfield
@@ -211,7 +214,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         }
         return false
     }
-
+    
     //    @discardableResult private func isAble(toAdd task: Task) -> Bool {
     //
     //        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5

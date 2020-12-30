@@ -48,7 +48,7 @@ class LoginViewController: UIViewController, Animatable {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        addTapGestureToDismiss()
+        addGestureToDismiss()
         notificationObserver()
         configureGoogleLogIn()
     }
@@ -107,8 +107,9 @@ class LoginViewController: UIViewController, Animatable {
         signInWithGoogle.imageView?.contentMode = .scaleAspectFit
     }
     
-    private func addTapGestureToDismiss(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+    private func addGestureToDismiss(){
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
     
