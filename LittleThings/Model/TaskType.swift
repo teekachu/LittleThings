@@ -13,5 +13,3 @@ enum TaskType: String, CaseIterable, Codable {
     case five = "Five small tasks"
 }
 
-
-

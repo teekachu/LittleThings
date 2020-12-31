@@ -33,29 +33,30 @@ class TaskManager {
         taskObserver?(tasks)
     }
     
-    /// Delete - Determine if adding this task will break the 1-3-5 rule?
-    //    public func currentTasktypeMeetsRestriction(for task: Task) -> String? {
-    //        /// basically determine whether the user is adding too many tasks or not.
-    //
-    //        let typeOne = tasks.filter{ $0.taskType == .one }
-    //        let typeThree = tasks.filter{ $0.taskType == .three }
-    //        let typeFive = tasks.filter{ $0.taskType == .five }
-    //
-    //        if typeOne.count == 1
-    //            && typeThree.count == 3
-    //            && typeFive.count == 5 {
-    //            return "Currently have 9 tasks ongoing already"
-    //        } else {
-    //            if task.taskType == .one && typeOne.count > 0 {
-    //                return "Already have 1 large task"
-    //            } else if task.taskType == .three && typeThree.count > 2 {
-    //                return "Already have 3 medium tasks"
-    //            } else if task.taskType == .five && typeFive.count > 4 {
-    //                return "Already have 5 small tasks"
-    //            }
-    //        }
-    //        return nil
-    //    }
+    
+    public func currentTasktypeMeetsRestriction(for task: Task) -> String? {
+        /// basically determine whether the user is adding too many tasks or not.
+        let warningMsg = "Try to finish the existing tasks before adding more."
+        
+        let typeOne = tasks.filter{ $0.taskType == .one && !$0.isDone }
+        let typeThree = tasks.filter{ $0.taskType == .three && !$0.isDone }
+        let typeFive = tasks.filter{ $0.taskType == .five && !$0.isDone }
+        
+        if typeOne.count == 1
+            && typeThree.count == 3
+            && typeFive.count == 5 {
+            return "You already have 9 tasks ongoing, why don't you finish some before adding more?  "
+            
+        } else {
+            if task.taskType == .one && typeOne.count > 0 ||
+                task.taskType == .three && typeThree.count > 2 ||
+                task.taskType == .five && typeFive.count > 4 {
+                return warningMsg
+            }
+        }
+        return nil
+    }
+    
     
     public func store(_ task: Task, onResult: @escaping (Loaf.State, String) -> Void) {
         databaseManager.addTask(task) { result in
@@ -81,7 +82,7 @@ class TaskManager {
             case .success:
                 switch isDone{
                 case true:
-//                    break
+                    //                    break
                     onResult(.success, "Good job on wrapping this up!")
                 case false:
                     onResult(.success, "Still working on that? No problem!")
@@ -111,7 +112,7 @@ class TaskManager {
                 onResult(.error, "Uh Oh, something went wrong.")
             case.success:
                 break
-//                onResult(.success, "Task has been deleted successfully.")
+            //                onResult(.success, "Task has been deleted successfully.")
             }
         }
     }
@@ -123,7 +124,7 @@ class TaskManager {
     public func deleteAll(tasks: [Task]){
         databaseManager.deleteAll(in: tasks)
     }
-     
+    
     
     // MARK: - Private
     /// Pulls task through using the databaseManager

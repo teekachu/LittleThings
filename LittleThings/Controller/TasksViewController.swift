@@ -39,6 +39,7 @@ class TasksViewController: UIViewController, Animatable {
     
     private var sidemenu: SideMenuNavigationController!
     
+    
     //  MARK: - IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var dateLabel: UILabel!
@@ -139,10 +140,10 @@ class TasksViewController: UIViewController, Animatable {
             
             snapshot.appendSections([type]) /// add section to table
             snapshot.appendItems(filteredTasks, toSection: type)
-        }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.dataSource.apply(snapshot, animatingDifferences: true)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.dataSource.apply(snapshot, animatingDifferences: true)
+            }
         }
     }
     

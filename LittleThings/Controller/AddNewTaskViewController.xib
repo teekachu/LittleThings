@@ -76,13 +76,13 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="68e-vf-ApS">
                                             <rect key="frame" x="0.0" y="185" width="382" height="25"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One little thing at a time." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syW-XB-fXW" userLabel="Placeholder err msg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One little thing at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syW-XB-fXW" userLabel="Placeholder err msg">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="g3T-G0-9Is"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" name="OrangeTintFDB903"/>
+                                                    <color key="textColor" red="0.99215686274509807" green="0.72549019607843135" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -127,9 +127,6 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="OrangeTintFDB903">
-            <color red="0.99199998378753662" green="0.72500002384185791" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="black white">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

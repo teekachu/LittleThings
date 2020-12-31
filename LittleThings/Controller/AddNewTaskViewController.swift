@@ -38,22 +38,17 @@ class AddNewTaskViewController: UIViewController, Animatable {
     @IBOutlet weak var TaskPickerView: UIPickerView!
     @IBOutlet weak var errorMsgLabel: UILabel! = {
         let lbl = UILabel()
-        lbl.textColor = Constants.brightOrange
+        lbl.textColor = Constants.orangeFDB903
         return lbl
     }()
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateTask()
-        guard taskString != nil
-        else {
-            showToast(state: .error, message: "Please enter a title")
+        
+        guard isAble(toAdd: task) else {
             return
         }
-        
-        //        guard isAble(toAdd: task) else {
-        //            return
-        //        }
         
         if isEditingTask {
             /// update task with new info
@@ -88,7 +83,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
     override func viewDidAppear(_ animated: Bool) {
         TaskTextfield.becomeFirstResponder()
         updateTask()
-        //        isAble(toAdd: task)
+
     }
     
     
@@ -215,24 +210,27 @@ class AddNewTaskViewController: UIViewController, Animatable {
         return false
     }
     
-    //    @discardableResult private func isAble(toAdd task: Task) -> Bool {
-    //
-    //        /// 135 - Make sure user doesn't add more than 9 tasks or more than 1/1, 3/3, 5/5
-    //        let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
-    //
-    //        if errorText != nil {
-    //            errorMsgLabel.text = errorText
-    //            errorMsgLabel.textColor = .red
-    //            /// otherwise continue
-    //            print("Did not have 9 tasks, continue")
-    //            return false
-    //        } else {
-    //            errorMsgLabel.text = "One little thing at a time."
-    //            errorMsgLabel.textColor = Constants.orangeTintColorFDB903
-    //        }
-    //
-    //        return true
-    //    }
+    @discardableResult private func isAble(toAdd task: Task) -> Bool {
+        
+        let errorText = taskManager.currentTasktypeMeetsRestriction(for: task)
+        
+        if errorText != nil {
+            errorMsgLabel.text = errorText
+            errorMsgLabel.textColor = .red
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {[weak self] in
+                self?.errorMsgLabel.text = "One little thing at a time."
+                self?.errorMsgLabel.textColor = Constants.orangeFDB903
+            }
+            return false
+            
+        } else {
+            errorMsgLabel.text = "One little thing at a time."
+            errorMsgLabel.textColor = Constants.orangeFDB903
+        }
+        
+        return true
+    }
 }
 
 
@@ -289,7 +287,7 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
         
         updateTask()
-        //        isAble(toAdd: task)
+        
     }
 }
 
