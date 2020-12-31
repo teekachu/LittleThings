@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uq6-C6-4Nq">
-                        <rect key="frame" x="16" y="12" width="288" height="41"/>
+                        <rect key="frame" x="16" y="10" width="288" height="45"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XX4-wP-Jln">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="41"/>
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="W1H-Ma-1Ta"/>
                                 </constraints>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="tAG-Br-k0z">
-                                <rect key="frame" x="50" y="0.0" width="238" height="41"/>
+                                <rect key="frame" x="50" y="0.0" width="238" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Task title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k06-hZ-e8q">
                                         <rect key="frame" x="0.0" y="0.0" width="238" height="25"/>
@@ -43,7 +43,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wti-CK-T1H">
-                                        <rect key="frame" x="0.0" y="27.5" width="238" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="238" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="14"/>
                                         <color key="textColor" name="blue Blue"/>
                                         <nil key="highlightedColor"/>
@@ -57,8 +57,8 @@
                 <constraints>
                     <constraint firstItem="uq6-C6-4Nq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ZsR-Ou-571"/>
                     <constraint firstAttribute="trailing" secondItem="uq6-C6-4Nq" secondAttribute="trailing" constant="16" id="fc4-GV-yT1"/>
-                    <constraint firstItem="uq6-C6-4Nq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="reU-f4-BCS"/>
-                    <constraint firstAttribute="bottom" secondItem="uq6-C6-4Nq" secondAttribute="bottom" constant="12" id="xso-7w-n7g"/>
+                    <constraint firstItem="uq6-C6-4Nq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="reU-f4-BCS"/>
+                    <constraint firstAttribute="bottom" secondItem="uq6-C6-4Nq" secondAttribute="bottom" constant="10" id="xso-7w-n7g"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -98,7 +98,7 @@ class TaskManager {
                 print("DEBUG: error in edit(), \(error.localizedDescription)")
                 onResult(.error, "Uh oh, something went wrong...")
             case .success:
-                onResult(.success, "Updated successfully!")
+                onResult(.success, "Updated!")
             }
         }
     }
@@ -112,7 +112,6 @@ class TaskManager {
                 onResult(.error, "Uh Oh, something went wrong.")
             case.success:
                 break
-            //                onResult(.success, "Task has been deleted successfully.")
             }
         }
     }

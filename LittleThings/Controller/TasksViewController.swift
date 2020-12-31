@@ -54,10 +54,7 @@ class TasksViewController: UIViewController, Animatable {
         controller.modalTransitionStyle = .crossDissolve
         present(controller, animated: true)
     }
-    
-    @IBAction func calendarButtonTapped(_ sender: Any) {
-        print("Show me calendar view.")
-    }
+
     @IBAction func ShowMenuTapped(_ sender: Any) {
         present(sidemenu, animated: true)
     }
@@ -144,6 +141,8 @@ class TasksViewController: UIViewController, Animatable {
             DispatchQueue.main.async { [weak self] in
                 self?.dataSource.apply(snapshot, animatingDifferences: true)
             }
+
+            
         }
     }
     
@@ -197,7 +196,7 @@ class TasksViewController: UIViewController, Animatable {
     
     
     //  MARK: - Privates
-    private func deleteTask(_ task: Task){
+    func deleteTask(_ task: Task){
         taskManager.delete(task) {[weak self] (status, message) in
             guard let self = self else { return }
             self.showToast(state: status, message: message)
@@ -281,6 +280,7 @@ class TasksViewController: UIViewController, Animatable {
     }
 }
 
+
 //  MARK: - UITableViewDelegate
 extension TasksViewController: UITableViewDelegate {
     
@@ -291,6 +291,7 @@ extension TasksViewController: UITableViewDelegate {
             showOptions(for: selected)
         }
     }
+    
 }
 
 //  MARK: - NewTaskVCDelegate
@@ -324,7 +325,8 @@ extension TasksViewController: TasksViewControllerDelegate {
             if didSelectEdit {
                 self.editTask(for: task)
             } else {
-                self.deleteTask(task)
+//                self.deleteTask(task)
+                print("Swap task")
             }
         }
         present(controller, animated: true)
