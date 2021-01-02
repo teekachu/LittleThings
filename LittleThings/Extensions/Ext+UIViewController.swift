@@ -28,4 +28,10 @@ extension UIViewController {
         }
     }
     
+    func addBlurEffectToView(for style:  UIBlurEffect.Style){
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        self.view.insertSubview(blurEffectView, at: 0)
+    }
 }

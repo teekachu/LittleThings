@@ -141,8 +141,6 @@ class TasksViewController: UIViewController, Animatable {
             DispatchQueue.main.async { [weak self] in
                 self?.dataSource.apply(snapshot, animatingDifferences: true)
             }
-
-            
         }
     }
     
@@ -179,10 +177,12 @@ class TasksViewController: UIViewController, Animatable {
         quotesLabel.textColor = Constants.navBarQuoteTextColor
         
         actionButton.backgroundColor = Constants.addTaskButton
-        actionButton.tintColor = .white
+        actionButton.tintColor = Constants.whiteOffblack
         actionButton.setTitle("+ Add Task", for: .normal)
         actionButton.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 16)
         actionButton.layer.cornerRadius = 12
+        actionButton.layer.borderWidth = 1
+        actionButton.layer.borderColor = Constants.lightGrayCDCDCD.cgColor
         actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)
     }
     
@@ -196,12 +196,6 @@ class TasksViewController: UIViewController, Animatable {
     
     
     //  MARK: - Privates
-    func deleteTask(_ task: Task){
-        taskManager.delete(task) {[weak self] (status, message) in
-            guard let self = self else { return }
-            self.showToast(state: status, message: message)
-        }
-    }
     
     private func editTask(for task: Task){
         guard task.isDone != true else {
@@ -249,6 +243,13 @@ class TasksViewController: UIViewController, Animatable {
             cont.modalPresentationStyle = .fullScreen
             self.present(cont, animated: true)
         }
+    }
+    
+    private func showSwapTaskVC(){
+        let controller = SwapTaskViewController()
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
     }
     
     // MARK: - Auth
@@ -321,12 +322,11 @@ extension TasksViewController: TasksViewControllerDelegate {
     /// The parent will act as the intern , take the information and execiutes methods.
     
     func showOptions(for task: Task){
-        let controller = UIAlertController.addTask { didSelectEdit in
+        let controller = UIAlertController.addTask {[weak self] didSelectEdit in
             if didSelectEdit {
-                self.editTask(for: task)
+                self?.editTask(for: task)
             } else {
-//                self.deleteTask(task)
-                print("Swap task")
+                self?.showSwapTaskVC()
             }
         }
         present(controller, animated: true)
@@ -390,7 +390,6 @@ extension TasksViewController: SideMenuDelegate {
             print("show about us page")
             
         case .clearDone:
-            /// Once implemented calender button , This function will no longer be needed
             let filtered = tasks.filter({ $0.isDone})
             taskManager.deleteAll(tasks: filtered)
             

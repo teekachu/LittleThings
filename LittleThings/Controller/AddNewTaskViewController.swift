@@ -108,7 +108,8 @@ class AddNewTaskViewController: UIViewController, Animatable {
     
     //  MARK: - Privates
     private func configureUI(){
-        backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
+//        backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
+        addBlurEffectToView(for: .systemUltraThinMaterial)
         
         BottomContainerView.layer.cornerRadius = 35
         BottomContainerView.layer.borderWidth = 1

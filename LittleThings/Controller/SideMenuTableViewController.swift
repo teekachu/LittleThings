@@ -44,13 +44,14 @@ class SideMenuTableViewController: UIViewController {
     
     //  MARK: - Privates
     private func configureTableView(){
-        tableview = UITableView()
+        tableview = UITableView(frame: .zero, style: .insetGrouped)
         view.addSubview(tableview)
         tableview.dataSource = self
         tableview.delegate = self
         tableview.register(SidemenuTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableview.backgroundColor = Constants.offBlack202020
         tableview.separatorColor = .clear
+        
         tableview.anchor(top: view.topAnchor,left: view.leftAnchor,
                          bottom: view.bottomAnchor, right: view.rightAnchor)
     }
@@ -69,6 +70,8 @@ extension SideMenuTableViewController: UITableViewDataSource, UITableViewDelegat
         let menuOption = MenuOption(rawValue: indexPath.row)
         cell.iconImageview.image = menuOption?.image
         cell.menuCellLabel.text = menuOption?.debugDescription
+        cell.iconImageview.tintColor = #colorLiteral(red: 0.7568627451, green: 0.7960784314, blue: 0.8470588235, alpha: 1)
+        cell.menuCellLabel.textColor = #colorLiteral(red: 0.7568627451, green: 0.7960784314, blue: 0.8470588235, alpha: 1)
         return cell
     }
     

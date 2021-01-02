@@ -18,8 +18,8 @@
 		A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AE32587EB7600CB1BAE /* AuthManager.swift */; };
 		A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */; };
 		A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */; };
-		A776D4ED2597A7AF0030E4DE /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A776D4EB2597A7AF0030E4DE /* CalenderViewController.swift */; };
-		A776D4EE2597A7AF0030E4DE /* CalenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A776D4EC2597A7AF0030E4DE /* CalenderViewController.xib */; };
+		A7771DA4259E9F0A006CCB39 /* SwapTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */; };
+		A7771DA5259E9F0A006CCB39 /* SwapTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */; };
 		A795179A25955EF100831605 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795179825955EF100831605 /* SideMenuTableViewController.swift */; };
 		A79517AA259579F700831605 /* SidemenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79517A8259579F700831605 /* SidemenuTableViewCell.swift */; };
 		A79517B025959B4700831605 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79517AF25959B4700831605 /* MenuOption.swift */; };
@@ -79,8 +79,8 @@
 		A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingAnimationViewController.xib; sourceTree = "<group>"; };
 		A75290FF2592648300647771 /* LittleThings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleThings.entitlements; sourceTree = "<group>"; };
-		A776D4EB2597A7AF0030E4DE /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
-		A776D4EC2597A7AF0030E4DE /* CalenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderViewController.xib; sourceTree = "<group>"; };
+		A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapTaskViewController.swift; sourceTree = "<group>"; };
+		A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwapTaskViewController.xib; sourceTree = "<group>"; };
 		A795179825955EF100831605 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		A79517A8259579F700831605 /* SidemenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuTableViewCell.swift; sourceTree = "<group>"; };
 		A79517AF25959B4700831605 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
@@ -281,8 +281,8 @@
 				F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */,
 				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
 				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
-				A776D4EB2597A7AF0030E4DE /* CalenderViewController.swift */,
-				A776D4EC2597A7AF0030E4DE /* CalenderViewController.xib */,
+				A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */,
+				A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */,
 				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
 				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
 				A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */,
@@ -380,8 +380,8 @@
 				F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */,
 				F430AEB425772D7000DE727B /* Podfile in Resources */,
 				A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */,
-				A776D4EE2597A7AF0030E4DE /* CalenderViewController.xib in Resources */,
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
+				A7771DA5259E9F0A006CCB39 /* SwapTaskViewController.xib in Resources */,
 				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
 				A7F48193259C1CFF005319AF /* CustomAlertViewController.xib in Resources */,
 				F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */,
@@ -475,9 +475,9 @@
 				F430AEE125782B9900DE727B /* Task.swift in Sources */,
 				A745A20C2585615400AC77F3 /* Ext+String.swift in Sources */,
 				F435B81625815762007BB7E1 /* OnboardingViewController.swift in Sources */,
+				A7771DA4259E9F0A006CCB39 /* SwapTaskViewController.swift in Sources */,
 				A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */,
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
-				A776D4ED2597A7AF0030E4DE /* CalenderViewController.swift in Sources */,
 				A7F48192259C1CFF005319AF /* CustomAlertViewController.swift in Sources */,
 				A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,

@@ -42,17 +42,17 @@ enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
     
     var debugDescription: String {
         switch self {
-        case .supportDevelopment: return "Support Development"
-        case .shareWithFriends: return "Share With Friends"
-        case .sendSuggestions: return "Send Suggestions"
+        case .supportDevelopment: return "Support Development "
+        case .shareWithFriends: return "Share With Friends "
+        case .sendSuggestions: return "Send Suggestions "
 //        case .contactDeveloper: return "Contact The Developer"
-        case .whatIs135: return "What is the 1-3-5 rule"
-        case .reportBug: return "Report Bug"
+        case .whatIs135: return "What is the 1-3-5 rule "
+        case .reportBug: return "Report Bug "
 //        case .privacyPolicy: return "Privacy Policy"
 //        case .termsCondition: return "Terms & Condition"
-        case .about: return "About Us"
-        case .clearDone: return "Clear Done"
-        case .logOut: return "Log Out"
+        case .about: return "About Us "
+        case .clearDone: return "Clear Done "
+        case .logOut: return "Log Out "
         }
     }
     

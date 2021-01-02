@@ -34,10 +34,12 @@ class CustomAlertViewController: UIViewController {
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
-        backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
+    
+        addBlurEffectToView(for: .systemUltraThinMaterial)
+//        backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3) 
         
         alertView.backgroundColor = Constants.whiteOffblack
-        alertView.layer.cornerRadius = 15
+        alertView.layer.cornerRadius = 25
         alertView.layer.borderWidth = 1
         alertView.layer.borderColor =
             Constants.bottomContainerBorder?.cgColor

@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // set up your background color view
         let colorView = UIView()
-        colorView.backgroundColor = Constants.orangeFDB903
+        colorView.layer.cornerRadius = 15
+        colorView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         
         // use UITableViewCell.appearance() to configure
         // the default appearance of all UITableViewCells in your app
