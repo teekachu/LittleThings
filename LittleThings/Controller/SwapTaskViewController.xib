@@ -3,12 +3,22 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwapTaskViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="sbZ-eg-9CI" id="WPo-Bt-9M7"/>
+                <outlet property="currentPriorityLabel" destination="2BH-Jm-SfH" id="oS9-9p-gSk"/>
+                <outlet property="currentTaskToFinishStackView" destination="mhS-GX-BN6" id="gnQ-AI-TrL"/>
+                <outlet property="questionMarkButton" destination="HcZ-ah-MHX" id="P89-TI-cHK"/>
+                <outlet property="swapButton" destination="aZI-DD-Rk7" id="tml-Wz-8CF"/>
+                <outlet property="taskToFinishLabel" destination="7yJ-Qa-kgT" id="gFv-si-g4R"/>
+                <outlet property="taskToSwapWithLabel" destination="FqN-FG-lxV" id="A3v-7p-Bis"/>
+                <outlet property="taskToSwapWithStackView" destination="eFF-l0-eNr" id="gmf-HC-xWA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,18 +27,191 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZI-DD-Rk7" userLabel="Button">
-                    <rect key="frame" x="177" y="665" width="60" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="DISMISS"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcZ-ah-MHX" userLabel="whatIsSwapMode">
+                    <rect key="frame" x="374" y="64" width="25" height="25"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="tXP-3P-mhv"/>
+                        <constraint firstAttribute="height" constant="25" id="ypH-he-BBd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <imageReference key="image" image="questionmark" catalog="system" symbolScale="medium"/>
+                    </state>
                     <connections>
-                        <action selector="tappedSwapActionButton:" destination="-1" eventType="touchUpInside" id="2dP-ic-ruz"/>
+                        <action selector="questionButtonTapped:" destination="-1" eventType="touchUpInside" id="wqS-eh-T44"/>
                     </connections>
                 </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="r4C-6x-52w" userLabel="tasksInSwap">
+                    <rect key="frame" x="35" y="119" width="344" height="481"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT PRIORITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BH-Jm-SfH">
+                            <rect key="frame" x="0.0" y="0.0" width="344" height="36"/>
+                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="26"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mhS-GX-BN6" userLabel="finishThisTask">
+                            <rect key="frame" x="0.0" y="66" width="344" height="187.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dag-Pe-DgE" userLabel="spacerView">
+                                    <rect key="frame" x="0.0" y="0.0" width="344" height="10"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="10" id="V8D-4o-eYB"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TASK TO FINISH NOW" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yJ-Qa-kgT">
+                                    <rect key="frame" x="0.0" y="10" width="344" height="27.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPQ-t8-V1W">
+                                    <rect key="frame" x="0.0" y="37.5" width="344" height="150"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ru-Ik-8Yz">
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="150"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="jGv-0J-5rJ"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="underlying background content. It does not adapt to Dark Mode. Available from iOS 10 onward." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EM2-SW-ETw" userLabel="taskNameSelected">
+                                            <rect key="frame" x="20" y="0.0" width="304" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="4vk-SN-rhM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <color key="textColor" name="smalltext nav bar color"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iB9-gq-A98">
+                                            <rect key="frame" x="324" y="0.0" width="20" height="150"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="hRg-ac-bne"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eFF-l0-eNr" userLabel="SwapWithThisTask">
+                            <rect key="frame" x="0.0" y="283.5" width="344" height="197.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lx5-89-Z77" userLabel="spacerView">
+                                    <rect key="frame" x="0.0" y="0.0" width="344" height="10"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="10" id="SAv-al-6LN"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TASK TO SWAP WITH" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqN-FG-lxV">
+                                    <rect key="frame" x="0.0" y="10" width="344" height="27.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYM-mi-VvP">
+                                    <rect key="frame" x="0.0" y="37.5" width="344" height="150"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9G-xW-LT2">
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="150"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="gc7-Xf-X0B"/>
+                                            </constraints>
+                                        </view>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ePO-gm-Tgl">
+                                            <rect key="frame" x="20" y="0.0" width="304" height="150"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="3Yh-sm-jju"/>
+                                            </constraints>
+                                            <color key="textColor" name="smalltext nav bar color"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gH-A2-E1b">
+                                            <rect key="frame" x="324" y="0.0" width="20" height="150"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="fdF-OX-co2"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBc-XZ-DoV" userLabel="spacerView">
+                                    <rect key="frame" x="0.0" y="187.5" width="344" height="10"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="10" id="D38-1j-hoO"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="3yN-T4-H53">
+                    <rect key="frame" x="39.5" y="798" width="335" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZI-DD-Rk7" userLabel="SwapButton">
+                            <rect key="frame" x="0.0" y="0.0" width="145" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="chg-Le-tub"/>
+                                <constraint firstAttribute="width" constant="145" id="sIM-Fj-DvL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                            <state key="normal" title="SWAP IT">
+                                <color key="titleColor" name="black white"/>
+                            </state>
+                            <connections>
+                                <action selector="tappedSwapActionButton:" destination="-1" eventType="touchUpInside" id="2dP-ic-ruz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbZ-eg-9CI" userLabel="cancelButton">
+                            <rect key="frame" x="190" y="0.0" width="145" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Wij-gY-gXD"/>
+                                <constraint firstAttribute="width" constant="145" id="tNj-Pf-lEi"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                            <state key="normal" title="JK, I'm Good">
+                                <color key="titleColor" name="black white"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="xJu-aN-08Q"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="64" y="66"/>
+            <constraints>
+                <constraint firstItem="r4C-6x-52w" firstAttribute="top" secondItem="HcZ-ah-MHX" secondAttribute="bottom" constant="30" id="ERM-GX-KkA"/>
+                <constraint firstItem="3yN-T4-H53" firstAttribute="centerX" secondItem="r4C-6x-52w" secondAttribute="centerX" id="YGq-Ai-pLi"/>
+                <constraint firstItem="r4C-6x-52w" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="abt-rV-IC7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HcZ-ah-MHX" secondAttribute="trailing" constant="15" id="bVy-Nb-Eyq"/>
+                <constraint firstItem="3yN-T4-H53" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="gSE-Ln-DpW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="r4C-6x-52w" secondAttribute="trailing" constant="35" id="rxe-dc-2oJ"/>
+                <constraint firstItem="HcZ-ah-MHX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="vWo-5i-OVJ"/>
+            </constraints>
+            <point key="canvasLocation" x="63.768115942028992" y="65.625"/>
         </view>
     </objects>
+    <resources>
+        <image name="questionmark" catalog="system" width="96" height="128"/>
+        <namedColor name="black white">
+            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="smalltext nav bar color">
+            <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

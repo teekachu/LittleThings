@@ -8,11 +8,21 @@
 import UIKit
 
 class CustomAlertViewController: UIViewController {
-    //  MARK: - Properties
+
+    var message: String
     
+    init(alertMessage: String) {
+        self.message = alertMessage
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //  MARK: - IB Properties
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var dismissButton: UIButton!
@@ -34,10 +44,9 @@ class CustomAlertViewController: UIViewController {
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
-    
         addBlurEffectToView(for: .systemUltraThinMaterial)
-//        backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3) 
         
+        labelText.text = message
         alertView.backgroundColor = Constants.whiteOffblack
         alertView.layer.cornerRadius = 25
         alertView.layer.borderWidth = 1

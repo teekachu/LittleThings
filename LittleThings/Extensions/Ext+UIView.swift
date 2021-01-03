@@ -94,5 +94,14 @@ extension UIView {
     }
     
     
+    func configureGradientBackground() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [#colorLiteral(red: 1, green: 0.8470588235, blue: 0.6078431373, alpha: 1).cgColor, #colorLiteral(red: 0.09803921569, green: 0.3294117647, blue: 0.4823529412, alpha: 1).cgColor]
+        gradient.locations = [0, 1]
+        /// Because gradient is a Layer, not a view
+        self.layer.addSublayer(gradient)
+        gradient.frame = self.frame
+    }
+    
 }
 

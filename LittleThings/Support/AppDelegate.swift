@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set up your background color view
         let colorView = UIView()
         colorView.layer.cornerRadius = 15
+        
+        /// configure gradiant background
         colorView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         
         // use UITableViewCell.appearance() to configure

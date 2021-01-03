@@ -13,6 +13,7 @@
                 <outlet property="alertView" destination="O1T-6f-dFg" id="ekH-PI-rHM"/>
                 <outlet property="backgroundView" destination="X6U-fD-oEY" id="56M-4z-L6x"/>
                 <outlet property="dismissButton" destination="cNP-SY-aRl" id="Lmm-bC-kpJ"/>
+                <outlet property="labelText" destination="bxc-AB-K2b" id="hec-ex-0sw"/>
                 <outlet property="stackView" destination="LnV-KD-ZJH" id="wkt-EQ-l3i"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,20 +27,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-6f-dFg" userLabel="alertView">
-                            <rect key="frame" x="35" y="295" width="344" height="306.5"/>
+                            <rect key="frame" x="35" y="381" width="344" height="134"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LnV-KD-ZJH">
-                                    <rect key="frame" x="30" y="25" width="284" height="256.5"/>
+                                    <rect key="frame" x="30" y="25" width="284" height="84"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-AB-K2b">
-                                            <rect key="frame" x="0.0" y="0.0" width="284" height="172.5"/>
-                                            <string key="text">Rule of Thumb:   Consider a task Large if it takes about 3-4 hours to complete. Medium Tasks can take about 1-2 hours, and Small Tasks may take less than 30 minutes each. </string>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-AB-K2b">
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="0.0"/>
                                             <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXg-ZS-ihU">
-                                            <rect key="frame" x="0.0" y="212.5" width="284" height="44"/>
+                                            <rect key="frame" x="0.0" y="40" width="284" height="44"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGK-ho-dkg">
                                                     <rect key="frame" x="0.0" y="0.0" width="48.5" height="44"/>

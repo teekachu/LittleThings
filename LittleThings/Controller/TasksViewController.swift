@@ -49,7 +49,8 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func additionalInfoTapped(_ sender: Any) {
-        let controller = CustomAlertViewController()
+        let msg = "Rule of Thumb:   Consider a task Large if it takes about 3-4 hours to complete. Medium Tasks can take about 1-2 hours, and Small Tasks may take less than 30 minutes each. "
+        let controller = CustomAlertViewController(alertMessage: msg)
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
         present(controller, animated: true)
