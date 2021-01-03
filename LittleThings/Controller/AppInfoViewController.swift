@@ -10,8 +10,8 @@ import UIKit
 class AppInfoViewController: UIViewController {
     
     //MARK: - IB Properties
-    @IBOutlet weak var mainTextLabel: UILabel!
-    @IBOutlet weak var detailTextLabel: UILabel!
+    
+
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         tapToDismissVC()
     }
@@ -32,8 +32,9 @@ class AppInfoViewController: UIViewController {
     
     //MARK: - Privates
     private func configureUI(){
+        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = Constants.offBlack202020
-        
-    }
     
+}
+
 }

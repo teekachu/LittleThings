@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let taskManager = TaskManager(databaseManager: databaseManager)
         let controller = TasksViewController(taskManager: taskManager)
         window?.rootViewController = UINavigationController(rootViewController: controller)
-        //        window?.rootViewController = UINavigationController(rootViewController: CustomAlertViewController())
+//        window?.rootViewController = UINavigationController(rootViewController: AppInfoViewController())
         window?.makeKeyAndVisible()
     }
     
