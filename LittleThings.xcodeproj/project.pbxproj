@@ -28,6 +28,8 @@
 		A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A666682585A20A0043D22D /* LoginViewController.xib */; };
 		A7A6666D2585A4150043D22D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A6666C2585A4150043D22D /* User.swift */; };
 		A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */; };
+		A7CD6F8D25A269B3009DDACE /* AboutUSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CD6F8B25A269B3009DDACE /* AboutUSViewController.swift */; };
+		A7CD6F8E25A269B3009DDACE /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7CD6F8C25A269B3009DDACE /* AboutUSViewController.xib */; };
 		A7F48192259C1CFF005319AF /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F48190259C1CFF005319AF /* CustomAlertViewController.swift */; };
 		A7F48193259C1CFF005319AF /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F48191259C1CFF005319AF /* CustomAlertViewController.xib */; };
 		F34CF6882582B6D100B8FD7C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CF6872582B6D100B8FD7C /* TaskManager.swift */; };
@@ -89,6 +91,8 @@
 		A7A666682585A20A0043D22D /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A7A6666C2585A4150043D22D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		A7CD6F8B25A269B3009DDACE /* AboutUSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUSViewController.swift; sourceTree = "<group>"; };
+		A7CD6F8C25A269B3009DDACE /* AboutUSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUSViewController.xib; sourceTree = "<group>"; };
 		A7F48190259C1CFF005319AF /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		A7F48191259C1CFF005319AF /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		ABB7A4D708151C012645AD3F /* Pods-LittleThings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleThings.release.xcconfig"; path = "Target Support Files/Pods-LittleThings/Pods-LittleThings.release.xcconfig"; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 				A795179825955EF100831605 /* SideMenuTableViewController.swift */,
 				A7F48190259C1CFF005319AF /* CustomAlertViewController.swift */,
 				A7F48191259C1CFF005319AF /* CustomAlertViewController.xib */,
+				A7CD6F8B25A269B3009DDACE /* AboutUSViewController.swift */,
+				A7CD6F8C25A269B3009DDACE /* AboutUSViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */,
 				F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */,
 				F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */,
+				A7CD6F8E25A269B3009DDACE /* AboutUSViewController.xib in Resources */,
 				F430AEB425772D7000DE727B /* Podfile in Resources */,
 				A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */,
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
@@ -465,6 +472,7 @@
 				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
 				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,
 				A7A666712585C16C0043D22D /* AuthenticationViewModel.swift in Sources */,
+				A7CD6F8D25A269B3009DDACE /* AboutUSViewController.swift in Sources */,
 				A7A6666D2585A4150043D22D /* User.swift in Sources */,
 				F433E6AB2576C13100A55C52 /* AnimatableExt.swift in Sources */,
 				F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */,

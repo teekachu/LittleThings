@@ -10,6 +10,7 @@ import UIKit
 class SwapTaskViewController: UIViewController {
     
     //  MARK: - Properties
+    var taskToFinish: String?
     
     
     //  MARK: - IB Properties

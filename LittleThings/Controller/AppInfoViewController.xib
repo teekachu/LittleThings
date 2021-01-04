@@ -25,11 +25,11 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="DRg-KO-6ni">
                             <rect key="frame" x="20" y="20" width="374" height="830"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOv-kT-6aZ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOv-kT-6aZ">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="84"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal">
+                                    <state key="normal" title="  ">
                                         <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
                                     </state>
                                     <connections>

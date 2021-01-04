@@ -199,15 +199,15 @@ class TasksViewController: UIViewController, Animatable {
     //  MARK: - Privates
     
     private func editTask(for task: Task){
-        guard task.isDone != true else {
-            showToast(state: .error,
-                      message: "This is a completed task. Click on the checkmark to move back to ongoing if you need more time. ",
-                      location: .top, duration: 3.5)
-            return }
-        
-        /// open new task vc to edit
         let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
         controller.delegate = self
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
+    }
+    
+    private func swapTaskVC(for task: Task){
+        let controller = SwapTaskViewController()
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
         present(controller, animated: true)
@@ -244,13 +244,6 @@ class TasksViewController: UIViewController, Animatable {
             cont.modalPresentationStyle = .fullScreen
             self.present(cont, animated: true)
         }
-    }
-    
-    private func showSwapTaskVC(){
-        let controller = SwapTaskViewController()
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
     }
     
     // MARK: - Auth
@@ -290,6 +283,7 @@ extension TasksViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let selected = dataSource.itemIdentifier(for: indexPath){
+            if selected.isDone == true {return}
             showOptions(for: selected)
         }
     }
@@ -327,7 +321,7 @@ extension TasksViewController: TasksViewControllerDelegate {
             if didSelectEdit {
                 self?.editTask(for: task)
             } else {
-                self?.showSwapTaskVC()
+                self?.swapTaskVC(for: task)
             }
         }
         present(controller, animated: true)
@@ -369,7 +363,9 @@ extension TasksViewController: SideMenuDelegate {
             print("support devs")
             
         case .shareWithFriends:
-            print("share")
+            let items = [URL(string: "https://testflight.apple.com/join/FwtK8Ylo")!]
+            let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            present(ac, animated: true)
             
         case .sendSuggestions:
             let emailAddress = "mailto:ting.becker@outlook.com"
@@ -385,10 +381,18 @@ extension TasksViewController: SideMenuDelegate {
             present(infoController, animated: true)
             
         case .reportBug:
-            print("report bug via email")
+            /// Can probably get rid of this
+            let emailAddress = "mailto:ting.becker@outlook.com"
+            guard let emailURL = URL(string: emailAddress) else { return }
+            UIApplication.shared.open(emailURL,
+                                      options: [:],
+                                      completionHandler: nil)
             
         case .about:
-            print("show about us page")
+            let infoController = AboutUSViewController()
+            infoController.modalPresentationStyle = .overCurrentContext
+            infoController.modalTransitionStyle = .crossDissolve
+            present(infoController, animated: true)
             
         case .clearDone:
             let filtered = tasks.filter({ $0.isDone})
