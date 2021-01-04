@@ -39,7 +39,7 @@
                                     </constraints>
                                     <color key="tintColor" name="black white"/>
                                     <state key="normal">
-                                        <imageReference key="image" image="line.horizontal.3.decrease" catalog="system" symbolScale="large"/>
+                                        <imageReference key="image" image="line.horizontal.3" catalog="system" symbolScale="large"/>
                                     </state>
                                     <connections>
                                         <action selector="ShowMenuTapped:" destination="-1" eventType="touchUpInside" id="GJR-e8-XLN"/>
@@ -131,7 +131,7 @@
         </view>
     </objects>
     <resources>
-        <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <namedColor name="black white">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

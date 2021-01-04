@@ -19,10 +19,9 @@ class AddNewTaskViewController: UIViewController, Animatable {
     private let taskManager: TaskManager
     private var task: Task
     private let isEditingTask: Bool
-    private let taskCharacterCount = 200
     
     @Published private var taskString: String? ///Observe this variable because this is what will be updated as we type into the textfield
-    private var currentTasktype: TaskType = .one
+    private var currentTasktype: TaskType = .three
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
     weak var delegate: NewTaskVCDelegate?
     
@@ -83,7 +82,6 @@ class AddNewTaskViewController: UIViewController, Animatable {
     override func viewDidAppear(_ animated: Bool) {
         TaskTextfield.becomeFirstResponder()
         updateTask()
-
     }
     
     
@@ -178,7 +176,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
             guard let self = self else { return }
             self.saveButton.isEnabled =
                 text?.isEmpty == false &&
-                text?.meetsCharCount(of: self.taskCharacterCount) == true &&
+                text?.meetsCharCount(of: Constants.textCharacterCount) == true &&
                 text?.trimmingCharacters(in: .whitespaces) != ""
             
         }.store(in: &subscribers)
@@ -188,7 +186,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
             guard let self = self else { return }
             guard let text = text else { return }
             self.descriptionCharCountLabel.alpha = self.updateAlphaPerCharCount(for: text)
-            self.descriptionCharCountLabel.text = "- \(text.count - self.taskCharacterCount)"
+            self.descriptionCharCountLabel.text = "- \(text.count - Constants.textCharacterCount)"
         }.store(in: &subscribers)
     }
     
@@ -198,14 +196,14 @@ class AddNewTaskViewController: UIViewController, Animatable {
     }
     
     private func updateAlphaPerCharCount(for text: String) -> CGFloat{
-        if text.count < taskCharacterCount{
+        if text.count < Constants.textCharacterCount{
             return 0
         }
         return 1
     }
     
     private func enableButtonPerCharCount(for text: String) -> Bool {
-        if text.count < taskCharacterCount{
+        if text.count < Constants.textCharacterCount{
             return true
         }
         return false

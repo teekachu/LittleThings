@@ -208,6 +208,7 @@ class TasksViewController: UIViewController, Animatable {
     
     private func swapTaskVC(for task: Task){
         let controller = SwapTaskViewController()
+        controller.taskToSwap = task
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
         present(controller, animated: true)

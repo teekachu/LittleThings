@@ -59,8 +59,6 @@ struct Constants {
     static let swapCellBorder = UIColor(named: "swapCellBorder")
     
     
-    
-    
 //    static let orangeTintColorEEAE45:UIColor = #colorLiteral(red: 0.9333333333, green: 0.6823529412, blue: 0.2705882353, alpha: 1)
     
     static let whiteSmoke: UIColor =  #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
@@ -96,6 +94,7 @@ struct Constants {
     
     static let menuFont = "Avenir-Roman"
     
+    static let textCharacterCount = 150
 }
 
 
