@@ -55,7 +55,7 @@ class TasksViewController: UIViewController, Animatable {
         controller.modalTransitionStyle = .crossDissolve
         present(controller, animated: true)
     }
-
+    
     @IBAction func ShowMenuTapped(_ sender: Any) {
         present(sidemenu, animated: true)
     }
@@ -209,6 +209,7 @@ class TasksViewController: UIViewController, Animatable {
     private func swapTaskVC(for task: Task){
         let controller = SwapTaskViewController()
         controller.taskToSwap = task
+        controller.delegate = self
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
         present(controller, animated: true)
@@ -406,4 +407,25 @@ extension TasksViewController: SideMenuDelegate {
         }
     }
     
+}
+
+
+//MARK: - SwapTaskVCDelegate
+extension TasksViewController: SwapTaskVCDelegate {
+    
+    func didSwapTask(for task: Task, with newTitle: String) {
+        presentedViewController?.dismiss(animated: true, completion: {
+
+            let uid = task.uid // user uid
+            let type = task.taskType
+            let newTask = Task(title: newTitle, isDone: false, taskType: type, uid: uid)
+            self.taskManager.updateTaskStatus(task, isDone: true) {(state, message) in
+                print(message)
+            }
+            self.taskManager.store(newTask) {(state, message) in
+                print(message)
+            }
+        })
+    }
+
 }

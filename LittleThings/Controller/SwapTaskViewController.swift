@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+protocol SwapTaskVCDelegate: class {
+    func didSwapTask(for task: Task, with newTitle: String)
+}
+
 class SwapTaskViewController: UIViewController {
     
     //  MARK: - Properties
@@ -15,6 +19,7 @@ class SwapTaskViewController: UIViewController {
     @Published private var newTaskString : String?
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
     private var viewmodel = SwapTaskViewModel()
+    weak var delegate: SwapTaskVCDelegate?
     
     
     //  MARK: - IB Properties
@@ -107,13 +112,9 @@ class SwapTaskViewController: UIViewController {
     }
     
     private func handleSwapAction(){
-        print("Swap it")
-        // check if task is less than 100 words
-        // check if valid entry, same as in addTaskVC
-        // when swap it is tapped, need to
-        // 1. move the task in tapped cell to done,
-        // 2. add new task
-        
+        guard let taskToSwap = taskToSwap else {return}
+        guard let newtaskstring = newTaskString else {return}
+        delegate?.didSwapTask(for: taskToSwap, with: newtaskstring)
         dismiss(animated: true)
     }
     
