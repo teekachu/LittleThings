@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutUSViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
                 <outlet property="gitHubButton" destination="OAw-B1-4Ks" id="nOb-zL-3AF"/>
-                <outlet property="imageStackView" destination="av9-xY-SZq" id="oSF-ei-XXd"/>
                 <outlet property="linkedinButton" destination="HYl-pN-tcD" id="aA5-CB-mmP"/>
                 <outlet property="profileImageView" destination="42o-cK-x5f" id="5i9-7p-oRy"/>
                 <outlet property="twitterButton" destination="T77-E8-Awk" id="xBR-aQ-meB"/>
@@ -24,130 +23,134 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nfG-y3-Wnn">
-                    <rect key="frame" x="20" y="44" width="374" height="80"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFs-Mb-Cjc">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dj-rK-hz4" userLabel="exitButton">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                            <color key="tintColor" name="black white"/>
-                            <state key="normal">
-                                <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
-                            </state>
-                            <connections>
-                                <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="sew-SO-5ZN"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEVELOPER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icf-K9-bis">
-                            <rect key="frame" x="0.0" y="30" width="374" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="A0e-bh-YOf"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
-                            <color key="textColor" name="offblack white"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="80" id="HeJ-9o-etL"/>
-                    </constraints>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="av9-xY-SZq">
-                    <rect key="frame" x="20" y="139" width="374" height="235"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V01-b9-xbH">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                            <color key="textColor" name="offblack white"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cra-5g-5mu">
-                            <rect key="frame" x="0.0" y="31.5" width="374" height="125.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AFI-Rb-roK">
+                            <rect key="frame" x="15" y="15" width="384" height="868"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Teeks 1" translatesAutoresizingMaskIntoConstraints="NO" id="42o-cK-x5f">
-                                    <rect key="frame" x="0.0" y="0.0" width="164" height="125.5"/>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TING BECKER" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" id="ALL-Tq-klI">
-                                    <rect key="frame" x="179" y="0.0" width="195" height="125.5"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="29"/>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dj-rK-hz4" userLabel="exitButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <color key="tintColor" name="black white"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="sew-SO-5ZN"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEVELOPER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icf-K9-bis">
+                                    <rect key="frame" x="0.0" y="50" width="384" height="41"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V01-b9-xbH">
+                                    <rect key="frame" x="0.0" y="111" width="384" height="23.5"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                    <color key="textColor" name="offblack white"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cra-5g-5mu">
+                                    <rect key="frame" x="0.0" y="154.5" width="384" height="142.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Teeks 1" translatesAutoresizingMaskIntoConstraints="NO" id="42o-cK-x5f">
+                                            <rect key="frame" x="0.0" y="0.0" width="174" height="142.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="42o-cK-x5f" secondAttribute="height" multiplier="1:1" id="6fj-Q3-kbW"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TING BECKER" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" id="ALL-Tq-klI">
+                                            <rect key="frame" x="189" y="0.0" width="195" height="142.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="29"/>
+                                            <color key="textColor" name="offblack white"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVU-wu-XBi">
+                                    <rect key="frame" x="0.0" y="317" width="384" height="139.5"/>
+                                    <string key="text">Hello there! I'm Teeks, a self taught iOS deveoper, welcome to my first app. I hope you will enjoy this little thing I built, and I hope it will bring you more productivity and attainment. I am always open for new ideas and feedback, so please feel free to reach out and connect with me. </string>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                    <color key="textColor" name="offblack white"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-lk-6iq" userLabel="Connect">
+                                    <rect key="frame" x="0.0" y="476.5" width="384" height="23.5"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                    <color key="textColor" name="offblack white"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T77-E8-Awk">
+                                    <rect key="frame" x="0.0" y="520" width="384" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Rm2-Xt-pXH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                    <state key="normal" title="  Twitter @Teekachu1">
+                                        <color key="titleColor" name="smalltext nav bar color"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="twitterButtonTapped:" destination="-1" eventType="touchUpInside" id="cWT-6t-EMc"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-B1-4Ks">
+                                    <rect key="frame" x="0.0" y="584" width="384" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="bvV-KC-bge"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                    <state key="normal" title="  GitHub @teekachu">
+                                        <color key="titleColor" name="smalltext nav bar color"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="gitHubButtonTapped:" destination="-1" eventType="touchUpInside" id="uwx-rK-dx0"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-pN-tcD" userLabel="LinkedIn">
+                                    <rect key="frame" x="0.0" y="648" width="384" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="2T3-MR-bwJ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                    <state key="normal" title="  LinkedIn @TingBecker">
+                                        <color key="titleColor" name="smalltext nav bar color"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="linkedinButtonTapped:" destination="-1" eventType="touchUpInside" id="B7Q-hd-6hF"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-HD-K9K">
+                                    <rect key="frame" x="0.0" y="712" width="384" height="156"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="868" id="k2n-g0-ZWN"/>
+                            </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Self taught iOS developer | Started in Accounting, landed in Tech | California Licensed CPA | " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVU-wu-XBi">
-                            <rect key="frame" x="0.0" y="165" width="374" height="70"/>
-                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                            <color key="textColor" name="offblack white"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eby-x1-ARs">
-                    <rect key="frame" x="20" y="414" width="374" height="200.5"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-lk-6iq" userLabel="Connect">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                            <color key="textColor" name="offblack white"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T77-E8-Awk">
-                            <rect key="frame" x="0.0" y="38.5" width="374" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="Rm2-Xt-pXH"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                            <state key="normal" title="  Twitter @Teekachu1">
-                                <color key="titleColor" name="smalltext nav bar color"/>
-                            </state>
-                            <connections>
-                                <action selector="twitterButtonTapped:" destination="-1" eventType="touchUpInside" id="cWT-6t-EMc"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-B1-4Ks">
-                            <rect key="frame" x="0.0" y="97.5" width="374" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="bvV-KC-bge"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                            <state key="normal" title="  GitHub @teekachu">
-                                <color key="titleColor" name="smalltext nav bar color"/>
-                            </state>
-                            <connections>
-                                <action selector="gitHubButtonTapped:" destination="-1" eventType="touchUpInside" id="uwx-rK-dx0"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-pN-tcD" userLabel="LinkedIn">
-                            <rect key="frame" x="0.0" y="156.5" width="374" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="2T3-MR-bwJ"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                            <state key="normal" title="  LinkedIn @TingBecker">
-                                <color key="titleColor" name="smalltext nav bar color"/>
-                            </state>
-                            <connections>
-                                <action selector="linkedinButtonTapped:" destination="-1" eventType="touchUpInside" id="B7Q-hd-6hF"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </stackView>
+                    <constraints>
+                        <constraint firstItem="AFI-Rb-roK" firstAttribute="leading" secondItem="zQS-X2-yi1" secondAttribute="leading" constant="15" id="Xw6-mq-1hF"/>
+                        <constraint firstItem="zQS-X2-yi1" firstAttribute="trailing" secondItem="AFI-Rb-roK" secondAttribute="trailing" constant="-15" id="bUg-vA-GOU"/>
+                        <constraint firstAttribute="bottom" secondItem="AFI-Rb-roK" secondAttribute="bottom" constant="-38" id="gXF-Y5-HPo"/>
+                        <constraint firstItem="TxD-PE-6LJ" firstAttribute="trailing" secondItem="AFI-Rb-roK" secondAttribute="trailing" constant="15" id="pNc-QH-Ggm"/>
+                        <constraint firstItem="AFI-Rb-roK" firstAttribute="top" secondItem="SFs-Mb-Cjc" secondAttribute="top" constant="15" id="qb2-G4-k4l"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="zQS-X2-yi1"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="TxD-PE-6LJ"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="av9-xY-SZq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1kP-jS-g21"/>
-                <constraint firstItem="nfG-y3-Wnn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Cvp-RK-yHI"/>
-                <constraint firstItem="nfG-y3-Wnn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="EiR-Pd-DyI"/>
-                <constraint firstItem="eby-x1-ARs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="JWk-su-yjB"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nfG-y3-Wnn" secondAttribute="trailing" constant="20" id="QBQ-DL-mqH"/>
-                <constraint firstItem="eby-x1-ARs" firstAttribute="top" secondItem="av9-xY-SZq" secondAttribute="bottom" constant="40" id="Zut-ok-LHW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="av9-xY-SZq" secondAttribute="trailing" constant="20" id="dMb-Rv-VCD"/>
-                <constraint firstItem="av9-xY-SZq" firstAttribute="top" secondItem="nfG-y3-Wnn" secondAttribute="bottom" constant="15" id="dkO-jM-c1e"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eby-x1-ARs" secondAttribute="trailing" constant="20" id="dyX-fK-SzM"/>
+                <constraint firstItem="SFs-Mb-Cjc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Bqm-Aa-uQH"/>
+                <constraint firstAttribute="bottom" secondItem="SFs-Mb-Cjc" secondAttribute="bottom" id="L1Z-uS-B5S"/>
+                <constraint firstItem="SFs-Mb-Cjc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WKd-3n-Qgj"/>
+                <constraint firstItem="SFs-Mb-Cjc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="te3-ot-afs"/>
+                <constraint firstItem="SFs-Mb-Cjc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vPz-ve-uPU"/>
             </constraints>
             <point key="canvasLocation" x="-97.101449275362327" y="69.642857142857139"/>
         </view>

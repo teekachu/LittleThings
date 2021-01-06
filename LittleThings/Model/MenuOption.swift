@@ -10,7 +10,7 @@ import UIKit
 
 enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
     
-    case supportDevelopment
+//    case supportDevelopment
     case shareWithFriends
     case sendSuggestions
 //    case contactDeveloper
@@ -24,7 +24,7 @@ enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
     
     var image: UIImage {
         switch self {
-        case .supportDevelopment: return UIImage(systemName: "dollarsign.circle") ?? UIImage()
+//        case .supportDevelopment: return UIImage(systemName: "dollarsign.circle") ?? UIImage()
         case .shareWithFriends: return UIImage(systemName: "person.3.fill") ?? UIImage()
         case .sendSuggestions: return UIImage(systemName: "envelope") ?? UIImage()
 //        case .contactDeveloper: return UIImage(systemName: "person.fill") ?? UIImage()
@@ -33,7 +33,6 @@ enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
 //        case .privacyPolicy: return UIImage(systemName: "shield") ?? UIImage()
 //        case .termsCondition: return UIImage(systemName: "doc.text.fill") ?? UIImage()
         case .about: return UIImage(systemName: "exclamationmark.square") ?? UIImage()
-            /// this one will eventually be deleted
         case .clearDone: return UIImage(systemName: "trash.fill") ?? UIImage()
         case .logOut: return UIImage(systemName: "xmark") ?? UIImage()
             
@@ -42,7 +41,7 @@ enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
     
     var debugDescription: String {
         switch self {
-        case .supportDevelopment: return "Support Development "
+//        case .supportDevelopment: return "Support Development "
         case .shareWithFriends: return "Share With Friends "
         case .sendSuggestions: return "Send Suggestions "
 //        case .contactDeveloper: return "Contact The Developer"

@@ -22,7 +22,7 @@ class AboutUSViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBAction func twitterButtonTapped(_ sender: Any) {
-        print("show me twitter page")
+        twitterTapped()
     }
     @IBAction func gitHubButtonTapped(_ sender: Any) {
         print("show me github page")
@@ -55,10 +55,19 @@ class AboutUSViewController: UIViewController {
         
         for each in arrayOfButtons{
             each.layer.borderWidth = 1
-            each.backgroundColor = Constants.whiteOffblack
-            each.layer.borderColor = Constants.cellBorderColor?.cgColor
+            each.backgroundColor = Constants.cellBorderColor
+            each.layer.borderColor = Constants.whiteOffblack?.cgColor
             each.layer.cornerRadius = 15
         }
+    }
+    
+    private func twitterTapped() {
+        let application = UIApplication.shared
+        let appURL = URL(string: "twitter://user?screen_name=Teekachu1")!
+        let webURL = URL(string: "https://twitter.com/Teekachu1")!
+        
+        application.canOpenURL(appURL) ? application.open(appURL) : application.open(webURL)
+        
     }
     
 }

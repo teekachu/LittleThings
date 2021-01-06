@@ -415,8 +415,8 @@ extension TasksViewController: SideMenuDelegate {
     
     func sidemenu(didSelect option: MenuOption) {
         switch option {
-        case .supportDevelopment:
-            print("support devs")
+//        case .supportDevelopment:
+//            print("support devs")
             
         case .shareWithFriends:
             let items = [URL(string: "https://testflight.apple.com/join/FwtK8Ylo")!]
