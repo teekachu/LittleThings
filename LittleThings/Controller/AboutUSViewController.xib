@@ -96,7 +96,7 @@
                                         <action selector="twitterButtonTapped:" destination="-1" eventType="touchUpInside" id="cWT-6t-EMc"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-B1-4Ks">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-B1-4Ks">
                                     <rect key="frame" x="0.0" y="584" width="384" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="bvV-KC-bge"/>
@@ -109,7 +109,7 @@
                                         <action selector="gitHubButtonTapped:" destination="-1" eventType="touchUpInside" id="uwx-rK-dx0"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-pN-tcD" userLabel="LinkedIn">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-pN-tcD" userLabel="LinkedIn">
                                     <rect key="frame" x="0.0" y="648" width="384" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="2T3-MR-bwJ"/>

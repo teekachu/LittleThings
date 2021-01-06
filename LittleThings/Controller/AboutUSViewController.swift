@@ -17,7 +17,6 @@ class AboutUSViewController: UIViewController {
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var gitHubButton: UIButton!
     @IBOutlet weak var linkedinButton: UIButton!
-    @IBOutlet weak var imageStackView: UIStackView!
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -25,10 +24,10 @@ class AboutUSViewController: UIViewController {
         twitterTapped()
     }
     @IBAction func gitHubButtonTapped(_ sender: Any) {
-        print("show me github page")
+        githubTapped()
     }
     @IBAction func linkedinButtonTapped(_ sender: Any) {
-        print("show me linkedinPage")
+        linkedInTapped()
     }
     
     
@@ -68,6 +67,23 @@ class AboutUSViewController: UIViewController {
         
         application.canOpenURL(appURL) ? application.open(appURL) : application.open(webURL)
         
+    }
+    
+    private func githubTapped() {
+        let application = UIApplication.shared
+        let webURL = URL(string: "https://github.com/teekachu")!
+        
+        application.open(webURL)
+
+    }
+    
+    private func linkedInTapped() {
+        let application = UIApplication.shared
+        let appURL = URL(string: "linkedin://profile?id=tingbecker")!
+        let webURL = URL(string: "https://www.linkedin.com/in/tingbecker/")!
+        
+        application.canOpenURL(appURL) ? application.open(appURL) : application.open(webURL)
+
     }
     
 }
