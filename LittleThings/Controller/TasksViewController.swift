@@ -34,10 +34,16 @@ class TasksViewController: UIViewController, Animatable {
         didSet{
             showWelcomeLabel()
             addTaskObserver()
+            
+            /// basically save in firebase for each users
+            /// if the user is in swapMode, show swap mode screen for the task selected
+            /// when press either cancel or swap, change the swapmode to false
+            
         }
     }
     
     private var sidemenu: SideMenuNavigationController!
+    private var isInSwapMode: Bool = false
     
     
     //  MARK: - IB Properties
@@ -83,6 +89,7 @@ class TasksViewController: UIViewController, Animatable {
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
         configureSideMenu()
     }
+    
     
     //  MARK: - Selectors
     @objc func segmentedControl(_ sender: UISegmentedControl) {
@@ -212,6 +219,7 @@ class TasksViewController: UIViewController, Animatable {
         controller.delegate = self
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
+        saveToUserDefaults(for: task)
         present(controller, animated: true)
     }
     
@@ -248,12 +256,57 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     
+    private func showAboutUsScreen(){
+        let infoController = AboutUSViewController()
+        infoController.modalPresentationStyle = .overCurrentContext
+        infoController.modalTransitionStyle = .crossDissolve
+        present(infoController, animated: true)
+    }
+    
+    
+    //  MARK: - User Defaults
+    private func saveToUserDefaults(for task: Task){
+        let jsonEncoder = JSONEncoder()
+        let taskID = task.id
+        
+        if let savedTaskID = try? jsonEncoder.encode(taskID) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedTaskID, forKey: "savedTaskID")
+            
+            print("saveToUserDefaults \(savedTaskID)")
+        } else {
+            print("Error in saveToUserDefaults() -  failled to save ")
+        }
+    }
+    
+    private func checkSwap(onLoad: @escaping (Task?) -> Void) {
+        let defaults = UserDefaults.standard
+
+        if let taskID = defaults.object(forKey: "savedTaskID") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let taskToLoad = try jsonDecoder.decode(String.self, from: taskID)
+                taskManager.getSingleTask(documentID: taskToLoad) {(task) in
+                    onLoad(task)
+                }
+            } catch {
+                onLoad(nil)
+            }
+        }
+    }
+    
     // MARK: - Auth
     private func authenticateUser(){
         
         if Auth.auth().currentUser?.uid == nil{
             presentLoginVC()
         } else {
+            checkSwap { (task) in
+                if let task = task {
+                    self.swapTaskVC(for: task)
+                }
+            }
             updateUserToCurrentUser()
         }
     }
@@ -323,6 +376,7 @@ extension TasksViewController: TasksViewControllerDelegate {
             if didSelectEdit {
                 self?.editTask(for: task)
             } else {
+                self?.isInSwapMode = true
                 self?.swapTaskVC(for: task)
             }
         }
@@ -391,10 +445,7 @@ extension TasksViewController: SideMenuDelegate {
                                       completionHandler: nil)
             
         case .about:
-            let infoController = AboutUSViewController()
-            infoController.modalPresentationStyle = .overCurrentContext
-            infoController.modalTransitionStyle = .crossDissolve
-            present(infoController, animated: true)
+            showAboutUsScreen()
             
         case .clearDone:
             let filtered = tasks.filter({ $0.isDone})
@@ -415,7 +466,7 @@ extension TasksViewController: SwapTaskVCDelegate {
     
     func didSwapTask(for task: Task, with newTitle: String) {
         presentedViewController?.dismiss(animated: true, completion: {
-
+            UserDefaults.standard.removeObject(forKey: "savedTaskID")
             let uid = task.uid // user uid
             let type = task.taskType
             let newTask = Task(title: newTitle, isDone: false, taskType: type, uid: uid)
@@ -427,5 +478,5 @@ extension TasksViewController: SwapTaskVCDelegate {
             }
         })
     }
-
+    
 }

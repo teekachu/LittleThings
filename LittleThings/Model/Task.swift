@@ -25,6 +25,7 @@ struct Task: Identifiable, Codable, Hashable {
             taskType: .three,
             uid: AuthManager.fetchUserUID()! )
     }
+    
 }
 
 

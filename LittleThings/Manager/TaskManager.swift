@@ -124,6 +124,12 @@ class TaskManager {
         databaseManager.deleteAll(in: tasks)
     }
     
+    public func getSingleTask(documentID: String, onLoad: @escaping (Task) -> Void){
+        databaseManager.getSingleTask(for: documentID) {(task) in
+           onLoad(task)
+        }
+    }
+    
     
     // MARK: - Private
     /// Pulls task through using the databaseManager

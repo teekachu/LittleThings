@@ -32,7 +32,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="r4C-6x-52w" userLabel="tasksInSwap">
-                    <rect key="frame" x="35" y="49" width="344" height="636"/>
+                    <rect key="frame" x="35" y="44" width="344" height="636"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3df-8p-kg0">
                             <rect key="frame" x="0.0" y="0.0" width="344" height="25"/>
@@ -216,7 +216,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3yN-T4-H53" secondAttribute="bottom" constant="20" id="5z8-v9-FxX"/>
                 <constraint firstItem="3yN-T4-H53" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="N78-2f-MDb"/>
                 <constraint firstItem="r4C-6x-52w" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="abt-rV-IC7"/>
-                <constraint firstItem="r4C-6x-52w" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="jyT-Ha-2Ir"/>
+                <constraint firstItem="r4C-6x-52w" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jyT-Ha-2Ir"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="r4C-6x-52w" secondAttribute="trailing" constant="35" id="rxe-dc-2oJ"/>
             </constraints>
             <point key="canvasLocation" x="63.768115942028992" y="65.625"/>

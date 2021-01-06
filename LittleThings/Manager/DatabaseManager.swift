@@ -106,4 +106,18 @@ class DatabaseManager {
             }
     }
     
+    
+    public func getSingleTask(for documentId: String, onLoad: @escaping (Task) -> Void ){
+        let docRef = tasksCollection.document(documentId)
+        docRef.getDocument { (document, error) in
+            if let error = error {
+                print("Error in getSingleTask - \(error.localizedDescription) ")
+                return
+            }
+            if let docData = try? document?.data(as: Task.self) {
+                onLoad(docData)
+            }
+        }
+    }
+    
 }

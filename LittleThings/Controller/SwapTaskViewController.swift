@@ -35,7 +35,11 @@ class SwapTaskViewController: UIViewController {
     @IBOutlet weak var swapButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBAction func questionButtonTapped(_ sender: Any) {
-        let msg = "Welcome to Swap Mode:   If you already have 9 tasks but need to add 1 more, you may use this screen to swap out the old task simply by accomplishing it. Yup, thats right. Let's get it done! Enter the new task in the bottom bubble. When you are ready to swap, the old task will be moved to done, replaced by the new. "
+        let msg = """
+        Welcome to Swap Mode:
+
+        If you already have 9 tasks but need to add 1 more, you may use this screen to swap out the old task simply by accomplishing it. Yup, thats right. Let's get it done! When you are ready to swap, enter the new task in the bottom bubble and tap "SWAP IT", the old task will be moved to done, replaced by the new.
+        """
         let controller = CustomAlertViewController(alertMessage: msg)
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
@@ -46,6 +50,7 @@ class SwapTaskViewController: UIViewController {
         handleSwapAction()
     }
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "savedTaskID")
         dismiss(animated: true)
     }
     
@@ -144,7 +149,7 @@ class SwapTaskViewController: UIViewController {
                 text?.meetsCharCount(of: Constants.textCharacterCount) == true &&
                 text?.trimmingCharacters(in: .whitespaces) != ""
         }.store(in: &subscribers)
-
+        
         $newTaskString.sink {[weak self] (text) in
             guard let self = self else { return }
             guard let text = text else { return }
