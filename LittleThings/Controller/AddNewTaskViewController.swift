@@ -26,10 +26,12 @@ class AddNewTaskViewController: UIViewController, Animatable {
     weak var delegate: NewTaskVCDelegate?
     
     
+   
     //  MARK: - IBProperties
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var BottomContainerView: UIView!
-    @IBOutlet weak var TaskTextfield: UITextField!
+    @IBOutlet weak var OuuLabel: UILabel!
+    @IBOutlet weak var textTextView: UITextView!
     @IBOutlet weak var descriptionCharCountLabel: UILabel! = {
         let lbl = UILabel()
         return lbl
@@ -41,7 +43,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         return lbl
     }()
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateTask()
         
@@ -75,12 +77,12 @@ class AddNewTaskViewController: UIViewController, Animatable {
         super.viewDidLoad()
         configureUI()
         setupGesture()
-        observeKeyboard()
+//        observeKeyboard()
         observeForm()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        TaskTextfield.becomeFirstResponder()
+//        textTextView.becomeFirstResponder()
         updateTask()
     }
     
@@ -90,23 +92,22 @@ class AddNewTaskViewController: UIViewController, Animatable {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func keyboardWillShow(_ notification: Notification){
-        let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
-        
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
-            self?.containerViewBottomConstraint.constant = keyboardHeight - 40
-            self?.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc func keyboardWillHide(_ notification: Notification){
-        containerViewBottomConstraint.constant = -BottomContainerView.frame.height
-    }
+//    @objc func keyboardWillShow(_ notification: Notification){
+//        let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
+//
+//        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
+//            self?.containerViewBottomConstraint.constant = keyboardHeight - 40
+//            self?.view.layoutIfNeeded()
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(_ notification: Notification){
+//        containerViewBottomConstraint.constant = -BottomContainerView.frame.height
+//    }
     
     
     //  MARK: - Privates
     private func configureUI(){
-//        backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
         addBlurEffectToView(for: .systemUltraThinMaterial)
         
         BottomContainerView.layer.cornerRadius = 35
@@ -114,13 +115,15 @@ class AddNewTaskViewController: UIViewController, Animatable {
         BottomContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
         BottomContainerView.backgroundColor = UIColor(named: "viewbackgroundWhitesmoke")
         
-        containerViewBottomConstraint.constant = -BottomContainerView.frame.height
+//        containerViewBottomConstraint.constant = -BottomContainerView.frame.height
         
-        TaskTextfield.backgroundColor = .clear
-        TaskTextfield.borderStyle = .none
-        TaskTextfield.textColor =  Constants.blackWhite
-        TaskTextfield.font = UIFont(name: Constants.fontMedium, size: 20)
-        TaskTextfield.autocapitalizationType = .sentences
+        textTextView.backgroundColor = .clear
+        textTextView.layer.borderWidth = 1
+        textTextView.layer.borderColor = Constants.cellBorderColor?.cgColor
+        textTextView.layer.cornerRadius = 15
+        textTextView.textColor =  Constants.blackWhite
+        textTextView.font = UIFont(name: Constants.fontMedium, size: 20)
+        textTextView.autocapitalizationType = .sentences
         
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
@@ -133,7 +136,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         saveButton.layer.cornerRadius = 10
         saveButton.titleLabel?.font = UIFont(name: Constants.avenirBlackSuperBold, size: 19)
         
-        TaskTextfield.text = task.title
+        textTextView.text = task.title
         taskString = task.title
         currentTasktype = task.taskType
         switch currentTasktype {
@@ -155,11 +158,11 @@ class AddNewTaskViewController: UIViewController, Animatable {
         view.addGestureRecognizer(gesture)
     }
     
-    private func observeKeyboard(){
-        /// to observe when the keyboard is available and push the bottom card up or down
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+//    private func observeKeyboard(){
+//        /// to observe when the keyboard is available and push the bottom card up or down
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
     
     
     //  MARK: - Combine

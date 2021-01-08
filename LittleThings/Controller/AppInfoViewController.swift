@@ -11,7 +11,7 @@ class AppInfoViewController: UIViewController {
     
     //MARK: - IB Properties
     
-
+    
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         tapToDismissVC()
     }
@@ -25,7 +25,7 @@ class AppInfoViewController: UIViewController {
     }
     
     //MARK: - Selector
-   private func tapToDismissVC(){
+    private func tapToDismissVC(){
         dismiss(animated: true)
     }
     
@@ -34,7 +34,7 @@ class AppInfoViewController: UIViewController {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = Constants.offBlack202020
+        
+    }
     
-}
-
 }
