@@ -26,7 +26,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
     weak var delegate: NewTaskVCDelegate?
     
     
-   
+    
     //  MARK: - IBProperties
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var BottomContainerView: UIView!
@@ -43,7 +43,8 @@ class AddNewTaskViewController: UIViewController, Animatable {
         return lbl
     }()
     @IBOutlet weak var saveButton: UIButton!
-//    @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var stackview: UIStackView!
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateTask()
         
@@ -52,12 +53,13 @@ class AddNewTaskViewController: UIViewController, Animatable {
         }
         
         if isEditingTask {
-            /// update task with new info
             delegate?.didEditTask(for: task)
         } else {
-            /// creating new task
             delegate?.didAddTask(for: task)
         }
+    }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     init(taskManager: TaskManager, task: Task, isEditingTask: Bool = false) {
@@ -77,33 +79,31 @@ class AddNewTaskViewController: UIViewController, Animatable {
         super.viewDidLoad()
         configureUI()
         setupGesture()
-//        observeKeyboard()
+        observeKeyboard()
         observeForm()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        textTextView.becomeFirstResponder()
+        textTextView.becomeFirstResponder()
         updateTask()
     }
     
     
     //  MARK: - Selectors
-    @objc func tapToDismissViewController(){
-        dismiss(animated: true, completion: nil)
+    @objc func swipeToDismissKeybord(){
+        textTextView.resignFirstResponder()
     }
     
-//    @objc func keyboardWillShow(_ notification: Notification){
-//        let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
-//
-//        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
-//            self?.containerViewBottomConstraint.constant = keyboardHeight - 40
-//            self?.view.layoutIfNeeded()
-//        }
-//    }
-//
-//    @objc func keyboardWillHide(_ notification: Notification){
-//        containerViewBottomConstraint.constant = -BottomContainerView.frame.height
-//    }
+    @objc func keyboardWillShow(_ notification: Notification){
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
+            self?.view.frame.origin.y = -155
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification){
+        self.view.frame.origin.y = 0
+    }
     
     
     //  MARK: - Privates
@@ -114,8 +114,6 @@ class AddNewTaskViewController: UIViewController, Animatable {
         BottomContainerView.layer.borderWidth = 1
         BottomContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
         BottomContainerView.backgroundColor = UIColor(named: "viewbackgroundWhitesmoke")
-        
-//        containerViewBottomConstraint.constant = -BottomContainerView.frame.height
         
         textTextView.backgroundColor = .clear
         textTextView.layer.borderWidth = 1
@@ -132,7 +130,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
         TaskPickerView.layer.cornerRadius = 20
         
-        saveButton.tintColor = Constants.blackWhite
+        
         saveButton.layer.cornerRadius = 10
         saveButton.titleLabel?.font = UIFont(name: Constants.avenirBlackSuperBold, size: 19)
         
@@ -149,42 +147,40 @@ class AddNewTaskViewController: UIViewController, Animatable {
         }
         let title = isEditingTask ? "Update Task" : "Save Task"
         saveButton.setTitle(title, for: .normal)
-        /// update time  created to time updated
     }
     
     private func setupGesture(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapToDismissViewController))
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeToDismissKeybord))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
     }
     
-//    private func observeKeyboard(){
-//        /// to observe when the keyboard is available and push the bottom card up or down
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
+    private func observeKeyboard(){
+        /// to observe when the keyboard is available and push the bottom card up or down
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     
     //  MARK: - Combine
     private func observeForm() {
-        let notificationName = UITextField.textDidChangeNotification
+        let notificationName = UITextView.textDidChangeNotification
         NotificationCenter.default.publisher(for: notificationName).map { (notification) -> String? in
-            return (notification.object as? UITextField)?.text
+            return (notification.object as? UITextView)?.text
         }.sink {[unowned self] (text) in
             self.taskString = text
         }.store(in: &subscribers)
         
-        /// change button enable status based on taskString is empty or not
+        /// change button enable status based on taskString status
         $taskString.sink {[weak self] (text) in
             guard let self = self else { return }
             self.saveButton.isEnabled =
                 text?.isEmpty == false &&
                 text?.meetsCharCount(of: Constants.textCharacterCount) == true &&
                 text?.trimmingCharacters(in: .whitespaces) != ""
-            
         }.store(in: &subscribers)
         
-        /// monitor character count for textfield
+        /// monitor character count
         $taskString.sink {[weak self] (text) in
             guard let self = self else { return }
             guard let text = text else { return }
@@ -240,13 +236,13 @@ class AddNewTaskViewController: UIViewController, Animatable {
 extension AddNewTaskViewController: UIGestureRecognizerDelegate{
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if BottomContainerView.isDescendant(of: view){
-            if touch.view?.isDescendant(of: BottomContainerView) == false{
+            if touch.view?.isDescendant(of: BottomContainerView) == true{
                 /// touch anywhere else thats not bottomContainer to dismiss bottomContainerView
-                dismiss(animated: true)
+                textTextView.resignFirstResponder()
             }
-            return false
+            return true
         }
-        return true
+        return false
     }
 }
 
@@ -292,4 +288,3 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
     }
 }
-
