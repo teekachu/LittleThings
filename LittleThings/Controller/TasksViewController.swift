@@ -424,7 +424,7 @@ extension TasksViewController: SideMenuDelegate {
             present(ac, animated: true)
             
         case .sendSuggestions:
-            let emailAddress = "mailto:ting.becker@outlook.com"
+            let emailAddress = "mailto:teeksbuildapps@outlook.com"
             guard let emailURL = URL(string: emailAddress) else { return }
             UIApplication.shared.open(emailURL,
                                       options: [:],
@@ -438,7 +438,7 @@ extension TasksViewController: SideMenuDelegate {
             
         case .reportBug:
             /// Can probably get rid of this
-            let emailAddress = "mailto:ting.becker@outlook.com"
+            let emailAddress = "mailto:teeksbuildapps@outlook.com"
             guard let emailURL = URL(string: emailAddress) else { return }
             UIApplication.shared.open(emailURL,
                                       options: [:],
