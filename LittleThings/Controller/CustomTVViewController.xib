@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTVViewController" customModule="LittleThings" customModuleProvider="target">
+            <connections>
+                <outlet property="alertContainerView" destination="yBp-Tb-ged" id="COW-z5-Oov"/>
+                <outlet property="errorLabel" destination="zq2-pp-kI0" id="jGk-Jb-Y1K"/>
+                <outlet property="infoButton" destination="egj-4Z-l7k" id="iUN-wM-Fph"/>
+                <outlet property="noButton" destination="Mzm-Pc-Vhr" id="uLr-P3-yf6"/>
+                <outlet property="textview" destination="cJw-EB-ldK" id="oaO-m2-gMi"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yesButton" destination="d7L-0V-ata" id="Wno-m0-xeW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9XO-EY-zGd" userLabel="backgroundview">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBp-Tb-ged" userLabel="alertView">
+                            <rect key="frame" x="45" y="240" width="324" height="416.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="zSS-GU-Zxw">
+                                    <rect key="frame" x="15" y="25" width="294" height="366.5"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRn-9i-mKi">
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="25"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BM6-xt-04O">
+                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="25"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="U0e-PD-0cZ"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egj-4Z-l7k" userLabel="additionalInfoButton">
+                                                    <rect key="frame" x="269" y="0.0" width="25" height="25"/>
+                                                    <color key="backgroundColor" name="offblack white"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="hYs-u1-7Vb"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="white offblack"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="questionmark" catalog="system" symbolScale="medium"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="infoButtonTapped:" destination="-1" eventType="touchUpInside" id="gfF-ZA-zt5"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Swap Mode ? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Sq-hUk">
+                                            <rect key="frame" x="0.0" y="55" width="294" height="34.5"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="25"/>
+                                            <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJw-EB-ldK">
+                                            <rect key="frame" x="0.0" y="119.5" width="294" height="125"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="125" id="UH4-Nb-JLp"/>
+                                            </constraints>
+                                            <color key="textColor" name="smalltext nav bar color"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zq2-pp-kI0" userLabel="error">
+                                            <rect key="frame" x="0.0" y="274.5" width="294" height="18"/>
+                                            <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="13"/>
+                                            <color key="textColor" systemColor="systemRedColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mZl-yg-E9B">
+                                            <rect key="frame" x="0.0" y="322.5" width="294" height="44"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-0V-ata">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="BXR-o2-2Hc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                    <color key="tintColor" name="white offblack"/>
+                                                    <state key="normal" title="Yes"/>
+                                                    <connections>
+                                                        <action selector="yesButtonTapped:" destination="-1" eventType="touchUpInside" id="cCc-1d-AeV"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Moh-kE-i0g">
+                                                    <rect key="frame" x="135" y="0.0" width="24" height="44"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzm-Pc-Vhr">
+                                                    <rect key="frame" x="169" y="0.0" width="125" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="1gz-kF-Nia"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                    <color key="tintColor" name="black white"/>
+                                                    <state key="normal" title="Nope"/>
+                                                    <connections>
+                                                        <action selector="noButtonTapped:" destination="-1" eventType="touchUpInside" id="96c-R5-KwL"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="z0d-If-FEj"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="zSS-GU-Zxw" firstAttribute="leading" secondItem="yBp-Tb-ged" secondAttribute="leading" constant="15" id="Ltr-Yq-wdm"/>
+                                <constraint firstItem="zSS-GU-Zxw" firstAttribute="top" secondItem="yBp-Tb-ged" secondAttribute="top" constant="25" id="a9v-uR-Juf"/>
+                                <constraint firstAttribute="trailing" secondItem="zSS-GU-Zxw" secondAttribute="trailing" constant="15" id="eoW-iP-7Lj"/>
+                                <constraint firstAttribute="bottom" secondItem="zSS-GU-Zxw" secondAttribute="bottom" constant="25" id="x5h-To-pmM"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="yBp-Tb-ged" firstAttribute="centerY" secondItem="9XO-EY-zGd" secondAttribute="centerY" id="cW6-4h-805"/>
+                        <constraint firstItem="yBp-Tb-ged" firstAttribute="leading" secondItem="9XO-EY-zGd" secondAttribute="leading" constant="45" id="rIJ-dn-1Dz"/>
+                        <constraint firstItem="yBp-Tb-ged" firstAttribute="centerX" secondItem="9XO-EY-zGd" secondAttribute="centerX" id="sqz-nU-t9f"/>
+                        <constraint firstAttribute="trailing" secondItem="yBp-Tb-ged" secondAttribute="trailing" constant="45" id="tzV-PT-u6F"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="9XO-EY-zGd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="UJW-7G-4v4"/>
+                <constraint firstItem="9XO-EY-zGd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ar4-DH-P9J"/>
+                <constraint firstItem="9XO-EY-zGd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cZG-G6-Gex"/>
+                <constraint firstAttribute="bottom" secondItem="9XO-EY-zGd" secondAttribute="bottom" id="qqK-a1-uoF"/>
+            </constraints>
+            <point key="canvasLocation" x="63.768115942028992" y="71.651785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="questionmark" catalog="system" width="96" height="128"/>
+        <namedColor name="black white">
+            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="offblack white">
+            <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="smalltext nav bar color">
+            <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="white offblack">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

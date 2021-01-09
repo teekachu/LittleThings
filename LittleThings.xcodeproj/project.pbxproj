@@ -18,6 +18,8 @@
 		A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AE32587EB7600CB1BAE /* AuthManager.swift */; };
 		A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */; };
 		A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */; };
+		A76BF7AC25A8CE1700F8BBD0 /* CustomTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76BF7AA25A8CE1700F8BBD0 /* CustomTVViewController.swift */; };
+		A76BF7AD25A8CE1700F8BBD0 /* CustomTVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76BF7AB25A8CE1700F8BBD0 /* CustomTVViewController.xib */; };
 		A7771DA4259E9F0A006CCB39 /* SwapTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */; };
 		A7771DA5259E9F0A006CCB39 /* SwapTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */; };
 		A795179A25955EF100831605 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795179825955EF100831605 /* SideMenuTableViewController.swift */; };
@@ -81,6 +83,8 @@
 		A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingAnimationViewController.xib; sourceTree = "<group>"; };
 		A75290FF2592648300647771 /* LittleThings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleThings.entitlements; sourceTree = "<group>"; };
+		A76BF7AA25A8CE1700F8BBD0 /* CustomTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTVViewController.swift; sourceTree = "<group>"; };
+		A76BF7AB25A8CE1700F8BBD0 /* CustomTVViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTVViewController.xib; sourceTree = "<group>"; };
 		A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapTaskViewController.swift; sourceTree = "<group>"; };
 		A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwapTaskViewController.xib; sourceTree = "<group>"; };
 		A795179825955EF100831605 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +289,8 @@
 				F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */,
 				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
 				F430AF0A2579608600DE727B /* AddNewTaskViewController.xib */,
+				A76BF7AA25A8CE1700F8BBD0 /* CustomTVViewController.swift */,
+				A76BF7AB25A8CE1700F8BBD0 /* CustomTVViewController.xib */,
 				A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */,
 				A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */,
 				F42F7C2525833E1B00E6B2C1 /* AppInfoViewController.swift */,
@@ -395,6 +401,7 @@
 				A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */,
 				A7461AD82586808500CB1BAE /* SignUpViewController.xib in Resources */,
 				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
+				A76BF7AD25A8CE1700F8BBD0 /* CustomTVViewController.xib in Resources */,
 				A79517BD2597093200831605 /* notepad.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +475,7 @@
 				A7461AD72586808500CB1BAE /* SignUpViewController.swift in Sources */,
 				A745A20725855E7F00AC77F3 /* Ext+CATransition.swift in Sources */,
 				A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */,
+				A76BF7AC25A8CE1700F8BBD0 /* CustomTVViewController.swift in Sources */,
 				A79517AA259579F700831605 /* SidemenuTableViewCell.swift in Sources */,
 				F3B1CCF5258316CC0048D6F8 /* Taskable.swift in Sources */,
 				F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */,

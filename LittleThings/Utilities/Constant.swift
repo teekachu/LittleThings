@@ -95,6 +95,9 @@ struct Constants {
     static let menuFont = "Avenir-Roman"
     
     static let textCharacterCount = 150
+    
+    // MARK: - Strings
+    static let ruleOfThumb = "Rule of Thumb:   Consider a task Large if it takes about 3-4 hours to complete. Medium Tasks can take about 1-2 hours, and Small Tasks may take less than 30 minutes each. "
 }
 
 

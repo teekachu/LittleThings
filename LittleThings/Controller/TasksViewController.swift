@@ -34,16 +34,10 @@ class TasksViewController: UIViewController, Animatable {
         didSet{
             showWelcomeLabel()
             addTaskObserver()
-            
-            /// basically save in firebase for each users
-            /// if the user is in swapMode, show swap mode screen for the task selected
-            /// when press either cancel or swap, change the swapmode to false
-            
         }
     }
-    
     private var sidemenu: SideMenuNavigationController!
-    private var isInSwapMode: Bool = false
+    private var stringToLoad = ""
     
     
     //  MARK: - IB Properties
@@ -55,7 +49,7 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func additionalInfoTapped(_ sender: Any) {
-        let msg = "Rule of Thumb:   Consider a task Large if it takes about 3-4 hours to complete. Medium Tasks can take about 1-2 hours, and Small Tasks may take less than 30 minutes each. "
+        let msg = Constants.ruleOfThumb
         let controller = CustomAlertViewController(alertMessage: msg)
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
@@ -213,13 +207,11 @@ class TasksViewController: UIViewController, Animatable {
         present(controller, animated: true)
     }
     
-    private func swapTaskVC(for task: Task){
-        let controller = SwapTaskViewController()
-        controller.taskToSwap = task
+    private func enterSwapMode(for task: Task){
+        let controller = CustomTVViewController(for: task)
         controller.delegate = self
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
-        saveToUserDefaults(for: task)
         present(controller, animated: true)
     }
     
@@ -244,7 +236,6 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func presentOnboardingIfNecessary() {
-        
         guard let user = user else {return}
         print("User has seen onboarding page status: \(user.hasSeenOnboardingPage)")
         
@@ -263,38 +254,34 @@ class TasksViewController: UIViewController, Animatable {
         present(infoController, animated: true)
     }
     
+    private func presentSwapScreen(for oldTask: Task?, with newText: String?){
+        guard let oldTask = oldTask else {return}
+        guard let newText = newText else {return}
+        let controller = SwapTaskViewController(for: oldTask, with: newText)
+        controller.delegate = self
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
+    }
+    
     
     //  MARK: - User Defaults
-    private func saveToUserDefaults(for task: Task){
-        let jsonEncoder = JSONEncoder()
-        let taskID = task.id
-        
-        if let savedTaskID = try? jsonEncoder.encode(taskID) {
-            let defaults = UserDefaults.standard
-            defaults.set(savedTaskID, forKey: "savedTaskID")
-            
-            print("saveToUserDefaults \(savedTaskID)")
-        } else {
-            print("Error in saveToUserDefaults() -  failled to save ")
+    private func saveToUserDefaults(for task: Task, with newString: String){
+        let defaults = UserDefaults.standard
+        defaults.set(task.id, forKey: "savedTaskID")
+        defaults.set(newString, forKey: "savedString")
+    }
+    
+    private func checkSwap(onLoad: @escaping(Task?) -> Void) {
+        let defaults = UserDefaults.standard
+        if let taskID = defaults.string(forKey: "savedTaskID"){
+            taskManager.getSingleTask(documentID: taskID) { (task) in
+                onLoad(task)
+            }
+            onLoad(nil)
         }
     }
     
-    private func checkSwap(onLoad: @escaping (Task?) -> Void) {
-        let defaults = UserDefaults.standard
-
-        if let taskID = defaults.object(forKey: "savedTaskID") as? Data {
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                let taskToLoad = try jsonDecoder.decode(String.self, from: taskID)
-                taskManager.getSingleTask(documentID: taskToLoad) {(task) in
-                    onLoad(task)
-                }
-            } catch {
-                onLoad(nil)
-            }
-        }
-    }
     
     // MARK: - Auth
     private func authenticateUser(){
@@ -303,9 +290,8 @@ class TasksViewController: UIViewController, Animatable {
             presentLoginVC()
         } else {
             checkSwap { (task) in
-                if let task = task {
-                    self.swapTaskVC(for: task)
-                }
+                guard let newString = UserDefaults.standard.string(forKey: "savedString") else {return}
+                self.presentSwapScreen(for: task, with: newString)
             }
             updateUserToCurrentUser()
         }
@@ -367,17 +353,12 @@ extension TasksViewController: NewTaskVCDelegate {
 
 //  MARK: - OngoingTasksTVCDelegate
 extension TasksViewController: TasksViewControllerDelegate {
-    /// The parent view will act as the delegate for the child.
-    /// when a cell is selected in the child, the child will be notified ( need an intern to pass on information)
-    /// The parent will act as the intern , take the information and execiutes methods.
-    
     func showOptions(for task: Task){
         let controller = UIAlertController.addTask {[weak self] didSelectEdit in
             if didSelectEdit {
                 self?.editTask(for: task)
             } else {
-                self?.isInSwapMode = true
-                self?.swapTaskVC(for: task)
+                self?.enterSwapMode(for: task)
             }
         }
         present(controller, animated: true)
@@ -410,14 +391,47 @@ extension TasksViewController: AuthenticationDelegate {
     }
 }
 
+//MARK: - CustomTextViewDelegate
+extension TasksViewController: CustomTextViewDelegate {
+    func presentSwapVC(for oldTask: Task?, with newText: String?) {
+        dismiss(animated: true) {[weak self] in
+            guard let oldTask = oldTask else {return}
+            guard let newText = newText else {return}
+            self?.presentSwapScreen(for: oldTask, with: newText)
+            self?.saveToUserDefaults(for: oldTask, with: newText)
+        }
+    }
+}
+
+//MARK: - SwapTaskVCDelegate
+extension TasksViewController: SwapTaskVCDelegate {
+    func didSwapTask(for task: Task, with newTitle: String) {
+        
+        UserDefaults.standard.removeObject(forKey: "savedTaskID")
+        UserDefaults.standard.removeObject(forKey: "savedString")
+        
+        dismiss(animated: true) {
+            let uid = task.uid // user uid
+            let type = task.taskType
+            let newTask = Task(title: newTitle, isDone: false, taskType: type, uid: uid)
+            self.taskManager.updateTaskStatus(task, isDone: true) {(state, message) in
+                print("Debug toast msg: \(message)")
+            }
+            self.taskManager.store(newTask) {[weak self](state, message) in
+                self?.showToast(state: state, message: message)
+            }
+        }
+    }
+}
+
 //MARK: - SideMenuDelegate
 extension TasksViewController: SideMenuDelegate {
     
     func sidemenu(didSelect option: MenuOption) {
         switch option {
-//        case .supportDevelopment:
-//            print("support devs")
-            
+        //        case .supportDevelopment:
+        //            print("support devs")
+        
         case .shareWithFriends:
             let items = [URL(string: "https://testflight.apple.com/join/FwtK8Ylo")!]
             let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
@@ -461,22 +475,4 @@ extension TasksViewController: SideMenuDelegate {
 }
 
 
-//MARK: - SwapTaskVCDelegate
-extension TasksViewController: SwapTaskVCDelegate {
-    
-    func didSwapTask(for task: Task, with newTitle: String) {
-        presentedViewController?.dismiss(animated: true, completion: {
-            UserDefaults.standard.removeObject(forKey: "savedTaskID")
-            let uid = task.uid // user uid
-            let type = task.taskType
-            let newTask = Task(title: newTitle, isDone: false, taskType: type, uid: uid)
-            self.taskManager.updateTaskStatus(task, isDone: true) {(state, message) in
-                print(message)
-            }
-            self.taskManager.store(newTask) {(state, message) in
-                print(message)
-            }
-        })
-    }
-    
-}
+
