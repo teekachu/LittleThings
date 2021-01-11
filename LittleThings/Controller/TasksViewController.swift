@@ -287,7 +287,8 @@ class TasksViewController: UIViewController, Animatable {
     private func authenticateUser(){
         
         if Auth.auth().currentUser?.uid == nil{
-            presentLoginVC()
+            presentMainAuthVC()
+            
         } else {
             checkSwap { (task) in
                 guard let newString = UserDefaults.standard.string(forKey: "savedString") else {return}
@@ -297,14 +298,13 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     
-    private func presentLoginVC() {
-        DispatchQueue.main.async {[weak self] in
-            let controller = LoginViewController()
-            controller.delegate = self
-            let nav = UINavigationController(rootViewController: controller)
-            nav.modalPresentationStyle = .fullScreen
-            self?.present(nav, animated: true)
-        }
+    private func presentMainAuthVC() {
+        let controller = AuthMainViewController()
+        controller.delegate = self
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        nav.modalTransitionStyle = .crossDissolve
+        present(nav, animated: true)
     }
     
     
@@ -384,7 +384,6 @@ extension TasksViewController: OnboardingControllerDelegate {
 extension TasksViewController: AuthenticationDelegate {
     func authenticationComplete() {
         updateUserToCurrentUser()
-        
         dismiss(animated: true) {[weak self] in
             self?.presentOnboardingIfNecessary()
         }
@@ -468,7 +467,7 @@ extension TasksViewController: SideMenuDelegate {
         case .logOut:
             taskManager.emptyTasksBeforeLogOut()
             AuthManager.signUserOut()
-            presentLoginVC()
+            presentMainAuthVC()
         }
     }
     

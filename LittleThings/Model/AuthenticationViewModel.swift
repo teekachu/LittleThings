@@ -11,6 +11,7 @@ protocol AuthenticationViewModel {
     var formIsValid: Bool {get}
     var shouldEnableButton: Bool {get}
     var buttonTitleColor: UIColor {get}
+    var buttonBackgroundColor: UIColor {get}
 }
 
 protocol SwapAuthenticationViewModel {
@@ -37,7 +38,10 @@ struct LoginViewModel: AuthenticationViewModel {
 
     var buttonTitleColor: UIColor {
         /// Color for true was Constants.whiteSmoke
-        return formIsValid ? Constants.innerYellowFCD12A : Constants.mediumBlack3f3f3f }
+        return formIsValid ? Constants.offBlack202020 : Constants.mediumBlack3f3f3f }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? Constants.whiteSmoke : Constants.offBlack202020 }
 }
 
 struct RegistrationViewModel: AuthenticationViewModel{
@@ -54,7 +58,10 @@ struct RegistrationViewModel: AuthenticationViewModel{
     var shouldEnableButton: Bool { return formIsValid }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? Constants.innerYellowFCD12A : Constants.mediumBlack3f3f3f }
+        return formIsValid ? Constants.offBlack202020 : Constants.mediumBlack3f3f3f }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? Constants.whiteSmoke : Constants.offBlack202020 }
 }
 
 struct ResetPasswordViewModel: AuthenticationViewModel{
@@ -66,9 +73,13 @@ struct ResetPasswordViewModel: AuthenticationViewModel{
     var shouldEnableButton: Bool { return formIsValid }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? Constants.innerYellowFCD12A : Constants.mediumBlack3f3f3f }
+        return formIsValid ? Constants.offBlack202020 : Constants.mediumBlack3f3f3f }
+    
+    var buttonBackgroundColor: UIColor {
+        return formIsValid ? Constants.whiteSmoke : Constants.offBlack202020 }
 }
 
+/// - Swap Screen
 struct SwapTaskViewModel: SwapAuthenticationViewModel {
     
     var texts: String?

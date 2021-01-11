@@ -48,13 +48,10 @@ class AddNewTaskViewController: UIViewController, Animatable {
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateTask()
         
-        guard isAble(toAdd: task) else {
-            return
-        }
-        
         if isEditingTask {
             delegate?.didEditTask(for: task)
         } else {
+            guard isAble(toAdd: task) else { return }
             delegate?.didAddTask(for: task)
         }
     }
@@ -216,7 +213,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
             errorMsgLabel.text = errorText
             errorMsgLabel.textColor = .red
             
-            DispatchQueue.main.asyncAfter(deadline: .now()+2) {[weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now()+5) {[weak self] in
                 self?.errorMsgLabel.text = "One little thing at a time."
                 self?.errorMsgLabel.textColor = Constants.orangeFDB903
             }

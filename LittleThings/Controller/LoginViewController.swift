@@ -9,25 +9,28 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-protocol AuthenticationDelegate: class{
-    func authenticationComplete()
-}
 
 class LoginViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private var viewmodel = LoginViewModel()
-    weak var delegate: AuthenticationDelegate?
+    weak var delegate: AuthMainViewControllerDelegate?
+    weak var delegate2: ResetPasswordDelegate?
     
     
     //  MARK: - IB Properties
+    @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true)}
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
         dismissKeyboard()
-        handleLogin()}
+        handleLogin()
+    }
     
     @IBAction func forgotPasswordTapped(_ sender: Any) {
         handleForgotPassword()}
@@ -36,18 +39,13 @@ class LoginViewController: UIViewController, Animatable {
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
         handleGoogleLogin()}
     
-    @IBAction func signUpTapped(_ sender: Any) {
-        let svc = SignUpViewController()
-        svc.delegate = delegate
-        svc.modalPresentationStyle = .overCurrentContext
-        svc.modalTransitionStyle = .crossDissolve
-        navigationController?.pushViewController(svc, animated: true)}
     
     
     //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        observeKeyboard()
         addGestureToDismiss()
         notificationObserver()
         configureGoogleLogIn()
@@ -78,20 +76,32 @@ class LoginViewController: UIViewController, Animatable {
         } else {
             viewmodel.password = passwordTextfield.text
         }
-        /// enables button and changes color based on criteria above
         updateForm()
     }
     
+    @objc func keyboardWillShow(_ notification: Notification){
+        let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) { [weak self] in
+            self?.view.frame.origin.y = -keyboardHeight
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification){
+        self.view.frame.origin.y = 0
+    }
     
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
+        bottomContainerView.layer.cornerRadius = 35
+        bottomContainerView.backgroundColor = Constants.offBlack202020
+        
         emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
-        
+        emailTextfield.becomeFirstResponder()
         
         passwordTextfield.isSecureTextEntry = true
         passwordTextfield.delegate = self
@@ -99,8 +109,9 @@ class LoginViewController: UIViewController, Animatable {
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
-        /// same as not valid
+        loginButton.layer.cornerRadius = 15
         loginButton.tintColor = Constants.mediumBlack3f3f3f
+        loginButton.backgroundColor = Constants.offBlack202020
         
         let googleIconImage = #imageLiteral(resourceName: "googleLogo").withRenderingMode(.alwaysOriginal)
         signInWithGoogle.setImage(googleIconImage, for: .normal)
@@ -110,7 +121,7 @@ class LoginViewController: UIViewController, Animatable {
     private func addGestureToDismiss(){
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         gesture.direction = .down
-        view.addGestureRecognizer(gesture)
+        bottomContainerView.addGestureRecognizer(gesture)
     }
     
     private func notificationObserver(){
@@ -124,6 +135,11 @@ class LoginViewController: UIViewController, Animatable {
         passwordTextfield.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     
+    private func observeKeyboard(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     private func configureGoogleLogIn(){
         /// When GIDSignIn is called, show the viewcontroller for google signin
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -131,9 +147,16 @@ class LoginViewController: UIViewController, Animatable {
         GIDSignIn.sharedInstance()?.delegate = self
     }
     
+    private func handleForgotPassword(){
+        dismiss(animated: true) {
+            guard let email = self.emailTextfield.text else {return}
+            self.delegate2?.resetPasswordTapped(with: email)
+        }
+    }
     
     //MARK: - Auth
     private func handleLogin(){
+        
         guard let email = emailTextfield.text else { return }
         guard let password = passwordTextfield.text else { return }
         showLottieAnimation(true)
@@ -145,28 +168,20 @@ class LoginViewController: UIViewController, Animatable {
             case.failure(let error):
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
                     self?.errorLabel.text = "\(error.localizedDescription)"
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                         self?.errorLabel.text = ""
                     }
                 }
             case .success:
                 print("DEBUG: handleLogin()successful for user: \(email)")
-                self?.delegate?.authenticationComplete()
+                self?.delegate?.didTapActionButton()
             }
         }
+        
     }
     
     private func handleGoogleLogin(){
         GIDSignIn.sharedInstance().signIn()
-    }
-    
-    private func handleForgotPassword(){
-        let vc = ResetPasswordViewController()
-        vc.email = emailTextfield.text
-        vc.delegate = self
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -176,6 +191,7 @@ extension LoginViewController: FormViewModel {
     func updateForm() {
         loginButton.isEnabled = viewmodel.shouldEnableButton
         loginButton.tintColor = viewmodel.buttonTitleColor
+        loginButton.backgroundColor = viewmodel.buttonBackgroundColor
     }
 }
 
@@ -189,6 +205,7 @@ extension LoginViewController: GIDSignInDelegate{
             print(error.localizedDescription)
             return
         }
+        
         showLottieAnimation(true)
         
         AuthManager.signInWithGoogle(didSignInFor: user) {[weak self] (error) in
@@ -197,26 +214,12 @@ extension LoginViewController: GIDSignInDelegate{
             if let error = error {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
                     self?.errorLabel.text = "\(error.localizedDescription)"
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                         self?.errorLabel.text = ""
                     }
                 }
             }
-            
-            print("DEBUG: does this get called?")
-            self?.delegate?.authenticationComplete()
-        }
-    }
-}
-
-//  MARK: - ResetPasswordViewControllerDelegate
-extension LoginViewController: ResetPasswordViewControllerDelegate {
-    func controllerDidResetPassword() {
-        navigationController?.popViewController(animated: true)
-        errorLabel.text = "We have sent an email to the email address provided, please follow instructions to retrive your password."
-        errorLabel.textColor = .green
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {[weak self] in
-            self?.errorLabel.text = ""
+            self?.delegate?.didTapActionButton()
         }
     }
 }

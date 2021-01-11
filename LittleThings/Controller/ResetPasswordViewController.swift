@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol ResetPasswordViewControllerDelegate: class {
-    func controllerDidResetPassword()
+protocol ResetPasswordDelegate: class {
+    func resetPasswordTapped(with email: String)
 }
 
 class ResetPasswordViewController: UIViewController {
@@ -16,18 +16,19 @@ class ResetPasswordViewController: UIViewController {
     //  MARK: - Properties
     private var viewmodel = ResetPasswordViewModel()
     var email: String?
-    weak var delegate: ResetPasswordViewControllerDelegate?
     
     
     //  MARK: - IB Properties
+    @IBOutlet weak var bottomContainerview: UIView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var resetButton: UIButton!
     @IBAction func resetButtonTapped(_ sender: Any) {
         dismissKeyboard()
         handleResetPassword()}
     
-    @IBAction func goBackToLoginTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)}
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: true)
+    }
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -37,9 +38,9 @@ class ResetPasswordViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         loadEmail()
+        observeKeyboard()
         notificationObserver()
         addGestureToDismiss()
-        
     }
     
     
@@ -64,17 +65,33 @@ class ResetPasswordViewController: UIViewController {
         updateForm()
     }
     
+    @objc func keyboardWillShow(_ notification: Notification){
+        let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) { [weak self] in
+            self?.view.frame.origin.y = -keyboardHeight + 20
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification){
+        self.view.frame.origin.y = 0
+    }
+    
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
+        
+        bottomContainerview.layer.cornerRadius = 35
+        bottomContainerview.backgroundColor = Constants.offBlack202020
         
         emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
+        emailTextfield.becomeFirstResponder()
         
+        resetButton.layer.cornerRadius = 15
         resetButton.tintColor = Constants.mediumBlack3f3f3f
-        resetButton.isEnabled = false
+        resetButton.backgroundColor = Constants.offBlack202020
         
         errorLabel.textColor = .red
         errorLabel.textAlignment = .center
@@ -99,6 +116,19 @@ class ResetPasswordViewController: UIViewController {
         updateForm()
     }
     
+    private func observeKeyboard(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func resetPasswordComplete(){
+        errorLabel.text = "We have sent an email to the email address provided, please follow instructions to retrive your password."
+        errorLabel.textColor = .green
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {[weak self] in
+            self?.errorLabel.text = ""
+        }
+    }
+    
     // MARK: - Auth
     private func handleResetPassword(){
         
@@ -107,19 +137,19 @@ class ResetPasswordViewController: UIViewController {
         showLottieAnimation(true)
         
         AuthManager.resetPassword(for: email) {[weak self](error) in
+            
             self?.showLottieAnimation(false)
             
             if let error = error {
                 self?.errorLabel.text = "\(error.localizedDescription)"
                 print("DEBUG: error in handleResetPassword = \(error.localizedDescription)")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     self?.errorLabel.text = ""
                 }
+                
                 return
             }
-            
-            print("did reset password")
-            self?.delegate?.controllerDidResetPassword()
+            self?.resetPasswordComplete()
         }
     }
 }
@@ -131,6 +161,7 @@ extension ResetPasswordViewController: FormViewModel {
     func updateForm() {
         resetButton.isEnabled = viewmodel.shouldEnableButton
         resetButton.tintColor = viewmodel.buttonTitleColor
+        resetButton.backgroundColor = viewmodel.buttonBackgroundColor
     }
 }
 

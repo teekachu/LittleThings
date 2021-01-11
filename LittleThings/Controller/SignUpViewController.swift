@@ -11,10 +11,11 @@ class SignUpViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private var viewmodel = RegistrationViewModel()
-    weak var delegate: AuthenticationDelegate?
+    weak var delegate: AuthMainViewControllerDelegate?
     
     //  MARK: - IB Properties
     
+    @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var nameTextfield: UITextField!
@@ -24,8 +25,8 @@ class SignUpViewController: UIViewController, Animatable {
         showLottieAnimation(true)
         handleSignup()
     }
-    @IBAction func goBackToLoginTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    @IBAction func dismissTapped(_ sender: Any) {
+        dismiss(animated: true)
     }
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -74,9 +75,8 @@ class SignUpViewController: UIViewController, Animatable {
     
     @objc func keyboardWillShow(_ notification: Notification){
         let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
-        
-        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn) { [weak self] in
-            self?.view.frame.origin.y = -keyboardHeight
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) { [weak self] in
+            self?.view.frame.origin.y = -keyboardHeight + 20
         }
     }
     
@@ -89,10 +89,15 @@ class SignUpViewController: UIViewController, Animatable {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         
+        
+        bottomContainerView.layer.cornerRadius = 35
+        bottomContainerView.backgroundColor = Constants.offBlack202020
+        
         emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
+        emailTextfield.becomeFirstResponder()
         
         passwordTextfield.isSecureTextEntry = true
         passwordTextfield.delegate = self
@@ -105,8 +110,9 @@ class SignUpViewController: UIViewController, Animatable {
             string: "What should we call you?",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
+        signUpButton.layer.cornerRadius = 15
         signUpButton.tintColor = Constants.mediumBlack3f3f3f
-        signUpButton.isEnabled = false
+        signUpButton.backgroundColor = Constants.offBlack202020
         
         errorLabel.textColor = .red
         errorLabel.textAlignment = .center
@@ -144,22 +150,19 @@ class SignUpViewController: UIViewController, Animatable {
         guard let passwordtf = passwordTextfield.text else { return }
         guard let fullnametf = nameTextfield.text else { return }
         
-        // create user in Firestore
+        self.showLottieAnimation(false)
+        
         AuthManager.registerUserWithFirestore( email: emailtf, password: passwordtf,
-            fullname: fullnametf, hasSeenOnboardingPage: false) {[weak self] (error) in
-            
-            self?.showLottieAnimation(false)
-            
+                                               fullname: fullnametf, hasSeenOnboardingPage: false) {[weak self] (error) in
             if let error = error {
                 self?.errorLabel.text = "\(error.localizedDescription)"
                 print("DEBUG error in handleSignup(), \(error.localizedDescription) ")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     self?.errorLabel.text = ""
                 }
                 return
             }
-            
-            self?.delegate?.authenticationComplete()
+            self?.delegate?.didTapActionButton()
         }
     }
 }
@@ -172,6 +175,7 @@ extension SignUpViewController: FormViewModel {
     func updateForm() {
         signUpButton.isEnabled = viewmodel.shouldEnableButton
         signUpButton.tintColor = viewmodel.buttonTitleColor
+        signUpButton.backgroundColor = viewmodel.buttonBackgroundColor
     }
 }
 
