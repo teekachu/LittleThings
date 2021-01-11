@@ -39,6 +39,10 @@ class LoginViewController: UIViewController, Animatable {
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
         handleGoogleLogin()}
     
+    @IBOutlet weak var signInWithApple: UIButton!
+    @IBAction func signInWithAppleTapped(_ sender: Any) {
+        
+    }
     
     
     //  MARK: - Lifecycle
@@ -49,6 +53,7 @@ class LoginViewController: UIViewController, Animatable {
         addGestureToDismiss()
         notificationObserver()
         configureGoogleLogIn()
+        configureLoginWithApple()
     }
     
     
@@ -147,6 +152,10 @@ class LoginViewController: UIViewController, Animatable {
         GIDSignIn.sharedInstance()?.delegate = self
     }
     
+    private func configureLoginWithApple(){
+        
+    }
+    
     private func handleForgotPassword(){
         dismiss(animated: true) {
             guard let email = self.emailTextfield.text else {return}
@@ -182,6 +191,10 @@ class LoginViewController: UIViewController, Animatable {
     
     private func handleGoogleLogin(){
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    private func handleAppleLogin(){
+        
     }
 }
 
