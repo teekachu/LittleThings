@@ -20,6 +20,7 @@
 		A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */; };
 		A76BF7AC25A8CE1700F8BBD0 /* CustomTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76BF7AA25A8CE1700F8BBD0 /* CustomTVViewController.swift */; };
 		A76BF7AD25A8CE1700F8BBD0 /* CustomTVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76BF7AB25A8CE1700F8BBD0 /* CustomTVViewController.xib */; };
+		A775035C25AE976A00AF03F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A775035B25AE976A00AF03F6 /* GoogleService-Info.plist */; };
 		A7771DA4259E9F0A006CCB39 /* SwapTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */; };
 		A7771DA5259E9F0A006CCB39 /* SwapTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */; };
 		A78A825F25AB91C90048FFA8 /* AuthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A825D25AB91C90048FFA8 /* AuthMainViewController.swift */; };
@@ -44,7 +45,6 @@
 		F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */; };
 		F430AEB425772D7000DE727B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F430AEB325772D6F00DE727B /* Podfile */; };
 		F430AED9257825C500DE727B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AED8257825C500DE727B /* DatabaseManager.swift */; };
-		F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F430AEDB257826A900DE727B /* GoogleService-Info.plist */; };
 		F430AEE125782B9900DE727B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE025782B9900DE727B /* Task.swift */; };
 		F430AEE525782FA900DE727B /* UpdatesTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEE425782FA900DE727B /* UpdatesTracker.swift */; };
 		F430AEEB25783DD000DE727B /* OngoingTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */; };
@@ -87,6 +87,7 @@
 		A75290FF2592648300647771 /* LittleThings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleThings.entitlements; sourceTree = "<group>"; };
 		A76BF7AA25A8CE1700F8BBD0 /* CustomTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTVViewController.swift; sourceTree = "<group>"; };
 		A76BF7AB25A8CE1700F8BBD0 /* CustomTVViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTVViewController.xib; sourceTree = "<group>"; };
+		A775035B25AE976A00AF03F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapTaskViewController.swift; sourceTree = "<group>"; };
 		A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwapTaskViewController.xib; sourceTree = "<group>"; };
 		A78A825D25AB91C90048FFA8 /* AuthMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoViewController.xib; sourceTree = "<group>"; };
 		F430AEB325772D6F00DE727B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F430AED8257825C500DE727B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		F430AEDB257826A900DE727B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F430AEE025782B9900DE727B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F430AEE425782FA900DE727B /* UpdatesTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesTracker.swift; sourceTree = "<group>"; };
 		F430AEEA25783DD000DE727B /* OngoingTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				A74B90C4258A682A00DA221D /* Lottie Animations */,
-				F430AEDB257826A900DE727B /* GoogleService-Info.plist */,
+				A775035B25AE976A00AF03F6 /* GoogleService-Info.plist */,
 				F433E6872576BEE000A55C52 /* Assets.xcassets */,
 				F433E6802576BEDC00A55C52 /* SceneDelegate.swift */,
 				F433E67E2576BEDC00A55C52 /* AppDelegate.swift */,
@@ -402,7 +402,6 @@
 				A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */,
 				F433E6862576BEDC00A55C52 /* Main.storyboard in Resources */,
 				A7771DA5259E9F0A006CCB39 /* SwapTaskViewController.xib in Resources */,
-				F430AEDC257826A900DE727B /* GoogleService-Info.plist in Resources */,
 				A7F48193259C1CFF005319AF /* CustomAlertViewController.xib in Resources */,
 				F42F7C2825833E1B00E6B2C1 /* AppInfoViewController.xib in Resources */,
 				A7461ADE25869C2E00CB1BAE /* ResetPasswordViewController.xib in Resources */,
@@ -410,6 +409,7 @@
 				F47BC988257FEDD900DB0CC4 /* TasksViewController.xib in Resources */,
 				A76BF7AD25A8CE1700F8BBD0 /* CustomTVViewController.xib in Resources */,
 				A79517BD2597093200831605 /* notepad.json in Resources */,
+				A775035C25AE976A00AF03F6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
