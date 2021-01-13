@@ -21,25 +21,25 @@ class OnboardingViewController: UIViewController {
     private var onboardingView = PaperOnboarding()
     private let getStartedButton: UIButton = {
         let butn = UIButton()
-        butn.setTitle("I'm ready to get Started ", for: .normal)
+        butn.setTitle("I am ready to get Started! ", for: .normal)
         butn.setTitleColor(Constants.whiteSmoke, for: .normal)
         butn.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         butn.tintColor = Constants.whiteSmoke
         butn.semanticContentAttribute = .forceRightToLeft
         butn.alpha = 0
-        butn.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 18)
+        butn.titleLabel?.font = UIFont(name: Constants.fontBold, size: 17)
         return butn
     }()
     
     private let learnMoreButton: UIButton = {
         let butn = UIButton()
-        butn.setTitle("Umm, what is this 1-3-5 rule? ", for: .normal)
-        butn.setTitleColor(Constants.whiteSmoke, for: .normal)
-        butn.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        butn.setTitle("What's the 1-3-5 rule ", for: .normal)
+        butn.setTitleColor(Constants.innerYellowFCD12A, for: .normal)
+        butn.setImage(UIImage(systemName: "questionmark"), for: .normal)
         butn.tintColor = Constants.whiteSmoke
         butn.semanticContentAttribute = .forceRightToLeft
         butn.alpha = 0
-        butn.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 18)
+        butn.titleLabel?.font = UIFont(name: Constants.fontItalic, size: 18)
         return butn
     }()
     
@@ -82,19 +82,17 @@ class OnboardingViewController: UIViewController {
         onboardingView.fillSuperview()
         onboardingView.delegate = self
         
-        view.addSubview(learnMoreButton)
-        learnMoreButton.addTarget(self, action: #selector(learnMoreTapped), for: .touchUpInside)
-        learnMoreButton.centerX(inView: view)
-        learnMoreButton.anchor(
-            bottom: view.bottomAnchor,
-            paddingBottom: 130,
-            height: 44)
-        
         view.addSubview(getStartedButton)
         getStartedButton.addTarget(self, action: #selector(dismissOnboardingScreen), for: .touchUpInside)
+        
+        view.addSubview(learnMoreButton)
+        learnMoreButton.addTarget(self, action: #selector(learnMoreTapped), for: .touchUpInside)
+        
+        learnMoreButton.anchor(top: view.topAnchor, right: view.rightAnchor,
+                               paddingTop: 44, paddingRight: 25, height: 44)
+        
         getStartedButton.centerX(inView: view)
-        getStartedButton.anchor(bottom: learnMoreButton.topAnchor,
-                                paddingBottom: 10, height: 44)
+        getStartedButton.anchor(bottom: view.bottomAnchor, paddingBottom: 82, height: 44)
     }
     
     private func configureOnboardingDatasource(){
@@ -108,7 +106,7 @@ class OnboardingViewController: UIViewController {
             color: Constants.offBlack202020,
             titleColor: Constants.lightGrayCDCDCD,
             descriptionColor: Constants.innerYellowFCD12A,
-            titleFont: UIFont(name: Constants.titleTextFont, size: 25)!,
+            titleFont: UIFont(name: Constants.titleTextFont, size: 24)!,
             descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 19)!,
             descriptionLabelPadding: 0,
             titleLabelPadding: 0)
@@ -122,22 +120,22 @@ class OnboardingViewController: UIViewController {
             color: Constants.offBlack202020,
             titleColor: Constants.innerYellowFCD12A,
             descriptionColor: Constants.lightGrayCDCDCD,
-            titleFont: UIFont(name: Constants.titleTextFont, size: 21)!,
-            descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 17)!,
+            titleFont: UIFont(name: Constants.titleTextFont, size: 22)!,
+            descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 18)!,
             descriptionLabelPadding: 0,
             titleLabelPadding: 20)
         
         let itemThree = OnboardingItemInfo(
-            informationImage: #imageLiteral(resourceName: "urban-line-274")
+            informationImage: #imageLiteral(resourceName: "time")
                 .withRenderingMode(.alwaysOriginal),
             title: "Use the 1-3-5 rule to prioritize and tackle!",
             description: "Focus your energy on things that matter.",
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
-            titleColor: Constants.orangeFDB903!,
+            titleColor: Constants.lightGrayCDCDCD,
             descriptionColor: Constants.innerYellowFCD12A,
-            titleFont: UIFont(name: Constants.titleTextFont, size: 20)!,
-            descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 18)!,
+            titleFont: UIFont(name: Constants.titleTextFont, size: 24)!,
+            descriptionFont: UIFont(name: Constants.detailSubtitleTextFont, size: 17)!,
             descriptionLabelPadding: 0,
             titleLabelPadding: 0)
         

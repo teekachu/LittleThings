@@ -94,7 +94,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
     @objc func keyboardWillShow(_ notification: Notification){
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
-            self?.view.frame.origin.y = -155
+            self?.view.frame.origin.y = -250
         }
     }
     

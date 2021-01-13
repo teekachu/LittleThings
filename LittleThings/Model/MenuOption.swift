@@ -16,6 +16,7 @@ enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
 //    case contactDeveloper
     case whatIs135
     case reportBug
+    case settings
 //    case privacyPolicy
 //    case termsCondition
     case about
@@ -35,7 +36,8 @@ enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
         case .about: return UIImage(systemName: "exclamationmark.square") ?? UIImage()
         case .clearDone: return UIImage(systemName: "trash.fill") ?? UIImage()
         case .logOut: return UIImage(systemName: "xmark") ?? UIImage()
-            
+        case .settings:
+            return UIImage(systemName: "gear") ?? UIImage()
         }
     }
     
@@ -52,6 +54,7 @@ enum MenuOption: Int, CustomDebugStringConvertible, CaseIterable {
         case .about: return "About Us "
         case .clearDone: return "Clear Done "
         case .logOut: return "Log Out "
+        case .settings: return "Settings"
         }
     }
     

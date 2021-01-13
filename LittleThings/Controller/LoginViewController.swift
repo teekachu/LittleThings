@@ -83,6 +83,7 @@ class LoginViewController: UIViewController, Animatable {
     
     @objc func keyboardWillShow(_ notification: Notification){
         let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
+
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) { [weak self] in
             self?.view.frame.origin.y = -keyboardHeight
         }
@@ -292,40 +293,29 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        
-        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            
-            // Save authorised user ID for future reference
-            UserDefaults.standard.set(appleIDCredential.user, forKey: "appleAuthorizedUserIdKey")
-            
             
             guard let nonce = currentNonce else {
                 fatalError("Invalid state: A login callback was received, but no login request was sent.")
             }
             
-            guard let appleIDToken = appleIDCredential.identityToken else {
-                print("Unable to fetch identity token")
-                return
-            }
-            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-                return
-            }
+            showLottieAnimation(true)
             
-            // Initialize a Firebase credential.
-            let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
-            
-            Auth.auth().signIn(with: credential) { (authDataResult, error) in
+            AuthManager.signInWithApple(with: nonce, didSignInForUser: authorization) {[weak self] (error) in
+                
+                self?.showLottieAnimation(false)
+                
                 if let error = error {
-                    print("Error in sign in - \(error.localizedDescription)")
-                    return
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
+                        self?.errorLabel.text = "\(error.localizedDescription)"
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            self?.errorLabel.text = ""
+                        }
+                    }
                 }
                 
-                if let user = authDataResult?.user {
-                    print("Cool, logged in as \(user.uid), email\(user.email)")
-                }
+                self?.delegate?.didTapActionButton()
             }
-        }
+        
     }
     
 }

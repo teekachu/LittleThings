@@ -73,13 +73,13 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
                                     <rect key="frame" x="0.0" y="0.0" width="228" height="75"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="May 7, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-26-mIc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 7, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-26-mIc">
                                             <rect key="frame" x="0.0" y="0.0" width="228" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Oblique" family="Avenir" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zd-Td-Ig6">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zd-Td-Ig6">
                                             <rect key="frame" x="0.0" y="25" width="228" height="50"/>
                                             <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="17"/>
                                             <color key="textColor" name="smalltext nav bar color"/>
@@ -118,7 +118,6 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="whiteish mediumblack"/>
             <constraints>
-                <constraint firstItem="SJy-xr-O7i" firstAttribute="top" secondItem="sg6-x2-QtB" secondAttribute="bottom" id="6yN-Hv-8Rh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SJy-xr-O7i" secondAttribute="bottom" id="84k-2p-Hm4"/>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="GFs-2v-C9n"/>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="Gef-cA-JZD"/>

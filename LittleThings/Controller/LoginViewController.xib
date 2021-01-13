@@ -26,10 +26,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eif-t3-1Wy" userLabel="bottomContainerview">
-                    <rect key="frame" x="0.0" y="75.5" width="340" height="492.5"/>
+                    <rect key="frame" x="0.0" y="56.5" width="340" height="511.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="r3C-2e-OSr">
-                            <rect key="frame" x="35" y="35" width="270" height="422.5"/>
+                            <rect key="frame" x="35" y="35" width="270" height="441.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOk-5g-q0G" userLabel="closeButton">
                                     <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
@@ -52,7 +52,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3iD-76-SAm">
-                                    <rect key="frame" x="0.0" y="85.5" width="270" height="337"/>
+                                    <rect key="frame" x="0.0" y="85.5" width="270" height="356"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Au1-Wf-m3j">
                                             <rect key="frame" x="0.0" y="0.0" width="270" height="40"/>
@@ -123,11 +123,14 @@
                                             <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="1KI-ab-eFd">
-                                            <rect key="frame" x="0.0" y="312" width="270" height="25"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="1KI-ab-eFd">
+                                            <rect key="frame" x="0.0" y="312" width="270" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acR-0C-Ify" userLabel="google">
-                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="25"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Evf-Tt-q5n"/>
+                                                    </constraints>
                                                     <state key="normal" image="icons8-google-200">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                                     </state>
@@ -136,9 +139,6 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="BYL-eW-3xo"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                 </stackView>

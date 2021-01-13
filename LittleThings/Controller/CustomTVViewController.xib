@@ -86,8 +86,24 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mZl-yg-E9B">
                                             <rect key="frame" x="0.0" y="322.5" width="294" height="44"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-0V-ata">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzm-Pc-Vhr">
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="1gz-kF-Nia"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                    <color key="tintColor" name="black white"/>
+                                                    <state key="normal" title="No"/>
+                                                    <connections>
+                                                        <action selector="noButtonTapped:" destination="-1" eventType="touchUpInside" id="96c-R5-KwL"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Moh-kE-i0g">
+                                                    <rect key="frame" x="135" y="0.0" width="24" height="44"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-0V-ata">
+                                                    <rect key="frame" x="169" y="0.0" width="125" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="125" id="BXR-o2-2Hc"/>
                                                     </constraints>
@@ -96,22 +112,6 @@
                                                     <state key="normal" title="Yes"/>
                                                     <connections>
                                                         <action selector="yesButtonTapped:" destination="-1" eventType="touchUpInside" id="cCc-1d-AeV"/>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Moh-kE-i0g">
-                                                    <rect key="frame" x="135" y="0.0" width="24" height="44"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzm-Pc-Vhr">
-                                                    <rect key="frame" x="169" y="0.0" width="125" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="125" id="1gz-kF-Nia"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                                    <color key="tintColor" name="black white"/>
-                                                    <state key="normal" title="Nope"/>
-                                                    <connections>
-                                                        <action selector="noButtonTapped:" destination="-1" eventType="touchUpInside" id="96c-R5-KwL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

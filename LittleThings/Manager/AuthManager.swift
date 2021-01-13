@@ -52,52 +52,6 @@ struct AuthManager{
     }
     
     
-//    static func signInWithApple(didSignInForUser authorization: ASAuthorization , completion: @escaping FirebaseCompletion) {
-//        
-//        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-//            
-//            guard let appleIDToken = appleIDCredential.identityToken else {
-//                print("debug authorizationController() - cannot fetch ID token")
-//                return}
-//            
-//            guard let authCode = appleIDCredential.authorizationCode else {
-//                print("debug authorizationController() - cannot fetch auth code")
-//                return}
-//            
-//            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-//                print("debug authorizationController() - cannot serialize token string from data , \(appleIDToken.debugDescription)")
-//                return}
-//            
-//            guard let authCodeString = String(bytes: authCode, encoding: .utf8) else {
-//                print("debug authorizationController() - cannot serialize token string from data , \(authCode.debugDescription)")
-//                return}
-//            
-//            let authCredential = OAuthProvider.credential(withProviderID: "apple.com",
-//                                                          idToken: idTokenString,
-//                                                          accessToken: authCodeString)
-//            
-//            Auth.auth().signIn(with: authCredential) { (result, error) in
-//                
-//                if let error = error {
-//                    print("DEBUG: error in signInWithApple(), \(error.localizedDescription) ")
-//                    return
-//                }
-//                
-//                if result?.additionalUserInfo?.isNewUser == true {
-//                    guard let uid = result?.user else {return}
-//                    guard let email = result?.user.email else {return}
-//                    guard let fullname = result?.user.displayName else {return}
-//                    
-//                    print("debug apple sign in - \(uid),\(email),\(fullname)")
-//                }
-//                
-//            }
-//            
-//        }
-//        
-//    }
-    
-    
     static func signInWithGoogle(didSignInFor user: GIDGoogleUser, completion: @escaping FirebaseCompletion) {
         
         guard let auth = user.authentication else { return }
@@ -120,7 +74,7 @@ struct AuthManager{
                 guard let uid = result?.user.uid else{ return }
                 guard let email = result?.user.email else{ return }
                 guard let fullname = result?.user.displayName else{ return }
-
+                
                 let values = [
                     "email": email,
                     "fullname": fullname,
@@ -175,6 +129,66 @@ struct AuthManager{
         let hasSeenOnboardingData = ["hasSeenOnboardingPage": true]
         
         REF_USERS.document(uid).updateData(hasSeenOnboardingData, completion: completion)
+    }
+    
+    
+    static func signInWithApple(with nonce: String?, didSignInForUser authorization: ASAuthorization , completion: @escaping FirebaseCompletion) {
+        
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            
+            //            // Save authorised user ID for future reference
+            //            UserDefaults.standard.set(appleIDCredential.user, forKey: "appleAuthorizedUserIdKey")
+            
+            guard let nonce = nonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Unable to fetch identity token")
+                return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                return
+            }
+            
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
+            
+            Auth.auth().signIn(with: credential) { (authDataResult, error) in
+                if let error = error {
+                    print("Error in sign in - \(error.localizedDescription)")
+                    return
+                }
+                
+                if authDataResult?.additionalUserInfo?.isNewUser == true {
+                    
+                    /// pull the user's id, email and fullname FROM google credentials
+                    guard let uid = authDataResult?.user.uid else{
+                        print("no uid")
+                        return }
+                    guard let email = authDataResult?.user.email else{
+                        print("no email")
+                        return }
+                    let fullname = authDataResult?.user.displayName ?? "Achiever"
+                    
+                    
+                    let values = [
+                        "email": email,
+                        "fullname": fullname,
+                        "hasSeenOnboardingPage": false,
+                        "uid": uid
+                    ] as [String: Any]
+                    
+                    REF_USERS.document(uid).setData(values, completion: completion)
+                    
+                } else {
+                    completion(nil)
+                }
+                
+            }
+        }
+        
     }
 }
 

@@ -35,11 +35,7 @@ class CustomTVViewController: UIViewController {
         dismiss(animated: true)}
     
     @IBAction func infoButtonTapped(_ sender: Any) {
-        let msg = """
-        Swap mode's purpose is to focus on completing one existing task in exchange for another. When in swap mode, you cannot navigate around the app until the old task is "swapped" out.
-
-        Simply enter the new task in the text bubble, tap on "Yes", and get working. Once you are ready to swap, the old task will be moved to done, replaced by the new.
-        """
+        let msg = Constants.swapScreenExplaination
         let controller = CustomAlertViewController(alertMessage: msg)
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve

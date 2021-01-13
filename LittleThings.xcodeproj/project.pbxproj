@@ -21,6 +21,8 @@
 		A76BF7AC25A8CE1700F8BBD0 /* CustomTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76BF7AA25A8CE1700F8BBD0 /* CustomTVViewController.swift */; };
 		A76BF7AD25A8CE1700F8BBD0 /* CustomTVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76BF7AB25A8CE1700F8BBD0 /* CustomTVViewController.xib */; };
 		A775035C25AE976A00AF03F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A775035B25AE976A00AF03F6 /* GoogleService-Info.plist */; };
+		A775036125AF8EF300AF03F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775036025AF8EF300AF03F6 /* SettingsViewController.swift */; };
+		A775036425AF90D300AF03F6 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775036325AF90D300AF03F6 /* SettingsOption.swift */; };
 		A7771DA4259E9F0A006CCB39 /* SwapTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */; };
 		A7771DA5259E9F0A006CCB39 /* SwapTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */; };
 		A78A825F25AB91C90048FFA8 /* AuthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A825D25AB91C90048FFA8 /* AuthMainViewController.swift */; };
@@ -88,6 +90,8 @@
 		A76BF7AA25A8CE1700F8BBD0 /* CustomTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTVViewController.swift; sourceTree = "<group>"; };
 		A76BF7AB25A8CE1700F8BBD0 /* CustomTVViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTVViewController.xib; sourceTree = "<group>"; };
 		A775035B25AE976A00AF03F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A775036025AF8EF300AF03F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A775036325AF90D300AF03F6 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
 		A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapTaskViewController.swift; sourceTree = "<group>"; };
 		A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwapTaskViewController.xib; sourceTree = "<group>"; };
 		A78A825D25AB91C90048FFA8 /* AuthMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				A7A6666C2585A4150043D22D /* User.swift */,
 				F43A81A2257BEFF80035352C /* TaskType.swift */,
 				A79517AF25959B4700831605 /* MenuOption.swift */,
+				A775036325AF90D300AF03F6 /* SettingsOption.swift */,
 				F43A81A5257BF5070035352C /* DataSource.swift */,
 				F47BC97D257FDD7700DB0CC4 /* MenuSection.swift */,
 				A7A666702585C16C0043D22D /* AuthenticationViewModel.swift */,
@@ -290,7 +295,6 @@
 				A7461AD62586808500CB1BAE /* SignUpViewController.xib */,
 				A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */,
 				A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */,
-				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
 				F47BC985257FEDD900DB0CC4 /* TasksViewController.swift */,
 				F47BC986257FEDD900DB0CC4 /* TasksViewController.xib */,
 				F430AF092579608600DE727B /* AddNewTaskViewController.swift */,
@@ -303,11 +307,13 @@
 				F42F7C2625833E1B00E6B2C1 /* AppInfoViewController.xib */,
 				A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */,
 				A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */,
-				A795179825955EF100831605 /* SideMenuTableViewController.swift */,
 				A7F48190259C1CFF005319AF /* CustomAlertViewController.swift */,
 				A7F48191259C1CFF005319AF /* CustomAlertViewController.xib */,
 				A7CD6F8B25A269B3009DDACE /* AboutUSViewController.swift */,
 				A7CD6F8C25A269B3009DDACE /* AboutUSViewController.xib */,
+				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
+				A795179825955EF100831605 /* SideMenuTableViewController.swift */,
+				A775036025AF8EF300AF03F6 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -502,6 +508,8 @@
 				A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */,
 				F430AF0425794F0A00DE727B /* DoneTaskTableViewCell.swift in Sources */,
 				A7F48192259C1CFF005319AF /* CustomAlertViewController.swift in Sources */,
+				A775036125AF8EF300AF03F6 /* SettingsViewController.swift in Sources */,
+				A775036425AF90D300AF03F6 /* SettingsOption.swift in Sources */,
 				A7461ADD25869C2E00CB1BAE /* ResetPasswordViewController.swift in Sources */,
 				F433E6A52576C0DA00A55C52 /* Constant.swift in Sources */,
 				A78A825F25AB91C90048FFA8 /* AuthMainViewController.swift in Sources */,

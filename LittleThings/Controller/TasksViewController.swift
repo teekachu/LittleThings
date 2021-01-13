@@ -461,17 +461,48 @@ extension TasksViewController: SideMenuDelegate {
             showAboutUsScreen()
             
         case .clearDone:
-            let filtered = tasks.filter({ $0.isDone})
-            taskManager.deleteAll(tasks: filtered)
+            
+            let controller = UIAlertController.clearDoneTasks {[weak self] (didSelect) in
+                if didSelect{
+                    if let filtered = self?.tasks.filter({ $0.isDone}) {
+                        self?.taskManager.deleteAll(tasks: filtered)
+                    }
+                } else {
+                    self?.dismiss(animated: true)
+                }
+            }
+            present(controller, animated: true)
             
         case .logOut:
             taskManager.emptyTasksBeforeLogOut()
             AuthManager.signUserOut()
             presentMainAuthVC()
+            
+        case .settings:
+            let infoController = SettingsViewController(delegate: self)
+            infoController.modalPresentationStyle = .overCurrentContext
+            infoController.modalTransitionStyle = .crossDissolve
+            present(infoController, animated: true)
         }
     }
-    
 }
 
+
+//MARK: - SettingsMenuDelegate
+extension TasksViewController: SettingsMenuDelegate {
+    func settingsMenu(didSelect option: SettingsOption) {
+        switch option{
+        case .changeName:
+            /// small alert window with a textfield prefilled. and if user changes it, call update to database
+            print("change name")
+            
+//        case .Language:
+//            print("change language to chinese")
+            
+        case.exit:
+            dismiss(animated: true)
+        }
+    }
+}
 
 

@@ -41,6 +41,18 @@ extension UIAlertController {
         return controller
     }
     
+    static func clearDoneTasks(onTap: @escaping (Bool) -> Void) -> UIAlertController {
+        let controller = UIAlertController(title: nil, message: "Are you sure you want to clear all done tasks? ", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "No", style: .default)
+        let delete = UIAlertAction(title: "Yes", style: .default) { (_) in
+            onTap(true)}
+        
+        controller.addAction(cancel)
+        controller.addAction(delete)
+        
+        controller.view.tintColor = Constants.blackWhite
+        return controller
+    }
     
 //    static func logUserOut(onTap: @escaping (Bool) -> Void) -> UIAlertController {
 //        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
