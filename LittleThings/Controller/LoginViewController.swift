@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import AuthenticationServices
+import CryptoKit
 
 
 class LoginViewController: UIViewController, Animatable {
@@ -16,7 +18,7 @@ class LoginViewController: UIViewController, Animatable {
     private var viewmodel = LoginViewModel()
     weak var delegate: AuthMainViewControllerDelegate?
     weak var delegate2: ResetPasswordDelegate?
-    
+    fileprivate var currentNonce: String?
     
     //  MARK: - IB Properties
     @IBOutlet weak var bottomContainerView: UIView!
@@ -29,8 +31,7 @@ class LoginViewController: UIViewController, Animatable {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         dismissKeyboard()
-        handleLogin()
-    }
+        handleLogin()}
     
     @IBAction func forgotPasswordTapped(_ sender: Any) {
         handleForgotPassword()}
@@ -38,11 +39,7 @@ class LoginViewController: UIViewController, Animatable {
     @IBOutlet weak var signInWithGoogle: UIButton!
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
         handleGoogleLogin()}
-    
-    @IBOutlet weak var signInWithApple: UIButton!
-    @IBAction func signInWithAppleTapped(_ sender: Any) {
-        
-    }
+    @IBOutlet weak var buttonsStackView: UIStackView!
     
     
     //  MARK: - Lifecycle
@@ -95,9 +92,14 @@ class LoginViewController: UIViewController, Animatable {
         self.view.frame.origin.y = 0
     }
     
+    @objc func appleSignInTapped(_ sender: UIButton) {
+        performSignin()
+    }
+    
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = UIColor.init(white: 0.3, alpha: 0.4)
         
         bottomContainerView.layer.cornerRadius = 35
         bottomContainerView.backgroundColor = Constants.offBlack202020
@@ -153,7 +155,9 @@ class LoginViewController: UIViewController, Animatable {
     }
     
     private func configureLoginWithApple(){
-        
+        let button = ASAuthorizationAppleIDButton()
+        buttonsStackView.addArrangedSubview(button)
+        button.addTarget(self, action: #selector(appleSignInTapped), for: .touchUpInside)
     }
     
     private func handleForgotPassword(){
@@ -161,6 +165,27 @@ class LoginViewController: UIViewController, Animatable {
             guard let email = self.emailTextfield.text else {return}
             self.delegate2?.resetPasswordTapped(with: email)
         }
+    }
+    
+    private func performSignin() {
+        let request = createAppleIDRequest()
+        let authController = ASAuthorizationController(authorizationRequests: [request])
+        
+        authController.delegate = self
+        authController.presentationContextProvider = self
+        
+        authController.performRequests()
+    }
+    
+    private func createAppleIDRequest() -> ASAuthorizationAppleIDRequest {
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        self.currentNonce = randomNonceString()
+        request.nonce = sha256(currentNonce!)
+        
+        return request
     }
     
     //MARK: - Auth
@@ -193,9 +218,6 @@ class LoginViewController: UIViewController, Animatable {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    private func handleAppleLogin(){
-        
-    }
 }
 
 
@@ -243,5 +265,122 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+}
+
+
+
+//  MARK: - ASAuthorizationControllerDelegate
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        guard let err = error as? ASAuthorizationError else { return }
+        
+        switch err.code {
+        case .canceled:
+            break
+        case .failed:
+            print("auth failed")
+        case .invalidResponse:
+            print("invalid response received from login")
+        case .notHandled:
+            print("Potentially due to internet failure during login")
+        case .unknown:
+            print("User didn't log their apple ID on device")
+        @unknown default:
+            print("unknown default")
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            
+            // Save authorised user ID for future reference
+            UserDefaults.standard.set(appleIDCredential.user, forKey: "appleAuthorizedUserIdKey")
+            
+            
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Unable to fetch identity token")
+                return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                return
+            }
+            
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
+            
+            Auth.auth().signIn(with: credential) { (authDataResult, error) in
+                if let error = error {
+                    print("Error in sign in - \(error.localizedDescription)")
+                    return
+                }
+                
+                if let user = authDataResult?.user {
+                    print("Cool, logged in as \(user.uid), email\(user.email)")
+                }
+            }
+        }
+    }
+    
+}
+
+
+//  MARK: - ASAuthorizationControllerPresentationContextProviding
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+}
+
+
+//  MARK: - Random nonce generator
+extension LoginViewController {
+    
+    private func randomNonceString(length: Int = 32) -> String {
+        precondition(length > 0)
+        let charset: Array<Character> =
+            Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0 ..< 16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+                
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    private func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            return String(format: "%02x", $0)
+        }.joined()
+        
+        return hashString
     }
 }

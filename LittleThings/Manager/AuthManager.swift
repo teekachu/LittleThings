@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
+import AuthenticationServices
 
 typealias FirebaseCompletion = ((Error?) -> Void)
 let FS_REF = Firestore.firestore()
@@ -49,6 +50,52 @@ struct AuthManager{
             REF_USERS.document(uid).setData(structure, completion: completion)
         }
     }
+    
+    
+//    static func signInWithApple(didSignInForUser authorization: ASAuthorization , completion: @escaping FirebaseCompletion) {
+//        
+//        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+//            
+//            guard let appleIDToken = appleIDCredential.identityToken else {
+//                print("debug authorizationController() - cannot fetch ID token")
+//                return}
+//            
+//            guard let authCode = appleIDCredential.authorizationCode else {
+//                print("debug authorizationController() - cannot fetch auth code")
+//                return}
+//            
+//            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+//                print("debug authorizationController() - cannot serialize token string from data , \(appleIDToken.debugDescription)")
+//                return}
+//            
+//            guard let authCodeString = String(bytes: authCode, encoding: .utf8) else {
+//                print("debug authorizationController() - cannot serialize token string from data , \(authCode.debugDescription)")
+//                return}
+//            
+//            let authCredential = OAuthProvider.credential(withProviderID: "apple.com",
+//                                                          idToken: idTokenString,
+//                                                          accessToken: authCodeString)
+//            
+//            Auth.auth().signIn(with: authCredential) { (result, error) in
+//                
+//                if let error = error {
+//                    print("DEBUG: error in signInWithApple(), \(error.localizedDescription) ")
+//                    return
+//                }
+//                
+//                if result?.additionalUserInfo?.isNewUser == true {
+//                    guard let uid = result?.user else {return}
+//                    guard let email = result?.user.email else {return}
+//                    guard let fullname = result?.user.displayName else {return}
+//                    
+//                    print("debug apple sign in - \(uid),\(email),\(fullname)")
+//                }
+//                
+//            }
+//            
+//        }
+//        
+//    }
     
     
     static func signInWithGoogle(didSignInFor user: GIDGoogleUser, completion: @escaping FirebaseCompletion) {
@@ -113,7 +160,7 @@ struct AuthManager{
         guard let uid = Auth.auth().currentUser?.uid else{return}
         
         REF_USERS.document(uid).getDocument { (snapshot, error) in
-            print("Debug: snapshot is \(snapshot?.data())")
+            print("Debug: snapshot is \(String(describing: snapshot?.data()))")
             
             guard let dictionary = snapshot?.data() else {return}
             let user = User(dictionary: dictionary)

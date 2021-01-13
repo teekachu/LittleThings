@@ -88,7 +88,7 @@ class SignUpViewController: UIViewController, Animatable {
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
-        
+        view.backgroundColor = UIColor.init(white: 0.3, alpha: 0.4)
         
         bottomContainerView.layer.cornerRadius = 35
         bottomContainerView.backgroundColor = Constants.offBlack202020

@@ -79,6 +79,7 @@ class ResetPasswordViewController: UIViewController {
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = UIColor.init(white: 0.3, alpha: 0.4)
         
         bottomContainerview.layer.cornerRadius = 35
         bottomContainerview.backgroundColor = Constants.offBlack202020
