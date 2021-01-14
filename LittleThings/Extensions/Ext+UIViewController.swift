@@ -19,9 +19,10 @@ extension UIViewController {
     func showLottieAnimation(_ show: Bool){
         if show{
             let vc = LottieLoadingAnimationViewController()
-            vc.modalPresentationStyle = .overCurrentContext
-            vc.modalTransitionStyle = .crossDissolve
-            present(vc, animated: true)
+            present(a: vc)
+//            vc.modalPresentationStyle = .overCurrentContext
+//            vc.modalTransitionStyle = .crossDissolve
+//            present(vc, animated: true)
             
         } else {
             dismiss(animated: true)
@@ -33,5 +34,12 @@ extension UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.frame
         self.view.insertSubview(blurEffectView, at: 0)
+    }
+    
+    func present(a viewcontroller: UIViewController) {
+        let controller = viewcontroller
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        present(controller, animated: true)
     }
 }

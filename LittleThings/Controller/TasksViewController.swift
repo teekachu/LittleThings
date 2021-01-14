@@ -32,7 +32,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     private var user: User? {
         didSet{
-            showWelcomeLabel()
+            showWelcomeLabel(for: user!.fullname)
             addTaskObserver()
         }
     }
@@ -51,9 +51,7 @@ class TasksViewController: UIViewController, Animatable {
     @IBAction func additionalInfoTapped(_ sender: Any) {
         let msg = Constants.ruleOfThumb
         let controller = CustomAlertViewController(alertMessage: msg)
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
+        present(a: controller)
     }
     
     @IBAction func ShowMenuTapped(_ sender: Any) {
@@ -93,9 +91,7 @@ class TasksViewController: UIViewController, Animatable {
     @objc func didPressAddTaskButton() {
         let controller = AddNewTaskViewController(taskManager: taskManager, task: .basic)
         controller.delegate = self
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
+        present(a: controller)
     }
     
     
@@ -202,17 +198,19 @@ class TasksViewController: UIViewController, Animatable {
     private func editTask(for task: Task){
         let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
         controller.delegate = self
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
+        present(a: controller)
+//        controller.modalPresentationStyle = .overCurrentContext
+//        controller.modalTransitionStyle = .crossDissolve
+//        present(controller, animated: true)
     }
     
     private func enterSwapMode(for task: Task){
         let controller = CustomTVViewController(for: task)
         controller.delegate = self
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
+        present(a: controller)
+//        controller.modalPresentationStyle = .overCurrentContext
+//        controller.modalTransitionStyle = .crossDissolve
+//        present(controller, animated: true)
     }
     
     private func didTapActionButton(for task: Task) {
@@ -222,12 +220,8 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     
-    private func showWelcomeLabel(){
-        guard let user = user else {
-            print("Cannot fetch user in showWelcomeLabel")
-            return }
-        
-        greetingsLabel.text = "Hello \(user.fullname)"
+    private func showWelcomeLabel(for name: String){
+        greetingsLabel.text = "Hello \(name)"
         greetingsLabel.numberOfLines = 1
         greetingsLabel.textAlignment = .left
         UIView.animate(withDuration: 0.9) {[weak self] in
@@ -249,9 +243,10 @@ class TasksViewController: UIViewController, Animatable {
     
     private func showAboutUsScreen(){
         let infoController = AboutUSViewController()
-        infoController.modalPresentationStyle = .overCurrentContext
-        infoController.modalTransitionStyle = .crossDissolve
-        present(infoController, animated: true)
+        present(a: infoController)
+//        infoController.modalPresentationStyle = .overCurrentContext
+//        infoController.modalTransitionStyle = .crossDissolve
+//        present(infoController, animated: true)
     }
     
     private func presentSwapScreen(for oldTask: Task?, with newText: String?){
@@ -259,9 +254,10 @@ class TasksViewController: UIViewController, Animatable {
         guard let newText = newText else {return}
         let controller = SwapTaskViewController(for: oldTask, with: newText)
         controller.delegate = self
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
+        present(a: controller)
+//        controller.modalPresentationStyle = .overCurrentContext
+//        controller.modalTransitionStyle = .crossDissolve
+//        present(controller, animated: true)
     }
     
     
@@ -302,9 +298,10 @@ class TasksViewController: UIViewController, Animatable {
         let controller = AuthMainViewController()
         controller.delegate = self
         let nav = UINavigationController(rootViewController: controller)
-        nav.modalPresentationStyle = .fullScreen
-        nav.modalTransitionStyle = .crossDissolve
-        present(nav, animated: true)
+        present(a: nav)
+//        nav.modalPresentationStyle = .fullScreen
+//        nav.modalTransitionStyle = .crossDissolve
+//        present(nav, animated: true)
     }
     
     
@@ -445,9 +442,10 @@ extension TasksViewController: SideMenuDelegate {
             
         case .whatIs135:
             let infoController = AppInfoViewController()
-            infoController.modalPresentationStyle = .overCurrentContext
-            infoController.modalTransitionStyle = .crossDissolve
-            present(infoController, animated: true)
+            present(a: infoController)
+//            infoController.modalPresentationStyle = .overCurrentContext
+//            infoController.modalTransitionStyle = .crossDissolve
+//            present(infoController, animated: true)
             
         case .reportBug:
             /// Can probably get rid of this
@@ -480,9 +478,10 @@ extension TasksViewController: SideMenuDelegate {
             
         case .settings:
             let infoController = SettingsViewController(delegate: self)
-            infoController.modalPresentationStyle = .overCurrentContext
-            infoController.modalTransitionStyle = .crossDissolve
-            present(infoController, animated: true)
+            present(a: infoController)
+//            infoController.modalPresentationStyle = .overCurrentContext
+//            infoController.modalTransitionStyle = .crossDissolve
+//            present(infoController, animated: true)
         }
     }
 }
@@ -494,7 +493,32 @@ extension TasksViewController: SettingsMenuDelegate {
         switch option{
         case .changeName:
             /// small alert window with a textfield prefilled. and if user changes it, call update to database
-            print("change name")
+            let controller = UIAlertController(title: nil, message: "What should we call you? ", preferredStyle: .alert)
+            controller.addTextField()
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .default)
+            let update = UIAlertAction(title: "Update", style: .default) { (_) in
+                guard let name = controller.textFields?[0].text else {return}
+                // make network call to update name
+                AuthManager.updateUserName(with: name) {[weak self] (err) in
+                    if err != nil {
+                        self?.showToast(state: .error, message: err?.localizedDescription ?? "Uh oh, something went wrong")
+                        return
+                    }
+                    
+                    self?.showWelcomeLabel(for: name)
+                }
+            }
+            
+            if let oldName = user?.fullname{
+                controller.textFields?[0].text = oldName
+            }
+            
+            controller.addAction(cancel)
+            controller.addAction(update)
+            
+            controller.view.tintColor = Constants.blackWhite
+            present(controller, animated: true)
             
 //        case .Language:
 //            print("change language to chinese")

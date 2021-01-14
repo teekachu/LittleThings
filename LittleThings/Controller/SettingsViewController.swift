@@ -73,6 +73,11 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let settingsOption = SettingsOption(rawValue: indexPath.row)
+//        if indexPath.row == SettingsOption.allCases.count - 1 {
+//            cell.accessoryType = .none
+//        } else {
+//            cell.accessoryType = .disclosureIndicator
+//        }
         cell.textLabel?.text = settingsOption?.debugDescription
         cell.imageView?.image = settingsOption?.image
         cell.textLabel?.font = UIFont(name: Constants.menuFont, size: 17)

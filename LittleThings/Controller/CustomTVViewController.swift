@@ -37,9 +37,10 @@ class CustomTVViewController: UIViewController {
     @IBAction func infoButtonTapped(_ sender: Any) {
         let msg = Constants.swapScreenExplaination
         let controller = CustomAlertViewController(alertMessage: msg)
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)
+        present(a: controller)
+//        controller.modalPresentationStyle = .overCurrentContext
+//        controller.modalTransitionStyle = .crossDissolve
+//        present(controller, animated: true)
     }
     
     //  MARK: - Lifecycle

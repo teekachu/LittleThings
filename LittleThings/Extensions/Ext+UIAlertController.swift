@@ -16,7 +16,7 @@ extension UIAlertController {
             contentView.backgroundColor = color
         }
     }
-
+    
     static func showTipsInAlert(message: String) -> UIAlertController{
         let controller = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let okay = UIAlertAction(title: "Sounds Good!", style: .cancel)
@@ -54,19 +54,37 @@ extension UIAlertController {
         return controller
     }
     
-//    static func logUserOut(onTap: @escaping (Bool) -> Void) -> UIAlertController {
-//        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-//        let logOut = UIAlertAction(title: "Log out", style: .default) { _ in
+//    static func addAlertWithTextfield(onTap: @escaping (Bool) -> Void) -> UIAlertController {
+//        let controller = UIAlertController(title: nil, message: "What should we call you? ", preferredStyle: .alert)
+//        controller.addTextField()
+//        
+//        let cancel = UIAlertAction(title: "Cancel", style: .default)
+//        let update = UIAlertAction(title: "Update", style: .default) { (_) in
+//            let ac = controller.textFields?[0].text
+//            
+//            print(ac)
 //            onTap(true)}
-//        let clearAllDone = UIAlertAction(title: "Clear Done", style: .destructive) { (_) in
-//            onTap(false)}
-//
+//        
 //        controller.addAction(cancel)
-//        controller.addAction(logOut)
-//        controller.addAction(clearAllDone)
-//
+//        controller.addAction(update)
+//        
 //        controller.view.tintColor = Constants.blackWhite
 //        return controller
 //    }
+    
+    //    static func logUserOut(onTap: @escaping (Bool) -> Void) -> UIAlertController {
+    //        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    //        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+    //        let logOut = UIAlertAction(title: "Log out", style: .default) { _ in
+    //            onTap(true)}
+    //        let clearAllDone = UIAlertAction(title: "Clear Done", style: .destructive) { (_) in
+    //            onTap(false)}
+    //
+    //        controller.addAction(cancel)
+    //        controller.addAction(logOut)
+    //        controller.addAction(clearAllDone)
+    //
+    //        controller.view.tintColor = Constants.blackWhite
+    //        return controller
+    //    }
 }

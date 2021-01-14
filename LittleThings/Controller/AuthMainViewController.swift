@@ -30,16 +30,13 @@ class AuthMainViewController: UIViewController {
         let controller = LoginViewController()
         controller.delegate = self
         controller.delegate2 = self
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)}
+        present(a: controller)
+    }
     
     @IBAction func signupTapped(_ sender: Any) {
         let controller = SignUpViewController()
         controller.delegate = self
-        controller.modalPresentationStyle = .overCurrentContext
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true)}
+        present(a: controller)}
     
     
     //  MARK: - Lifecycle
@@ -70,8 +67,6 @@ extension AuthMainViewController: ResetPasswordDelegate {
     func resetPasswordTapped(with email: String) {
         let vc = ResetPasswordViewController()
         vc.email = email
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true)
+        present(a: vc)
     }
 }

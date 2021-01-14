@@ -123,12 +123,20 @@ struct AuthManager{
     }
     
     
-    static func updateUserHasSeenOnboardingInDatabase(completion: @escaping (FirebaseCompletion)){
+    static func updateUserHasSeenOnboardingInDatabase(completion: @escaping (FirebaseCompletion)) {
         /// find the unique id of the current user
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let hasSeenOnboardingData = ["hasSeenOnboardingPage": true]
         
         REF_USERS.document(uid).updateData(hasSeenOnboardingData, completion: completion)
+    }
+    
+    
+    static func updateUserName(with newName: String, completion: @escaping (FirebaseCompletion)) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let fullname = ["fullname": newName]
+        
+        REF_USERS.document(uid).updateData(fullname, completion: completion)
     }
     
     

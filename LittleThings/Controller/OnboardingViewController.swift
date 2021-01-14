@@ -69,9 +69,10 @@ class OnboardingViewController: UIViewController {
     
     @objc func learnMoreTapped(){
         let vc = AppInfoViewController()
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true)
+        present(a: vc)
+//        vc.modalPresentationStyle = .overCurrentContext
+//        vc.modalTransitionStyle = .crossDissolve
+//        present(vc, animated: true)
     }
     
     
