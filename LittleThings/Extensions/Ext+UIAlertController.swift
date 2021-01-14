@@ -54,23 +54,22 @@ extension UIAlertController {
         return controller
     }
     
-//    static func addAlertWithTextfield(onTap: @escaping (Bool) -> Void) -> UIAlertController {
-//        let controller = UIAlertController(title: nil, message: "What should we call you? ", preferredStyle: .alert)
-//        controller.addTextField()
-//        
-//        let cancel = UIAlertAction(title: "Cancel", style: .default)
-//        let update = UIAlertAction(title: "Update", style: .default) { (_) in
-//            let ac = controller.textFields?[0].text
-//            
-//            print(ac)
-//            onTap(true)}
-//        
-//        controller.addAction(cancel)
-//        controller.addAction(update)
-//        
-//        controller.view.tintColor = Constants.blackWhite
-//        return controller
-//    }
+    static func showAlertWithTextfield(onTap: @escaping (String, Bool) -> Void) -> UIAlertController {
+        let controller = UIAlertController(title: nil, message: "What should we call you? ", preferredStyle: .alert)
+        controller.addTextField()
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default)
+        let update = UIAlertAction(title: "Update", style: .default) { (_) in
+            guard let name = controller.textFields?[0].text else {return}
+            onTap(name, true)
+        }
+        
+        controller.addAction(cancel)
+        controller.addAction(update)
+        
+        controller.view.tintColor = Constants.blackWhite
+        return controller
+    }
     
     //    static func logUserOut(onTap: @escaping (Bool) -> Void) -> UIAlertController {
     //        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

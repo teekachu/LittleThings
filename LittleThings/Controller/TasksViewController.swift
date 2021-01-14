@@ -199,18 +199,12 @@ class TasksViewController: UIViewController, Animatable {
         let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
         controller.delegate = self
         present(a: controller)
-//        controller.modalPresentationStyle = .overCurrentContext
-//        controller.modalTransitionStyle = .crossDissolve
-//        present(controller, animated: true)
     }
     
     private func enterSwapMode(for task: Task){
         let controller = CustomTVViewController(for: task)
         controller.delegate = self
         present(a: controller)
-//        controller.modalPresentationStyle = .overCurrentContext
-//        controller.modalTransitionStyle = .crossDissolve
-//        present(controller, animated: true)
     }
     
     private func didTapActionButton(for task: Task) {
@@ -244,9 +238,6 @@ class TasksViewController: UIViewController, Animatable {
     private func showAboutUsScreen(){
         let infoController = AboutUSViewController()
         present(a: infoController)
-//        infoController.modalPresentationStyle = .overCurrentContext
-//        infoController.modalTransitionStyle = .crossDissolve
-//        present(infoController, animated: true)
     }
     
     private func presentSwapScreen(for oldTask: Task?, with newText: String?){
@@ -255,9 +246,6 @@ class TasksViewController: UIViewController, Animatable {
         let controller = SwapTaskViewController(for: oldTask, with: newText)
         controller.delegate = self
         present(a: controller)
-//        controller.modalPresentationStyle = .overCurrentContext
-//        controller.modalTransitionStyle = .crossDissolve
-//        present(controller, animated: true)
     }
     
     
@@ -299,9 +287,6 @@ class TasksViewController: UIViewController, Animatable {
         controller.delegate = self
         let nav = UINavigationController(rootViewController: controller)
         present(a: nav)
-//        nav.modalPresentationStyle = .fullScreen
-//        nav.modalTransitionStyle = .crossDissolve
-//        present(nav, animated: true)
     }
     
     
@@ -443,9 +428,6 @@ extension TasksViewController: SideMenuDelegate {
         case .whatIs135:
             let infoController = AppInfoViewController()
             present(a: infoController)
-//            infoController.modalPresentationStyle = .overCurrentContext
-//            infoController.modalTransitionStyle = .crossDissolve
-//            present(infoController, animated: true)
             
         case .reportBug:
             /// Can probably get rid of this
@@ -479,9 +461,6 @@ extension TasksViewController: SideMenuDelegate {
         case .settings:
             let infoController = SettingsViewController(delegate: self)
             present(a: infoController)
-//            infoController.modalPresentationStyle = .overCurrentContext
-//            infoController.modalTransitionStyle = .crossDissolve
-//            present(infoController, animated: true)
         }
     }
 }
@@ -491,38 +470,37 @@ extension TasksViewController: SideMenuDelegate {
 extension TasksViewController: SettingsMenuDelegate {
     func settingsMenu(didSelect option: SettingsOption) {
         switch option{
+        
         case .changeName:
-            /// small alert window with a textfield prefilled. and if user changes it, call update to database
-            let controller = UIAlertController(title: nil, message: "What should we call you? ", preferredStyle: .alert)
-            controller.addTextField()
             
-            let cancel = UIAlertAction(title: "Cancel", style: .default)
-            let update = UIAlertAction(title: "Update", style: .default) { (_) in
-                guard let name = controller.textFields?[0].text else {return}
-                // make network call to update name
-                AuthManager.updateUserName(with: name) {[weak self] (err) in
-                    if err != nil {
-                        self?.showToast(state: .error, message: err?.localizedDescription ?? "Uh oh, something went wrong")
-                        return
+            let controller = UIAlertController.showAlertWithTextfield {[weak self] (newName, didTap) in
+                if didTap{
+                    
+                    AuthManager.updateUserName(with: newName) { (err) in
+                        if err != nil {
+                            self?.showToast(state: .error, message: err?.localizedDescription ?? "Uh oh, something went wrong")
+                            return
+                        }
+                        /// Refresh the name label in main page to show new name
+                        self?.showWelcomeLabel(for: newName)
                     }
                     
-                    self?.showWelcomeLabel(for: name)
+                } else {
+                    self?.dismiss(animated: true)
                 }
             }
             
+            ///Prefill with old name
             if let oldName = user?.fullname{
                 controller.textFields?[0].text = oldName
             }
             
-            controller.addAction(cancel)
-            controller.addAction(update)
-            
-            controller.view.tintColor = Constants.blackWhite
             present(controller, animated: true)
             
-//        case .Language:
-//            print("change language to chinese")
             
+        //        case .Language:
+        //            print("change language to chinese")
+        
         case.exit:
             dismiss(animated: true)
         }

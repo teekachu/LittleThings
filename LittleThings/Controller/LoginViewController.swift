@@ -270,7 +270,6 @@ extension LoginViewController: UITextFieldDelegate {
 }
 
 
-
 //  MARK: - ASAuthorizationControllerDelegate
 extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {

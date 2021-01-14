@@ -26,7 +26,6 @@ class AddNewTaskViewController: UIViewController, Animatable {
     weak var delegate: NewTaskVCDelegate?
     
     
-    
     //  MARK: - IBProperties
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var BottomContainerView: UIView!
@@ -127,13 +126,13 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
         TaskPickerView.layer.cornerRadius = 20
         
-        
         saveButton.layer.cornerRadius = 10
         saveButton.titleLabel?.font = UIFont(name: Constants.avenirBlackSuperBold, size: 19)
         
         textTextView.text = task.title
         taskString = task.title
         currentTasktype = task.taskType
+        
         switch currentTasktype {
         case .one:
             TaskPickerView.selectRow(0, inComponent: 0, animated: false)
@@ -142,6 +141,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         case.five:
             TaskPickerView.selectRow(2, inComponent: 0, animated: false)
         }
+        
         let title = isEditingTask ? "Update Task" : "Save Task"
         saveButton.setTitle(title, for: .normal)
     }

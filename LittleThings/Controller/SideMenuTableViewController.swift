@@ -35,11 +35,7 @@ class SideMenuTableViewController: UIViewController {
         super.viewDidLoad()
         configureTableView()
         navigationController?.navigationBar.isHidden = true
-        
     }
-    
-    //  MARK: - Selectors
-    
     
     
     //  MARK: - Privates

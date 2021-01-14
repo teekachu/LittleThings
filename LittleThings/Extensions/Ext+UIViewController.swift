@@ -20,10 +20,6 @@ extension UIViewController {
         if show{
             let vc = LottieLoadingAnimationViewController()
             present(a: vc)
-//            vc.modalPresentationStyle = .overCurrentContext
-//            vc.modalTransitionStyle = .crossDissolve
-//            present(vc, animated: true)
-            
         } else {
             dismiss(animated: true)
         }

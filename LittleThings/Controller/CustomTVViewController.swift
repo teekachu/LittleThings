@@ -38,9 +38,6 @@ class CustomTVViewController: UIViewController {
         let msg = Constants.swapScreenExplaination
         let controller = CustomAlertViewController(alertMessage: msg)
         present(a: controller)
-//        controller.modalPresentationStyle = .overCurrentContext
-//        controller.modalTransitionStyle = .crossDissolve
-//        present(controller, animated: true)
     }
     
     //  MARK: - Lifecycle

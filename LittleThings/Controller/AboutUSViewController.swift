@@ -31,15 +31,11 @@ class AboutUSViewController: UIViewController {
     }
     
     
-    
     //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    
-    
-    //  MARK: - Selectors
     
     
     //  MARK: - Privates
