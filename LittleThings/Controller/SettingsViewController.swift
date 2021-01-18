@@ -18,8 +18,15 @@ class SettingsViewController: UIViewController {
     private let cellIdentifier = "settingsTableViewCell"
     
     
+    // MARK: - IB Property
+    @IBOutlet weak var tableview: UITableView!
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    
     //  MARK: - Lifecycle
-    private var tableview: UITableView!
+    //    private var tableview: UITableView!
     
     init(delegate: SettingsMenuDelegate) {
         self.delegate = delegate
@@ -32,25 +39,19 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBlurEffectToView(for: .systemUltraThinMaterial)
+        addBlurEffectToView(for: .systemThickMaterial)
         configureTableView()
-        
     }
     
     
     //  MARK: - Privates
     private func configureTableView(){
-        tableview = UITableView(frame: .zero, style: .insetGrouped)
-        view.addSubview(tableview)
         tableview.dataSource = self
         tableview.delegate = self
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         tableview.backgroundColor = .clear
         tableview.separatorColor = Constants.cellBorderColor //292a27
-        
-        tableview.anchor(top: view.topAnchor,left: view.leftAnchor,
-                         bottom: view.bottomAnchor, right: view.rightAnchor)
     }
 }
 
@@ -62,9 +63,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Settings"
-    }
+    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //        return "Settings"
+    //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingsOption.allCases.count
@@ -73,17 +74,19 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let settingsOption = SettingsOption(rawValue: indexPath.row)
-//        if indexPath.row == SettingsOption.allCases.count - 1 {
-//            cell.accessoryType = .none
-//        } else {
-//            cell.accessoryType = .disclosureIndicator
-//        }
+        
+        cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = settingsOption?.debugDescription
         cell.imageView?.image = settingsOption?.image
         cell.textLabel?.font = UIFont(name: Constants.menuFont, size: 17)
-        cell.backgroundColor = #colorLiteral(red: 0.168627451, green: 0.168627451, blue: 0.1490196078, alpha: 0.7451414399) //181816
-        cell.imageView?.tintColor = Constants.lightGrayCDCDCD
-        cell.textLabel?.textColor = Constants.lightGrayCDCDCD
+        cell.backgroundColor = Constants.whiteOffblack?.withAlphaComponent(0.75)
+
+        cell.imageView?.tintColor = Constants.blackWhite?.withAlphaComponent(0.75)
+        cell.textLabel?.textColor = Constants.blackWhite?.withAlphaComponent(0.75)
+        
+        let colorview = UIView()
+        colorview.backgroundColor = Constants.settingsCellSelected
+        cell.selectedBackgroundView = colorview
         
         return cell
     }
@@ -99,5 +102,6 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             self?.delegate?.settingsMenu(didSelect: settings)
         }
     }
+    
     
 }

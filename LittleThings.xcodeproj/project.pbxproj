@@ -25,6 +25,7 @@
 		A775036425AF90D300AF03F6 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775036325AF90D300AF03F6 /* SettingsOption.swift */; };
 		A7771DA4259E9F0A006CCB39 /* SwapTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */; };
 		A7771DA5259E9F0A006CCB39 /* SwapTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */; };
+		A779D40A25B630A80068EC75 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A779D40825B630A80068EC75 /* SettingsViewController.xib */; };
 		A78A825F25AB91C90048FFA8 /* AuthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A825D25AB91C90048FFA8 /* AuthMainViewController.swift */; };
 		A78A826025AB91C90048FFA8 /* AuthMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78A825E25AB91C90048FFA8 /* AuthMainViewController.xib */; };
 		A795179A25955EF100831605 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795179825955EF100831605 /* SideMenuTableViewController.swift */; };
@@ -94,6 +95,7 @@
 		A775036325AF90D300AF03F6 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
 		A7771DA2259E9F0A006CCB39 /* SwapTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapTaskViewController.swift; sourceTree = "<group>"; };
 		A7771DA3259E9F0A006CCB39 /* SwapTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwapTaskViewController.xib; sourceTree = "<group>"; };
+		A779D40825B630A80068EC75 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		A78A825D25AB91C90048FFA8 /* AuthMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainViewController.swift; sourceTree = "<group>"; };
 		A78A825E25AB91C90048FFA8 /* AuthMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthMainViewController.xib; sourceTree = "<group>"; };
 		A795179825955EF100831605 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				F435B81525815762007BB7E1 /* OnboardingViewController.swift */,
 				A795179825955EF100831605 /* SideMenuTableViewController.swift */,
 				A775036025AF8EF300AF03F6 /* SettingsViewController.swift */,
+				A779D40825B630A80068EC75 /* SettingsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */,
 				A78A826025AB91C90048FFA8 /* AuthMainViewController.xib in Resources */,
 				F433E6882576BEE000A55C52 /* Assets.xcassets in Resources */,
+				A779D40A25B630A80068EC75 /* SettingsViewController.xib in Resources */,
 				A7CD6F8E25A269B3009DDACE /* AboutUSViewController.xib in Resources */,
 				F430AEB425772D7000DE727B /* Podfile in Resources */,
 				A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */,

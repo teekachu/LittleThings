@@ -91,9 +91,10 @@ class AddNewTaskViewController: UIViewController, Animatable {
     }
     
     @objc func keyboardWillShow(_ notification: Notification){
+        let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut) {[weak self] in
-            self?.view.frame.origin.y = -250
+            self?.view.frame.origin.y = -keyboardHeight + 10
         }
     }
     
@@ -148,7 +149,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
     
     private func setupGesture(){
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeToDismissKeybord))
-        gesture.delegate = self
+        gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
     
@@ -227,22 +228,6 @@ class AddNewTaskViewController: UIViewController, Animatable {
         return true
     }
 }
-
-
-//  MARK: - UIGestureRecognizerDelegate
-extension AddNewTaskViewController: UIGestureRecognizerDelegate{
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if BottomContainerView.isDescendant(of: view){
-            if touch.view?.isDescendant(of: BottomContainerView) == true{
-                /// touch anywhere else thats not bottomContainer to dismiss bottomContainerView
-                textTextView.resignFirstResponder()
-            }
-            return true
-        }
-        return false
-    }
-}
-
 
 //  MARK: - UIPickerViewDelegate
 extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource{

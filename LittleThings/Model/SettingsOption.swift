@@ -12,7 +12,7 @@ enum SettingsOption: Int, CaseIterable, CustomDebugStringConvertible {
     
     case changeName
 //    case Language
-    case exit
+//    case exit
     
     var image: UIImage {
         switch self {
@@ -21,8 +21,8 @@ enum SettingsOption: Int, CaseIterable, CustomDebugStringConvertible {
             return UIImage(systemName: "person") ?? UIImage()
 //        case .Language:
 //            return UIImage(systemName: "flag") ?? UIImage()
-        case.exit:
-            return UIImage(systemName: "arrow.down.right.and.arrow.up.left") ?? UIImage()
+//        case.exit:
+//            return UIImage(systemName: "arrow.down.right.and.arrow.up.left") ?? UIImage()
             
         }
     }
@@ -30,7 +30,7 @@ enum SettingsOption: Int, CaseIterable, CustomDebugStringConvertible {
         switch self {
         case .changeName: return "Change Name"
 //        case .Language: return "Language"
-        case .exit: return "Exit"
+//        case .exit: return "Exit"
         }
     }
 }

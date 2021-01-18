@@ -505,8 +505,8 @@ extension TasksViewController: SettingsMenuDelegate {
         //        case .Language:
         //            print("change language to chinese")
         
-        case.exit:
-            dismiss(animated: true)
+//        case.exit:
+//            dismiss(animated: true)
         }
     }
 }
