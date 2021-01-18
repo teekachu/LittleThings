@@ -37,7 +37,7 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     private var sidemenu: SideMenuNavigationController!
-    private var stringToLoad = ""
+    
     
     
     //  MARK: - IB Properties
@@ -194,7 +194,6 @@ class TasksViewController: UIViewController, Animatable {
     
     
     //  MARK: - Privates
-    
     private func editTask(for task: Task){
         let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
         controller.delegate = self
@@ -310,8 +309,8 @@ extension TasksViewController: UITableViewDelegate {
             showOptions(for: selected)
         }
     }
-    
 }
+
 
 //  MARK: - NewTaskVCDelegate
 extension TasksViewController: NewTaskVCDelegate {
@@ -333,6 +332,7 @@ extension TasksViewController: NewTaskVCDelegate {
     }
 }
 
+
 //  MARK: - OngoingTasksTVCDelegate
 extension TasksViewController: TasksViewControllerDelegate {
     func showOptions(for task: Task){
@@ -346,6 +346,7 @@ extension TasksViewController: TasksViewControllerDelegate {
         present(controller, animated: true)
     }
 }
+
 
 //  MARK: - OnboardingControllerDelegate
 extension TasksViewController: OnboardingControllerDelegate {
@@ -362,6 +363,7 @@ extension TasksViewController: OnboardingControllerDelegate {
     }
 }
 
+
 //  MARK: - AuthenticationDelegate
 extension TasksViewController: AuthenticationDelegate {
     func authenticationComplete() {
@@ -371,6 +373,7 @@ extension TasksViewController: AuthenticationDelegate {
         }
     }
 }
+
 
 //MARK: - CustomTextViewDelegate
 extension TasksViewController: CustomTextViewDelegate {
@@ -383,6 +386,7 @@ extension TasksViewController: CustomTextViewDelegate {
         }
     }
 }
+
 
 //MARK: - SwapTaskVCDelegate
 extension TasksViewController: SwapTaskVCDelegate {
@@ -404,6 +408,7 @@ extension TasksViewController: SwapTaskVCDelegate {
         }
     }
 }
+
 
 //MARK: - SideMenuDelegate
 extension TasksViewController: SideMenuDelegate {
@@ -441,7 +446,6 @@ extension TasksViewController: SideMenuDelegate {
             showAboutUsScreen()
             
         case .clearDone:
-            
             let controller = UIAlertController.clearDoneTasks {[weak self] (didSelect) in
                 if didSelect{
                     if let filtered = self?.tasks.filter({ $0.isDone}) {

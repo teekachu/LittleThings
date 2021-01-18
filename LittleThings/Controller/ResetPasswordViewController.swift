@@ -50,7 +50,7 @@ class ResetPasswordViewController: UIViewController {
     
     @objc func didBeginEditing(_ sender: UITextField){
         if sender == emailTextfield{
-            emailTextfield.placeholder = nil
+            emailTextfield.placeholder = "Email"
         }
     }
     
@@ -58,7 +58,7 @@ class ResetPasswordViewController: UIViewController {
         emailTextfield.placeholder = "Email"}
     
     @objc func textDidChange(_ sender: UITextField) {
-        if sender == emailTextfield{
+        if sender == emailTextfield {
             viewmodel.email = emailTextfield.text
         }
         /// enables button and changes color based on criteria above
@@ -85,7 +85,7 @@ class ResetPasswordViewController: UIViewController {
         bottomContainerview.backgroundColor = Constants.offBlack202020
         
         emailTextfield.delegate = self
-        emailTextfield.attributedPlaceholder = NSAttributedString(
+        emailTextfield.attributedPlaceholder = NSAttributedString (
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         emailTextfield.becomeFirstResponder()
@@ -125,6 +125,7 @@ class ResetPasswordViewController: UIViewController {
     private func resetPasswordComplete(){
         errorLabel.text = "We have sent an email to the email address provided, please follow instructions to retrive your password."
         errorLabel.textColor = .green
+        resetButton.isEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {[weak self] in
             self?.errorLabel.text = ""
         }
