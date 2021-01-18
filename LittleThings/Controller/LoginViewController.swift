@@ -109,13 +109,18 @@ class LoginViewController: UIViewController, Animatable {
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
+<<<<<<< HEAD
         emailTextfield.becomeFirstResponder()
+=======
+        emailTextfield.textContentType = .emailAddress
+>>>>>>> safetynet
         
         passwordTextfield.isSecureTextEntry = true
         passwordTextfield.delegate = self
         passwordTextfield.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
+        passwordTextfield.textContentType = .password
         
         loginButton.layer.cornerRadius = 15
         loginButton.tintColor = Constants.mediumBlack3f3f3f
