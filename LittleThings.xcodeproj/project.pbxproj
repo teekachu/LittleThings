@@ -18,6 +18,7 @@
 		A7461AE42587EB7600CB1BAE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7461AE32587EB7600CB1BAE /* AuthManager.swift */; };
 		A74B90E5258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */; };
 		A74B90E6258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */; };
+		A779D3FC25B61D950068EC75 /* notepad.json in Resources */ = {isa = PBXBuildFile; fileRef = A779D3FB25B61D950068EC75 /* notepad.json */; };
 		A795179A25955EF100831605 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795179825955EF100831605 /* SideMenuTableViewController.swift */; };
 		A79517AA259579F700831605 /* SidemenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79517A8259579F700831605 /* SidemenuTableViewCell.swift */; };
 		A79517B025959B4700831605 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79517AF25959B4700831605 /* MenuOption.swift */; };
@@ -72,11 +73,10 @@
 		A7461ADB25869C2E00CB1BAE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		A7461ADC25869C2E00CB1BAE /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		A7461AE32587EB7600CB1BAE /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		A74B90C6258A685300DA221D /* notepad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = notepad.json; path = ../../../../../Downloads/notepad.json; sourceTree = "<group>"; };
-		A74B90C7258A685300DA221D /* yellowWheel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = yellowWheel.json; path = ../../../../../Downloads/yellowWheel.json; sourceTree = "<group>"; };
 		A74B90E3258ABA7C00DA221D /* LottieLoadingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		A74B90E4258ABA7C00DA221D /* LottieLoadingAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingAnimationViewController.xib; sourceTree = "<group>"; };
 		A75290FF2592648300647771 /* LittleThings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleThings.entitlements; sourceTree = "<group>"; };
+		A779D3FB25B61D950068EC75 /* notepad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notepad.json; sourceTree = "<group>"; };
 		A795179825955EF100831605 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		A79517A8259579F700831605 /* SidemenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuTableViewCell.swift; sourceTree = "<group>"; };
 		A79517AF25959B4700831605 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
@@ -146,8 +146,7 @@
 		A74B90C4258A682A00DA221D /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
-				A74B90C6258A685300DA221D /* notepad.json */,
-				A74B90C7258A685300DA221D /* yellowWheel.json */,
+				A779D3FB25B61D950068EC75 /* notepad.json */,
 			);
 			path = "Lottie Animations";
 			sourceTree = "<group>";
@@ -366,6 +365,7 @@
 			files = (
 				F433E68B2576BEE000A55C52 /* LaunchScreen.storyboard in Resources */,
 				F430AF0525794F0A00DE727B /* DoneTaskTableViewCell.xib in Resources */,
+				A779D3FC25B61D950068EC75 /* notepad.json in Resources */,
 				A7A6666A2585A20A0043D22D /* LoginViewController.xib in Resources */,
 				F430AF0C2579608600DE727B /* AddNewTaskViewController.xib in Resources */,
 				F430AEF72578905A00DE727B /* OngoingTaskTableViewCell.xib in Resources */,
