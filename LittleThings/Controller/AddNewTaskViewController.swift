@@ -84,6 +84,15 @@ class AddNewTaskViewController: UIViewController, Animatable {
         updateTask()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)) {
+            BottomContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+            textTextView.layer.borderColor = Constants.cellBorderColor?.cgColor
+            TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
+        }
+    }
+    
     
     //  MARK: - Selectors
     @objc func swipeToDismissKeybord(){
@@ -126,6 +135,8 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.layer.borderWidth = 0.2
         TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
         TaskPickerView.layer.cornerRadius = 20
+        
+        cancelButton.layer.cornerRadius = 10
         
         saveButton.layer.cornerRadius = 10
         saveButton.titleLabel?.font = UIFont(name: Constants.avenirBlackSuperBold, size: 19)

@@ -82,6 +82,13 @@ class TasksViewController: UIViewController, Animatable {
         configureSideMenu()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)) {
+            tableView.reloadData()
+        }
+    }
+    
     
     //  MARK: - Selectors
     @objc func segmentedControl(_ sender: UISegmentedControl) {
@@ -246,6 +253,7 @@ class TasksViewController: UIViewController, Animatable {
         controller.delegate = self
         present(a: controller)
     }
+    
     
     
     //  MARK: - User Defaults

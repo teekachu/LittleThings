@@ -92,28 +92,28 @@
                                             <rect key="frame" x="0.0" y="483.5" width="394" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUl-Pt-bqn" userLabel="Cancel">
-                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="145" id="6cj-7W-b04"/>
+                                                        <constraint firstAttribute="width" constant="180" id="6cj-7W-b04"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
-                                                    <color key="tintColor" name="black white"/>
+                                                    <color key="tintColor" name="offblack white"/>
                                                     <state key="normal" title="Cancel"/>
                                                     <connections>
                                                         <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="z0f-Il-VIa"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ec-mm-3CT">
-                                                    <rect key="frame" x="145" y="0.0" width="104" height="50"/>
+                                                    <rect key="frame" x="180" y="0.0" width="34" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i38-4z-NHV">
-                                                    <rect key="frame" x="249" y="0.0" width="145" height="50"/>
+                                                    <rect key="frame" x="214" y="0.0" width="180" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="145" id="NbC-XL-QWr"/>
+                                                        <constraint firstAttribute="width" constant="180" id="NbC-XL-QWr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
-                                                    <color key="tintColor" name="black white"/>
+                                                    <color key="tintColor" name="offblack white"/>
                                                     <state key="normal" title="Save"/>
                                                     <connections>
                                                         <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="dT4-0y-9C6"/>
@@ -154,11 +154,11 @@
     </objects>
     <resources>
         <image name="taxi-77" width="1773" height="912"/>
-        <namedColor name="black white">
-            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="black yellow">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="offblack white">
+            <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
