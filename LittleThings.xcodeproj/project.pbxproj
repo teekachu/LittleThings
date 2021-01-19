@@ -159,73 +159,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C2E77A8F553784D7D6969FA69DF602F /* Frameworks */ = {
+		1496E6EC6A8DB85DD58224F7E59D596E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				29BF5690C72857759689B64203819FE0 /* Pods_LittleThings.framework */,
+				2DAD001BF79DAC5AC038D198E09C168B /* AnimatableExt.swift */,
+				7D75171CECDDF7B9A677703497A846D3 /* Constant.swift */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3DC09C83AABFC57510F783EDF22FC547 /* Lottie Animations */ = {
-			isa = PBXGroup;
-			children = (
-				CDD2AF2922781EC95A5C1FE801FA518E /* notepad.json */,
-			);
-			path = "Lottie Animations";
-			sourceTree = "<group>";
-		};
-		3A13FC95AC625DEA4EA39CD55142C2C4 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4C781E6AF1E8F1E345BBF90687BA19CF /* Ext+CATransition.swift */,
-				CF475F214E49D444B514823D03F78942 /* Ext+Date.swift */,
-				904B5BA56E978B1908B7A4BFCDAB3841 /* Ext+String.swift */,
-				1D956E36DD064C817037B051E27A5544 /* Ext+UIAlertController.swift */,
-				8B4A216898C2B2F9414946219A1B0022 /* Ext+UIView.swift */,
-				28DEB36A987A89260333ADA1074CA118 /* Ext+UIViewController.swift */,
-				22ABEEDC49BB44DF66FA542272D51B95 /* UITableView.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D65AEEEDEEB6AD3AF0A6FFB855537277 = {
-			isa = PBXGroup;
-			children = (
-				8C2E77A8F553784D7D6969FA69DF602F /* Frameworks */,
-				280DCAF482B15011F1B48ED497F7C145 /* LittleThings */,
-				5060B6E30EA7F507D8E3A5176658EBBC /* Pods */,
-				90A0A2FA860AC74B09823904FD27D06D /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		90A0A2FA860AC74B09823904FD27D06D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		280DCAF482B15011F1B48ED497F7C145 /* LittleThings */ = {
-			isa = PBXGroup;
-			children = (
-				7FEED97707006BC49C87D693C6A10AC1 /* Controller */,
-				3A13FC95AC625DEA4EA39CD55142C2C4 /* Extensions */,
-				27493E9FCF73B539604F2ADD79EB0530 /* Manager */,
-				C385DC642F9CF677CB907512C7D90B13 /* Model */,
-				D5330A5D2FF5D4BE5F24FE8CE8A7247B /* Podfile */,
-				1C97BF14DEF91560E6DB5766AE5776F4 /* Protocols */,
-				A0F4CDC0D01226D11C24878B6ECD149D /* Support */,
-				1496E6EC6A8DB85DD58224F7E59D596E /* Utilities */,
-				BF853BF68A4E6A9CFA65D0133A16C50D /* View */,
-				AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */,
-				D55A8C5607D4C007D3B91CAED333D226 /* LaunchScreen.storyboard */,
-				29DCAEF0D9E47F95567D4ABE0F283F66 /* LittleThings.entitlements */,
-				3C1FEB7C9210509D10BC2AC862DC7A9D /* Main.storyboard */,
-				6E205FA68F3F446192E23918F81B1512 /* UpdatesTracker.swift */,
-			);
-			path = LittleThings;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		1C97BF14DEF91560E6DB5766AE5776F4 /* Protocols */ = {
@@ -246,44 +186,56 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		C385DC642F9CF677CB907512C7D90B13 /* Model */ = {
+		280DCAF482B15011F1B48ED497F7C145 /* LittleThings */ = {
 			isa = PBXGroup;
 			children = (
-				66860FB63222CE2A86C2572CD6185B20 /* AuthenticationViewModel.swift */,
-				BD6687F32C2A6311B2DC877C9656BD47 /* DataSource.swift */,
-				385BCD9AEF697BA1C15169551D00003F /* MenuOption.swift */,
-				922715E80626AFB31927C52E0654D259 /* MenuSection.swift */,
-				92480C4B4427450707C6D8D4EFDDB669 /* OnboardingViewModel.swift */,
-				4E6B70E33A1CE6785ECF551626ECE501 /* SettingsOption.swift */,
-				83C2943BA0AC531FCD22A7100DBBFB1F /* Task.swift */,
-				D575646B44C03FFCD1D03E3D1E38F2F8 /* TaskType.swift */,
-				692C252AB51F1FAD42F8489CBDE07DA8 /* User.swift */,
+				27493E9FCF73B539604F2ADD79EB0530 /* Manager */,
+				1C97BF14DEF91560E6DB5766AE5776F4 /* Protocols */,
+				C385DC642F9CF677CB907512C7D90B13 /* Model */,
+				BF853BF68A4E6A9CFA65D0133A16C50D /* View */,
+				7FEED97707006BC49C87D693C6A10AC1 /* Controller */,
+				3A13FC95AC625DEA4EA39CD55142C2C4 /* Extensions */,
+				1496E6EC6A8DB85DD58224F7E59D596E /* Utilities */,
+				A0F4CDC0D01226D11C24878B6ECD149D /* Support */,
+				D5330A5D2FF5D4BE5F24FE8CE8A7247B /* Podfile */,
+				AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */,
+				D55A8C5607D4C007D3B91CAED333D226 /* LaunchScreen.storyboard */,
+				29DCAEF0D9E47F95567D4ABE0F283F66 /* LittleThings.entitlements */,
+				3C1FEB7C9210509D10BC2AC862DC7A9D /* Main.storyboard */,
+				6E205FA68F3F446192E23918F81B1512 /* UpdatesTracker.swift */,
 			);
-			path = Model;
+			path = LittleThings;
 			sourceTree = "<group>";
 		};
-		A0F4CDC0D01226D11C24878B6ECD149D /* Support */ = {
+		3A13FC95AC625DEA4EA39CD55142C2C4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3DC09C83AABFC57510F783EDF22FC547 /* Lottie Animations */,
-				38702047185B75B2481D6D0CC744EEF0 /* AppDelegate.swift */,
-				7E19BA7E0E4AA10F9133B8BE0447254C /* Assets.xcassets */,
-				D924816919B03B8516BA876DEA1E4534 /* GoogleService-Info.plist */,
-				5FC31C09ECC81C64841F593A38243DB1 /* SceneDelegate.swift */,
+				4C781E6AF1E8F1E345BBF90687BA19CF /* Ext+CATransition.swift */,
+				CF475F214E49D444B514823D03F78942 /* Ext+Date.swift */,
+				904B5BA56E978B1908B7A4BFCDAB3841 /* Ext+String.swift */,
+				1D956E36DD064C817037B051E27A5544 /* Ext+UIAlertController.swift */,
+				8B4A216898C2B2F9414946219A1B0022 /* Ext+UIView.swift */,
+				28DEB36A987A89260333ADA1074CA118 /* Ext+UIViewController.swift */,
+				22ABEEDC49BB44DF66FA542272D51B95 /* UITableView.swift */,
 			);
-			path = Support;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		BF853BF68A4E6A9CFA65D0133A16C50D /* View */ = {
+		3DC09C83AABFC57510F783EDF22FC547 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
-				3370E8C9A5249C1D37A3243E48C3A4D5 /* DoneTaskTableViewCell.swift */,
-				ED2EEAEF9BF1E5F08BC39FE53D9D9D78 /* DoneTaskTableViewCell.xib */,
-				4CAB7FA9A368C065029BE298C65D1699 /* OngoingTaskTableViewCell.swift */,
-				9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */,
-				7660D8654E5024AD78E96FD9CF050C9F /* SidemenuTableViewCell.swift */,
+				CDD2AF2922781EC95A5C1FE801FA518E /* notepad.json */,
 			);
-			path = View;
+			path = "Lottie Animations";
+			sourceTree = "<group>";
+		};
+		5060B6E30EA7F507D8E3A5176658EBBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE7161D12D4D3BAB3920D2821EB365 /* Pods-LittleThings.debug.xcconfig */,
+				D271BA88870B51F2229C175B5C947E61 /* Pods-LittleThings.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		7FEED97707006BC49C87D693C6A10AC1 /* Controller */ = {
@@ -321,22 +273,70 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1496E6EC6A8DB85DD58224F7E59D596E /* Utilities */ = {
+		8C2E77A8F553784D7D6969FA69DF602F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2DAD001BF79DAC5AC038D198E09C168B /* AnimatableExt.swift */,
-				7D75171CECDDF7B9A677703497A846D3 /* Constant.swift */,
+				29BF5690C72857759689B64203819FE0 /* Pods_LittleThings.framework */,
 			);
-			path = Utilities;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5060B6E30EA7F507D8E3A5176658EBBC /* Pods */ = {
+		90A0A2FA860AC74B09823904FD27D06D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCFE7161D12D4D3BAB3920D2821EB365 /* Pods-LittleThings.debug.xcconfig */,
-				D271BA88870B51F2229C175B5C947E61 /* Pods-LittleThings.release.xcconfig */,
+				AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */,
 			);
-			path = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0F4CDC0D01226D11C24878B6ECD149D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				3DC09C83AABFC57510F783EDF22FC547 /* Lottie Animations */,
+				38702047185B75B2481D6D0CC744EEF0 /* AppDelegate.swift */,
+				7E19BA7E0E4AA10F9133B8BE0447254C /* Assets.xcassets */,
+				D924816919B03B8516BA876DEA1E4534 /* GoogleService-Info.plist */,
+				5FC31C09ECC81C64841F593A38243DB1 /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BF853BF68A4E6A9CFA65D0133A16C50D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3370E8C9A5249C1D37A3243E48C3A4D5 /* DoneTaskTableViewCell.swift */,
+				ED2EEAEF9BF1E5F08BC39FE53D9D9D78 /* DoneTaskTableViewCell.xib */,
+				4CAB7FA9A368C065029BE298C65D1699 /* OngoingTaskTableViewCell.swift */,
+				9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */,
+				7660D8654E5024AD78E96FD9CF050C9F /* SidemenuTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C385DC642F9CF677CB907512C7D90B13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66860FB63222CE2A86C2572CD6185B20 /* AuthenticationViewModel.swift */,
+				BD6687F32C2A6311B2DC877C9656BD47 /* DataSource.swift */,
+				385BCD9AEF697BA1C15169551D00003F /* MenuOption.swift */,
+				922715E80626AFB31927C52E0654D259 /* MenuSection.swift */,
+				92480C4B4427450707C6D8D4EFDDB669 /* OnboardingViewModel.swift */,
+				4E6B70E33A1CE6785ECF551626ECE501 /* SettingsOption.swift */,
+				83C2943BA0AC531FCD22A7100DBBFB1F /* Task.swift */,
+				D575646B44C03FFCD1D03E3D1E38F2F8 /* TaskType.swift */,
+				692C252AB51F1FAD42F8489CBDE07DA8 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D65AEEEDEEB6AD3AF0A6FFB855537277 = {
+			isa = PBXGroup;
+			children = (
+				8C2E77A8F553784D7D6969FA69DF602F /* Frameworks */,
+				280DCAF482B15011F1B48ED497F7C145 /* LittleThings */,
+				5060B6E30EA7F507D8E3A5176658EBBC /* Pods */,
+				90A0A2FA860AC74B09823904FD27D06D /* Products */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,23 +426,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CDE934D0135655E06BE8F67B22F9EDD4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		04853F150D7E110D9EDF7F8D4AEAC6C4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +441,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDE934D0135655E06BE8F67B22F9EDD4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D4B52CD2C16381B413846BA471D19901 /* [CP] Check Pods Manifest.lock */ = {
@@ -557,6 +557,108 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4390E087824C5EB577BBEE24BC174B84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D271BA88870B51F2229C175B5C947E61 /* Pods-LittleThings.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LittleThings/LittleThings.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9G2243U9KY;
+				INFOPLIST_FILE = LittleThings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = TeeksCode.LittleThings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AB6F05185F6DDF1C1F0D4628A120E054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCFE7161D12D4D3BAB3920D2821EB365 /* Pods-LittleThings.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LittleThings/LittleThings.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9G2243U9KY;
+				INFOPLIST_FILE = LittleThings/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = TeeksCode.LittleThings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B134D3B489A2A8AB4E465E2E8831AA2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = LittleThings;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		F1B4CB0F33B93A904183286F79023533 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -619,125 +721,23 @@
 			};
 			name = Debug;
 		};
-		B134D3B489A2A8AB4E465E2E8831AA2C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = LittleThings;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		AB6F05185F6DDF1C1F0D4628A120E054 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCFE7161D12D4D3BAB3920D2821EB365 /* Pods-LittleThings.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LittleThings/LittleThings.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9G2243U9KY;
-				INFOPLIST_FILE = LittleThings/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = TeeksCode.LittleThings;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		4390E087824C5EB577BBEE24BC174B84 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D271BA88870B51F2229C175B5C947E61 /* Pods-LittleThings.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LittleThings/LittleThings.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9G2243U9KY;
-				INFOPLIST_FILE = LittleThings/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = TeeksCode.LittleThings;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		72B4B7CC9B76C8412B7036CB9652F1DB /* Build configuration list for PBXProject "LittleThings" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F1B4CB0F33B93A904183286F79023533 /* Debug */,
-				B134D3B489A2A8AB4E465E2E8831AA2C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1AD43B932605972B79B87106CD8C840F /* Build configuration list for PBXNativeTarget "LittleThings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6F05185F6DDF1C1F0D4628A120E054 /* Debug */,
 				4390E087824C5EB577BBEE24BC174B84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72B4B7CC9B76C8412B7036CB9652F1DB /* Build configuration list for PBXProject "LittleThings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1B4CB0F33B93A904183286F79023533 /* Debug */,
+				B134D3B489A2A8AB4E465E2E8831AA2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

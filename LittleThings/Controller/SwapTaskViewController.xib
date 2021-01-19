@@ -91,7 +91,7 @@
                                                 <constraint firstAttribute="width" constant="25" id="M4F-Ld-GRG"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLT-LY-bUo" userLabel="newTask">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLT-LY-bUo" userLabel="newTask">
                                             <rect key="frame" x="25" y="0.0" width="324" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="veh-DS-Q08"/>

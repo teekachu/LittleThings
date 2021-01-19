@@ -175,8 +175,7 @@ class TasksViewController: UIViewController, Animatable {
         greetingsLabel.textColor = Constants.smallTextNavBarColor
         greetingsLabel.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
-        /// TODO: Update quotes text
-        quotesLabel.text = "Little things make big days!"
+        quotesLabel.text = "One little thing at a time."
         quotesLabel.layer.cornerRadius = 5
         quotesLabel.numberOfLines = 0
         quotesLabel.textColor = Constants.navBarQuoteTextColor
@@ -513,8 +512,8 @@ extension TasksViewController: SettingsMenuDelegate {
         //        case .Language:
         //            print("change language to chinese")
         
-//        case.exit:
-//            dismiss(animated: true)
+        //        case.exit:
+        //            dismiss(animated: true)
         }
     }
 }
