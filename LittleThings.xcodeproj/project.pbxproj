@@ -51,6 +51,7 @@
 		983D2FD424429AD16D0401CB27641BF3 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF34D6ABB8773A446D742B43F71057D6 /* TasksViewController.xib */; };
 		994D70FEE1336034041E83030DEBDC43 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575646B44C03FFCD1D03E3D1E38F2F8 /* TaskType.swift */; };
 		A3A216BFBFF0CF06CBDE8E97AD0C8007 /* AuthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC8718C77E2CF75339ABEF7CBF0916 /* AuthMainViewController.swift */; };
+		A78A162625B794DC00939141 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78A162525B794DC00939141 /* NotificationManager.swift */; };
 		ABBACFEFC73833C2E81A412E5B73D855 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12C71947A07EC17B515292F25AF3EC8 /* AboutUSViewController.xib */; };
 		AC2431D3AEA617788F553CCF9E973CC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */; };
 		ACA53A537373B1A38964B29A63DB07F2 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C781E6AF1E8F1E345BBF90687BA19CF /* Ext+CATransition.swift */; };
@@ -125,6 +126,7 @@
 		9AE02761824380CB6A696EBC30F7B41C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		9B811F4563436AAF561A36DCAD6DB90C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
+		A78A162525B794DC00939141 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23B9522A9FB115F9CF76D76BA69250F /* AppInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoViewController.xib; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				9AE02761824380CB6A696EBC30F7B41C /* AuthManager.swift */,
 				7ECD45FD52FA9F84D3B8E04F901A2C16 /* DatabaseManager.swift */,
 				67BE71CD6CF0D297B725764EF76004A5 /* TaskManager.swift */,
+				A78A162525B794DC00939141 /* NotificationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				8120223406A03D8D2A6F7ADB9C1C54B0 /* MenuSection.swift in Sources */,
 				2E7574E53A9BFD98186C6C4B5B811A90 /* OnboardingViewController.swift in Sources */,
 				5FCC7C07CDFD365A43D688521825ADA8 /* OnboardingViewModel.swift in Sources */,
+				A78A162625B794DC00939141 /* NotificationManager.swift in Sources */,
 				EE91C355D858E1CE825B80483230B692 /* OngoingTaskTableViewCell.swift in Sources */,
 				781BA5FF512B33A8420555068EC1144A /* ResetPasswordViewController.swift in Sources */,
 				0878348BB4A1F7DE8D0E4068B9BAC8D6 /* SceneDelegate.swift in Sources */,

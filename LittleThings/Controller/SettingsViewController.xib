@@ -58,7 +58,7 @@
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTp-7A-ytg">
                             <rect key="frame" x="0.0" y="92.5" width="394" height="34"/>
                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                            <state key="normal" title="How often?">
+                            <state key="normal" title="Schedule Daily Reminder">
                                 <color key="titleColor" name="offblack white"/>
                             </state>
                             <connections>
@@ -67,7 +67,7 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
                             <rect key="frame" x="0.0" y="141.5" width="394" height="139.5"/>
-                            <string key="text">Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window. </string>
+                            <string key="text">Daily routine can help to elimate distractions and reduce stress, because the certainty of our routine can help us manage the uncertainty that life can unveil.  Set a daily reminder, and we will give you a ping at 8:30am to ensure the rest of your day stays organized and focused. </string>
                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                             <color key="textColor" name="offblack white"/>
                             <nil key="highlightedColor"/>
