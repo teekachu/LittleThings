@@ -509,11 +509,17 @@ extension TasksViewController: SettingsMenuDelegate {
             present(controller, animated: true)
             
             
+        case .privacyPolicy:
+            guard let privacyURL = URL(string: "https://littlethings-1-3-5.flycricket.io/privacy.html") else {return}
+            UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
+            
+        case .termsCondition:
+            guard let termsURL = URL(string: "https://littlethings-1-3-5.flycricket.io/terms.html") else {return}
+            UIApplication.shared.open(termsURL, options: [:], completionHandler: nil)
+            
         //        case .Language:
         //            print("change language to chinese")
         
-        //        case.exit:
-        //            dismiss(animated: true)
         }
     }
 }
