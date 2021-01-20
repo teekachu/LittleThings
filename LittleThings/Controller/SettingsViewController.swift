@@ -21,13 +21,14 @@ class SettingsViewController: UIViewController {
     let center = UNUserNotificationCenter.current()
     let defaults = UserDefaults.standard
     let keyToEnableNotification = "notifcation"
-
+    
     
     
     // MARK: - IB Property
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var toggleButton: UISwitch!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var scheduleReminderButton: UIButton!
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -39,11 +40,11 @@ class SettingsViewController: UIViewController {
             turnOffAnyNotifications()
         }
     }
-    
-    @IBAction func reminderTimeChanged(_ sender: Any) {
+    @IBAction func scheduleButtonTapped(_ sender: Any) {
         if toggleButton.isOn {
             showToast(state: .success, message: "Daily reminder scheduled.")
             scheduleLocal()
+            scheduleReminderButton.setTitle("Daily reminder scheduled at 8:30", for: .normal)
         } else {
             errorLabel.text = "Please toggle the switch to enable notifications first."
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {[weak self] in
@@ -68,6 +69,8 @@ class SettingsViewController: UIViewController {
         addBlurEffectToView(for: .systemThickMaterial)
         configureTableView()
         configureToggleStateBasedOnSettings()
+        checkForPendingNotifications()
+        
     }
     
     
@@ -129,10 +132,10 @@ class SettingsViewController: UIViewController {
         content.sound = UNNotificationSound.default
         
         var dateComponents = DateComponents()
-        dateComponents.hour = 8
+        dateComponents.hour = 10
         dateComponents.minute = 30
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true) // Test, every minute
-        //        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true) // Test, every minute
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: UUID().uuidString,
                                             content: content,
                                             trigger: trigger)
@@ -142,6 +145,7 @@ class SettingsViewController: UIViewController {
     private func turnOffAnyNotifications(){
         defaults.removeObject(forKey: keyToEnableNotification)
         errorLabel.text = " "
+        scheduleReminderButton.setTitle("Schedule Daily Reminder", for: .normal)
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
     }
@@ -152,6 +156,25 @@ class SettingsViewController: UIViewController {
         let category = UNNotificationCategory(identifier: "alarm", actions: [showMore], intentIdentifiers: [] )
         
         center.setNotificationCategories([category])
+    }
+    
+    private func checkForPendingNotifications(){
+        center.getPendingNotificationRequests(completionHandler: {[weak self] requests in
+            if !requests.isEmpty{
+                for request in requests {
+                    print("Current request scheduled:\(request.content)")}
+                
+                DispatchQueue.main.async {[weak self] in
+                    self?.scheduleReminderButton.setTitle("Daily reminder scheduled at 8:30", for: .normal)
+                }
+                
+            } else {
+                DispatchQueue.main.async {[weak self] in
+                    self?.scheduleReminderButton.setTitle("Schedule Daily Reminder", for: .normal)
+                }
+                
+            }
+        })
     }
 }
 

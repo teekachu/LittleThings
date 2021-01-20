@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
                 <outlet property="errorLabel" destination="mAI-Q4-CMr" id="gpD-te-RKX"/>
+                <outlet property="scheduleReminderButton" destination="CTp-7A-ytg" id="3aU-Jw-wvZ"/>
                 <outlet property="tableview" destination="W7F-VH-vhD" id="t8L-ee-2bo"/>
                 <outlet property="toggleButton" destination="2EQ-5d-6ga" id="opE-rn-xsU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -62,7 +63,7 @@
                                 <color key="titleColor" name="offblack white"/>
                             </state>
                             <connections>
-                                <action selector="reminderTimeChanged:" destination="-1" eventType="touchUpInside" id="P9h-gD-meX"/>
+                                <action selector="scheduleButtonTapped:" destination="-1" eventType="touchUpInside" id="SiK-e9-JnW"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
