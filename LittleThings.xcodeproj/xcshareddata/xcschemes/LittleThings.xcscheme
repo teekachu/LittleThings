@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F433E67A2576BEDC00A55C52"
+               BlueprintIdentifier = "0CB6250624B65253C460AE33AA567B46"
                BuildableName = "LittleThings.app"
                BlueprintName = "LittleThings"
                ReferencedContainer = "container:LittleThings.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F433E67A2576BEDC00A55C52"
+            BlueprintIdentifier = "0CB6250624B65253C460AE33AA567B46"
             BuildableName = "LittleThings.app"
             BlueprintName = "LittleThings"
             ReferencedContainer = "container:LittleThings.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F433E67A2576BEDC00A55C52"
+            BlueprintIdentifier = "0CB6250624B65253C460AE33AA567B46"
             BuildableName = "LittleThings.app"
             BlueprintName = "LittleThings"
             ReferencedContainer = "container:LittleThings.xcodeproj">
