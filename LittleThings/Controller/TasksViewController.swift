@@ -7,7 +7,6 @@
 
 import UIKit
 import Loaf
-import Firebase
 import SideMenu
 
 protocol TasksViewControllerDelegate: class {
@@ -17,7 +16,9 @@ protocol TasksViewControllerDelegate: class {
 class TasksViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
+    private let authManager: AuthManager
     private let taskManager: TaskManager
+    private let notificationsManager: NotificationsManager
     private var dataSource: DataSource!
     private var isDoneActive: Bool = false {
         didSet { tasks = tasks + [] }
@@ -60,8 +61,10 @@ class TasksViewController: UIViewController, Animatable {
     
     
     //  MARK: - Lifecycle
-    init(taskManager: TaskManager) {
+    init(authManager: AuthManager, taskManager: TaskManager, notificationsManager: NotificationsManager) {
+        self.authManager = authManager
         self.taskManager = taskManager
+        self.notificationsManager = notificationsManager
         super.init(nibName: "TasksViewController", bundle: nil)
     }
     
@@ -89,7 +92,8 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     @objc func didPressAddTaskButton() {
-        let controller = AddNewTaskViewController(taskManager: taskManager, task: .basic)
+        guard let userID = authManager.userID else { return }
+        let controller = AddNewTaskViewController(taskManager: taskManager, task: .basic(for: userID))
         controller.delegate = self
         present(a: controller)
     }
@@ -268,10 +272,8 @@ class TasksViewController: UIViewController, Animatable {
     
     // MARK: - Auth
     private func authenticateUser(){
-        
-        if Auth.auth().currentUser?.uid == nil{
+        if !authManager.isUserLoggedIn {
             presentMainAuthVC()
-            
         } else {
             checkSwap { (task) in
                 guard let newString = UserDefaults.standard.string(forKey: "savedString") else {return}
@@ -282,7 +284,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func presentMainAuthVC() {
-        let controller = AuthMainViewController()
+        let controller = AuthMainViewController(authManager: authManager)
         controller.delegate = self
         let nav = UINavigationController(rootViewController: controller)
         present(a: nav)
@@ -290,9 +292,10 @@ class TasksViewController: UIViewController, Animatable {
     
     
     func updateUserToCurrentUser(){
-        AuthManager.fetchUserFromFirestore { (user) in
-            self.user = user
-            print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is\(user.uid)")
+        authManager.fetchUserFromFirestore { [weak self] (user) in
+            self?.user = user
+            self?.notificationsManager.publishCurrentToken()
+            print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is \(user.uid)")
         }
     }
 }
@@ -353,7 +356,7 @@ extension TasksViewController: OnboardingControllerDelegate {
     func controllerWantsToDismiss(_ controller: OnboardingViewController) {
         dismiss(animated: true)
         
-        AuthManager.updateUserHasSeenOnboardingInDatabase {[weak self] (error) in
+        authManager.updateUserHasSeenOnboardingInDatabase {[weak self] (error) in
             if let error = error {
                 print("Error in controllerWantsToDismiss() \(error.localizedDescription)")
                 return
@@ -459,7 +462,7 @@ extension TasksViewController: SideMenuDelegate {
             
         case .logOut:
             taskManager.emptyTasksBeforeLogOut()
-            AuthManager.signUserOut()
+            authManager.signUserOut()
             presentMainAuthVC()
             
         case .settings:
@@ -480,7 +483,7 @@ extension TasksViewController: SettingsMenuDelegate {
             let controller = UIAlertController.showAlertWithTextfield {[weak self] (newName, didTap) in
                 if didTap{
                     
-                    AuthManager.updateUserName(with: newName) { (err) in
+                    self?.authManager.updateUserName(with: newName) { (err) in
                         if err != nil {
                             self?.showToast(state: .error, message: err?.localizedDescription ?? "Uh oh, something went wrong")
                             return

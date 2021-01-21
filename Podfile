@@ -19,6 +19,13 @@ target 'LittleThings' do
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'GoogleSignIn'
+
+    # [START ADDED BY DAVID - DO NOT DELETE]
+    pod 'Firebase/Crashlytics'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Messaging'
+    # [END ADDED BY DAVID - DO NOT DELETE]
+
 #    pod 'Firebase/Database'
     
     # Onboarding screens

@@ -15,6 +15,7 @@ import CryptoKit
 class LoginViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
+    private let authManager: AuthManager
     private var viewmodel = LoginViewModel()
     weak var delegate: AuthMainViewControllerDelegate?
     weak var delegate2: ResetPasswordDelegate?
@@ -40,7 +41,15 @@ class LoginViewController: UIViewController, Animatable {
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
         handleGoogleLogin()}
     @IBOutlet weak var buttonsStackView: UIStackView!
-    
+
+    init(authManager: AuthManager) {
+        self.authManager = authManager
+        super.init(nibName: "LoginViewController", bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //  MARK: - Lifecycle
     override func viewDidLoad() {
@@ -198,7 +207,7 @@ class LoginViewController: UIViewController, Animatable {
         guard let password = passwordTextfield.text else { return }
         showLottieAnimation(true)
         
-        AuthManager.logUserInWith(email: email, password: password) {[weak self] (result) in
+        authManager.logUserInWith(email: email, password: password) {[weak self] (result) in
             self?.showLottieAnimation(false)
             
             switch result{
@@ -246,7 +255,7 @@ extension LoginViewController: GIDSignInDelegate{
         
         showLottieAnimation(true)
         
-        AuthManager.signInWithGoogle(didSignInFor: user) {[weak self] (error) in
+        authManager.signInWithGoogle(didSignInFor: user) {[weak self] (error) in
             self?.showLottieAnimation(false)
             
             if let error = error {
@@ -301,7 +310,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             
             showLottieAnimation(true)
             
-            AuthManager.signInWithApple(with: nonce, didSignInForUser: authorization) {[weak self] (error) in
+            authManager.signInWithApple(with: nonce, didSignInForUser: authorization) {[weak self] (error) in
                 
                 self?.showLottieAnimation(false)
                 

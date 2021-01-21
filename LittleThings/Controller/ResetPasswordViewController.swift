@@ -14,6 +14,7 @@ protocol ResetPasswordDelegate: class {
 class ResetPasswordViewController: UIViewController {
     
     //  MARK: - Properties
+    private let authManager: AuthManager
     private var viewmodel = ResetPasswordViewModel()
     var email: String?
     
@@ -34,6 +35,15 @@ class ResetPasswordViewController: UIViewController {
     
     
     //  MARK: - Lifecycle
+    init(authManager: AuthManager) {
+        self.authManager = authManager
+        super.init(nibName: "ResetPasswordViewController", bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -138,7 +148,7 @@ class ResetPasswordViewController: UIViewController {
         guard let email = email else { return }
         showLottieAnimation(true)
         
-        AuthManager.resetPassword(for: email) {[weak self](error) in
+        authManager.resetPassword(for: email) {[weak self](error) in
             
             self?.showLottieAnimation(false)
             

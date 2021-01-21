@@ -9,10 +9,12 @@ import Foundation
 import Loaf
 
 class TaskManager {
-    
+
+    private let authManager: AuthManager
     private let databaseManager: DatabaseManager
     
-    init(databaseManager: DatabaseManager) {
+    init(authManager: AuthManager, databaseManager: DatabaseManager) {
+        self.authManager = authManager
         self.databaseManager = databaseManager
         addTasksListener()
     }
@@ -134,11 +136,11 @@ class TaskManager {
     // MARK: - Private
     /// Pulls task through using the databaseManager
     private func addTasksListener() {
-        guard let currentUserUID = AuthManager.fetchUserUID() else {
+        guard let userID = authManager.userID else {
             return
         }
         
-        databaseManager.getTasks(for: currentUserUID) { [weak self] tasks in
+        databaseManager.getTasks(for: userID) { [weak self] tasks in
             self?.tasks = tasks
         }
     }

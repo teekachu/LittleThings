@@ -1,0 +1,15 @@
+{
+    "aps": {
+        "alert": {
+            "title-loc-key": "TEST_HEADER",
+            "loc-key": "TEST_BODY",
+            "loc-args": [
+                "2018-05-02T19:32:41Z"
+            ]
+        },
+        "mutable-content": false,
+        "thread-id": "casserole-12345",
+        "badge": 12
+    },
+    "gcm.message_id": "123"
+}

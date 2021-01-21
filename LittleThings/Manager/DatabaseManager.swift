@@ -12,6 +12,30 @@ import FirebaseFirestoreSwift
 class DatabaseManager {
     
     private let tasksCollection = Firestore.firestore().collection("tasks")
+    private let userCollection = Firestore.firestore().collection("Users")
+
+    func setUser(_ data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
+        userCollection.document(userID).setData(data, completion: onComplete)
+    }
+
+    func updateUser(_ data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
+        userCollection.document(userID).updateData(data, completion: onComplete)
+    }
+
+    func getDataFor(_ userID: String, onCompletion: @escaping ([String : Any]) -> Void) {
+        userCollection.document(userID).getDocument { (snapshot, error) in
+            guard error == nil else {
+                // MARK: - TODO, handle appropriately
+                return
+            }
+            guard let snapshot = snapshot, let data = snapshot.data() else {
+                // MARK: - TODO, handle appropriately
+                return
+            }
+            onCompletion(data)
+        }
+    }
+
     
     /// To add new task into firebase
     public func addTask(_ task: Task, completion: @escaping (Result<Void, Error>) -> Void) {
