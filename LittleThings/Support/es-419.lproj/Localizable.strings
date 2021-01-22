@@ -1,0 +1,4 @@
+"TEST_HEADER" = "Burrito header";
+"TEST_BODY" = "Orale ese";
+"OPEN_TASKS_HEADER" = "Your tasks are waiting";
+"OPEN_TASKS_BODY" = "You have %@ tasks pending.";

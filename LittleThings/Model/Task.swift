@@ -19,11 +19,11 @@ struct Task: Identifiable, Codable, Hashable {
     var taskType: TaskType
     let uid: String
     
-    public static var basic: Task {
+    public static func basic(for userID: String) -> Task {
         return Task(
             title: nil,
             taskType: .three,
-            uid: AuthManager.fetchUserUID()! )
+            uid: userID)
     }
     
 }

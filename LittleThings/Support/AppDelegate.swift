@@ -11,7 +11,13 @@ import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
+    var window: UIWindow?
+
+    private var authManager: AuthManager?
+    private var databaseManager: DatabaseManager?
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -20,30 +26,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let colorView = UIView()
         colorView.layer.cornerRadius = 15
         
-        /// configure gradiant background
+        // configure gradiant background
         colorView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         
         // use UITableViewCell.appearance() to configure
         // the default appearance of all UITableViewCells in your app
         UITableViewCell.appearance().selectedBackgroundView = colorView
+
+        authManager = AuthManager(delegate: self)
+        databaseManager = DatabaseManager()
+        let taskManager = TaskManager(authManager: authManager!, databaseManager: databaseManager!)
+        let notificationsManager = NotificationsManager(registerIn: application, delegate: self)
+        let controller = TasksViewController(
+            authManager: authManager!,
+            taskManager: taskManager,
+            notificationsManager: notificationsManager)
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: controller)
+        window?.makeKeyAndVisible()
         
         return true
     }
-    
-    // MARK: - UISceneSession Lifecycle
-    
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+}
+
+// MARK: - NotificationManagerDelegate
+extension AppDelegate: NotificationManagerDelegate {
+    func notificationsManager(didReceiveToken token: String) {
+        print("didReceiveToken \(token)")
+        guard let userID = authManager?.userID else {
+            return
+        }
+        let payload = ["gcmToken": token]
+        databaseManager?.updateUser(payload, for: userID) { _ in
+            // MARK: - TODO, handle Error appropriately
+            print("Did update user gcmToken for userID \(userID)")
+        }
     }
-    
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+
+    func notificationsManager(didReceiveError error: Error) {
+        print("didReceiveError \(error)")
     }
-    
-    
+
+    func notificationsManager(didReceiveNotification payload: NotificationPayload, withResponse didRespond: Bool) {
+        print("didReceiveNotification \(payload) withResponse: \(didRespond)")
+    }
+}
+
+// MARK: - AuthManagerDelegate
+extension AppDelegate: AuthManagerDelegate {
+    func authManager(setUser data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
+        databaseManager?.setUser(data, for: userID, onComplete: onComplete)
+    }
+
+    func authManager(updateUser data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
+        databaseManager?.updateUser(data, for: userID, onComplete: onComplete)
+    }
+
+    func authManager(getDataFor userID: String, onCompletion: @escaping ([String : Any]) -> Void) {
+        databaseManager?.getDataFor(userID, onCompletion: onCompletion)
+    }
 }
 

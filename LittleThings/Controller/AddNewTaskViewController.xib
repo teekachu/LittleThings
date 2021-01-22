@@ -17,6 +17,7 @@
                 <outlet property="backgroundView" destination="SQy-51-la7" id="d94-6x-N0Y"/>
                 <outlet property="cancelButton" destination="mUl-Pt-bqn" id="f52-cq-shb"/>
                 <outlet property="descriptionCharCountLabel" destination="IVD-eE-XzG" id="8gS-7a-GOY"/>
+                <outlet property="errorMsgLabel" destination="QTS-9m-aQC" id="ZZZ-S4-OyY"/>
                 <outlet property="saveButton" destination="i38-4z-NHV" id="2uy-OL-eFt"/>
                 <outlet property="stackview" destination="dRw-No-deb" id="Qi4-Df-iYM"/>
                 <outlet property="textTextView" destination="eSj-z6-dDE" id="Ehz-w9-8Vi"/>
@@ -32,10 +33,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iz1-ZL-0At" userLabel="BottomContainerView">
-                            <rect key="frame" x="0.0" y="271.5" width="414" height="624.5"/>
+                            <rect key="frame" x="0.0" y="206.5" width="414" height="689.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dRw-No-deb">
-                                    <rect key="frame" x="10" y="25" width="394" height="554.5"/>
+                                    <rect key="frame" x="10" y="25" width="394" height="619.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Ouu a new task, How exciting !!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyl-ej-uUZ">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="55"/>
@@ -89,8 +90,14 @@
                                                 <constraint firstAttribute="height" constant="75" id="8vb-KL-A9G"/>
                                             </constraints>
                                         </pickerView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBn-uu-8GY">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-9m-aQC" userLabel="errorLabel">
                                             <rect key="frame" x="0.0" y="504.5" width="394" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBn-uu-8GY">
+                                            <rect key="frame" x="0.0" y="569.5" width="394" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUl-Pt-bqn" userLabel="Cancel">
                                                     <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>

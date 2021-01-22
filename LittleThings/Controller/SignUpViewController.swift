@@ -10,6 +10,7 @@ import UIKit
 class SignUpViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
+    private let authManager: AuthManager
     private var viewmodel = RegistrationViewModel()
     weak var delegate: AuthMainViewControllerDelegate?
     
@@ -32,6 +33,15 @@ class SignUpViewController: UIViewController, Animatable {
     
     
     //  MARK: - Lifecycle
+    init(authManager: AuthManager) {
+        self.authManager = authManager
+        super.init(nibName: "SignUpViewController", bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -152,7 +162,7 @@ class SignUpViewController: UIViewController, Animatable {
         
         self.showLottieAnimation(false)
         
-        AuthManager.registerUserWithFirestore( email: emailtf, password: passwordtf,
+        authManager.registerUserWithFirestore( email: emailtf, password: passwordtf,
                                                fullname: fullnametf, hasSeenOnboardingPage: false) {[weak self] (error) in
             if let error = error {
                 self?.errorLabel.text = "\(error.localizedDescription)"
