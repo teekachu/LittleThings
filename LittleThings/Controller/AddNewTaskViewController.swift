@@ -114,7 +114,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         
         textTextView.backgroundColor = .clear
         textTextView.layer.borderWidth = 1
-        textTextView.layer.borderColor = Constants.cellBorderColor?.cgColor
+        textTextView.layer.borderColor = Constants.blackYellow?.cgColor
         textTextView.layer.cornerRadius = 15
         textTextView.textColor =  Constants.blackWhite
         textTextView.font = UIFont(name: Constants.fontMedium, size: 20)
@@ -123,8 +123,8 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         TaskPickerView.backgroundColor = .clear
-        TaskPickerView.layer.borderWidth = 0.2
-        TaskPickerView.layer.borderColor = Constants.innerYellowFCD12A.cgColor
+        TaskPickerView.layer.borderWidth = 1
+        TaskPickerView.layer.borderColor = Constants.blackYellow?.cgColor
         TaskPickerView.layer.cornerRadius = 20
         
         saveButton.layer.cornerRadius = 10
