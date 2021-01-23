@@ -9,10 +9,19 @@ import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+protocol DatabaseManagerDelegate: class {
+    func databaseManager(didSignalUserAuthenticationFor userID: String)
+}
+
 class DatabaseManager {
-    
+
+    private let delegate: DatabaseManagerDelegate
     private let tasksCollection = Firestore.firestore().collection("tasks")
     private let userCollection = Firestore.firestore().collection("Users")
+
+    init(delegate: DatabaseManagerDelegate) {
+        self.delegate = delegate
+    }
 
     func setUser(_ data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
         userCollection.document(userID).setData(data, completion: onComplete)
@@ -129,7 +138,38 @@ class DatabaseManager {
                 }
             }
     }
-    
+
+    // Triggers new badge count down to AppDelegate
+    public func notifyUserDidAuthSuccessfully(userID: String) {
+        delegate.databaseManager(didSignalUserAuthenticationFor: userID)
+    }
+
+    // Returns the number of open tasks
+    public func getBadgeCount(for userID: String, onLoad: @escaping (Int) -> Void) {
+        tasksCollection
+            .whereField("uid", isEqualTo: userID)
+            .whereField("isDone", isEqualTo: false)
+            .addSnapshotListener { (snapshot, error) in
+
+                guard error == nil else {
+                    print("DEBUG: error in getTasks \(error!.localizedDescription)")
+                    onLoad(0)
+                    return
+                }
+
+                do {
+                    let decodedTasks = try snapshot?.documents.compactMap {
+                        return try $0.data(as: Task.self)
+                    } ?? []
+
+                    onLoad(decodedTasks.count)
+
+                } catch let error {
+                    print("DEBUG: error in getTasks \(error.localizedDescription)")
+                    onLoad(0)
+                }
+            }
+    }
     
     public func getSingleTask(for documentId: String, onLoad: @escaping (Task) -> Void ){
         let docRef = tasksCollection.document(documentId)

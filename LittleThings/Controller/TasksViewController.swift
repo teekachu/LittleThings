@@ -19,6 +19,7 @@ class TasksViewController: UIViewController, Animatable {
     private let authManager: AuthManager
     private let taskManager: TaskManager
     private let notificationsManager: NotificationsManager
+    private let databaseManager: DatabaseManager
     private var dataSource: DataSource!
     private var isDoneActive: Bool = false {
         didSet { tasks = tasks + [] }
@@ -61,10 +62,14 @@ class TasksViewController: UIViewController, Animatable {
     
     
     //  MARK: - Lifecycle
-    init(authManager: AuthManager, taskManager: TaskManager, notificationsManager: NotificationsManager) {
+    init(authManager: AuthManager,
+         taskManager: TaskManager,
+         notificationsManager: NotificationsManager,
+         databaseManager: DatabaseManager) {
         self.authManager = authManager
         self.taskManager = taskManager
         self.notificationsManager = notificationsManager
+        self.databaseManager = databaseManager
         super.init(nibName: "TasksViewController", bundle: nil)
     }
     
@@ -294,6 +299,7 @@ class TasksViewController: UIViewController, Animatable {
         authManager.fetchUserFromFirestore { [weak self] (user) in
             self?.user = user
             self?.notificationsManager.publishCurrentToken()
+            self?.databaseManager.notifyUserDidAuthSuccessfully(userID: user.uid)
             print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is \(user.uid)")
         }
     }

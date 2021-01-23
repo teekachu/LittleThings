@@ -70,6 +70,12 @@ class NotificationsManager: NSObject {
         }
     }
 
+    public func setBadge(to count: Int) {
+        UIApplication.shared.applicationIconBadgeNumber = count
+    }
+
+    // MARK: - Private
+
     private func didReceive(_ notification: UNNotification, withResponse didRespond: Bool = false) {
         let userInfo = notification.request.content.userInfo
 

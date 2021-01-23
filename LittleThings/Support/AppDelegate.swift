@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var authManager: AuthManager?
     private var databaseManager: DatabaseManager?
-
+    private var notificationsManager: NotificationsManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -34,13 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().selectedBackgroundView = colorView
 
         authManager = AuthManager(delegate: self)
-        databaseManager = DatabaseManager()
+        databaseManager = DatabaseManager(delegate: self)
         let taskManager = TaskManager(authManager: authManager!, databaseManager: databaseManager!)
-        let notificationsManager = NotificationsManager(registerIn: application, delegate: self)
+        notificationsManager = NotificationsManager(registerIn: application, delegate: self)
         let controller = TasksViewController(
             authManager: authManager!,
             taskManager: taskManager,
-            notificationsManager: notificationsManager)
+            notificationsManager: notificationsManager!,
+            databaseManager: databaseManager!)
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: controller)
@@ -88,3 +89,9 @@ extension AppDelegate: AuthManagerDelegate {
     }
 }
 
+// MARK: - DatabaseManagerDelegate
+extension AppDelegate: DatabaseManagerDelegate {
+    func databaseManager(didSignalUserAuthenticationFor userID: String) {
+        databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
+    }
+}
