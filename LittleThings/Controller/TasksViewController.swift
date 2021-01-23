@@ -177,7 +177,7 @@ class TasksViewController: UIViewController, Animatable {
         greetingsLabel.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
         /// TODO: Update quotes text
-        quotesLabel.text = "Little things make big days!"
+        quotesLabel.text = "One little thing at a time!"
         quotesLabel.layer.cornerRadius = 5
         quotesLabel.numberOfLines = 0
         quotesLabel.textColor = Constants.navBarQuoteTextColor
@@ -423,6 +423,11 @@ extension TasksViewController: SideMenuDelegate {
     
     func sidemenu(didSelect option: MenuOption) {
         switch option {
+        
+        case .settings:
+            let infoController = SettingsViewController(delegate: self)
+            present(a: infoController)
+            
         //        case .supportDevelopment:
         //            print("support devs")
         
@@ -470,9 +475,6 @@ extension TasksViewController: SideMenuDelegate {
             authManager.signUserOut()
             presentMainAuthVC()
             
-        case .settings:
-            let infoController = SettingsViewController(delegate: self)
-            present(a: infoController)
         }
     }
 }
@@ -509,6 +511,15 @@ extension TasksViewController: SettingsMenuDelegate {
             
             present(controller, animated: true)
             
+            
+        case .privacyPolicy:
+            guard let privacyURL = URL(string: "https://littlethings-1-3-5.flycricket.io/privacy.html") else {return}
+            UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
+        
+        case .termsCondition:
+            guard let termsURL = URL(string: "https://littlethings-1-3-5.flycricket.io/terms.html") else {return}
+            UIApplication.shared.open(termsURL, options: [:], completionHandler: nil)
+        
             
         //        case .Language:
         //            print("change language to chinese")

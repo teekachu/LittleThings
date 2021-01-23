@@ -63,10 +63,6 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         1
     }
     
-    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //        return "Settings"
-    //    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingsOption.allCases.count
     }

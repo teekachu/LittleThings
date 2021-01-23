@@ -32,29 +32,8 @@
                                 <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="uhP-C6-V0w"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="mHf-u1-aWp">
-                            <rect key="frame" x="0.0" y="47" width="394" height="27.5"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVs-ZT-TIq" userLabel="Enable Notifications">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="27.5"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                                    <color key="textColor" name="black white"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2EQ-5d-6ga">
-                                    <rect key="frame" x="345" y="0.0" width="51" height="27.5"/>
-                                </switch>
-                            </subviews>
-                        </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
-                            <rect key="frame" x="0.0" y="99.5" width="394" height="139.5"/>
-                            <string key="text">Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window. </string>
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                            <color key="textColor" name="offblack white"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W7F-VH-vhD">
-                            <rect key="frame" x="0.0" y="264" width="394" height="544"/>
+                            <rect key="frame" x="0.0" y="47" width="394" height="761"/>
                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tableView>
                     </subviews>
@@ -70,6 +49,32 @@
             </constraints>
             <point key="canvasLocation" x="186.95652173913044" y="79.6875"/>
         </view>
+        <stackView opaque="NO" contentMode="scaleToFill" spacing="45" id="mHf-u1-aWp">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="27.5"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVs-ZT-TIq" userLabel="Enable Notifications">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="27.5"/>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                    <color key="textColor" name="black white"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2EQ-5d-6ga">
+                    <rect key="frame" x="345" y="0.0" width="51" height="27.5"/>
+                </switch>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="hWO-0W-2Sp"/>
+            <point key="canvasLocation" x="-564" y="-190"/>
+        </stackView>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="139.5"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <string key="text">Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window. </string>
+            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+            <color key="textColor" name="offblack white"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="-565" y="-105"/>
+        </label>
     </objects>
     <resources>
         <image name="xmark" catalog="system" width="128" height="113"/>
