@@ -65,7 +65,9 @@ class NotificationsManager: NSObject {
         // show the dialog at a more appropriate time move this registration accordingly.
         UNUserNotificationCenter.current().requestAuthorization(options: options) {_, _ in }
 
-        application.registerForRemoteNotifications()
+        DispatchQueue.main.async {
+            application.registerForRemoteNotifications()
+        }
     }
 
     private func didReceive(_ notification: UNNotification, withResponse didRespond: Bool = false) {

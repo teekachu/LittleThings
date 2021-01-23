@@ -85,7 +85,6 @@ class TasksViewController: UIViewController, Animatable {
         configureSideMenu()
     }
     
-    
     //  MARK: - Selectors
     @objc func segmentedControl(_ sender: UISegmentedControl) {
         isDoneActive = sender.selectedSegmentIndex != 0
