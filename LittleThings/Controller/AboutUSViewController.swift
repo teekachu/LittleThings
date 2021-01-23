@@ -37,6 +37,15 @@ class AboutUSViewController: UIViewController {
         configureUI()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)) {
+            twitterButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+            linkedinButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+            gitHubButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+        }
+    }
+    
     
     //  MARK: - Privates
     private func configureUI(){

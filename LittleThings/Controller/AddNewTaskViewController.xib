@@ -17,7 +17,7 @@
                 <outlet property="backgroundView" destination="SQy-51-la7" id="d94-6x-N0Y"/>
                 <outlet property="cancelButton" destination="mUl-Pt-bqn" id="f52-cq-shb"/>
                 <outlet property="descriptionCharCountLabel" destination="IVD-eE-XzG" id="8gS-7a-GOY"/>
-                <outlet property="errorMsgLabel" destination="syW-XB-fXW" id="tlf-4s-VVD"/>
+                <outlet property="errorMsgLabel" destination="QTS-9m-aQC" id="ZZZ-S4-OyY"/>
                 <outlet property="saveButton" destination="i38-4z-NHV" id="2uy-OL-eFt"/>
                 <outlet property="stackview" destination="dRw-No-deb" id="Qi4-Df-iYM"/>
                 <outlet property="textTextView" destination="eSj-z6-dDE" id="Ehz-w9-8Vi"/>
@@ -33,10 +33,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iz1-ZL-0At" userLabel="BottomContainerView">
+<<<<<<< HEAD
                             <rect key="frame" x="0.0" y="203.5" width="414" height="692.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dRw-No-deb">
                                     <rect key="frame" x="10" y="25" width="394" height="632.5"/>
+=======
+                            <rect key="frame" x="0.0" y="206.5" width="414" height="689.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dRw-No-deb">
+                                    <rect key="frame" x="10" y="25" width="394" height="619.5"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Ouu a new task, How exciting !!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyl-ej-uUZ">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="55"/>
@@ -49,46 +56,76 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taxi-77" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-ui-gn6">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="70" width="394" height="100"/>
+=======
+                                            <rect key="frame" x="0.0" y="70" width="394" height="120"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="kGN-df-gvo"/>
                                             </constraints>
                                         </imageView>
+<<<<<<< HEAD
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your task:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJp-qN-ntY">
                                             <rect key="frame" x="0.0" y="185" width="394" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+=======
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Enter your task below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWI-oK-cGG">
+                                            <rect key="frame" x="0.0" y="205" width="394" height="22"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                             <color key="textColor" name="black yellow"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-z6-dDE">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="223.5" width="394" height="100"/>
+=======
+                                            <rect key="frame" x="0.0" y="242" width="394" height="85"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="Aqb-TV-d0K"/>
+                                                <constraint firstAttribute="height" constant="85" id="Aqb-TV-d0K"/>
                                             </constraints>
                                             <color key="textColor" systemColor="labelColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+<<<<<<< HEAD
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-eE-XzG">
                                             <rect key="frame" x="0.0" y="338.5" width="394" height="20.5"/>
+=======
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-eE-XzG" userLabel="wordCountLabel">
+                                            <rect key="frame" x="0.0" y="342" width="394" height="20.5"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemRedColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+<<<<<<< HEAD
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csq-Hr-hbd">
                                             <rect key="frame" x="0.0" y="374" width="394" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+=======
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Choose a type for your task" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-IR-04o" userLabel="instruction">
+                                            <rect key="frame" x="0.0" y="377.5" width="394" height="22"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                             <color key="textColor" name="black yellow"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-4J-gww">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="412.5" width="394" height="75"/>
+=======
+                                            <rect key="frame" x="0.0" y="414.5" width="394" height="75"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                             <color key="tintColor" red="0.30980392156862746" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75" id="8vb-KL-A9G"/>
                                             </constraints>
                                         </pickerView>
+<<<<<<< HEAD
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="One little thing at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syW-XB-fXW" userLabel="error msg label">
                                             <rect key="frame" x="0.0" y="502.5" width="394" height="65"/>
                                             <constraints>
@@ -100,30 +137,40 @@
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBn-uu-8GY">
                                             <rect key="frame" x="0.0" y="582.5" width="394" height="50"/>
+=======
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-9m-aQC" userLabel="errorLabel">
+                                            <rect key="frame" x="0.0" y="504.5" width="394" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBn-uu-8GY">
+                                            <rect key="frame" x="0.0" y="569.5" width="394" height="50"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUl-Pt-bqn" userLabel="Cancel">
-                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="145" id="6cj-7W-b04"/>
+                                                        <constraint firstAttribute="width" constant="180" id="6cj-7W-b04"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
-                                                    <color key="tintColor" name="black white"/>
+                                                    <color key="tintColor" name="offblack white"/>
                                                     <state key="normal" title="Cancel"/>
                                                     <connections>
                                                         <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="z0f-Il-VIa"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ec-mm-3CT">
-                                                    <rect key="frame" x="145" y="0.0" width="104" height="50"/>
+                                                    <rect key="frame" x="180" y="0.0" width="34" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i38-4z-NHV">
-                                                    <rect key="frame" x="249" y="0.0" width="145" height="50"/>
+                                                    <rect key="frame" x="214" y="0.0" width="180" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="145" id="NbC-XL-QWr"/>
+                                                        <constraint firstAttribute="width" constant="180" id="NbC-XL-QWr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
-                                                    <color key="tintColor" name="black white"/>
+                                                    <color key="tintColor" name="offblack white"/>
                                                     <state key="normal" title="Save"/>
                                                     <connections>
                                                         <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="dT4-0y-9C6"/>
@@ -137,7 +184,11 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="dRw-No-deb" firstAttribute="top" secondItem="Iz1-ZL-0At" secondAttribute="top" constant="25" id="2of-WB-fBB"/>
+<<<<<<< HEAD
                                 <constraint firstAttribute="bottom" secondItem="dRw-No-deb" secondAttribute="bottom" constant="35" id="HTh-Fn-Z5W"/>
+=======
+                                <constraint firstAttribute="bottom" secondItem="dRw-No-deb" secondAttribute="bottom" constant="45" id="HTh-Fn-Z5W"/>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                                 <constraint firstItem="dRw-No-deb" firstAttribute="leading" secondItem="Iz1-ZL-0At" secondAttribute="leading" constant="10" id="KIp-Lx-SBZ"/>
                                 <constraint firstAttribute="trailing" secondItem="dRw-No-deb" secondAttribute="trailing" constant="10" id="UKT-nZ-SAH"/>
                             </constraints>
@@ -164,11 +215,11 @@
     </objects>
     <resources>
         <image name="taxi-77" width="1773" height="912"/>
-        <namedColor name="black white">
-            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="black yellow">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="offblack white">
+            <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

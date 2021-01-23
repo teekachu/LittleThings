@@ -5,12 +5,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
+                <outlet property="errorLabel" destination="mAI-Q4-CMr" id="gpD-te-RKX"/>
+                <outlet property="scheduleReminderButton" destination="CTp-7A-ytg" id="3aU-Jw-wvZ"/>
                 <outlet property="tableview" destination="W7F-VH-vhD" id="t8L-ee-2bo"/>
+                <outlet property="toggleButton" destination="2EQ-5d-6ga" id="opE-rn-xsU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,9 +23,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="LsH-ID-cCb">
-                    <rect key="frame" x="10" y="54" width="394" height="808"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsh-D6-j05">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
+<<<<<<< HEAD
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Wr-r2X" userLabel="exit">
                             <rect key="frame" x="0.0" y="0.0" width="394" height="22"/>
                             <color key="tintColor" name="offblack white"/>
@@ -36,16 +41,92 @@
                             <rect key="frame" x="0.0" y="47" width="394" height="761"/>
                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tableView>
+=======
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LsH-ID-cCb">
+                            <rect key="frame" x="15" y="15" width="384" height="983"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Wr-r2X" userLabel="exit">
+                                    <rect key="frame" x="0.0" y="0.0" width="384" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="wYS-Tk-bIv"/>
+                                    </constraints>
+                                    <color key="tintColor" name="offblack white"/>
+                                    <state key="normal" title=" " image="xmark" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="uhP-C6-V0w"/>
+                                    </connections>
+                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="mHf-u1-aWp">
+                                    <rect key="frame" x="0.0" y="50" width="384" height="31"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVs-ZT-TIq" userLabel="Enable Notifications">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="31"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                            <color key="textColor" name="black white"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2EQ-5d-6ga">
+                                            <rect key="frame" x="335" y="0.0" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="toggleSwitchChanged:" destination="-1" eventType="valueChanged" id="bpR-F9-QYQ"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTp-7A-ytg">
+                                    <rect key="frame" x="0.0" y="96" width="384" height="34"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                    <state key="normal" title="Schedule Daily Reminder">
+                                        <color key="titleColor" name="offblack white"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="scheduleButtonTapped:" destination="-1" eventType="touchUpInside" id="SiK-e9-JnW"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
+                                    <rect key="frame" x="0.0" y="145" width="384" height="139.5"/>
+                                    <string key="text">Daily routine can help to elimate distractions and reduce stress, because the certainty of our routine can help us manage the uncertainty that life can unveil.  Set a daily reminder, and we will give you a ping at 8:30am to ensure the rest of your day stays organized and focused. </string>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                    <color key="textColor" name="offblack white"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAI-Q4-CMr" userLabel="errorLabel">
+                                    <rect key="frame" x="0.0" y="299.5" width="384" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" systemColor="systemRedColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W7F-VH-vhD">
+                                    <rect key="frame" x="0.0" y="314.5" width="384" height="668.5"/>
+                                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </tableView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="983" id="y2O-wS-QDC"/>
+                            </constraints>
+                        </stackView>
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
                     </subviews>
-                </stackView>
+                    <constraints>
+                        <constraint firstItem="7WS-a6-es0" firstAttribute="trailing" secondItem="LsH-ID-cCb" secondAttribute="trailing" constant="-15" id="85x-bC-u67"/>
+                        <constraint firstItem="LsH-ID-cCb" firstAttribute="top" secondItem="Vsh-D6-j05" secondAttribute="top" constant="15" id="AnF-fR-8g4"/>
+                        <constraint firstItem="LsH-ID-cCb" firstAttribute="leading" secondItem="7WS-a6-es0" secondAttribute="leading" constant="15" id="H2h-fZ-uBF"/>
+                        <constraint firstAttribute="bottom" secondItem="LsH-ID-cCb" secondAttribute="bottom" constant="-38" id="g9K-B7-Wdt"/>
+                        <constraint firstItem="HSI-b7-Z4c" firstAttribute="trailing" secondItem="LsH-ID-cCb" secondAttribute="trailing" constant="15" id="u2M-Um-xci"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="7WS-a6-es0"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="HSI-b7-Z4c"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LsH-ID-cCb" secondAttribute="bottom" id="TtG-UC-DiQ"/>
-                <constraint firstItem="LsH-ID-cCb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="cJj-sg-O4z"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LsH-ID-cCb" secondAttribute="trailing" constant="10" id="ibW-A9-OZa"/>
-                <constraint firstItem="LsH-ID-cCb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="nFG-6O-H0Y"/>
+                <constraint firstAttribute="bottom" secondItem="Vsh-D6-j05" secondAttribute="bottom" id="0Pc-FA-vJG"/>
+                <constraint firstItem="Vsh-D6-j05" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="976-f4-Lal"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vsh-D6-j05" secondAttribute="trailing" id="Fwo-BT-HDd"/>
+                <constraint firstItem="Vsh-D6-j05" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZEV-Ti-dM5"/>
             </constraints>
             <point key="canvasLocation" x="186.95652173913044" y="79.6875"/>
         </view>
@@ -84,5 +165,8 @@
         <namedColor name="offblack white">
             <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import UserNotifications
+import Loaf
 
 protocol SettingsMenuDelegate {
     func settingsMenu(didSelect option: SettingsOption)
@@ -16,18 +18,43 @@ class SettingsViewController: UIViewController {
     //  MARK: - Properties
     var delegate: SettingsMenuDelegate?
     private let cellIdentifier = "settingsTableViewCell"
+    let center = UNUserNotificationCenter.current()
+    let defaults = UserDefaults.standard
+    let keyToEnableNotification = "notifcation"
+    
     
     
     // MARK: - IB Property
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var toggleButton: UISwitch!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var scheduleReminderButton: UIButton!
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
+    }
+    @IBAction func toggleSwitchChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            defaults.set(true, forKey: keyToEnableNotification)
+            registerLocal()
+        } else {
+            turnOffAnyNotifications()
+        }
+    }
+    @IBAction func scheduleButtonTapped(_ sender: Any) {
+        if toggleButton.isOn {
+            showToast(state: .success, message: "Daily reminder scheduled.")
+            scheduleLocal()
+            scheduleReminderButton.setTitle("Daily reminder scheduled at 8:30", for: .normal)
+        } else {
+            errorLabel.text = "Please toggle the switch to enable notifications first."
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {[weak self] in
+                self?.errorLabel.text = ""
+            }
+        }
     }
     
     
     //  MARK: - Lifecycle
-    //    private var tableview: UITableView!
-    
     init(delegate: SettingsMenuDelegate) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
@@ -41,6 +68,9 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         addBlurEffectToView(for: .systemThickMaterial)
         configureTableView()
+        configureToggleStateBasedOnSettings()
+        checkForPendingNotifications()
+        
     }
     
     
@@ -49,14 +79,146 @@ class SettingsViewController: UIViewController {
         tableview.dataSource = self
         tableview.delegate = self
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
         tableview.backgroundColor = .clear
         tableview.separatorColor = Constants.cellBorderColor //292a27
+    }
+    
+    private func configureToggleStateBasedOnSettings(){
+        center.getNotificationSettings {[weak self] (settings) in
+            DispatchQueue.main.async {
+                switch settings.authorizationStatus {
+                case.authorized:
+                    guard let key = self?.keyToEnableNotification else {return}
+                    let toggleState = self?.defaults.object(forKey: key) as? Bool ?? false
+                    self?.toggleButton.isOn = toggleState
+                    
+                case.denied,.ephemeral, .notDetermined, .provisional:
+                    self?.toggleButton.isOn = false
+                    
+                @unknown default:
+                    self?.toggleButton.isOn = false
+                }
+            }
+        }
+    }
+    
+    //  MARK: - Notification
+    private func registerLocal(){
+        center.requestAuthorization(options: [.alert, .badge, .sound]) {[weak self] (granted, error) in
+            if granted{
+                //                print("Permission granted")
+                DispatchQueue.main.async { [weak self] in
+                    self?.errorLabel.text = " "
+                    self?.toggleButton.isOn = true
+                }
+            } else {
+                let errormsg = "Please go to your phone settings and grant permission to receive notifications"
+                DispatchQueue.main.async {[weak self] in
+                    self?.errorLabel.text = errormsg
+                    self?.toggleButton.isOn = false
+                }
+            }
+        }
+    }
+    
+    private func scheduleLocal(){
+        registerActions()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Good morning!"
+        content.body = "Your tasks miss you. It's a beautiful new day, don't forget to give them some love."
+        content.categoryIdentifier = "reminderAlert"
+        content.userInfo = ["customData": "fizzbuzz"]
+        content.sound = UNNotificationSound.default
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 10
+        dateComponents.minute = 30
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true) // Test, every minute
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                            content: content,
+                                            trigger: trigger)
+        center.add(request)
+    }
+    
+    private func turnOffAnyNotifications(){
+        defaults.removeObject(forKey: keyToEnableNotification)
+        errorLabel.text = " "
+        scheduleReminderButton.setTitle("Schedule Daily Reminder", for: .normal)
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+    }
+    
+    private func registerActions(){
+        center.delegate = self
+        let showMore = UNNotificationAction(identifier: "view", title: "View", options: .foreground)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [showMore], intentIdentifiers: [] )
+        
+        center.setNotificationCategories([category])
+    }
+    
+    private func checkForPendingNotifications(){
+        center.getPendingNotificationRequests(completionHandler: {[weak self] requests in
+            if !requests.isEmpty{
+                for request in requests {
+                    print("Current request scheduled:\(request.content)")}
+                
+                DispatchQueue.main.async {[weak self] in
+                    self?.scheduleReminderButton.setTitle("Daily reminder scheduled at 8:30", for: .normal)
+                }
+                
+            } else {
+                DispatchQueue.main.async {[weak self] in
+                    self?.scheduleReminderButton.setTitle("Schedule Daily Reminder", for: .normal)
+                }
+                
+            }
+        })
     }
 }
 
 
-//  MARK: - Extensions
+//  MARK: - UNUserNotificationCenterDelegate
+extension SettingsViewController: UNUserNotificationCenterDelegate, Animatable {
+    // if app is in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .badge])
+    }
+    
+    // if app isnt running
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let customData = userInfo["customData"] as? String{
+            print("custom data received for : \(customData)")
+            
+            switch response.actionIdentifier{
+            
+            case UNNotificationDefaultActionIdentifier:
+                print("the user swiped to unlock")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.dismiss(animated: true)
+                }
+                
+            case "view":
+                dismiss(animated: true) {
+                    print("User tapped view button")
+                }
+                
+            default:
+                break
+            }
+            
+        }
+        
+        completionHandler()
+    }
+    
+}
+
+
+//  MARK: - UITableViewDataSource, UITableViewDelegate
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,9 +238,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.imageView?.image = settingsOption?.image
         cell.textLabel?.font = UIFont(name: Constants.menuFont, size: 17)
         cell.backgroundColor = Constants.whiteOffblack?.withAlphaComponent(0.75)
-
+        
         cell.imageView?.tintColor = Constants.blackWhite?.withAlphaComponent(0.75)
         cell.textLabel?.textColor = Constants.blackWhite?.withAlphaComponent(0.75)
+        cell.layer.cornerRadius = 12
         
         let colorview = UIView()
         colorview.backgroundColor = Constants.settingsCellSelected

@@ -90,6 +90,14 @@ class TasksViewController: UIViewController, Animatable {
         configureSideMenu()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)) {
+            tableView.reloadData()
+        }
+    }
+    
+
     //  MARK: - Selectors
     @objc func segmentedControl(_ sender: UISegmentedControl) {
         isDoneActive = sender.selectedSegmentIndex != 0
@@ -176,8 +184,8 @@ class TasksViewController: UIViewController, Animatable {
         greetingsLabel.textColor = Constants.smallTextNavBarColor
         greetingsLabel.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
-        /// TODO: Update quotes text
-        quotesLabel.text = "One little thing at a time!"
+
+        quotesLabel.text = "One little thing at a time."
         quotesLabel.layer.cornerRadius = 5
         quotesLabel.numberOfLines = 0
         quotesLabel.textColor = Constants.navBarQuoteTextColor
@@ -254,6 +262,7 @@ class TasksViewController: UIViewController, Animatable {
         controller.delegate = self
         present(a: controller)
     }
+    
     
     
     //  MARK: - User Defaults
@@ -515,6 +524,7 @@ extension TasksViewController: SettingsMenuDelegate {
         case .privacyPolicy:
             guard let privacyURL = URL(string: "https://littlethings-1-3-5.flycricket.io/privacy.html") else {return}
             UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
+
         
         case .termsCondition:
             guard let termsURL = URL(string: "https://littlethings-1-3-5.flycricket.io/terms.html") else {return}
@@ -524,8 +534,6 @@ extension TasksViewController: SettingsMenuDelegate {
         //        case .Language:
         //            print("change language to chinese")
         
-//        case.exit:
-//            dismiss(animated: true)
         }
     }
 }

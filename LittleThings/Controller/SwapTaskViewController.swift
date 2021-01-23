@@ -51,6 +51,16 @@ class SwapTaskViewController: UIViewController {
         
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)) {
+            swapButton.layer.borderColor = Constants.blackYellow?.cgColor
+            currentTaskToFinishStackView.layer.borderColor = Constants.mediumBlack3f3f3f.cgColor
+            
+        }
+    }
+    
+    
     //  MARK: - Selectors
     
     

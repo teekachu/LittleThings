@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// What is 1-3-5 
 class AppInfoViewController: UIViewController {
     
     //MARK: - IB Properties
@@ -34,7 +35,5 @@ class AppInfoViewController: UIViewController {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = Constants.offBlack202020
-        
     }
-    
 }

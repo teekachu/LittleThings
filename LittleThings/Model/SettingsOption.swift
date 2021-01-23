@@ -14,7 +14,7 @@ enum SettingsOption: Int, CaseIterable, CustomDebugStringConvertible {
     case privacyPolicy
     case termsCondition
 //    case Language
-//    case exit
+
     
     var image: UIImage {
         switch self {
@@ -25,11 +25,13 @@ enum SettingsOption: Int, CaseIterable, CustomDebugStringConvertible {
             return UIImage(systemName: "shield") ?? UIImage()
         case .termsCondition:
             return UIImage(systemName: "doc.text.fill") ?? UIImage()
+<<<<<<< HEAD
             
+=======
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
 //        case .Language:
 //            return UIImage(systemName: "flag") ?? UIImage()
-//        case.exit:
-//            return UIImage(systemName: "arrow.down.right.and.arrow.up.left") ?? UIImage()
+
             
         }
     }
@@ -38,7 +40,10 @@ enum SettingsOption: Int, CaseIterable, CustomDebugStringConvertible {
         case .changeName: return "Change Name"
         case .privacyPolicy: return "Privacy Policy"
         case .termsCondition: return "Terms & Condition"
+<<<<<<< HEAD
             
+=======
+>>>>>>> 9370dba52843fd50e29d0b9498a82e48f0d157c2
 //        case .Language: return "Language"
 //        case .exit: return "Exit"
         }

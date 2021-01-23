@@ -146,7 +146,6 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="SFs-Mb-Cjc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Bqm-Aa-uQH"/>
                 <constraint firstAttribute="bottom" secondItem="SFs-Mb-Cjc" secondAttribute="bottom" id="L1Z-uS-B5S"/>
                 <constraint firstItem="SFs-Mb-Cjc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WKd-3n-Qgj"/>
                 <constraint firstItem="SFs-Mb-Cjc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="te3-ot-afs"/>

@@ -31,11 +31,18 @@ class CustomAlertViewController: UIViewController {
     }
     
     
-    
     //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)) {
+            alertView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+            dismissButton.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+        }
     }
     
     //  MARK: - Selectors
