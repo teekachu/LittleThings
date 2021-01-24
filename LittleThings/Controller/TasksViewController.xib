@@ -26,15 +26,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
-                    <rect key="frame" x="13" y="49" width="388" height="176"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
+                    <rect key="frame" x="13" y="49" width="388" height="191"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-J7-EPp">
                             <rect key="frame" x="0.0" y="0.0" width="388" height="25"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuQ-R0-MFG" userLabel="AdditionalInfoButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="24" height="22"/>
-                                    <color key="tintColor" name="black white"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuQ-R0-MFG" userLabel="AdditionalInfoButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="L1J-02-u8V"/>
+                                    </constraints>
+                                    <color key="tintColor" name="normalBW"/>
                                     <state key="normal">
                                         <imageReference key="image" image="questionmark.square" catalog="system" symbolScale="large"/>
                                     </state>
@@ -43,17 +46,20 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXQ-fs-dj4" userLabel="FlexView">
-                                    <rect key="frame" x="34" y="0.0" width="318" height="25"/>
+                                    <rect key="frame" x="50" y="0.0" width="288" height="25"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="Z6p-J3-UhY"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aQ-1d-RcD" userLabel="MenuButton">
-                                    <rect key="frame" x="362" y="0.0" width="26" height="22"/>
-                                    <color key="tintColor" name="black white"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aQ-1d-RcD" userLabel="MenuButton">
+                                    <rect key="frame" x="348" y="0.0" width="40" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="cus-1R-TYk"/>
+                                    </constraints>
+                                    <color key="tintColor" name="normalBW"/>
                                     <state key="normal">
-                                        <imageReference key="image" image="line.horizontal.3" catalog="system" symbolScale="large"/>
+                                        <imageReference key="image" image="line.horizontal.3" catalog="system" symbolScale="medium"/>
                                     </state>
                                     <connections>
                                         <action selector="ShowMenuTapped:" destination="-1" eventType="touchUpInside" id="GJR-e8-XLN"/>
@@ -62,7 +68,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="eRi-77-TQ3">
-                            <rect key="frame" x="0.0" y="35" width="388" height="61"/>
+                            <rect key="frame" x="0.0" y="40" width="388" height="61"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
                                     <rect key="frame" x="0.0" y="0.0" width="228" height="61"/>
@@ -91,14 +97,14 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; Little things make big days! &quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ye-oT6">
-                            <rect key="frame" x="0.0" y="106" width="388" height="29"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quote goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ye-oT6">
+                            <rect key="frame" x="0.0" y="116" width="388" height="29"/>
                             <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="21"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-1O-suk">
-                            <rect key="frame" x="0.0" y="145" width="388" height="32"/>
+                            <rect key="frame" x="0.0" y="160" width="388" height="32"/>
                             <segments>
                                 <segment title="Ongoing"/>
                                 <segment title="Done"/>
@@ -107,7 +113,7 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-xr-O7i">
-                    <rect key="frame" x="0.0" y="230" width="414" height="632"/>
+                    <rect key="frame" x="0.0" y="245" width="414" height="617"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -127,8 +133,8 @@
     <resources>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
-        <namedColor name="black white">
-            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="normalBW">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whiteish mediumblack">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

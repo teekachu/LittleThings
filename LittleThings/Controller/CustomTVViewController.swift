@@ -57,6 +57,13 @@ class CustomTVViewController: UIViewController {
         observeKeyboard()
         observeForm()
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        alertContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+        textview.layer.borderColor = Constants.whiteOffblack?.cgColor
+        yesButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+        noButton.layer.borderColor = Constants.swapCellBorder?.cgColor
+    }
 
     //  MARK: - Selectors
     @objc public func dismissKeyboard(){

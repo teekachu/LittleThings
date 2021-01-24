@@ -34,7 +34,6 @@ class AppInfoViewController: UIViewController {
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = Constants.offBlack202020
-        
     }
     
 }

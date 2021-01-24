@@ -44,6 +44,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var stackview: UIStackView!
+    @IBOutlet weak var currentTaskCountLabel: UILabel!
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateTask()
         
@@ -123,8 +124,8 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         TaskPickerView.backgroundColor = .clear
-        TaskPickerView.layer.borderWidth = 0.5
-        TaskPickerView.layer.borderColor = Constants.blackYellow?.cgColor
+//        TaskPickerView.layer.borderWidth = 0.5
+//        TaskPickerView.layer.borderColor = Constants.blackYellow?.cgColor
         TaskPickerView.layer.cornerRadius = 20
         
         saveButton.layer.cornerRadius = 10
@@ -248,7 +249,8 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
             pickerLabel?.textAlignment = .center
             pickerLabel?.backgroundColor = Constants.pickerLabelBackground
         }
-        pickerLabel?.text = TaskType.allCases[row].rawValue
+//        pickerLabel?.text = TaskType.allCases[row].rawValue
+        pickerLabel?.text = TaskType.allCases[row].debugDescription
         pickerLabel?.textColor = textColor
         
         return pickerLabel!

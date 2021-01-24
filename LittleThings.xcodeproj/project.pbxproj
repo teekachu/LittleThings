@@ -23,7 +23,6 @@
 		2E7574E53A9BFD98186C6C4B5B811A90 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF63AF0FCBC6FC77EA9053EC2F53B76 /* OnboardingViewController.swift */; };
 		33B4A436AACC56AF27DC53741E0D7F13 /* AppInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23B9522A9FB115F9CF76D76BA69250F /* AppInfoViewController.xib */; };
 		37B0851EE0ACD2AD9192FCE12ACBC570 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D924816919B03B8516BA876DEA1E4534 /* GoogleService-Info.plist */; };
-		3AD9D732ED9E2C4ED21A8535A0B9D9E1 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26288369F13DC3964E7E87F9CB071F82 /* SideMenuTableViewController.swift */; };
 		3E1CE037CDC5453ABC7C72A5E07A47AA /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E09EDEED92EC5B5FF5B1F03A2EBE7D5 /* ResetPasswordViewController.xib */; };
 		3F0399E693DD99F80AC34B754457FDC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E19BA7E0E4AA10F9133B8BE0447254C /* Assets.xcassets */; };
 		4250303DB9F5D1583B0108CF0030B681 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECD45FD52FA9F84D3B8E04F901A2C16 /* DatabaseManager.swift */; };
@@ -46,7 +45,6 @@
 		87EF1DF95C587D0D40AF10026011A8DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692C252AB51F1FAD42F8489CBDE07DA8 /* User.swift */; };
 		88C3E5106B1E744A44132FC5B8DD273D /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B70E33A1CE6785ECF551626ECE501 /* SettingsOption.swift */; };
 		8C93329E59EBA24D5D0F277D397F6171 /* notepad.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD2AF2922781EC95A5C1FE801FA518E /* notepad.json */; };
-		8D74F273ABD0F057BD55F1EBCECFA7CE /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BCD9AEF697BA1C15169551D00003F /* MenuOption.swift */; };
 		8EA814B7E69FABB285E22F260D70755B /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482DBB6C4FA9127FC4D220172A058E1E /* AddNewTaskViewController.swift */; };
 		97408D01D025AA3A893F9BFD5A27F58C /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47604717F76F3EECD0F5E72E720FCF24 /* NotificationsManager.swift */; };
 		983D2FD424429AD16D0401CB27641BF3 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF34D6ABB8773A446D742B43F71057D6 /* TasksViewController.xib */; };
@@ -83,7 +81,6 @@
 		1113E3A4F25FBC3BF935B05FBC05A432 /* CustomTVViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTVViewController.xib; sourceTree = "<group>"; };
 		1D956E36DD064C817037B051E27A5544 /* Ext+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIAlertController.swift"; sourceTree = "<group>"; };
 		22ABEEDC49BB44DF66FA542272D51B95 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		26288369F13DC3964E7E87F9CB071F82 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		28DEB36A987A89260333ADA1074CA118 /* Ext+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIViewController.swift"; sourceTree = "<group>"; };
 		29BF5690C72857759689B64203819FE0 /* Pods_LittleThings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleThings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29DCAEF0D9E47F95567D4ABE0F283F66 /* LittleThings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleThings.entitlements; sourceTree = "<group>"; };
@@ -93,7 +90,6 @@
 		3179F6683898BEA5FBF4ECA28BBC495C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3370E8C9A5249C1D37A3243E48C3A4D5 /* DoneTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCell.swift; sourceTree = "<group>"; };
 		353DBC7C8D8FF3F9A81F821F743DCC4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		385BCD9AEF697BA1C15169551D00003F /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		38702047185B75B2481D6D0CC744EEF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FDB48C397816DD0B6F64D8094C4F998 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		40417B66C4BCEEB2D970C0CF24397A2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -268,7 +264,6 @@
 				5E09EDEED92EC5B5FF5B1F03A2EBE7D5 /* ResetPasswordViewController.xib */,
 				10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */,
 				9B811F4563436AAF561A36DCAD6DB90C /* SettingsViewController.xib */,
-				26288369F13DC3964E7E87F9CB071F82 /* SideMenuTableViewController.swift */,
 				B855AE6EF1E7EFFF5D69AAEFD87B782E /* SignUpViewController.swift */,
 				FDEF18ED09B03EB0A3F890BCE0E6404D /* SignUpViewController.xib */,
 				2CD074C9A23EB8F6A04F87A1625757A3 /* SwapTaskViewController.swift */,
@@ -324,7 +319,6 @@
 			children = (
 				66860FB63222CE2A86C2572CD6185B20 /* AuthenticationViewModel.swift */,
 				BD6687F32C2A6311B2DC877C9656BD47 /* DataSource.swift */,
-				385BCD9AEF697BA1C15169551D00003F /* MenuOption.swift */,
 				922715E80626AFB31927C52E0654D259 /* MenuSection.swift */,
 				92480C4B4427450707C6D8D4EFDDB669 /* OnboardingViewModel.swift */,
 				4E6B70E33A1CE6785ECF551626ECE501 /* SettingsOption.swift */,
@@ -453,6 +447,44 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleThings/Pods-LittleThings-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3D62AD6F79DDE27154780F9B0D45C7FA /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		923749A4D7581C8A5EED541228D01C91 /* Build Number Updater */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Number Updater";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${INFOPLIST_FILE}\"\n";
+		};
 		CDE934D0135655E06BE8F67B22F9EDD4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -492,44 +524,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3D62AD6F79DDE27154780F9B0D45C7FA /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		923749A4D7581C8A5EED541228D01C91 /* Build Number Updater */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Build Number Updater";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${INFOPLIST_FILE}\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -559,7 +553,6 @@
 				7DA41D5DC70E8E89E9FA769CC0CD8D54 /* Ext+UIViewController.swift in Sources */,
 				833EBE24E3F0D83F113B8DDEC21F11A9 /* LoginViewController.swift in Sources */,
 				4F2E8239610DF044E1A04E479F6BF766 /* LottieLoadingAnimationViewController.swift in Sources */,
-				8D74F273ABD0F057BD55F1EBCECFA7CE /* MenuOption.swift in Sources */,
 				8120223406A03D8D2A6F7ADB9C1C54B0 /* MenuSection.swift in Sources */,
 				97408D01D025AA3A893F9BFD5A27F58C /* NotificationsManager.swift in Sources */,
 				2E7574E53A9BFD98186C6C4B5B811A90 /* OnboardingViewController.swift in Sources */,
@@ -568,7 +561,6 @@
 				781BA5FF512B33A8420555068EC1144A /* ResetPasswordViewController.swift in Sources */,
 				88C3E5106B1E744A44132FC5B8DD273D /* SettingsOption.swift in Sources */,
 				AC2431D3AEA617788F553CCF9E973CC6 /* SettingsViewController.swift in Sources */,
-				3AD9D732ED9E2C4ED21A8535A0B9D9E1 /* SideMenuTableViewController.swift in Sources */,
 				0E0A9AF8B388137986803A34F949C45F /* SidemenuTableViewCell.swift in Sources */,
 				D52A7384E82636A14D0A48DAD85D9F1E /* SignUpViewController.swift in Sources */,
 				4F9521B0496C5B0A05E9EDC720AD1B9F /* SwapTaskViewController.swift in Sources */,
@@ -595,15 +587,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D55A8C5607D4C007D3B91CAED333D226 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				353DBC7C8D8FF3F9A81F821F743DCC4B /* Base */,
-				4BE777B35900155371B73D1313E6F608 /* es-419 */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		C34F2F9DD900D289F114DA2DD0293D91 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -611,6 +594,15 @@
 				29F50608F799CA8B1DF933269AD8DDF5 /* es-419 */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D55A8C5607D4C007D3B91CAED333D226 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				353DBC7C8D8FF3F9A81F821F743DCC4B /* Base */,
+				4BE777B35900155371B73D1313E6F608 /* es-419 */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

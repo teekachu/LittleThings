@@ -37,12 +37,18 @@ class AboutUSViewController: UIViewController {
         configureUI()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        twitterButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+        linkedinButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+        gitHubButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+    }
+    
     
     //  MARK: - Privates
     private func configureUI(){
         addBlurEffectToView(for: .systemThinMaterial)
         navigationController?.navigationBar.isHidden = true
-
+        
         profileImageView.layer.cornerRadius = 35
         profileImageView.backgroundColor = .clear
         
@@ -70,7 +76,7 @@ class AboutUSViewController: UIViewController {
         let webURL = URL(string: "https://github.com/teekachu")!
         
         application.open(webURL)
-
+        
     }
     
     private func linkedInTapped() {
@@ -79,7 +85,7 @@ class AboutUSViewController: UIViewController {
         let webURL = URL(string: "https://www.linkedin.com/in/tingbecker/")!
         
         application.canOpenURL(appURL) ? application.open(appURL) : application.open(webURL)
-
+        
     }
     
 }

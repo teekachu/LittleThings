@@ -54,7 +54,7 @@
                                                         <constraint firstAttribute="height" constant="44" id="ImH-KE-toq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
-                                                    <state key="normal" title="Sounds Good !">
+                                                    <state key="normal" title="Sounds Good!">
                                                         <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>

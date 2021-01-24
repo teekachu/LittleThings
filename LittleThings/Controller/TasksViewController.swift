@@ -59,7 +59,6 @@ class TasksViewController: UIViewController, Animatable {
     }
     @IBAction func nameLabelTapped(_ sender: Any) {
         handleNameChange()
-        print("CHANGE NAME PLS")
     }
     
     
@@ -88,6 +87,10 @@ class TasksViewController: UIViewController, Animatable {
         addTaskObserver()
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        tableView.reloadData()
     }
     
     //  MARK: - Selectors
@@ -172,12 +175,15 @@ class TasksViewController: UIViewController, Animatable {
         
         nameButton.alpha = 0
         nameButton.backgroundColor = .clear
+        nameButton.setImage(UIImage(systemName: "sparkles"), for: .normal)
+        nameButton.semanticContentAttribute = .forceRightToLeft
+        nameButton.tintColor = Constants.navBarQuoteTextColor
         nameButton.setTitle(" ", for: .normal)
         nameButton.setTitleColor(Constants.smallTextNavBarColor, for: .normal)
         nameButton.titleLabel?.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
         /// TODO: Update quotes text
-        quotesLabel.text = "Little things make big days!"
+        quotesLabel.text = "One little thing at a time!"
         quotesLabel.layer.cornerRadius = 5
         quotesLabel.numberOfLines = 0
         quotesLabel.textColor = Constants.navBarQuoteTextColor
@@ -214,7 +220,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func showUserName(for name: String){
-        nameButton.setTitle("Hello \(name)", for: .normal)
+        nameButton.setTitle("Hello \(name) ", for: .normal)
         nameButton.titleLabel?.numberOfLines = 1
         nameButton.titleLabel?.textAlignment = .left
         UIView.animate(withDuration: 0.9) {[weak self] in

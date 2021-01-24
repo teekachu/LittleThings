@@ -60,6 +60,10 @@ struct Constants {
     
     static let settingsCellSelected = UIColor(named: "settingsCellSelected")
     
+    static let normalBlackWhite = UIColor(named: "normalBW")
+    
+    static let normalWhiteBlack = UIColor(named: "normalWB")
+    
     static let whiteSmoke: UIColor =  #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
     
     static let offBlack202020: UIColor =  #colorLiteral(red: 0.1254901961, green: 0.1254901961, blue: 0.1254901961, alpha: 1)

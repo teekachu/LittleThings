@@ -30,10 +30,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBp-Tb-ged" userLabel="alertView">
-                            <rect key="frame" x="45" y="240" width="324" height="416.5"/>
+                            <rect key="frame" x="45" y="214" width="324" height="468.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="zSS-GU-Zxw">
-                                    <rect key="frame" x="15" y="25" width="294" height="366.5"/>
+                                    <rect key="frame" x="15" y="25" width="294" height="418.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRn-9i-mKi">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="25"/>
@@ -47,11 +47,11 @@
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egj-4Z-l7k" userLabel="additionalInfoButton">
                                                     <rect key="frame" x="269" y="0.0" width="25" height="25"/>
-                                                    <color key="backgroundColor" name="offblack white"/>
+                                                    <color key="backgroundColor" name="normalBW"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="hYs-u1-7Vb"/>
                                                     </constraints>
-                                                    <color key="tintColor" name="white offblack"/>
+                                                    <color key="tintColor" name="normalWB"/>
                                                     <state key="normal">
                                                         <imageReference key="image" image="questionmark" catalog="system" symbolScale="medium"/>
                                                     </state>
@@ -119,6 +119,12 @@
                                                 <constraint firstAttribute="height" constant="44" id="z0d-If-FEj"/>
                                             </constraints>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint: Click on the ? for clarifications" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obz-si-pSf">
+                                            <rect key="frame" x="0.0" y="396.5" width="294" height="22"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                            <color key="textColor" name="normalBW"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </stackView>
@@ -156,8 +162,11 @@
         <namedColor name="black white">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="offblack white">
-            <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="normalBW">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="normalWB">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="smalltext nav bar color">
             <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

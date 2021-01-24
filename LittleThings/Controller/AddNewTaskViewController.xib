@@ -16,6 +16,7 @@
                 <outlet property="TaskPickerView" destination="k8O-4J-gww" id="YpH-XP-E6O"/>
                 <outlet property="backgroundView" destination="SQy-51-la7" id="d94-6x-N0Y"/>
                 <outlet property="cancelButton" destination="mUl-Pt-bqn" id="f52-cq-shb"/>
+                <outlet property="currentTaskCountLabel" destination="fig-Ox-xp6" id="5mx-Nk-Qmf"/>
                 <outlet property="descriptionCharCountLabel" destination="IVD-eE-XzG" id="8gS-7a-GOY"/>
                 <outlet property="errorMsgLabel" destination="syW-XB-fXW" id="tlf-4s-VVD"/>
                 <outlet property="saveButton" destination="i38-4z-NHV" id="2uy-OL-eFt"/>
@@ -33,10 +34,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iz1-ZL-0At" userLabel="BottomContainerView">
-                            <rect key="frame" x="0.0" y="275.5" width="414" height="620.5"/>
+                            <rect key="frame" x="0.0" y="256" width="414" height="640"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dRw-No-deb">
-                                    <rect key="frame" x="10" y="25" width="394" height="550.5"/>
+                                    <rect key="frame" x="10" y="25" width="394" height="570"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Ouu a new task, How exciting !!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyl-ej-uUZ">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="55"/>
@@ -56,30 +57,44 @@
                                             </constraints>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-z6-dDE">
-                                            <rect key="frame" x="0.0" y="205" width="394" height="75"/>
+                                            <rect key="frame" x="0.0" y="205" width="394" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="75" id="Aqb-TV-d0K"/>
+                                                <constraint firstAttribute="height" constant="100" id="Aqb-TV-d0K"/>
                                             </constraints>
                                             <color key="textColor" systemColor="labelColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-eE-XzG">
-                                            <rect key="frame" x="0.0" y="295" width="394" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-eE-XzG">
+                                            <rect key="frame" x="0.0" y="320" width="394" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemRedColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-4J-gww">
-                                            <rect key="frame" x="0.0" y="330.5" width="394" height="75"/>
-                                            <color key="tintColor" red="0.30980392156862746" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="75" id="8vb-KL-A9G"/>
-                                            </constraints>
-                                        </pickerView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-nD-n3z">
+                                            <rect key="frame" x="0.0" y="335" width="394" height="90"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fig-Ox-xp6" userLabel="count3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="aYR-kv-4i0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <pickerView contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k8O-4J-gww">
+                                                    <rect key="frame" x="90" y="0.0" width="304" height="90"/>
+                                                    <color key="tintColor" red="0.30980392156862746" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="Dh4-ag-AzZ"/>
+                                                    </constraints>
+                                                </pickerView>
+                                            </subviews>
+                                        </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="One little thing at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syW-XB-fXW" userLabel="quote">
-                                            <rect key="frame" x="0.0" y="420.5" width="394" height="65"/>
+                                            <rect key="frame" x="0.0" y="440" width="394" height="65"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="65" id="W4U-xC-rv5"/>
                                             </constraints>
@@ -88,7 +103,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBn-uu-8GY">
-                                            <rect key="frame" x="0.0" y="500.5" width="394" height="50"/>
+                                            <rect key="frame" x="0.0" y="520" width="394" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUl-Pt-bqn" userLabel="Cancel">
                                                     <rect key="frame" x="0.0" y="0.0" width="145" height="50"/>
