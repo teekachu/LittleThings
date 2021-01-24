@@ -90,7 +90,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                     <state key="normal" title="  Twitter @Teekachu1">
-                                        <color key="titleColor" name="smalltext nav bar color"/>
+                                        <color key="titleColor" name="normalBW"/>
                                     </state>
                                     <connections>
                                         <action selector="twitterButtonTapped:" destination="-1" eventType="touchUpInside" id="cWT-6t-EMc"/>
@@ -103,7 +103,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                     <state key="normal" title="  GitHub @teekachu">
-                                        <color key="titleColor" name="smalltext nav bar color"/>
+                                        <color key="titleColor" name="normalBW"/>
                                     </state>
                                     <connections>
                                         <action selector="gitHubButtonTapped:" destination="-1" eventType="touchUpInside" id="uwx-rK-dx0"/>
@@ -116,7 +116,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                     <state key="normal" title="  LinkedIn @TingBecker">
-                                        <color key="titleColor" name="smalltext nav bar color"/>
+                                        <color key="titleColor" name="normalBW"/>
                                     </state>
                                     <connections>
                                         <action selector="linkedinButtonTapped:" destination="-1" eventType="touchUpInside" id="B7Q-hd-6hF"/>
@@ -160,11 +160,11 @@
         <namedColor name="black white">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="normalBW">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="offblack white">
             <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="smalltext nav bar color">
-            <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

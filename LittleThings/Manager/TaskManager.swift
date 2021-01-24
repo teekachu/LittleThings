@@ -9,7 +9,7 @@ import Foundation
 import Loaf
 
 class TaskManager {
-
+    
     private let authManager: AuthManager
     private let databaseManager: DatabaseManager
     
@@ -38,8 +38,8 @@ class TaskManager {
     
     public func currentTasktypeMeetsRestriction(for task: Task) -> String? {
         /// basically determine whether the user is adding too many tasks or not.
-        let warningMsg = "Try to finish the existing tasks before adding more."
         
+        let warningMsg = "Try to finish the existing tasks before adding more."
         let typeOne = tasks.filter{ $0.taskType == .one && !$0.isDone }
         let typeThree = tasks.filter{ $0.taskType == .three && !$0.isDone }
         let typeFive = tasks.filter{ $0.taskType == .five && !$0.isDone }
@@ -48,7 +48,6 @@ class TaskManager {
             && typeThree.count == 3
             && typeFive.count == 5 {
             return "You already have 9 tasks ongoing, why don't you finish some before adding more?  "
-            
         } else {
             if task.taskType == .one && typeOne.count > 0 ||
                 task.taskType == .three && typeThree.count > 2 ||
@@ -128,7 +127,7 @@ class TaskManager {
     
     public func getSingleTask(documentID: String, onLoad: @escaping (Task) -> Void){
         databaseManager.getSingleTask(for: documentID) {(task) in
-           onLoad(task)
+            onLoad(task)
         }
     }
     

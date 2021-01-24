@@ -14,17 +14,22 @@ protocol NewTaskVCDelegate: class {
     func didEditTask(for task: Task)
 }
 
+protocol  AddNewTaskVCDelegate: class {
+    func numberOfExistingTasks(of type: TaskType) -> Int
+}
+
 class AddNewTaskViewController: UIViewController, Animatable {
     //  MARK: - Properties
     private let taskManager: TaskManager
     private var task: Task
     private let isEditingTask: Bool
     
-    @Published private var taskString: String? ///Observe this variable because this is what will be updated as we type into the textfield
-    private var currentTasktype: TaskType = .three
+    ///Observe this below variables
+    @Published private var taskString: String?
+    private var currentTasktype: TaskType = .five
     private var subscribers = Set<AnyCancellable>() /// a publisher have to have a subscriber.
     weak var delegate: NewTaskVCDelegate?
-    
+    weak var delegate2: AddNewTaskVCDelegate?
     
     //  MARK: - IBProperties
     @IBOutlet weak var backgroundView: UIView!
@@ -85,6 +90,11 @@ class AddNewTaskViewController: UIViewController, Animatable {
         updateTask()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        BottomContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+        textTextView.layer.borderColor = Constants.orangeFDB903?.cgColor
+    }
+    
     
     //  MARK: - Selectors
     @objc func swipeToDismissKeybord(){
@@ -115,18 +125,19 @@ class AddNewTaskViewController: UIViewController, Animatable {
         
         textTextView.backgroundColor = .clear
         textTextView.layer.borderWidth = 1
-        textTextView.layer.borderColor = Constants.blackYellow?.cgColor
+        textTextView.layer.borderColor = Constants.orangeFDB903?.cgColor
         textTextView.layer.cornerRadius = 15
-        textTextView.textColor =  Constants.blackWhite
         textTextView.font = UIFont(name: Constants.fontMedium, size: 20)
         textTextView.autocapitalizationType = .sentences
+        textTextView.textColor = Constants.blackWhite
         
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         TaskPickerView.backgroundColor = .clear
-//        TaskPickerView.layer.borderWidth = 0.5
-//        TaskPickerView.layer.borderColor = Constants.blackYellow?.cgColor
         TaskPickerView.layer.cornerRadius = 20
+        
+        guard let str = delegate2?.numberOfExistingTasks(of: currentTasktype) else {return}
+        currentTaskCountLabel.text = "\(str)/5"
         
         saveButton.layer.cornerRadius = 10
         saveButton.titleLabel?.font = UIFont(name: Constants.avenirBlackSuperBold, size: 19)
@@ -216,13 +227,13 @@ class AddNewTaskViewController: UIViewController, Animatable {
             errorMsgLabel.textColor = .red
             
             DispatchQueue.main.asyncAfter(deadline: .now()+5) {[weak self] in
-                self?.errorMsgLabel.text = "One little thing at a time."
-                self?.errorMsgLabel.textColor = Constants.orangeFDB903
+                self?.errorMsgLabel.text = "Little things make big days."
+                self?.errorMsgLabel.textColor = Constants.blackWhite
             }
             return false
             
         } else {
-            errorMsgLabel.text = "One little thing at a time."
+            errorMsgLabel.text = "Little things make big days."
             errorMsgLabel.textColor = Constants.orangeFDB903
         }
         
@@ -249,7 +260,6 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
             pickerLabel?.textAlignment = .center
             pickerLabel?.backgroundColor = Constants.pickerLabelBackground
         }
-//        pickerLabel?.text = TaskType.allCases[row].rawValue
         pickerLabel?.text = TaskType.allCases[row].debugDescription
         pickerLabel?.textColor = textColor
         
@@ -260,10 +270,17 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         switch row{
         case 0:
             currentTasktype = .one
+            guard let str = delegate2?.numberOfExistingTasks(of: currentTasktype) else {return}
+            currentTaskCountLabel.text = "\(str)/1"
         case 1:
             currentTasktype = .three
+            guard let str = delegate2?.numberOfExistingTasks(of: currentTasktype) else {return}
+            currentTaskCountLabel.text = "\(str)/3"
         case 2:
             currentTasktype = .five
+            guard let str = delegate2?.numberOfExistingTasks(of: currentTasktype) else {return}
+            currentTaskCountLabel.text = "\(str)/5"
+        
         default:
             break
         }
@@ -272,3 +289,4 @@ extension AddNewTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
     }
 }
+

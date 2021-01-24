@@ -22,7 +22,7 @@ struct Task: Identifiable, Codable, Hashable {
     public static func basic(for userID: String) -> Task {
         return Task(
             title: nil,
-            taskType: .three,
+            taskType: .five,
             uid: userID)
     }
     

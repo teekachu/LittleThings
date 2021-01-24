@@ -9,7 +9,6 @@ import Foundation
 
 enum TaskType: String, CaseIterable, Codable, CustomDebugStringConvertible {
     
-    
     case one = "One large task"
     case three = "Three medium tasks"
     case five = "Five small tasks"
@@ -19,6 +18,7 @@ enum TaskType: String, CaseIterable, Codable, CustomDebugStringConvertible {
         case .one: return "Large"
         case .three: return "Medium"
         case .five: return "Small"
+
         }
     }
     

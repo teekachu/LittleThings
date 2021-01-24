@@ -31,8 +31,8 @@ enum SettingsOption: Int, CaseIterable, CustomDebugStringConvertible {
         case .sendSuggestions: return UIImage(systemName: "envelope") ?? UIImage()
         case .reportBug: return UIImage(systemName: "ladybug.fill") ?? UIImage()
         case .about: return UIImage(systemName: "exclamationmark.square") ?? UIImage()
-        case .privacyPolicy: return UIImage(systemName: "shield") ?? UIImage()
-        case .termsCondition: return UIImage(systemName: "doc.text.fill") ?? UIImage()
+        case .privacyPolicy: return UIImage(systemName: "shield.lefthalf.fill") ?? UIImage()
+        case .termsCondition: return UIImage(systemName: "doc.text") ?? UIImage()
         case .clearDone: return UIImage(systemName: "trash.fill") ?? UIImage()
         case .logOut: return UIImage(systemName: "xmark") ?? UIImage()
             

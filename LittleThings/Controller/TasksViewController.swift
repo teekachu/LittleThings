@@ -102,6 +102,7 @@ class TasksViewController: UIViewController, Animatable {
         guard let userID = authManager.userID else { return }
         let controller = AddNewTaskViewController(taskManager: taskManager, task: .basic(for: userID))
         controller.delegate = self
+        controller.delegate2 = self
         present(a: controller)
     }
     
@@ -177,7 +178,7 @@ class TasksViewController: UIViewController, Animatable {
         nameButton.backgroundColor = .clear
         nameButton.setImage(UIImage(systemName: "sparkles"), for: .normal)
         nameButton.semanticContentAttribute = .forceRightToLeft
-        nameButton.tintColor = Constants.navBarQuoteTextColor
+        nameButton.tintColor = Constants.orangeFDB903
         nameButton.setTitle(" ", for: .normal)
         nameButton.setTitleColor(Constants.smallTextNavBarColor, for: .normal)
         nameButton.titleLabel?.font = UIFont(name: Constants.fontBoldItalic, size: 19)
@@ -192,8 +193,6 @@ class TasksViewController: UIViewController, Animatable {
         actionButton.tintColor = .black
         actionButton.setImage(UIImage(systemName: "plus"), for: .normal)
         actionButton.layer.cornerRadius = 20
-        actionButton.layer.borderWidth = 1
-        actionButton.layer.borderColor = Constants.lightGrayCDCDCD.cgColor
         actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)
     }
     
@@ -361,6 +360,13 @@ extension TasksViewController: NewTaskVCDelegate {
                 self?.showToast(state: status, message: message)
             })
         })
+    }
+}
+
+extension TasksViewController: AddNewTaskVCDelegate {
+    func numberOfExistingTasks(of type: TaskType) -> Int {
+        let count = tasks.filter{$0.taskType == type && $0.isDone == false}.count
+        return count
     }
 }
 
