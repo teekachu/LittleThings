@@ -142,8 +142,8 @@ struct AuthManager {
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             
-            //            // Save authorised user ID for future reference
-            //            UserDefaults.standard.set(appleIDCredential.user, forKey: "appleAuthorizedUserIdKey")
+            // Save authorised user ID for future reference
+            UserDefaults.standard.set(appleIDCredential.user, forKey: "appleAuthorizedUserIdKey")
             
             guard let nonce = nonce else {
                 fatalError("Invalid state: A login callback was received, but no login request was sent.")
@@ -167,7 +167,8 @@ struct AuthManager {
                     return
                 }
 
-                guard authDataResult?.additionalUserInfo?.isNewUser != true else {
+                // Pull authorised user ID to ensure it isnt nil
+                if UserDefaults.standard.object(forKey: "appleAuthorizedUserIdKey") != nil {
                     completion(nil)
                     return
                 }

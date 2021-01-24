@@ -21,15 +21,15 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eif-t3-1Wy" userLabel="bottomContainerview">
-                    <rect key="frame" x="0.0" y="56.5" width="340" height="511.5"/>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eif-t3-1Wy" userLabel="bottomContainerview">
+                    <rect key="frame" x="0.0" y="56.5" width="320" height="511.5"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="r3C-2e-OSr">
-                            <rect key="frame" x="35" y="35" width="270" height="441.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="r3C-2e-OSr">
+                            <rect key="frame" x="25" y="35" width="270" height="441.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOk-5g-q0G" userLabel="closeButton">
                                     <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
@@ -147,23 +147,19 @@
                     </subviews>
                     <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="r3C-2e-OSr" firstAttribute="leading" secondItem="eif-t3-1Wy" secondAttribute="leading" constant="35" id="9DF-Cd-vZy"/>
+                        <constraint firstAttribute="trailing" secondItem="r3C-2e-OSr" secondAttribute="trailing" constant="35" id="F44-LL-D07"/>
                         <constraint firstAttribute="bottom" secondItem="r3C-2e-OSr" secondAttribute="bottom" constant="35" id="JPp-VF-eq3"/>
-                        <constraint firstItem="r3C-2e-OSr" firstAttribute="leading" secondItem="eif-t3-1Wy" secondAttribute="leading" constant="35" id="NM6-GT-1b1"/>
-                        <constraint firstAttribute="trailing" secondItem="r3C-2e-OSr" secondAttribute="trailing" constant="35" id="RXh-Q2-sa0"/>
-                        <constraint firstAttribute="trailing" secondItem="r3C-2e-OSr" secondAttribute="trailing" constant="35" id="ZUM-C5-b3K"/>
-                        <constraint firstItem="r3C-2e-OSr" firstAttribute="leading" secondItem="eif-t3-1Wy" secondAttribute="leading" constant="35" id="euE-1T-z1j"/>
-                        <constraint firstItem="r3C-2e-OSr" firstAttribute="top" secondItem="eif-t3-1Wy" secondAttribute="top" constant="35" id="knG-X3-Y6m"/>
                         <constraint firstItem="r3C-2e-OSr" firstAttribute="top" secondItem="eif-t3-1Wy" secondAttribute="top" constant="35" id="tMb-TV-vPY"/>
-                        <constraint firstAttribute="bottom" secondItem="r3C-2e-OSr" secondAttribute="bottom" constant="35" id="z9L-HR-Svi"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="eif-t3-1Wy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5FF-a4-ntr"/>
+                <constraint firstItem="eif-t3-1Wy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5FF-a4-ntr"/>
+                <constraint firstItem="eif-t3-1Wy" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="LhC-S8-CCk"/>
                 <constraint firstItem="eif-t3-1Wy" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="SNs-w8-27E"/>
-                <constraint firstItem="eif-t3-1Wy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uab-wQ-y3e"/>
             </constraints>
             <point key="canvasLocation" x="127.5" y="83.450704225352112"/>
         </view>
