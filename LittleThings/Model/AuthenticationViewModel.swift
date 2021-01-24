@@ -86,7 +86,7 @@ struct SwapTaskViewModel: SwapAuthenticationViewModel {
 
     var formIsValid: Bool{ return texts?.isEmpty == false
         && texts?.meetsCharCount(of: Constants.textCharacterCount) == true
-        && texts?.trimmingCharacters(in: .whitespaces) != ""
+        && texts?.trimmingCharacters(in: .whitespacesAndNewlines) != ""
     }
     
     var shouldEnableButton: Bool { return formIsValid }

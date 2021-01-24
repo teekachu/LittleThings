@@ -37,7 +37,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="L1J-02-u8V"/>
                                     </constraints>
-                                    <color key="tintColor" name="normalBW"/>
+                                    <color key="tintColor" name="segment background"/>
                                     <state key="normal">
                                         <imageReference key="image" image="questionmark.square" catalog="system" symbolScale="large"/>
                                     </state>
@@ -57,7 +57,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="cus-1R-TYk"/>
                                     </constraints>
-                                    <color key="tintColor" name="normalBW"/>
+                                    <color key="tintColor" name="segment background"/>
                                     <state key="normal">
                                         <imageReference key="image" image="line.horizontal.3" catalog="system" symbolScale="medium"/>
                                     </state>
@@ -71,16 +71,16 @@
                             <rect key="frame" x="0.0" y="40" width="388" height="61"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
-                                    <rect key="frame" x="0.0" y="0.0" width="228" height="61"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="267" height="61"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 7, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-26-mIc">
-                                            <rect key="frame" x="0.0" y="0.0" width="228" height="23.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="267" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Oblique" family="Avenir" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1D-dJ-fSN" userLabel="greetingsButton">
-                                            <rect key="frame" x="0.0" y="25" width="228" height="36"/>
+                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1D-dJ-fSN" userLabel="greetingsButton">
+                                            <rect key="frame" x="0.0" y="25" width="267" height="36"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <connections>
                                                 <action selector="nameLabelTapped:" destination="-1" eventType="touchUpInside" id="xdB-xD-BPg"/>
@@ -88,12 +88,11 @@
                                         </button>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egf-kv-99J">
-                                    <rect key="frame" x="288" y="0.0" width="100" height="61"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egf-kv-99J" userLabel="addTaskButton">
+                                    <rect key="frame" x="327" y="0.0" width="61" height="61"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="k1w-FK-2Q3"/>
+                                        <constraint firstAttribute="width" secondItem="Egf-kv-99J" secondAttribute="height" multiplier="1:1" id="2fJ-zs-UIJ"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
                                 </button>
                             </subviews>
                         </stackView>
@@ -133,8 +132,8 @@
     <resources>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
-        <namedColor name="normalBW">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="segment background">
+            <color red="0.99215686274509807" green="0.72549019607843135" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="whiteish mediumblack">
             <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

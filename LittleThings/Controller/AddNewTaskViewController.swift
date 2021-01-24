@@ -176,7 +176,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
             self.saveButton.isEnabled =
                 text?.isEmpty == false &&
                 text?.meetsCharCount(of: Constants.textCharacterCount) == true &&
-                text?.trimmingCharacters(in: .whitespaces) != ""
+                text?.trimmingCharacters(in: .whitespacesAndNewlines) != ""
         }.store(in: &subscribers)
         
         /// monitor character count

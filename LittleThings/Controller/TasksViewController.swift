@@ -186,13 +186,12 @@ class TasksViewController: UIViewController, Animatable {
         quotesLabel.text = "One little thing at a time!"
         quotesLabel.layer.cornerRadius = 5
         quotesLabel.numberOfLines = 0
-        quotesLabel.textColor = Constants.navBarQuoteTextColor
+        quotesLabel.textColor = Constants.normalBlackWhite
         
-        actionButton.backgroundColor = Constants.addTaskButton
-        actionButton.tintColor = Constants.whiteOffblack
-        actionButton.setTitle("+ Add Task", for: .normal)
-        actionButton.titleLabel?.font = UIFont(name: Constants.fontMedium, size: 16)
-        actionButton.layer.cornerRadius = 12
+        actionButton.backgroundColor = Constants.orangeFDB903
+        actionButton.tintColor = .black
+        actionButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        actionButton.layer.cornerRadius = 20
         actionButton.layer.borderWidth = 1
         actionButton.layer.borderColor = Constants.lightGrayCDCDCD.cgColor
         actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)

@@ -129,7 +129,7 @@ class CustomTVViewController: UIViewController {
             self.yesButton.isEnabled =
                 text?.isEmpty == false &&
                 text?.meetsCharCount(of: Constants.textCharacterCount) == true &&
-                text?.trimmingCharacters(in: .whitespaces) != ""
+                text?.trimmingCharacters(in: .whitespacesAndNewlines) != ""
         }.store(in: &subscribers)
         
         $newTaskString.sink {[weak self] (text) in
