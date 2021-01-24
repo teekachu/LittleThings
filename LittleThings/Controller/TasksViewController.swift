@@ -7,7 +7,6 @@
 
 import UIKit
 import Loaf
-import SideMenu
 
 protocol TasksViewControllerDelegate: class {
     func showOptions(for task: Task)
@@ -34,18 +33,16 @@ class TasksViewController: UIViewController, Animatable {
     }
     private var user: User? {
         didSet{
-            showWelcomeLabel(for: user!.fullname)
+            showUserName(for: user!.fullname)
             addTaskObserver()
         }
     }
-    private var sidemenu: SideMenuNavigationController!
-    
     
     
     //  MARK: - IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var greetingsLabel: UILabel!
+    @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var quotesLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
@@ -57,8 +54,14 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     @IBAction func ShowMenuTapped(_ sender: Any) {
-        present(sidemenu, animated: true)
+        let menuVC = SettingsViewController(delegate: self)
+        present(menuVC, animated: true)
     }
+    @IBAction func nameLabelTapped(_ sender: Any) {
+        handleNameChange()
+        print("CHANGE NAME PLS")
+    }
+    
     
     
     //  MARK: - Lifecycle
@@ -79,15 +82,12 @@ class TasksViewController: UIViewController, Animatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let sideMenuController = SideMenuTableViewController(delegate: self)
-        sidemenu = SideMenuNavigationController(rootViewController: sideMenuController)
         authenticateUser()
         configureTableView()
         configureDataSource()
         addTaskObserver()
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
-        configureSideMenu()
     }
     
     //  MARK: - Selectors
@@ -170,11 +170,11 @@ class TasksViewController: UIViewController, Animatable {
         dateLabel.text = Date().convertToString()
         dateLabel.textColor = Constants.smallTextNavBarColor
         
-        /// TODO: Update label text
-        greetingsLabel.alpha = 0
-        greetingsLabel.text = " "
-        greetingsLabel.textColor = Constants.smallTextNavBarColor
-        greetingsLabel.font = UIFont(name: Constants.fontBoldItalic, size: 19)
+        nameButton.alpha = 0
+        nameButton.backgroundColor = .clear
+        nameButton.setTitle(" ", for: .normal)
+        nameButton.setTitleColor(Constants.smallTextNavBarColor, for: .normal)
+        nameButton.titleLabel?.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
         /// TODO: Update quotes text
         quotesLabel.text = "Little things make big days!"
@@ -190,14 +190,6 @@ class TasksViewController: UIViewController, Animatable {
         actionButton.layer.borderWidth = 1
         actionButton.layer.borderColor = Constants.lightGrayCDCDCD.cgColor
         actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)
-    }
-    
-    private func configureSideMenu(){
-        let sideMenuController = SideMenuTableViewController(delegate: self)
-        sidemenu = SideMenuNavigationController(rootViewController: sideMenuController)
-        sidemenu.leftSide = true
-        SideMenuManager.default.leftMenuNavigationController = sidemenu
-        SideMenuManager.default.addPanGestureToPresent(toView: view)
     }
     
     
@@ -221,12 +213,12 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     
-    private func showWelcomeLabel(for name: String){
-        greetingsLabel.text = "Hello \(name)"
-        greetingsLabel.numberOfLines = 1
-        greetingsLabel.textAlignment = .left
+    private func showUserName(for name: String){
+        nameButton.setTitle("Hello \(name)", for: .normal)
+        nameButton.titleLabel?.numberOfLines = 1
+        nameButton.titleLabel?.textAlignment = .left
         UIView.animate(withDuration: 0.9) {[weak self] in
-            self?.greetingsLabel.alpha = 1
+            self?.nameButton.alpha = 1
         }
     }
     
@@ -253,6 +245,33 @@ class TasksViewController: UIViewController, Animatable {
         let controller = SwapTaskViewController(for: oldTask, with: newText)
         controller.delegate = self
         present(a: controller)
+    }
+    
+    private func handleNameChange(){
+        let controller = UIAlertController.showAlertWithTextfield {[weak self] (newName, didTap) in
+            guard newName.count < 20 &&
+                    newName.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {return}
+            if didTap{
+                
+                self?.authManager.updateUserName(with: newName) { (err) in
+                    if err != nil {
+                        self?.showToast(state: .error, message: err?.localizedDescription ?? "Uh oh, something went wrong")
+                        return
+                    }
+                    /// Refresh the name label in main page to show new name
+                    self?.showUserName(for: newName)
+                }
+            } else {
+                self?.dismiss(animated: true)
+            }
+        }
+        
+        ///Prefill with old name
+        if let oldName = user?.fullname{
+            controller.textFields?[0].text = oldName
+        }
+        
+        present(controller, animated: true)
     }
     
     
@@ -418,14 +437,15 @@ extension TasksViewController: SwapTaskVCDelegate {
 }
 
 
-//MARK: - SideMenuDelegate
-extension TasksViewController: SideMenuDelegate {
-    
-    func sidemenu(didSelect option: MenuOption) {
-        switch option {
-        //        case .supportDevelopment:
-        //            print("support devs")
+//MARK: - SettingsMenuDelegate
+extension TasksViewController: SettingsMenuDelegate {
+    func settingsMenu(didSelect option: SettingsOption) {
+        switch option{
         
+        case .whatIs135:
+            let infoController = AppInfoViewController()
+            present(a: infoController)
+            
         case .shareWithFriends:
             let items = [URL(string: "https://testflight.apple.com/join/FwtK8Ylo")!]
             let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
@@ -438,12 +458,7 @@ extension TasksViewController: SideMenuDelegate {
                                       options: [:],
                                       completionHandler: nil)
             
-        case .whatIs135:
-            let infoController = AppInfoViewController()
-            present(a: infoController)
-            
         case .reportBug:
-            /// Can probably get rid of this
             let emailAddress = "mailto:teeksbuildapps@outlook.com"
             guard let emailURL = URL(string: emailAddress) else { return }
             UIApplication.shared.open(emailURL,
@@ -452,6 +467,14 @@ extension TasksViewController: SideMenuDelegate {
             
         case .about:
             showAboutUsScreen()
+            
+        case .privacyPolicy:
+            guard let privacyURL = URL(string: "https://littlethings-1-3-5.flycricket.io/privacy.html") else {return}
+            UIApplication.shared.open(privacyURL, options: [:], completionHandler: nil)
+            
+        case .termsCondition:
+            guard let termsURL = URL(string: "https://littlethings-1-3-5.flycricket.io/terms.html") else {return}
+            UIApplication.shared.open(termsURL, options: [:], completionHandler: nil)
             
         case .clearDone:
             let controller = UIAlertController.clearDoneTasks {[weak self] (didSelect) in
@@ -470,51 +493,6 @@ extension TasksViewController: SideMenuDelegate {
             authManager.signUserOut()
             presentMainAuthVC()
             
-        case .settings:
-            let infoController = SettingsViewController(delegate: self)
-            present(a: infoController)
-        }
-    }
-}
-
-
-//MARK: - SettingsMenuDelegate
-extension TasksViewController: SettingsMenuDelegate {
-    func settingsMenu(didSelect option: SettingsOption) {
-        switch option{
-        
-        case .changeName:
-            
-            let controller = UIAlertController.showAlertWithTextfield {[weak self] (newName, didTap) in
-                if didTap{
-                    
-                    self?.authManager.updateUserName(with: newName) { (err) in
-                        if err != nil {
-                            self?.showToast(state: .error, message: err?.localizedDescription ?? "Uh oh, something went wrong")
-                            return
-                        }
-                        /// Refresh the name label in main page to show new name
-                        self?.showWelcomeLabel(for: newName)
-                    }
-                    
-                } else {
-                    self?.dismiss(animated: true)
-                }
-            }
-            
-            ///Prefill with old name
-            if let oldName = user?.fullname{
-                controller.textFields?[0].text = oldName
-            }
-            
-            present(controller, animated: true)
-            
-            
-        //        case .Language:
-        //            print("change language to chinese")
-        
-//        case.exit:
-//            dismiss(animated: true)
         }
     }
 }

@@ -123,7 +123,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         TaskPickerView.delegate = self
         TaskPickerView.dataSource = self
         TaskPickerView.backgroundColor = .clear
-        TaskPickerView.layer.borderWidth = 1
+        TaskPickerView.layer.borderWidth = 0.5
         TaskPickerView.layer.borderColor = Constants.blackYellow?.cgColor
         TaskPickerView.layer.cornerRadius = 20
         

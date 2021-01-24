@@ -107,7 +107,7 @@ class SignUpViewController: UIViewController, Animatable {
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
-        emailTextfield.becomeFirstResponder()
+//        emailTextfield.becomeFirstResponder()
         
         passwordTextfield.isSecureTextEntry = true
         passwordTextfield.delegate = self
