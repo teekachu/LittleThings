@@ -73,6 +73,19 @@
 		FE7524478A3335F2EBD8C86C6B410DF5 /* AuthMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765352E411B7D2AFA207F3298B21210A /* AuthMainViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A77BDD9325BF509200F95C84 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		00CC8718C77E2CF75339ABEF7CBF0916 /* AuthMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMainViewController.swift; sourceTree = "<group>"; };
 		02B38534A891BD09070C5CD811ABE016 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +136,8 @@
 		9AE02761824380CB6A696EBC30F7B41C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		9B811F4563436AAF561A36DCAD6DB90C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
+		A77BDD8325BF509100F95C84 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A77BDD8525BF509100F95C84 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A77CE26C25BE50D400E5AA9D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				29BF5690C72857759689B64203819FE0 /* Pods_LittleThings.framework */,
+				A77BDD8325BF509100F95C84 /* WidgetKit.framework */,
+				A77BDD8525BF509100F95C84 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -354,6 +371,7 @@
 				04853F150D7E110D9EDF7F8D4AEAC6C4 /* [CP] Copy Pods Resources */,
 				3D62AD6F79DDE27154780F9B0D45C7FA /* Crashlytics */,
 				923749A4D7581C8A5EED541228D01C91 /* Build Number Updater */,
+				A77BDD9325BF509200F95C84 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -370,7 +388,7 @@
 		BD6202015924DD9F9CD817F5FDEBB306 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					0CB6250624B65253C460AE33AA567B46 = {
