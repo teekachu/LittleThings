@@ -39,13 +39,15 @@ class TasksViewController: UIViewController, Animatable {
             addTaskObserver()
         }
     }
+    private var allQuotes = [Quote]()
     
     
     //  MARK: - IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
-    @IBOutlet weak var quotesLabel: UILabel!
+//    @IBOutlet weak var quotesLabel: UILabel!
+    @IBOutlet weak var motivationButton: UIButton!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
@@ -88,6 +90,7 @@ class TasksViewController: UIViewController, Animatable {
         addTaskObserver()
         configureUI()
         segment.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
+        makeNetworkCallToParseQuotesInJson()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -190,11 +193,10 @@ class TasksViewController: UIViewController, Animatable {
         nameButton.setTitleColor(Constants.smallTextNavBarColor, for: .normal)
         nameButton.titleLabel?.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
-        /// TODO: Update quotes text
-        quotesLabel.text = "One little thing at a time!"
-        quotesLabel.layer.cornerRadius = 5
-        quotesLabel.numberOfLines = 0
-        quotesLabel.textColor = Constants.normalBlackWhite
+        motivationButton.setHeight(height: 0)
+//        quotesLabel.layer.cornerRadius = 5
+//        quotesLabel.numberOfLines = 0
+//        quotesLabel.textColor = Constants.normalBlackWhite
         
         actionButton.backgroundColor = Constants.orangeFDB903
         actionButton.tintColor = .black
@@ -297,6 +299,28 @@ class TasksViewController: UIViewController, Animatable {
             }
         }
         present(controller, animated: true)
+    }
+    
+    //  MARK: - JSON Parsing
+    private func makeNetworkCallToParseQuotesInJson(){
+        let urlString = "https://gist.githubusercontent.com/teekachu/17d8ffa168ef32f3138aef671050f60d/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json"
+        
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url) {
+                parse(json: data)
+            }
+        }
+    }
+    
+    private func parse(json: Data) {
+        let decoder = JSONDecoder()
+        
+        if let jsonQuotes = try? decoder.decode(Quotes.self, from: json) {
+            allQuotes = jsonQuotes.quotes
+//            if let chosenQuote = allQuotes.randomElement() {
+//                quotesLabel.text = "\(chosenQuote.quote) - \(chosenQuote.author)"
+//            }
+        }
     }
     
     

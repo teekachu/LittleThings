@@ -13,9 +13,9 @@
             <connections>
                 <outlet property="actionButton" destination="Egf-kv-99J" id="MY5-a3-bh4"/>
                 <outlet property="dateLabel" destination="Yhg-26-mIc" id="nQV-w6-xMI"/>
+                <outlet property="motivationButton" destination="HNO-nv-dtD" id="oJt-Hq-BJp"/>
                 <outlet property="nameButton" destination="q1D-dJ-fSN" id="FWE-zR-5tu"/>
                 <outlet property="outerStackView" destination="sg6-x2-QtB" id="OsH-rd-u3y"/>
-                <outlet property="quotesLabel" destination="lj8-ye-oT6" id="XnZ-uu-s0q"/>
                 <outlet property="segment" destination="dCR-1O-suk" id="wXb-bR-6Dg"/>
                 <outlet property="tableView" destination="SJy-xr-O7i" id="nJS-FD-5Da"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sg6-x2-QtB">
-                    <rect key="frame" x="13" y="49" width="388" height="190.5"/>
+                    <rect key="frame" x="13" y="49" width="388" height="191.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-J7-EPp">
                             <rect key="frame" x="0.0" y="0.0" width="388" height="25"/>
@@ -68,7 +68,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rk4-zx-URj">
-                            <rect key="frame" x="0.0" y="40" width="388" height="104.5"/>
+                            <rect key="frame" x="0.0" y="40" width="388" height="105.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 7, 1992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-26-mIc">
                                     <rect key="frame" x="0.0" y="0.0" width="388" height="23.5"/>
@@ -83,16 +83,13 @@
                                         <action selector="nameLabelTapped:" destination="-1" eventType="touchUpInside" id="xdB-xD-BPg"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quote goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ye-oT6">
-                                    <rect key="frame" x="0.0" y="75.5" width="388" height="29"/>
-                                    <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="21"/>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNO-nv-dtD" userLabel="motivation">
+                                    <rect key="frame" x="0.0" y="75.5" width="388" height="30"/>
+                                </button>
                             </subviews>
                         </stackView>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-1O-suk">
-                            <rect key="frame" x="0.0" y="159.5" width="388" height="32"/>
+                            <rect key="frame" x="0.0" y="160.5" width="388" height="32"/>
                             <segments>
                                 <segment title="Ongoing"/>
                                 <segment title="Done"/>
@@ -123,7 +120,7 @@
                     </constraints>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-xr-O7i">
-                    <rect key="frame" x="0.0" y="244.5" width="414" height="572.5"/>
+                    <rect key="frame" x="0.0" y="245.5" width="414" height="571.5"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
