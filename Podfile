@@ -34,8 +34,6 @@ target 'LittleThings' do
     # Lottie loading animation
     pod 'lottie-ios'
     
-    # Side Menu
-    pod 'SideMenu'
     
 
 end
