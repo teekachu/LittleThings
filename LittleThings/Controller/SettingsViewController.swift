@@ -11,10 +11,15 @@ protocol SettingsMenuDelegate {
     func settingsMenu(didSelect option: SettingsOption)
 }
 
+protocol MotivationSwitchDelegate {
+    func needMotivation(_ option: Bool)
+}
+
 class SettingsViewController: UIViewController {
     
     //  MARK: - Properties
     var delegate: SettingsMenuDelegate?
+    var delegate2: MotivationSwitchDelegate?
     private let cellIdentifier = "settingsTableViewCell"
     
     
@@ -23,11 +28,16 @@ class SettingsViewController: UIViewController {
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+    @IBOutlet weak var motivationSwitch: UISwitch!
+    @IBAction func switchTapped(_ sender: Any) {
+        if motivationSwitch.isOn {
+            delegate2?.needMotivation(true)
+        } else {
+            delegate2?.needMotivation(false)
+        }
+    }
     
     //  MARK: - Lifecycle
-    //    private var tableview: UITableView!
-    
     init(delegate: SettingsMenuDelegate) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)

@@ -40,14 +40,13 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     private var allQuotes = [Quote]()
-    
+    private var needMotivation: Bool = false
     
     //  MARK: - IB Properties
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
-//    @IBOutlet weak var quotesLabel: UILabel!
-    @IBOutlet weak var motivationButton: UIButton!
+    @IBOutlet weak var quotesLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
@@ -59,6 +58,7 @@ class TasksViewController: UIViewController, Animatable {
     
     @IBAction func ShowMenuTapped(_ sender: Any) {
         let menuVC = SettingsViewController(delegate: self)
+        menuVC.delegate2 = self
         present(menuVC, animated: true)
     }
     @IBAction func nameLabelTapped(_ sender: Any) {
@@ -193,10 +193,12 @@ class TasksViewController: UIViewController, Animatable {
         nameButton.setTitleColor(Constants.smallTextNavBarColor, for: .normal)
         nameButton.titleLabel?.font = UIFont(name: Constants.fontBoldItalic, size: 19)
         
-        motivationButton.setHeight(height: 0)
-//        quotesLabel.layer.cornerRadius = 5
-//        quotesLabel.numberOfLines = 0
-//        quotesLabel.textColor = Constants.normalBlackWhite
+        if !needMotivation {
+            quotesLabel.text = ""
+            quotesLabel.isHidden = true
+        }
+        quotesLabel.numberOfLines = 0
+        quotesLabel.textColor = Constants.normalBlackWhite
         
         actionButton.backgroundColor = Constants.orangeFDB903
         actionButton.tintColor = .black
@@ -307,7 +309,9 @@ class TasksViewController: UIViewController, Animatable {
         
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
-                parse(json: data)
+                DispatchQueue.global(qos: .userInteractive).async {[weak self] in
+                    self?.parse(json: data)
+                }
             }
         }
     }
@@ -317,9 +321,6 @@ class TasksViewController: UIViewController, Animatable {
         
         if let jsonQuotes = try? decoder.decode(Quotes.self, from: json) {
             allQuotes = jsonQuotes.quotes
-//            if let chosenQuote = allQuotes.randomElement() {
-//                quotesLabel.text = "\(chosenQuote.quote) - \(chosenQuote.author)"
-//            }
         }
     }
     
@@ -383,6 +384,30 @@ extension TasksViewController: UITableViewDelegate {
         if let selected = dataSource.itemIdentifier(for: indexPath){
             if selected.isDone == true {return}
             showOptions(for: selected)
+        }
+    }
+}
+
+
+// //  MARK: - MotivationSwitchDelegate
+extension TasksViewController: MotivationSwitchDelegate{
+    func needMotivation(_ option: Bool) {
+        needMotivation = option
+        
+        if !allQuotes.isEmpty && needMotivation{
+            if let chosenQuote = allQuotes.randomElement() {
+                quotesLabel.isHidden = false
+                quotesLabel.text = "\(chosenQuote.quote) - \(chosenQuote.author)"
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {[weak self] in
+            self?.needMotivation = false
+            UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut) {
+                self?.quotesLabel.isHidden = true
+            } completion: { (_) in
+                self?.quotesLabel.text = ""
+            }
         }
     }
 }
