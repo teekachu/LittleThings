@@ -21,7 +21,9 @@ class TasksViewController: UIViewController, Animatable {
     private let databaseManager: DatabaseManager
     private var dataSource: DataSource!
     private var isDoneActive: Bool = false {
-        didSet { tasks = tasks + [] }
+        didSet {
+            tasks = tasks + []
+        }
     }
     private var tasks: [Task] = [] {
         didSet {
@@ -62,7 +64,6 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     
-    
     //  MARK: - Lifecycle
     init(authManager: AuthManager,
          taskManager: TaskManager,
@@ -96,14 +97,20 @@ class TasksViewController: UIViewController, Animatable {
     //  MARK: - Selectors
     @objc func segmentedControl(_ sender: UISegmentedControl) {
         isDoneActive = sender.selectedSegmentIndex != 0
+        isDoneActive ? actionButton.setImage(UIImage(systemName: "trash"), for: .normal)
+            : actionButton.setImage(UIImage(systemName: "plus"), for: .normal)
     }
     
     @objc func didPressAddTaskButton() {
-        guard let userID = authManager.userID else { return }
-        let controller = AddNewTaskViewController(taskManager: taskManager, task: .basic(for: userID))
-        controller.delegate = self
-        controller.delegate2 = self
-        present(a: controller)
+        if isDoneActive {
+            clearAllDoneTasks()
+        } else {
+            guard let userID = authManager.userID else { return }
+            let controller = AddNewTaskViewController(taskManager: taskManager, task: .basic(for: userID))
+            controller.delegate = self
+            controller.delegate2 = self
+            present(a: controller)
+        }
     }
     
     
@@ -191,7 +198,7 @@ class TasksViewController: UIViewController, Animatable {
         
         actionButton.backgroundColor = Constants.orangeFDB903
         actionButton.tintColor = .black
-        actionButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        actionButton.setImage(UIImage(systemName: isDoneActive ? "trash" : "plus"), for: .normal)
         actionButton.layer.cornerRadius = 20
         actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)
     }
@@ -201,6 +208,7 @@ class TasksViewController: UIViewController, Animatable {
     private func editTask(for task: Task){
         let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
         controller.delegate = self
+        controller.delegate2 = self
         present(a: controller)
     }
     
@@ -275,6 +283,19 @@ class TasksViewController: UIViewController, Animatable {
             controller.textFields?[0].text = oldName
         }
         
+        present(controller, animated: true)
+    }
+    
+    private func clearAllDoneTasks(){
+        let controller = UIAlertController.clearDoneTasks {[weak self] (didSelect) in
+            if didSelect{
+                if let filtered = self?.tasks.filter({ $0.isDone}) {
+                    self?.taskManager.deleteAll(tasks: filtered)
+                }
+            } else {
+                self?.dismiss(animated: true)
+            }
+        }
         present(controller, animated: true)
     }
     
@@ -469,13 +490,6 @@ extension TasksViewController: SettingsMenuDelegate {
                                       options: [:],
                                       completionHandler: nil)
             
-        case .reportBug:
-            let emailAddress = "mailto:teeksbuildapps@outlook.com"
-            guard let emailURL = URL(string: emailAddress) else { return }
-            UIApplication.shared.open(emailURL,
-                                      options: [:],
-                                      completionHandler: nil)
-            
         case .about:
             showAboutUsScreen()
             
@@ -486,18 +500,6 @@ extension TasksViewController: SettingsMenuDelegate {
         case .termsCondition:
             guard let termsURL = URL(string: "https://littlethings-1-3-5.flycricket.io/terms.html") else {return}
             UIApplication.shared.open(termsURL, options: [:], completionHandler: nil)
-            
-        case .clearDone:
-            let controller = UIAlertController.clearDoneTasks {[weak self] (didSelect) in
-                if didSelect{
-                    if let filtered = self?.tasks.filter({ $0.isDone}) {
-                        self?.taskManager.deleteAll(tasks: filtered)
-                    }
-                } else {
-                    self?.dismiss(animated: true)
-                }
-            }
-            present(controller, animated: true)
             
         case .logOut:
             taskManager.emptyTasksBeforeLogOut()

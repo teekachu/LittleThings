@@ -101,7 +101,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njo-QU-IG1">
-                    <rect key="frame" x="15" y="818" width="384" height="44"/>
+                    <rect key="frame" x="15" y="817" width="384" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSh-TG-nQW">
                             <rect key="frame" x="0.0" y="0.0" width="340" height="44"/>
@@ -123,7 +123,7 @@
                     </constraints>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-xr-O7i">
-                    <rect key="frame" x="0.0" y="244.5" width="414" height="573.5"/>
+                    <rect key="frame" x="0.0" y="244.5" width="414" height="572.5"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -131,7 +131,7 @@
             <constraints>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="GFs-2v-C9n"/>
                 <constraint firstItem="sg6-x2-QtB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="Gef-cA-JZD"/>
-                <constraint firstItem="Njo-QU-IG1" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="HLt-zm-YHA"/>
+                <constraint firstItem="Njo-QU-IG1" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-1" id="HLt-zm-YHA"/>
                 <constraint firstItem="Njo-QU-IG1" firstAttribute="top" secondItem="SJy-xr-O7i" secondAttribute="bottom" id="XfH-co-K4c"/>
                 <constraint firstItem="Njo-QU-IG1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="ZEP-7d-W9z"/>
                 <constraint firstItem="SJy-xr-O7i" firstAttribute="top" secondItem="sg6-x2-QtB" secondAttribute="bottom" constant="5" id="dEg-GE-gPf"/>

@@ -12,7 +12,6 @@
 		06438354AD1632DD93B979C4FA5E0714 /* CustomTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1A02CA2B71FAA684F53F969FD874B8 /* CustomTVViewController.swift */; };
 		07CDD0BDC9AC1362F272BFC01A6DA4FF /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE71CD6CF0D297B725764EF76004A5 /* TaskManager.swift */; };
 		0B3B2D57925663DD327085C4CCEEA2B8 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A2EECE2F14C42184775CED9D57369A /* CustomAlertViewController.swift */; };
-		0E0A9AF8B388137986803A34F949C45F /* SidemenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7660D8654E5024AD78E96FD9CF050C9F /* SidemenuTableViewCell.swift */; };
 		0ED6BD742A61911FC7782840568437F9 /* OngoingTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */; };
 		114D30360119DA71E0D2668854970EC7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66860FB63222CE2A86C2572CD6185B20 /* AuthenticationViewModel.swift */; };
 		19168105B821E5C4952F07F231082AB7 /* CustomTVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1113E3A4F25FBC3BF935B05FBC05A432 /* CustomTVViewController.xib */; };
@@ -109,7 +108,6 @@
 		6E205FA68F3F446192E23918F81B1512 /* UpdatesTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesTracker.swift; sourceTree = "<group>"; };
 		6ECEC72E9BAD3451F30602E1D6370ABD /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
 		765352E411B7D2AFA207F3298B21210A /* AuthMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthMainViewController.xib; sourceTree = "<group>"; };
-		7660D8654E5024AD78E96FD9CF050C9F /* SidemenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuTableViewCell.swift; sourceTree = "<group>"; };
 		773B8139F7C0D6E4C8C33DFEE9DF3185 /* LottieLoadingAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLoadingAnimationViewController.xib; sourceTree = "<group>"; };
 		7D75171CECDDF7B9A677703497A846D3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		7E19BA7E0E4AA10F9133B8BE0447254C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 				ED2EEAEF9BF1E5F08BC39FE53D9D9D78 /* DoneTaskTableViewCell.xib */,
 				4CAB7FA9A368C065029BE298C65D1699 /* OngoingTaskTableViewCell.swift */,
 				9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */,
-				7660D8654E5024AD78E96FD9CF050C9F /* SidemenuTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -561,7 +558,6 @@
 				781BA5FF512B33A8420555068EC1144A /* ResetPasswordViewController.swift in Sources */,
 				88C3E5106B1E744A44132FC5B8DD273D /* SettingsOption.swift in Sources */,
 				AC2431D3AEA617788F553CCF9E973CC6 /* SettingsViewController.swift in Sources */,
-				0E0A9AF8B388137986803A34F949C45F /* SidemenuTableViewCell.swift in Sources */,
 				D52A7384E82636A14D0A48DAD85D9F1E /* SignUpViewController.swift in Sources */,
 				4F9521B0496C5B0A05E9EDC720AD1B9F /* SwapTaskViewController.swift in Sources */,
 				E22A2A7A7A6EFF8BC8BE4E40B68EEC67 /* Task.swift in Sources */,

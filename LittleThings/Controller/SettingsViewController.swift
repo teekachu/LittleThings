@@ -52,6 +52,7 @@ class SettingsViewController: UIViewController {
         
         tableview.backgroundColor = .clear
         tableview.separatorColor = Constants.cellBorderColor //292a27
+        tableview.layer.cornerRadius = 15
     }
 }
 
@@ -62,10 +63,6 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
-    
-    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //        return "Settings"
-    //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingsOption.allCases.count
@@ -81,8 +78,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.font = UIFont(name: Constants.menuFont, size: 17)
         cell.backgroundColor = Constants.whiteOffblack?.withAlphaComponent(0.75)
 
-        cell.imageView?.tintColor = Constants.blackWhite?.withAlphaComponent(0.75)
-        cell.textLabel?.textColor = Constants.blackWhite?.withAlphaComponent(0.75)
+        cell.imageView?.tintColor = Constants.normalBlackWhite
+        cell.textLabel?.textColor = Constants.normalBlackWhite
         
         let colorview = UIView()
         colorview.backgroundColor = Constants.settingsCellSelected
@@ -92,7 +89,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
