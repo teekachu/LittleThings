@@ -98,7 +98,6 @@ class ResetPasswordViewController: UIViewController {
         emailTextfield.attributedPlaceholder = NSAttributedString (
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
-//        emailTextfield.becomeFirstResponder()
         
         resetButton.layer.cornerRadius = 15
         resetButton.tintColor = Constants.mediumBlack3f3f3f
