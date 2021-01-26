@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
     var delegate: SettingsMenuDelegate?
     var delegate2: MotivationSwitchDelegate?
     private let cellIdentifier = "settingsTableViewCell"
-    
+    let appIconManager = AppIconManager()
     
     // MARK: - IB Property
     @IBOutlet weak var tableview: UITableView!
@@ -44,17 +44,19 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    //  MARK: - ICONS
     @IBAction func defaultIconTapped(_ sender: Any) {
-        print("switch to default")
+        UIApplication.shared.setAlternateIconName(nil)
+//        appIconManager.changeAppIcon(to: .primaryAppIcon)
     }
     @IBAction func rainbowIconTaped(_ sender: Any) {
-        print("switch to rainbow icon")
+        appIconManager.changeAppIcon(to: .rainbowAppIcon)
     }
     @IBAction func IconThreeTapped(_ sender: Any) {
         print("switch to three")
     }
     @IBAction func CNYIconTapped(_ sender: Any) {
-        print("show cnyICON")
+        appIconManager.changeAppIcon(to: .CNYAppIcon)
     }
     @IBAction func IconFiveTapped(_ sender: Any) {
         print("switch to five")
@@ -98,8 +100,6 @@ class SettingsViewController: UIViewController {
             each?.backgroundColor = .orange
         }
     }
-    
-    //  MARK: - ICONS
     
 }
 
