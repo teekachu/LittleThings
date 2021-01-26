@@ -86,13 +86,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wWV-Q5-VcP">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-hY-dG2" userLabel="default">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-hY-dG2" userLabel="default">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="auy-cR-glf"/>
                                                                         <constraint firstAttribute="width" constant="60" id="m4e-sf-BsD"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="ONE"/>
+                                                                    <state key="normal" title="ONE" image="Launch"/>
                                                                     <connections>
                                                                         <action selector="defaultIconTapped:" destination="-1" eventType="touchUpInside" id="SUR-L1-Fd0"/>
                                                                     </connections>
@@ -212,6 +212,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Launch" width="120" height="120"/>
         <image name="cny.png" width="60" height="60"/>
         <image name="rainbow.png" width="60" height="60"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
