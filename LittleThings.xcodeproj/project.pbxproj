@@ -49,6 +49,12 @@
 		983D2FD424429AD16D0401CB27641BF3 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF34D6ABB8773A446D742B43F71057D6 /* TasksViewController.xib */; };
 		994D70FEE1336034041E83030DEBDC43 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575646B44C03FFCD1D03E3D1E38F2F8 /* TaskType.swift */; };
 		A3A216BFBFF0CF06CBDE8E97AD0C8007 /* AuthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC8718C77E2CF75339ABEF7CBF0916 /* AuthMainViewController.swift */; };
+		A77BDE9325BFD85F00F95C84 /* rainbow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9225BFD85F00F95C84 /* rainbow@3x.png */; };
+		A77BDE9725BFD88C00F95C84 /* rainbow@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9625BFD88C00F95C84 /* rainbow@1x.png */; };
+		A77BDE9A25BFD8A000F95C84 /* rainbow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9925BFD8A000F95C84 /* rainbow@2x.png */; };
+		A77BDEA125BFD90900F95C84 /* cny@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9E25BFD90900F95C84 /* cny@1x.png */; };
+		A77BDEA225BFD90900F95C84 /* cny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9F25BFD90900F95C84 /* cny@2x.png */; };
+		A77BDEA325BFD90900F95C84 /* cny@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDEA025BFD90900F95C84 /* cny@3x.png */; };
 		A77CE26D25BE50D400E5AA9D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77CE26C25BE50D400E5AA9D /* Quote.swift */; };
 		ABBACFEFC73833C2E81A412E5B73D855 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12C71947A07EC17B515292F25AF3EC8 /* AboutUSViewController.xib */; };
 		AC2431D3AEA617788F553CCF9E973CC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */; };
@@ -138,6 +144,12 @@
 		9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
 		A77BDD8325BF509100F95C84 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A77BDD8525BF509100F95C84 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A77BDE9225BFD85F00F95C84 /* rainbow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainbow@3x.png"; sourceTree = "<group>"; };
+		A77BDE9625BFD88C00F95C84 /* rainbow@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainbow@1x.png"; sourceTree = "<group>"; };
+		A77BDE9925BFD8A000F95C84 /* rainbow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainbow@2x.png"; sourceTree = "<group>"; };
+		A77BDE9E25BFD90900F95C84 /* cny@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@1x.png"; sourceTree = "<group>"; };
+		A77BDE9F25BFD90900F95C84 /* cny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@2x.png"; sourceTree = "<group>"; };
+		A77BDEA025BFD90900F95C84 /* cny@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@3x.png"; sourceTree = "<group>"; };
 		A77CE26C25BE50D400E5AA9D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +218,7 @@
 		280DCAF482B15011F1B48ED497F7C145 /* LittleThings */ = {
 			isa = PBXGroup;
 			children = (
+				A77BDE7B25BFBE2D00F95C84 /* Alt Icons */,
 				7FEED97707006BC49C87D693C6A10AC1 /* Controller */,
 				3A13FC95AC625DEA4EA39CD55142C2C4 /* Extensions */,
 				27493E9FCF73B539604F2ADD79EB0530 /* Manager */,
@@ -319,6 +332,35 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		A77BDE7B25BFBE2D00F95C84 /* Alt Icons */ = {
+			isa = PBXGroup;
+			children = (
+				A77BDE7C25BFBE4700F95C84 /* CNYIcon */,
+				A77BDE7D25BFBE5800F95C84 /* Rainbow */,
+			);
+			path = "Alt Icons";
+			sourceTree = "<group>";
+		};
+		A77BDE7C25BFBE4700F95C84 /* CNYIcon */ = {
+			isa = PBXGroup;
+			children = (
+				A77BDE9E25BFD90900F95C84 /* cny@1x.png */,
+				A77BDE9F25BFD90900F95C84 /* cny@2x.png */,
+				A77BDEA025BFD90900F95C84 /* cny@3x.png */,
+			);
+			path = CNYIcon;
+			sourceTree = "<group>";
+		};
+		A77BDE7D25BFBE5800F95C84 /* Rainbow */ = {
+			isa = PBXGroup;
+			children = (
+				A77BDE9625BFD88C00F95C84 /* rainbow@1x.png */,
+				A77BDE9925BFD8A000F95C84 /* rainbow@2x.png */,
+				A77BDE9225BFD85F00F95C84 /* rainbow@3x.png */,
+			);
+			path = Rainbow;
+			sourceTree = "<group>";
+		};
 		BF853BF68A4E6A9CFA65D0133A16C50D /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,17 +464,22 @@
 			files = (
 				ABBACFEFC73833C2E81A412E5B73D855 /* AboutUSViewController.xib in Resources */,
 				FE664C5054E6107E3CA9178E8107CE2C /* AddNewTaskViewController.xib in Resources */,
+				A77BDEA125BFD90900F95C84 /* cny@1x.png in Resources */,
 				33B4A436AACC56AF27DC53741E0D7F13 /* AppInfoViewController.xib in Resources */,
 				3F0399E693DD99F80AC34B754457FDC9 /* Assets.xcassets in Resources */,
 				FE7524478A3335F2EBD8C86C6B410DF5 /* AuthMainViewController.xib in Resources */,
 				CE1D3A7657A2E7B8F27E7637761C1F64 /* CustomAlertViewController.xib in Resources */,
 				19168105B821E5C4952F07F231082AB7 /* CustomTVViewController.xib in Resources */,
 				D1842E947C3B1413BD499D4B1D3A6F92 /* DoneTaskTableViewCell.xib in Resources */,
+				A77BDEA225BFD90900F95C84 /* cny@2x.png in Resources */,
 				37B0851EE0ACD2AD9192FCE12ACBC570 /* GoogleService-Info.plist in Resources */,
 				BCAF1A0247BD145923EE3798F1BD6DAA /* LaunchScreen.storyboard in Resources */,
+				A77BDE9325BFD85F00F95C84 /* rainbow@3x.png in Resources */,
 				05EAE5858835B067CCED2A21885EB0CB /* Localizable.strings in Resources */,
+				A77BDEA325BFD90900F95C84 /* cny@3x.png in Resources */,
 				753B952500C69277CE52FECFF6CC17E1 /* LoginViewController.xib in Resources */,
 				EBC4ACA5B958AF381E2B5F3C9D89BA0A /* LottieLoadingAnimationViewController.xib in Resources */,
+				A77BDE9725BFD88C00F95C84 /* rainbow@1x.png in Resources */,
 				5646FFA46A210192DF067F43B6021758 /* Main.storyboard in Resources */,
 				0ED6BD742A61911FC7782840568437F9 /* OngoingTaskTableViewCell.xib in Resources */,
 				5B76CBF98BFC54DEF905D1BB963C5250 /* Podfile in Resources */,
@@ -440,6 +487,7 @@
 				86CE91CF6E2F3D0777B3DC5E7401B255 /* SettingsViewController.xib in Resources */,
 				63FB93E25019C992D82159770CBB0B70 /* SignUpViewController.xib in Resources */,
 				EAF4DF69252369890B8A872867BF8E3A /* SwapTaskViewController.xib in Resources */,
+				A77BDE9A25BFD8A000F95C84 /* rainbow@2x.png in Resources */,
 				983D2FD424429AD16D0401CB27641BF3 /* TasksViewController.xib in Resources */,
 				8C93329E59EBA24D5D0F277D397F6171 /* notepad.json in Resources */,
 			);

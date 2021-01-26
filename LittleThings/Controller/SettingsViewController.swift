@@ -29,10 +29,11 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBOutlet weak var motivationSwitch: UISwitch!
-    @IBOutlet weak var IconOne: UIButton!
-    @IBOutlet weak var IconTwo: UIButton!
+    @IBOutlet weak var defaultIcon: UIButton!
+    @IBOutlet weak var rainbowIcon: UIButton!
     @IBOutlet weak var IconThree: UIButton!
-    @IBOutlet weak var IconFour: UIButton!
+    @IBOutlet weak var CNYIcon: UIButton!
+    
     @IBOutlet weak var IconFive: UIButton!
     
     @IBAction func switchTapped(_ sender: Any) {
@@ -42,17 +43,18 @@ class SettingsViewController: UIViewController {
             delegate2?.needMotivation(false)
         }
     }
-    @IBAction func IconOneTapped(_ sender: Any) {
-        print("switch to One")
+
+    @IBAction func defaultIconTapped(_ sender: Any) {
+        print("switch to default")
     }
-    @IBAction func IconTwoTapped(_ sender: Any) {
-        print("switch to two")
+    @IBAction func rainbowIconTaped(_ sender: Any) {
+        print("switch to rainbow icon")
     }
     @IBAction func IconThreeTapped(_ sender: Any) {
         print("switch to three")
     }
-    @IBAction func IconFourTapped(_ sender: Any) {
-        print("switch to four")
+    @IBAction func CNYIconTapped(_ sender: Any) {
+        print("show cnyICON")
     }
     @IBAction func IconFiveTapped(_ sender: Any) {
         print("switch to five")
@@ -89,9 +91,10 @@ class SettingsViewController: UIViewController {
     }
     
     private func configureIconButtons(){
-        let arr = [IconOne, IconTwo, IconThree, IconFour, IconFive]
+        let arr = [defaultIcon, rainbowIcon, IconThree, CNYIcon, IconFive]
         for each in arr{
-            each?.layer.cornerRadius = 5
+            each?.layer.cornerRadius = 12
+            each?.imageView?.layer.cornerRadius = 12
             each?.backgroundColor = .orange
         }
     }

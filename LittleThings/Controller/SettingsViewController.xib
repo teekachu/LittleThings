@@ -10,12 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
+                <outlet property="CNYIcon" destination="VgX-Mh-JcR" id="4Xe-uK-idz"/>
                 <outlet property="IconFive" destination="dNS-Qe-GBR" id="2bZ-O9-4Dt"/>
-                <outlet property="IconFour" destination="VgX-Mh-JcR" id="d3F-SI-IRE"/>
-                <outlet property="IconOne" destination="Wfi-hY-dG2" id="qgS-qO-QxW"/>
                 <outlet property="IconThree" destination="8Ig-bq-7Vc" id="Z8K-MM-nRf"/>
-                <outlet property="IconTwo" destination="s6h-wx-Ued" id="3BV-PR-WTA"/>
+                <outlet property="defaultIcon" destination="Wfi-hY-dG2" id="7Md-Xr-QWW"/>
                 <outlet property="motivationSwitch" destination="2EQ-5d-6ga" id="UJF-vc-Mga"/>
+                <outlet property="rainbowIcon" destination="s6h-wx-Ued" id="IkK-bi-AtH"/>
                 <outlet property="tableview" destination="W7F-VH-vhD" id="t8L-ee-2bo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -86,7 +86,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wWV-Q5-VcP">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-hY-dG2">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-hY-dG2" userLabel="default">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="auy-cR-glf"/>
@@ -94,7 +94,7 @@
                                                                     </constraints>
                                                                     <state key="normal" title="ONE"/>
                                                                     <connections>
-                                                                        <action selector="IconOneTapped:" destination="-1" eventType="touchUpInside" id="Zlm-0v-OVu"/>
+                                                                        <action selector="defaultIconTapped:" destination="-1" eventType="touchUpInside" id="SUR-L1-Fd0"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -102,15 +102,15 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Am8-Cw-Hso">
                                                             <rect key="frame" x="85" y="0.0" width="60" height="60"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6h-wx-Ued">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6h-wx-Ued" userLabel="rainbow">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="MoG-ig-Od4"/>
                                                                         <constraint firstAttribute="width" constant="60" id="xFZ-T3-Ofp"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="TWO"/>
+                                                                    <state key="normal" image="rainbow.png"/>
                                                                     <connections>
-                                                                        <action selector="IconTwoTapped:" destination="-1" eventType="touchUpInside" id="7Ug-Hv-7Nj"/>
+                                                                        <action selector="rainbowIconTaped:" destination="-1" eventType="touchUpInside" id="f0X-2Q-hq2"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -134,15 +134,15 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hnp-Mr-nv8">
                                                             <rect key="frame" x="255" y="0.0" width="60" height="60"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-Mh-JcR">
+                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-Mh-JcR" userLabel="cny">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="OUb-C3-lpA"/>
                                                                         <constraint firstAttribute="width" constant="60" id="lFR-zU-GhN"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="FOUR"/>
+                                                                    <state key="normal" image="cny.png"/>
                                                                     <connections>
-                                                                        <action selector="IconFourTapped:" destination="-1" eventType="touchUpInside" id="8AN-ft-h2X"/>
+                                                                        <action selector="CNYIconTapped:" destination="-1" eventType="touchUpInside" id="IzZ-Qc-bMc"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -212,6 +212,8 @@
         </view>
     </objects>
     <resources>
+        <image name="cny.png" width="60" height="60"/>
+        <image name="rainbow.png" width="60" height="60"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="OrangeTintFDB903">
             <color red="0.99199998378753662" green="0.72500002384185791" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
