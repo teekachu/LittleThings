@@ -72,7 +72,7 @@
                                             <color key="textColor" name="normalBW"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-vP-Tbf">
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-vP-Tbf">
                                             <rect key="frame" x="0.0" y="42.5" width="384" height="70"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-o0-drn">
@@ -152,7 +152,7 @@
                                                 <constraint firstItem="O6u-o0-drn" firstAttribute="top" secondItem="K6n-VF-MUb" secondAttribute="top" constant="5" id="BAV-01-sza"/>
                                                 <constraint firstItem="O6u-o0-drn" firstAttribute="leading" secondItem="XZj-vP-Tbf" secondAttribute="leading" constant="20" id="PWA-Ew-pQx"/>
                                                 <constraint firstAttribute="bottom" secondItem="O6u-o0-drn" secondAttribute="bottom" constant="5" id="pYW-j0-ifj"/>
-                                                <constraint firstAttribute="trailing" secondItem="O6u-o0-drn" secondAttribute="trailing" constant="-36" id="pZW-Dw-H1r"/>
+                                                <constraint firstAttribute="trailing" secondItem="O6u-o0-drn" secondAttribute="trailing" constant="50" id="pZW-Dw-H1r"/>
                                             </constraints>
                                             <viewLayoutGuide key="contentLayoutGuide" id="J0g-VO-gCh"/>
                                             <viewLayoutGuide key="frameLayoutGuide" id="K6n-VF-MUb"/>
