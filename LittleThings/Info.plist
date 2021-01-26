@@ -19,11 +19,38 @@
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
+			<key>blackCheckmarkAppIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>blackCheck</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>bwAppIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>bw</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
 			<key>rainbowAppIcon</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
 					<string>rainbow</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>rainbowHeartAppIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>rainbowHeart</string>
 				</array>
 				<key>UIPrerenderedIcon</key>
 				<false/>
@@ -63,7 +90,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>359</string>
+	<string>370</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

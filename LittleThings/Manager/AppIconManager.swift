@@ -13,9 +13,11 @@ class AppIconManager {
     
     // same naming convention in the plist to refernce to actual files
     enum AppIcon: String {
-//        case primaryAppIcon
         case CNYAppIcon
         case rainbowAppIcon
+        case bwAppIcon
+        case rainbowHeartAppIcon
+        case blackCheckmarkAppIcon
     }
     
     func changeAppIcon(to appIcon: AppIcon) {

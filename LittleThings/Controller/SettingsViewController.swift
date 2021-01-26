@@ -31,10 +31,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var motivationSwitch: UISwitch!
     @IBOutlet weak var defaultIcon: UIButton!
     @IBOutlet weak var rainbowIcon: UIButton!
-    @IBOutlet weak var IconThree: UIButton!
+    @IBOutlet weak var blackCheckmarkIcon: UIButton!
     @IBOutlet weak var CNYIcon: UIButton!
-    
-    @IBOutlet weak var IconFive: UIButton!
+    @IBOutlet weak var bwBallsIcon: UIButton!
+    @IBOutlet weak var rainbowHeart: UIButton!
     
     @IBAction func switchTapped(_ sender: Any) {
         if motivationSwitch.isOn {
@@ -47,20 +47,24 @@ class SettingsViewController: UIViewController {
     //  MARK: - ICONS
     @IBAction func defaultIconTapped(_ sender: Any) {
         UIApplication.shared.setAlternateIconName(nil)
-//        appIconManager.changeAppIcon(to: .primaryAppIcon)
     }
     @IBAction func rainbowIconTaped(_ sender: Any) {
         appIconManager.changeAppIcon(to: .rainbowAppIcon)
     }
-    @IBAction func IconThreeTapped(_ sender: Any) {
-        print("switch to three")
+    @IBAction func blackCheckmarkTapped(_ sender: Any) {
+        appIconManager.changeAppIcon(to: .blackCheckmarkAppIcon)
     }
     @IBAction func CNYIconTapped(_ sender: Any) {
         appIconManager.changeAppIcon(to: .CNYAppIcon)
     }
-    @IBAction func IconFiveTapped(_ sender: Any) {
-        print("switch to five")
+    @IBAction func bwBallsIconTapped(_ sender: Any) {
+        appIconManager.changeAppIcon(to: .bwAppIcon)
     }
+    @IBAction func rainbowHeartIconTapped(_ sender: Any) {
+        appIconManager.changeAppIcon(to: .rainbowHeartAppIcon)
+    }
+    
+    
    
     
     //  MARK: - Lifecycle
@@ -93,11 +97,10 @@ class SettingsViewController: UIViewController {
     }
     
     private func configureIconButtons(){
-        let arr = [defaultIcon, rainbowIcon, IconThree, CNYIcon, IconFive]
+        let arr = [defaultIcon, rainbowIcon, blackCheckmarkIcon, CNYIcon, bwBallsIcon, rainbowHeart]
         for each in arr{
             each?.layer.cornerRadius = 12
             each?.imageView?.layer.cornerRadius = 12
-            each?.backgroundColor = .orange
         }
     }
     

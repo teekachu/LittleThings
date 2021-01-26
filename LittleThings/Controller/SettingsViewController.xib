@@ -11,10 +11,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
                 <outlet property="CNYIcon" destination="VgX-Mh-JcR" id="4Xe-uK-idz"/>
-                <outlet property="IconFive" destination="dNS-Qe-GBR" id="2bZ-O9-4Dt"/>
-                <outlet property="IconThree" destination="8Ig-bq-7Vc" id="Z8K-MM-nRf"/>
+                <outlet property="blackCheckmarkIcon" destination="8Ig-bq-7Vc" id="Szo-7m-uwf"/>
+                <outlet property="bwBallsIcon" destination="dNS-Qe-GBR" id="vh3-lJ-Z4g"/>
                 <outlet property="defaultIcon" destination="Wfi-hY-dG2" id="7Md-Xr-QWW"/>
                 <outlet property="motivationSwitch" destination="2EQ-5d-6ga" id="UJF-vc-Mga"/>
+                <outlet property="rainbowHeart" destination="d7t-L5-25T" id="hUL-YS-iTp"/>
                 <outlet property="rainbowIcon" destination="s6h-wx-Ued" id="IkK-bi-AtH"/>
                 <outlet property="tableview" destination="W7F-VH-vhD" id="t8L-ee-2bo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -81,7 +82,7 @@
                                             <rect key="frame" x="0.0" y="42.5" width="384" height="70"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-o0-drn">
-                                                    <rect key="frame" x="20" y="5" width="400" height="60"/>
+                                                    <rect key="frame" x="20" y="5" width="485" height="60"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wWV-Q5-VcP">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -118,15 +119,15 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A6a-MC-PAk">
                                                             <rect key="frame" x="170" y="0.0" width="60" height="60"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ig-bq-7Vc">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ig-bq-7Vc" userLabel="blackCheckmark">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="Kyp-Ao-sW6"/>
                                                                         <constraint firstAttribute="width" constant="60" id="oBp-IU-hlu"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="THREE"/>
+                                                                    <state key="normal" image="blackCheck.png"/>
                                                                     <connections>
-                                                                        <action selector="IconThreeTapped:" destination="-1" eventType="touchUpInside" id="5j4-7Y-Dec"/>
+                                                                        <action selector="blackCheckmarkTapped:" destination="-1" eventType="touchUpInside" id="CyY-hh-tE8"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -150,15 +151,31 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-uT-fWc">
                                                             <rect key="frame" x="340" y="0.0" width="60" height="60"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-Qe-GBR">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-Qe-GBR" userLabel="BWballs">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="60" id="8Ip-Gd-uT2"/>
                                                                         <constraint firstAttribute="width" constant="60" id="axc-7C-MmV"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="FIVE"/>
+                                                                    <state key="normal" image="bw.png"/>
                                                                     <connections>
-                                                                        <action selector="IconFiveTapped:" destination="-1" eventType="touchUpInside" id="Wsk-aI-YEX"/>
+                                                                        <action selector="bwBallsIconTapped:" destination="-1" eventType="touchUpInside" id="Q9u-Bj-PfE"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mf1-nd-8Oj">
+                                                            <rect key="frame" x="425" y="0.0" width="60" height="60"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7t-L5-25T" userLabel="rainbowHeart">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="60" id="azq-Yl-zIe"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="ibf-AH-hFY"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="rainbowHeart.png"/>
+                                                                    <connections>
+                                                                        <action selector="rainbowHeartIconTapped:" destination="-1" eventType="touchUpInside" id="mjI-Lg-J1J"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -213,8 +230,11 @@
     </objects>
     <resources>
         <image name="LaunchScreen" width="120" height="120"/>
+        <image name="blackCheck.png" width="60" height="60"/>
+        <image name="bw.png" width="60" height="60"/>
         <image name="cny.png" width="60" height="60"/>
         <image name="rainbow.png" width="60" height="60"/>
+        <image name="rainbowHeart.png" width="60" height="60"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="OrangeTintFDB903">
             <color red="0.99199998378753662" green="0.72500002384185791" blue="0.012000000104308128" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
