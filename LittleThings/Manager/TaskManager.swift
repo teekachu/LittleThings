@@ -63,7 +63,7 @@ class TaskManager {
         databaseManager.addTask(task) { result in
             switch result{
             case .success:
-                onResult(.success, "New task added!")
+                onResult(.success, toastStrings.newTaskString.randomElement() ?? "New task added!")
                 
             case .failure(let error):
                 print("DEBUG: error in store(), \(error.localizedDescription)")
@@ -83,10 +83,9 @@ class TaskManager {
             case .success:
                 switch isDone{
                 case true:
-                    //                    break
-                    onResult(.success, "Good job on wrapping this up!")
+                    onResult(.success, toastStrings.doneString.randomElement() ?? "Good job on wrapping this up!")
                 case false:
-                    onResult(.success, "Still working on that? No problem!")
+                    onResult(.success, toastStrings.notDoneString.randomElement() ?? "Still working on that? No problem!")
                 }
             }
         }

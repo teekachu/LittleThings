@@ -50,6 +50,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var currentTaskCountLabel: UILabel!
+    @IBOutlet weak var eyesImageView: UIImageView!
     @IBAction func saveButtonTapped(_ sender: Any) {
         updateTask()
         
@@ -119,12 +120,12 @@ class AddNewTaskViewController: UIViewController, Animatable {
         addBlurEffectToView(for: .systemUltraThinMaterial)
         
         BottomContainerView.layer.cornerRadius = 35
-        BottomContainerView.layer.borderWidth = 1
-        BottomContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+        BottomContainerView.layer.borderWidth = 2
+        BottomContainerView.layer.borderColor = Constants.normalWhiteBlack?.cgColor
         BottomContainerView.backgroundColor = UIColor(named: "viewbackgroundWhitesmoke")
         
         textTextView.backgroundColor = .clear
-        textTextView.layer.borderWidth = 1
+        textTextView.layer.borderWidth = 3
         textTextView.layer.borderColor = Constants.orangeFDB903?.cgColor
         textTextView.layer.cornerRadius = 15
         textTextView.font = UIFont(name: Constants.fontMedium, size: 20)
@@ -157,6 +158,9 @@ class AddNewTaskViewController: UIViewController, Animatable {
         
         let title = isEditingTask ? "Update Task" : "Save Task"
         saveButton.setTitle(title, for: .normal)
+        
+        eyesImageView.image = UIImage(named: apperance.eyes.randomElement() ?? "eyes2")
+        eyesImageView.contentMode = .scaleAspectFit
     }
     
     private func setupGesture(){

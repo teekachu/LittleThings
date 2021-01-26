@@ -110,14 +110,37 @@ struct Constants {
 }
 
 
-//  MARK: - Toast messages
-//struct toastMessages {
-//    static let tooManyTasks = "Woah, thats more than your daily 1-3-5 goals. Why don't you try to empty your plates first. "
-//    
-//    static let cannotMarkCompleted = "Hmm, something is wrong. I can't seem to make this task completed. Please try again later"
-//    
-//    static let uhOhErr = "Uh Oh, something went wrong..."
-//}
+// MARK: - Finish task strings
+struct toastStrings {
+    static let newTaskString = [
+        "OMG food! Ugh I was getting a little hangry there.",
+        "You got anymore of them tasks? I'm still a little hungry.",
+        "Nom nom nom...",
+        "New task added!",
+    ]
+    
+    static let doneString = [
+        "Woop woop! One down, high five!",
+        "Look at you being all productive and stuff!",
+        "We got 99 problems and one more task ain't a thing.",
+        "Go get em' tiger.",
+        "Good job on wrapping this up!"
+    ]
+    
+    static let notDoneString = [
+        "There is no shame in changing your mind.",
+        "Dead task, RESURRECT!",
+        "Still working on that? No problem!"
+    ]
+}
+
+
+// MARK: - Finish task strings
+struct apperance {
+    static let eyes = [
+    "eyes1", "eyes2", "eyes3", "eyes4", "eyes5", "eyes6", "eyes7", "eyes8"
+    ]
+}
 
 
 //  MARK: - Helper functions
