@@ -78,6 +78,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         return SettingsOption.allCases.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let settingsOption = SettingsOption(rawValue: indexPath.row)
