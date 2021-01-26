@@ -29,6 +29,12 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBOutlet weak var motivationSwitch: UISwitch!
+    @IBOutlet weak var IconOne: UIButton!
+    @IBOutlet weak var IconTwo: UIButton!
+    @IBOutlet weak var IconThree: UIButton!
+    @IBOutlet weak var IconFour: UIButton!
+    @IBOutlet weak var IconFive: UIButton!
+    
     @IBAction func switchTapped(_ sender: Any) {
         if motivationSwitch.isOn {
             delegate2?.needMotivation(true)
@@ -36,6 +42,22 @@ class SettingsViewController: UIViewController {
             delegate2?.needMotivation(false)
         }
     }
+    @IBAction func IconOneTapped(_ sender: Any) {
+        print("switch to One")
+    }
+    @IBAction func IconTwoTapped(_ sender: Any) {
+        print("switch to two")
+    }
+    @IBAction func IconThreeTapped(_ sender: Any) {
+        print("switch to three")
+    }
+    @IBAction func IconFourTapped(_ sender: Any) {
+        print("switch to four")
+    }
+    @IBAction func IconFiveTapped(_ sender: Any) {
+        print("switch to five")
+    }
+   
     
     //  MARK: - Lifecycle
     init(delegate: SettingsMenuDelegate) {
@@ -50,6 +72,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addBlurEffectToView(for: .systemThickMaterial)
+        configureIconButtons()
         configureTableView()
     }
     
@@ -64,6 +87,17 @@ class SettingsViewController: UIViewController {
         tableview.separatorColor = Constants.cellBorderColor //292a27
         tableview.layer.cornerRadius = 15
     }
+    
+    private func configureIconButtons(){
+        let arr = [IconOne, IconTwo, IconThree, IconFour, IconFive]
+        for each in arr{
+            each?.layer.cornerRadius = 5
+            each?.backgroundColor = .orange
+        }
+    }
+    
+    //  MARK: - ICONS
+    
 }
 
 

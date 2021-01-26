@@ -10,6 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
+                <outlet property="IconFive" destination="dNS-Qe-GBR" id="2bZ-O9-4Dt"/>
+                <outlet property="IconFour" destination="VgX-Mh-JcR" id="d3F-SI-IRE"/>
+                <outlet property="IconOne" destination="Wfi-hY-dG2" id="qgS-qO-QxW"/>
+                <outlet property="IconThree" destination="8Ig-bq-7Vc" id="Z8K-MM-nRf"/>
+                <outlet property="IconTwo" destination="s6h-wx-Ued" id="3BV-PR-WTA"/>
                 <outlet property="motivationSwitch" destination="2EQ-5d-6ga" id="UJF-vc-Mga"/>
                 <outlet property="tableview" destination="W7F-VH-vhD" id="t8L-ee-2bo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -72,7 +77,7 @@
                                             <color key="textColor" name="normalBW"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-vP-Tbf">
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-vP-Tbf">
                                             <rect key="frame" x="0.0" y="42.5" width="384" height="70"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-o0-drn">
@@ -88,6 +93,9 @@
                                                                         <constraint firstAttribute="width" constant="60" id="m4e-sf-BsD"/>
                                                                     </constraints>
                                                                     <state key="normal" title="ONE"/>
+                                                                    <connections>
+                                                                        <action selector="IconOneTapped:" destination="-1" eventType="touchUpInside" id="Zlm-0v-OVu"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -101,6 +109,9 @@
                                                                         <constraint firstAttribute="width" constant="60" id="xFZ-T3-Ofp"/>
                                                                     </constraints>
                                                                     <state key="normal" title="TWO"/>
+                                                                    <connections>
+                                                                        <action selector="IconTwoTapped:" destination="-1" eventType="touchUpInside" id="7Ug-Hv-7Nj"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -113,7 +124,10 @@
                                                                         <constraint firstAttribute="height" constant="60" id="Kyp-Ao-sW6"/>
                                                                         <constraint firstAttribute="width" constant="60" id="oBp-IU-hlu"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="three"/>
+                                                                    <state key="normal" title="THREE"/>
+                                                                    <connections>
+                                                                        <action selector="IconThreeTapped:" destination="-1" eventType="touchUpInside" id="5j4-7Y-Dec"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -126,7 +140,10 @@
                                                                         <constraint firstAttribute="height" constant="60" id="OUb-C3-lpA"/>
                                                                         <constraint firstAttribute="width" constant="60" id="lFR-zU-GhN"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Button"/>
+                                                                    <state key="normal" title="FOUR"/>
+                                                                    <connections>
+                                                                        <action selector="IconFourTapped:" destination="-1" eventType="touchUpInside" id="8AN-ft-h2X"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -139,14 +156,17 @@
                                                                         <constraint firstAttribute="height" constant="60" id="8Ip-Gd-uT2"/>
                                                                         <constraint firstAttribute="width" constant="60" id="axc-7C-MmV"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Button"/>
+                                                                    <state key="normal" title="FIVE"/>
+                                                                    <connections>
+                                                                        <action selector="IconFiveTapped:" destination="-1" eventType="touchUpInside" id="Wsk-aI-YEX"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.93333333330000001" green="0.68235294120000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="O6u-o0-drn" firstAttribute="centerY" secondItem="XZj-vP-Tbf" secondAttribute="centerY" id="0Fi-Zt-aVT"/>
                                                 <constraint firstItem="O6u-o0-drn" firstAttribute="top" secondItem="K6n-VF-MUb" secondAttribute="top" constant="5" id="BAV-01-sza"/>
