@@ -122,7 +122,7 @@ class AddNewTaskViewController: UIViewController, Animatable {
         BottomContainerView.layer.cornerRadius = 35
         BottomContainerView.layer.borderWidth = 2
         BottomContainerView.layer.borderColor = Constants.normalWhiteBlack?.cgColor
-        BottomContainerView.backgroundColor = UIColor(named: "viewbackgroundWhitesmoke")
+        BottomContainerView.backgroundColor = UIColor(named: "bottomcardBackground")
         
         textTextView.backgroundColor = .clear
         textTextView.layer.borderWidth = 3

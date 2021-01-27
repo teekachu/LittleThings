@@ -22,6 +22,7 @@ class SettingsViewController: UIViewController {
     var delegate2: MotivationSwitchDelegate?
     private let cellIdentifier = "settingsTableViewCell"
     let appIconManager = AppIconManager()
+    var arr = [UIButton]()
     
     // MARK: - IB Property
     @IBOutlet weak var tableview: UITableView!
@@ -35,6 +36,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var CNYIcon: UIButton!
     @IBOutlet weak var bwBallsIcon: UIButton!
     @IBOutlet weak var rainbowHeart: UIButton!
+    @IBOutlet weak var fishSkeleton: UIImageView!
+    @IBOutlet weak var fishingImg: UIImageView!
+    @IBOutlet weak var fishboneStackview: UIStackView!
+    @IBOutlet weak var fishingStackview: UIStackView!
+    @IBOutlet weak var purchaseOptionA: UIButton!
+    @IBOutlet weak var purchaseOptionB: UIButton!
     
     @IBAction func switchTapped(_ sender: Any) {
         if motivationSwitch.isOn {
@@ -43,6 +50,16 @@ class SettingsViewController: UIViewController {
             delegate2?.needMotivation(false)
         }
     }
+    
+    @IBAction func purchaseOptionA(_ sender: Any) {
+        print("Tapped support button of fish skeleton")
+    }
+    @IBAction func purchaseOptionB(_ sender: Any) {
+        print("Tapped support button of fishing")
+    }
+    
+    
+    
 
     //  MARK: - ICONS
     @IBAction func defaultIconTapped(_ sender: Any) {
@@ -80,12 +97,39 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addBlurEffectToView(for: .systemThickMaterial)
+        configureUI()
         configureIconButtons()
         configureTableView()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        fishboneStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        fishingStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        
+        for each in arr{
+            each.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        }
+    }
+    
     
     //  MARK: - Privates
+    private func configureUI(){
+        purchaseOptionA.layer.cornerRadius = 8
+        fishSkeleton.layer.cornerRadius = 5
+        
+        fishboneStackview.layer.cornerRadius = 15
+        fishboneStackview.layer.borderWidth = 2
+        fishboneStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        
+        purchaseOptionB.layer.cornerRadius = 8
+        fishingImg.layer.cornerRadius = 5
+        
+        fishingStackview.layer.cornerRadius = 15
+        fishingStackview.layer.borderWidth = 2
+        fishingStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        
+    }
+    
     private func configureTableView(){
         tableview.dataSource = self
         tableview.delegate = self
@@ -97,10 +141,12 @@ class SettingsViewController: UIViewController {
     }
     
     private func configureIconButtons(){
-        let arr = [defaultIcon, rainbowIcon, blackCheckmarkIcon, CNYIcon, bwBallsIcon, rainbowHeart]
+        arr += [defaultIcon, rainbowIcon, blackCheckmarkIcon, CNYIcon, bwBallsIcon, rainbowHeart]
         for each in arr{
-            each?.layer.cornerRadius = 12
-            each?.imageView?.layer.cornerRadius = 12
+            each.layer.cornerRadius = 12
+            each.imageView?.layer.cornerRadius = 12
+            each.layer.borderWidth = 1.5
+            each.layer.borderColor = Constants.normalBlackWhite?.cgColor
         }
     }
     

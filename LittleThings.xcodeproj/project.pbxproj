@@ -65,6 +65,7 @@
 		A78A730225C0AEA60096F88D /* bw@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78A72FF25C0AEA60096F88D /* bw@3x.png */; };
 		A78A730625C0B3F20096F88D /* cny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78A730525C0B3F20096F88D /* cny@2x.png */; };
 		A78A730B25C0B4060096F88D /* cny@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78A730A25C0B4060096F88D /* cny@3x.png */; };
+		A78A730F25C124970096F88D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78A730E25C124970096F88D /* StoreKit.framework */; };
 		ABBACFEFC73833C2E81A412E5B73D855 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12C71947A07EC17B515292F25AF3EC8 /* AboutUSViewController.xib */; };
 		AC2431D3AEA617788F553CCF9E973CC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */; };
 		ACA53A537373B1A38964B29A63DB07F2 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C781E6AF1E8F1E345BBF90687BA19CF /* Ext+CATransition.swift */; };
@@ -169,6 +170,7 @@
 		A78A72FF25C0AEA60096F88D /* bw@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bw@3x.png"; sourceTree = "<group>"; };
 		A78A730525C0B3F20096F88D /* cny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@2x.png"; sourceTree = "<group>"; };
 		A78A730A25C0B4060096F88D /* cny@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@3x.png"; sourceTree = "<group>"; };
+		A78A730E25C124970096F88D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC852930655E34D0179B4900A85E9E8B /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB9CFF1465E48F9D16ED7EB3C0F1582 /* Pods_LittleThings.framework in Frameworks */,
+				A78A730F25C124970096F88D /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +327,7 @@
 		8C2E77A8F553784D7D6969FA69DF602F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A78A730E25C124970096F88D /* StoreKit.framework */,
 				29BF5690C72857759689B64203819FE0 /* Pods_LittleThings.framework */,
 				A77BDD8325BF509100F95C84 /* WidgetKit.framework */,
 				A77BDD8525BF509100F95C84 /* SwiftUI.framework */,
