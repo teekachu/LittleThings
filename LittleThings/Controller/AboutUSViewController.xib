@@ -29,31 +29,34 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AFI-Rb-roK">
                             <rect key="frame" x="15" y="15" width="384" height="868"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dj-rK-hz4" userLabel="exitButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                    <color key="tintColor" name="black white"/>
-                                    <state key="normal">
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNU-mu-XTS" userLabel="exit">
+                                    <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="J7u-qs-qj1"/>
+                                    </constraints>
+                                    <color key="tintColor" name="offblack white"/>
+                                    <state key="normal" title=" ">
                                         <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="black"/>
                                     </state>
                                     <connections>
-                                        <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="sew-SO-5ZN"/>
+                                        <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="LyQ-JP-jB8"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEVELOPER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icf-K9-bis">
-                                    <rect key="frame" x="0.0" y="50" width="384" height="41"/>
+                                    <rect key="frame" x="0.0" y="64" width="384" height="41"/>
                                     <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V01-b9-xbH">
-                                    <rect key="frame" x="0.0" y="111" width="384" height="23.5"/>
+                                    <rect key="frame" x="0.0" y="125" width="384" height="23.5"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cra-5g-5mu">
-                                    <rect key="frame" x="0.0" y="154.5" width="384" height="142.5"/>
+                                    <rect key="frame" x="0.0" y="168.5" width="384" height="142.5"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Teeks 1" translatesAutoresizingMaskIntoConstraints="NO" id="42o-cK-x5f">
                                             <rect key="frame" x="0.0" y="0.0" width="174" height="142.5"/>
@@ -71,20 +74,20 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVU-wu-XBi">
-                                    <rect key="frame" x="0.0" y="317" width="384" height="139.5"/>
+                                    <rect key="frame" x="0.0" y="331" width="384" height="139.5"/>
                                     <string key="text">Hello there! I'm Teeks, a self taught iOS deveoper, welcome to my first app. I hope you will enjoy this little thing I built, and I hope it will bring you more productivity and attainment. I am always open for new ideas and feedback, so please feel free to reach out and connect with me. </string>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-lk-6iq" userLabel="Connect">
-                                    <rect key="frame" x="0.0" y="476.5" width="384" height="23.5"/>
+                                    <rect key="frame" x="0.0" y="490.5" width="384" height="23.5"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T77-E8-Awk">
-                                    <rect key="frame" x="0.0" y="520" width="384" height="44"/>
+                                    <rect key="frame" x="0.0" y="534" width="384" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="Rm2-Xt-pXH"/>
                                     </constraints>
@@ -97,7 +100,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-B1-4Ks">
-                                    <rect key="frame" x="0.0" y="584" width="384" height="44"/>
+                                    <rect key="frame" x="0.0" y="598" width="384" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="bvV-KC-bge"/>
                                     </constraints>
@@ -110,7 +113,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-pN-tcD" userLabel="LinkedIn">
-                                    <rect key="frame" x="0.0" y="648" width="384" height="44"/>
+                                    <rect key="frame" x="0.0" y="662" width="384" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="2T3-MR-bwJ"/>
                                     </constraints>
@@ -123,7 +126,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-HD-K9K">
-                                    <rect key="frame" x="0.0" y="712" width="384" height="156"/>
+                                    <rect key="frame" x="0.0" y="726" width="384" height="142"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
@@ -157,9 +160,6 @@
     <resources>
         <image name="Teeks 1" width="142.66667175292969" height="142.66667175292969"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
-        <namedColor name="black white">
-            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="normalBW">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

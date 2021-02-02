@@ -20,8 +20,6 @@ class SwapTaskViewController: UIViewController {
     weak var delegate: SwapTaskVCDelegate?
     
     //  MARK: - IB Properties
-    
-    @IBOutlet weak var currentTaskToFinishStackView: UIStackView!
     @IBOutlet weak var taskToFinishLabel: UILabel!
     @IBOutlet weak var oldTaskLabel: UILabel!
     @IBOutlet weak var taskToSwapWithLabel: UILabel!
@@ -33,8 +31,8 @@ class SwapTaskViewController: UIViewController {
         delegate?.didSwapTask(for: oldTask, with: newString)
     }
     
-    //  MARK: - Lifecycle
     
+    //  MARK: - Lifecycle
     init(for task: Task, with newTask: String ) {
         self.oldTask = task
         self.newTaskString = newTask
@@ -58,17 +56,11 @@ class SwapTaskViewController: UIViewController {
     private func configureUI(){
         addBlurEffectToView(for: .systemChromeMaterial)
         navigationController?.navigationBar.isHidden = true
-            
+        
         taskToFinishLabel.textColor = Constants.swapModeText
         taskToSwapWithLabel.textColor = Constants.swapModeText
         
-        currentTaskToFinishStackView.layer.borderWidth = 1
-        currentTaskToFinishStackView.layer.cornerRadius = 22
-        currentTaskToFinishStackView.layer.borderColor = Constants.mediumBlack3f3f3f.cgColor
-        
-        swapButton.layer.borderWidth = 1
-        swapButton.layer.cornerRadius = 22
-        swapButton.layer.borderColor = Constants.blackYellow?.cgColor
+        swapButton.layer.cornerRadius = 15
         
         oldTaskLabel.text = oldTask?.title
         newTaskLabel.text = newTaskString

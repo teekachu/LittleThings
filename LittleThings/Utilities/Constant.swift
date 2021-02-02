@@ -100,12 +100,14 @@ struct Constants {
     static let textCharacterCount = 150
     
     // MARK: - Strings
-    static let ruleOfThumb = "Rule of Thumb:   Consider a task Large if it takes about 3-4 hours to complete. Medium Tasks can take about 1-2 hours, and Small Tasks may take less than 30 minutes each. "
+    static let ruleOfThumb = "Consider a task Large if it takes about 3-4 hours to complete. Medium Tasks can take about 1-2 hours, and Small Tasks may take less than 30 minutes each. "
     
     static let swapScreenExplaination = """
         Swap mode's purpose is to focus on completing one existing task in exchange for another. When in swap mode, you cannot navigate around the app until the old task is "swapped" out.
 
-        Simply enter the new task in the text bubble, tap on "Yes", exit the app if necessary, and get working. Once you are ready to swap, the old task will be moved to done, replaced by the new.
+        Simply enter the new task in the text bubble, tap on "Yes", exit the app if necessary, and get working.
+
+        Once you are ready to swap, the old task will be moved to done, replaced by the new.
         """
 }
 

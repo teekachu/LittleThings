@@ -1,4 +1,7 @@
 "TEST_HEADER" = "This header works very well";
 "TEST_BODY" = "This body works well, too %@";
 "OPEN_TASKS_HEADER" = "Your tasks are waiting";
-"OPEN_TASKS_BODY" = "You have %@ task/s pending.";
+"OPEN_TASKS_BODY" = "You have %@ task/s pending, don't forget to give them some love today.";
+
+
+

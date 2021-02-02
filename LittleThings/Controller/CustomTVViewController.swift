@@ -27,7 +27,6 @@ class CustomTVViewController: UIViewController {
     @IBOutlet weak var textview: UITextView!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var yesButton: UIButton!
-    @IBOutlet weak var noButton: UIButton!
     @IBAction func yesButtonTapped(_ sender: Any) {
         delegate?.presentSwapVC(for: taskToSwap, with: newTaskString)
     }
@@ -60,9 +59,7 @@ class CustomTVViewController: UIViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         alertContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
-        textview.layer.borderColor = Constants.whiteOffblack?.cgColor
         yesButton.layer.borderColor = Constants.whiteOffblack?.cgColor
-        noButton.layer.borderColor = Constants.swapCellBorder?.cgColor
     }
 
     //  MARK: - Selectors
@@ -71,7 +68,7 @@ class CustomTVViewController: UIViewController {
     
     @objc func keyboardWillShow(_ notification: Notification){
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn) { [weak self] in
-            self?.view.frame.origin.y = -100
+            self?.view.frame.origin.y = -150
         }
     }
     
@@ -90,8 +87,9 @@ class CustomTVViewController: UIViewController {
         alertContainerView.layer.borderColor = Constants.bottomContainerBorder?.cgColor
         
         infoButton.layer.cornerRadius = 7
-        textview.layer.borderWidth = 1
-        textview.layer.borderColor = Constants.whiteOffblack?.cgColor
+        
+        textview.layer.borderWidth = 2
+        textview.layer.borderColor = Constants.orangeFDB903?.cgColor
         textview.layer.cornerRadius = 15
         textview.becomeFirstResponder()
         textview.delegate = self
@@ -99,10 +97,6 @@ class CustomTVViewController: UIViewController {
         yesButton.layer.borderWidth = 1
         yesButton.layer.cornerRadius = 15
         yesButton.layer.borderColor = Constants.whiteOffblack?.cgColor
-        
-        noButton.layer.borderWidth = 1
-        noButton.layer.cornerRadius = 15
-        noButton.layer.borderColor = Constants.swapCellBorder?.cgColor
     }
     
     private func addGestureToDismiss(){

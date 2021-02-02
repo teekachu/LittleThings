@@ -41,7 +41,7 @@ class CustomAlertViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         alertView.layer.borderColor =
             Constants.bottomContainerBorder?.cgColor
-        dismissButton.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+//        dismissButton.layer.borderColor = Constants.bottomContainerBorder?.cgColor
     }
     
     //  MARK: - Selectors
@@ -59,11 +59,11 @@ class CustomAlertViewController: UIViewController {
         alertView.layer.borderColor =
             Constants.bottomContainerBorder?.cgColor
         
-        dismissButton.layer.cornerRadius = 15
-        dismissButton.layer.borderWidth = 1
-        dismissButton.layer.borderColor = Constants.bottomContainerBorder?.cgColor
+//        dismissButton.layer.cornerRadius = 15
+//        dismissButton.layer.borderWidth = 1
+//        dismissButton.layer.borderColor = Constants.bottomContainerBorder?.cgColor
         dismissButton.setTitleColor(Constants.blackWhite, for: .normal)
-        dismissButton.backgroundColor = Constants.whiteOffblack
+//        dismissButton.backgroundColor = Constants.whiteOffblack
         
     }
 }

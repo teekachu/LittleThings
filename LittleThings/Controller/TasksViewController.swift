@@ -499,21 +499,22 @@ extension TasksViewController: CustomTextViewDelegate {
 //MARK: - SwapTaskVCDelegate
 extension TasksViewController: SwapTaskVCDelegate {
     func didSwapTask(for task: Task, with newTitle: String) {
-        
-        UserDefaults.standard.removeObject(forKey: "savedTaskID")
-        UserDefaults.standard.removeObject(forKey: "savedString")
-        
         dismiss(animated: true) {
             let uid = task.uid // user uid
             let type = task.taskType
             let newTask = Task(title: newTitle, isDone: false, taskType: type, uid: uid)
-            self.taskManager.updateTaskStatus(task, isDone: true) {(state, message) in
+            
+            self.taskManager.updateTaskStatus(task, isDone: true) { (state, message) in
                 print("Debug toast msg: \(message)")
             }
-            self.taskManager.store(newTask) {[weak self](state, message) in
+            
+            self.taskManager.store(newTask) {[weak self] (state, message) in
                 self?.showToast(state: state, message: message)
             }
         }
+        
+        UserDefaults.standard.removeObject(forKey: "savedTaskID")
+        UserDefaults.standard.removeObject(forKey: "savedString")
     }
 }
 

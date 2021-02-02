@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
             <connections>
                 <outlet property="alertView" destination="O1T-6f-dFg" id="ekH-PI-rHM"/>
                 <outlet property="backgroundView" destination="X6U-fD-oEY" id="56M-4z-L6x"/>
-                <outlet property="dismissButton" destination="cNP-SY-aRl" id="Lmm-bC-kpJ"/>
+                <outlet property="dismissButton" destination="ct4-Pz-A81" id="dB0-tS-N1O"/>
                 <outlet property="labelText" destination="bxc-AB-K2b" id="hec-ex-0sw"/>
                 <outlet property="stackView" destination="LnV-KD-ZJH" id="wkt-EQ-l3i"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -27,47 +28,40 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-6f-dFg" userLabel="alertView">
-                            <rect key="frame" x="35" y="381" width="344" height="134"/>
+                            <rect key="frame" x="35" y="362.5" width="344" height="171.5"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LnV-KD-ZJH">
-                                    <rect key="frame" x="30" y="25" width="284" height="84"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LnV-KD-ZJH">
+                                    <rect key="frame" x="30" y="25" width="284" height="121.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-AB-K2b">
-                                            <rect key="frame" x="0.0" y="0.0" width="284" height="0.0"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXg-ZS-ihU">
-                                            <rect key="frame" x="0.0" y="40" width="284" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ct4-Pz-A81" userLabel="exit">
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Ga5-Ci-nzq"/>
+                                            </constraints>
+                                            <color key="tintColor" name="offblack white"/>
+                                            <state key="normal" title=" ">
+                                                <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="black"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="dismissButtonTapped:" destination="-1" eventType="touchUpInside" id="bxc-Wt-faO"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="WA7-qo-swo">
+                                            <rect key="frame" x="0.0" y="54" width="284" height="67.5"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGK-ho-dkg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48.5" height="44"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="VGK-ho-dkg" secondAttribute="height" multiplier="1.1" id="GPR-Dy-suT"/>
-                                                    </constraints>
-                                                </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNP-SY-aRl">
-                                                    <rect key="frame" x="48.5" y="0.0" width="191.5" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="ImH-KE-toq"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
-                                                    <state key="normal" title="Sounds Good!">
-                                                        <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="dismissButtonTapped:" destination="-1" eventType="touchUpInside" id="5x7-vN-4Q3"/>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y46-kA-YTX">
-                                                    <rect key="frame" x="240" y="0.0" width="44" height="44"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Y46-kA-YTX" secondAttribute="height" multiplier="1:1" id="uO7-Nl-kPD"/>
-                                                    </constraints>
-                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rule of thumb: " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-PV-k4E">
+                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-AB-K2b">
+                                                    <rect key="frame" x="0.0" y="67.5" width="284" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -100,8 +94,44 @@
             </constraints>
             <point key="canvasLocation" x="-91.304347826086968" y="67.633928571428569"/>
         </view>
+        <stackView opaque="NO" contentMode="scaleToFill" id="cXg-ZS-ihU">
+            <rect key="frame" x="0.0" y="0.0" width="284" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGK-ho-dkg">
+                    <rect key="frame" x="0.0" y="0.0" width="48.5" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="VGK-ho-dkg" secondAttribute="height" multiplier="1.1" id="GPR-Dy-suT"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNP-SY-aRl">
+                    <rect key="frame" x="48.5" y="0.0" width="191.5" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="ImH-KE-toq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                    <state key="normal" title="Sounds Good!">
+                        <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y46-kA-YTX">
+                    <rect key="frame" x="240" y="0.0" width="44" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Y46-kA-YTX" secondAttribute="height" multiplier="1:1" id="uO7-Nl-kPD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="GaD-ub-tbf"/>
+            <point key="canvasLocation" x="-855" y="9"/>
+        </stackView>
     </objects>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="offblack white">
+            <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="segment background">
             <color red="0.99215686274509807" green="0.72549019607843135" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

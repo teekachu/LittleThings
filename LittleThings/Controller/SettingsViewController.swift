@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import StoreKit
+
 
 protocol SettingsMenuDelegate {
     func settingsMenu(didSelect option: SettingsOption)
@@ -23,6 +25,9 @@ class SettingsViewController: UIViewController {
     private let cellIdentifier = "settingsTableViewCell"
     let appIconManager = AppIconManager()
     var arr = [UIButton]()
+    
+    var basePurchaseID = "base_tip"
+    var advancePurchaseID = "tip_advanced"
     
     // MARK: - IB Property
     @IBOutlet weak var tableview: UITableView!
@@ -52,13 +57,14 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func purchaseOptionA(_ sender: Any) {
-        print("Tapped support button of fish skeleton")
+        handleBaseTip()
     }
     @IBAction func purchaseOptionB(_ sender: Any) {
-        print("Tapped support button of fishing")
+        handlePremiumTip()
     }
-    
-    
+    @IBAction func restorePurchaseTapped(_ sender: Any) {
+        print("Restore purchaseeee!")
+    }
     
 
     //  MARK: - ICONS
@@ -81,8 +87,6 @@ class SettingsViewController: UIViewController {
         appIconManager.changeAppIcon(to: .rainbowHeartAppIcon)
     }
     
-    
-   
     
     //  MARK: - Lifecycle
     init(delegate: SettingsMenuDelegate) {
@@ -114,6 +118,7 @@ class SettingsViewController: UIViewController {
     
     //  MARK: - Privates
     private func configureUI(){
+        
         purchaseOptionA.layer.cornerRadius = 8
         fishSkeleton.layer.cornerRadius = 5
         
@@ -127,6 +132,8 @@ class SettingsViewController: UIViewController {
         fishingStackview.layer.cornerRadius = 15
         fishingStackview.layer.borderWidth = 2
         fishingStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        
+        SKPaymentQueue.default().add(self)
         
     }
     
@@ -150,10 +157,36 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //  MARK: - Payments
+    func handleBaseTip() {
+        /// TODO: add loading screen
+        
+        if SKPaymentQueue.canMakePayments() {
+            let transactionRequest = SKMutablePayment()
+            transactionRequest.productIdentifier = basePurchaseID
+            SKPaymentQueue.default().add(transactionRequest)
+        } else {
+            print("DEBUG: Unable to purchase base tip. ")
+        }
+    }
+    
+    func handlePremiumTip(){
+        
+        if SKPaymentQueue.canMakePayments() {
+            let transactionRequest = SKMutablePayment()
+            transactionRequest.productIdentifier = advancePurchaseID
+            SKPaymentQueue.default().add(transactionRequest)
+        } else {
+            print("DEBUG: Unable to purchase advanced tip. ")
+        }
+
+    }
+    
+    
 }
 
 
-//  MARK: - Extensions
+//  MARK: - UITableViewDataSource
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -197,6 +230,22 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             self?.delegate?.settingsMenu(didSelect: settings)
         }
     }
+}
+
+
+//  MARK: - Extensions
+extension SettingsViewController: SKPaymentTransactionObserver {
     
-    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            if transaction.transactionState == .purchased {
+                // if bought
+                print("YAY, tipping successful")
+                
+            } else if transaction.transactionState == .failed {
+                // if failed
+                print("UH OH, the transaction has failed.")
+            }
+        }
+    }
 }
