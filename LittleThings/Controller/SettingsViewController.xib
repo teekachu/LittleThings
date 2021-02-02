@@ -15,6 +15,7 @@
                 <outlet property="blackCheckmarkIcon" destination="8Ig-bq-7Vc" id="Szo-7m-uwf"/>
                 <outlet property="bwBallsIcon" destination="dNS-Qe-GBR" id="vh3-lJ-Z4g"/>
                 <outlet property="defaultIcon" destination="Wfi-hY-dG2" id="7Md-Xr-QWW"/>
+                <outlet property="fishQuoteLabel" destination="Snq-yu-GAF" id="5Wt-MJ-qzO"/>
                 <outlet property="fishSkeleton" destination="GAP-IC-l0h" id="kkR-Kv-Hax"/>
                 <outlet property="fishboneStackview" destination="Mg1-Tw-10M" id="KMT-Ix-MTo"/>
                 <outlet property="fishingImg" destination="S7Y-e6-FMg" id="Fvz-A2-bGV"/>

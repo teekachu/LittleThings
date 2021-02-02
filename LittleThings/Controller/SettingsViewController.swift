@@ -47,6 +47,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var fishingStackview: UIStackView!
     @IBOutlet weak var purchaseOptionA: UIButton!
     @IBOutlet weak var purchaseOptionB: UIButton!
+    @IBOutlet weak var fishQuoteLabel: UILabel!
+    
     
     @IBAction func switchTapped(_ sender: Any) {
         if motivationSwitch.isOn {
@@ -63,10 +65,10 @@ class SettingsViewController: UIViewController {
         handlePremiumTip()
     }
     @IBAction func restorePurchaseTapped(_ sender: Any) {
-        print("Restore purchaseeee!")
+        
     }
     
-
+    
     //  MARK: - ICONS
     @IBAction func defaultIconTapped(_ sender: Any) {
         UIApplication.shared.setAlternateIconName(nil)
@@ -159,9 +161,12 @@ class SettingsViewController: UIViewController {
     
     //  MARK: - Payments
     func handleBaseTip() {
-        /// TODO: add loading screen
+        
+        showLottieAnimation(true)
         
         if SKPaymentQueue.canMakePayments() {
+            showLottieAnimation(false)
+            
             let transactionRequest = SKMutablePayment()
             transactionRequest.productIdentifier = basePurchaseID
             SKPaymentQueue.default().add(transactionRequest)
@@ -172,16 +177,31 @@ class SettingsViewController: UIViewController {
     
     func handlePremiumTip(){
         
+        showLottieAnimation(true)
+        
         if SKPaymentQueue.canMakePayments() {
+            showLottieAnimation(false)
+            
             let transactionRequest = SKMutablePayment()
             transactionRequest.productIdentifier = advancePurchaseID
             SKPaymentQueue.default().add(transactionRequest)
         } else {
             print("DEBUG: Unable to purchase advanced tip. ")
         }
-
     }
     
+    func handleRestorePurchase(){
+        showLottieAnimation(true)
+
+        if SKPaymentQueue.canMakePayments() {
+            showLottieAnimation(false)
+            SKPaymentQueue.default().restoreCompletedTransactions()
+
+        } else {
+            print("Unable to restore purchase")
+        }
+
+    }
     
 }
 
@@ -208,7 +228,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.imageView?.image = settingsOption?.image
         cell.textLabel?.font = UIFont(name: Constants.menuFont, size: 17)
         cell.backgroundColor = Constants.whiteOffblack?.withAlphaComponent(0.75)
-
+        
         cell.imageView?.tintColor = Constants.normalBlackWhite
         cell.textLabel?.textColor = Constants.normalBlackWhite
         
@@ -234,18 +254,38 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 //  MARK: - Extensions
-extension SettingsViewController: SKPaymentTransactionObserver {
+extension SettingsViewController: SKPaymentTransactionObserver, Animatable {
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
-            if transaction.transactionState == .purchased {
-                // if bought
-                print("YAY, tipping successful")
+            switch transaction.transactionState {
+            case .purchased:
                 
-            } else if transaction.transactionState == .failed {
-                // if failed
-                print("UH OH, the transaction has failed.")
+                fishQuoteLabel.text = "THANK YOU SO MUCH FOR YOUR SUPPORT!"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {[weak self] in
+                    
+                    self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
+                }
+                
+                break
+                
+            case .failed:
+                showToast(state: .error, message: "UH OH, the transaction has failed.")
+                break
+                
+            case .restored:
+                print("restored success...")
+                
+//                SKPaymentQueue.default().finishTransaction(transaction as SKPaymentTransaction)
+                showToast(state: .success, message: "Restore past purchase complete.")
+                break
+                
+            default:
+                print("default")
+                break
             }
+            
         }
     }
+    
 }
