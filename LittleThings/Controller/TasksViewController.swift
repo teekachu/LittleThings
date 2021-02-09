@@ -552,10 +552,17 @@ extension TasksViewController: SettingsMenuDelegate {
             UIApplication.shared.open(termsURL, options: [:], completionHandler: nil)
             
         case .logOut:
-            taskManager.emptyTasksBeforeLogOut()
-            authManager.signUserOut()
-            presentMainAuthVC()
+            //present alert controller , if yes, do below . else exit
+            let logoutAlert = UIAlertController.showLogOutAlert {[weak self] (didSelectLogout) in
+                if didSelectLogout {
+                    guard let self = self else {return}
+                    self.taskManager.emptyTasksBeforeLogOut()
+                    self.authManager.signUserOut()
+                    self.presentMainAuthVC()
+                }
+            }
             
+            present(logoutAlert, animated: true)
         }
     }
 }

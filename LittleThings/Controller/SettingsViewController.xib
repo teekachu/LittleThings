@@ -74,9 +74,10 @@
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="vIb-Ep-iB3"/>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need a little motivation to get through the tasks? No problem. I left something for you in the home screen, go check it out." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
                                     <rect key="frame" x="0.0" y="93" width="384" height="70"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <string key="text">Need a little motivation to get through the tasks? No problem. I left something for you in the main screen under the stars, go check it out.</string>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>

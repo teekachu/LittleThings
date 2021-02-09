@@ -11,13 +11,13 @@ import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     private var authManager: AuthManager?
     private var databaseManager: DatabaseManager?
     private var notificationsManager: NotificationsManager?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // use UITableViewCell.appearance() to configure
         // the default appearance of all UITableViewCells in your app
         UITableViewCell.appearance().selectedBackgroundView = colorView
-
+        
         authManager = AuthManager(delegate: self)
         databaseManager = DatabaseManager(delegate: self)
         let taskManager = TaskManager(authManager: authManager!, databaseManager: databaseManager!)
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             taskManager: taskManager,
             notificationsManager: notificationsManager!,
             databaseManager: databaseManager!)
-
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: controller)
         window?.makeKeyAndVisible()
@@ -64,11 +64,11 @@ extension AppDelegate: NotificationManagerDelegate {
             print("Did update user gcmToken for userID \(userID)")
         }
     }
-
+    
     func notificationsManager(didReceiveError error: Error) {
         print("didReceiveError \(error)")
     }
-
+    
     func notificationsManager(didReceiveNotification payload: NotificationPayload, withResponse didRespond: Bool) {
         print("didReceiveNotification \(payload) withResponse: \(didRespond)")
     }
@@ -79,11 +79,11 @@ extension AppDelegate: AuthManagerDelegate {
     func authManager(setUser data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
         databaseManager?.setUser(data, for: userID, onComplete: onComplete)
     }
-
+    
     func authManager(updateUser data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
         databaseManager?.updateUser(data, for: userID, onComplete: onComplete)
     }
-
+    
     func authManager(getDataFor userID: String, onCompletion: @escaping ([String : Any]) -> Void) {
         databaseManager?.getDataFor(userID, onCompletion: onCompletion)
     }

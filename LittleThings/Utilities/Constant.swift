@@ -126,7 +126,11 @@ struct toastStrings {
         "Look at you being all productive and stuff!",
         "We got 99 problems and one more task ain't a thing.",
         "Go get em' tiger.",
-        "Good job on wrapping this up!"
+        "Good job on wrapping this up!",
+        "Thank you, neeeext",
+        "Byeee Felicia",
+        "Done! Finished! Get it!",
+        "Nice! I don't have arms or I'd give you a high five."
     ]
     
     static let notDoneString = [
@@ -134,13 +138,18 @@ struct toastStrings {
         "Dead task, RESURRECT!",
         "Still working on that? No problem!"
     ]
+    
+    static let updatedString = [
+        "Updated",
+        "Done-zo"
+    ]
 }
 
 
 // MARK: - Finish task strings
 struct apperance {
     static let eyes = [
-    "eyes1", "eyes2", "eyes3", "eyes4", "eyes5", "eyes6", "eyes7", "eyes8"
+        "eyes1", "eyes2", "eyes3", "eyes4", "eyes5", "eyes6", "eyes7", "eyes8"
     ]
 }
 

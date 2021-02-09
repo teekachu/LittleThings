@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController {
         handlePremiumTip()
     }
     @IBAction func restorePurchaseTapped(_ sender: Any) {
-        
+        handleRestorePurchase()
     }
     
     
@@ -191,16 +191,17 @@ class SettingsViewController: UIViewController {
     }
     
     func handleRestorePurchase(){
+        
         showLottieAnimation(true)
-
+        
         if SKPaymentQueue.canMakePayments() {
             showLottieAnimation(false)
             SKPaymentQueue.default().restoreCompletedTransactions()
-
+            
         } else {
             print("Unable to restore purchase")
         }
-
+        
     }
     
 }
@@ -266,7 +267,6 @@ extension SettingsViewController: SKPaymentTransactionObserver, Animatable {
                     
                     self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
                 }
-                
                 break
                 
             case .failed:
@@ -274,10 +274,14 @@ extension SettingsViewController: SKPaymentTransactionObserver, Animatable {
                 break
                 
             case .restored:
-                print("restored success...")
+                print("restored successful...")
                 
-//                SKPaymentQueue.default().finishTransaction(transaction as SKPaymentTransaction)
-                showToast(state: .success, message: "Restore past purchase complete.")
+                fishQuoteLabel.text = "THANK YOU SO MUCH FOR YOUR PREVIOUS SUPPORT!"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {[weak self] in
+                    
+                    self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
+                }
+                
                 break
                 
             default:
