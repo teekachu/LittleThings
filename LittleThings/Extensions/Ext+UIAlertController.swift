@@ -72,7 +72,7 @@ extension UIAlertController {
     }
     
     static func showLogOutAlert(onTap: @escaping(Bool) -> Void) -> UIAlertController {
-        let controller = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .alert)
+        let controller = UIAlertController(title: nil, message: "Sure you want to log out? Okay then, I miss you already.", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .default)
         let logout = UIAlertAction(title: "Logout", style: .default) { (_) in
             onTap(true)

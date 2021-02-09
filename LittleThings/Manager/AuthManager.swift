@@ -19,21 +19,21 @@ protocol AuthManagerDelegate: class {
 }
 
 struct AuthManager {
-
+    
     private let delegate: AuthManagerDelegate
-
+    
     init(delegate: AuthManagerDelegate) {
         self.delegate = delegate
     }
-
+    
     public var userID: String? {
         return Auth.auth().currentUser?.uid
     }
-
+    
     public var isUserLoggedIn: Bool {
         return userID != nil
     }
-
+    
     public func logUserInWith(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void){
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -43,7 +43,7 @@ struct AuthManager {
             }
         }
     }
-
+    
     public func registerUserWithFirestore(email: String, password: String, fullname: String, hasSeenOnboardingPage: Bool, completion: @escaping FirebaseCompletion) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
@@ -62,6 +62,7 @@ struct AuthManager {
                 "hasSeenOnboardingPage": hasSeenOnboardingPage,
                 "uid": uid
             ] as [String : Any]
+            
             delegate.authManager(setUser: payload, for: uid, onComplete: completion)
         }
     }
@@ -103,14 +104,16 @@ struct AuthManager {
             }
         }
     }
-
+    
     public func resetPassword(for email: String, completion: FirebaseCompletion?) {
         Auth.auth().sendPasswordReset(withEmail: email, completion: completion)
     }
-
+    
     public func signUserOut(){
         do{
+            
             try Auth.auth().signOut()
+            
         } catch {
             print("DEBUG: Error in signUserOut()")
         }
@@ -124,7 +127,7 @@ struct AuthManager {
             completion(user)
         }
     }
-
+    
     public func updateUserHasSeenOnboardingInDatabase(completion: @escaping (FirebaseCompletion)) {
         /// find the unique id of the current user
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -137,13 +140,10 @@ struct AuthManager {
         let payload = ["fullname": newName]
         delegate.authManager(updateUser: payload, for: uid, onComplete: completion)
     }
-
-    public func signInWithApple(with nonce: String?, didSignInForUser authorization: ASAuthorization , completion: @escaping FirebaseCompletion) {
+    
+    public func signInWithApple(with nonce: String?, didSignInForUser authorization: ASAuthorization, completion: @escaping FirebaseCompletion) {
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            
-            // Save authorised user ID for future reference
-            UserDefaults.standard.set(appleIDCredential.user, forKey: "appleAuthorizedUserIdKey")
             
             guard let nonce = nonce else {
                 fatalError("Invalid state: A login callback was received, but no login request was sent.")
@@ -159,38 +159,41 @@ struct AuthManager {
             }
             
             // Initialize a Firebase credential.
-            let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
+            let firebaseCredential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
             
-            Auth.auth().signIn(with: credential) { (authDataResult, error) in
+            
+            Auth.auth().signIn(with: firebaseCredential) { (authResult, error) in
                 if let error = error {
                     print("Error in sign in - \(error.localizedDescription)")
                     return
                 }
-
-                // Pull authorised user ID to ensure it isnt nil
-                if UserDefaults.standard.object(forKey: "appleAuthorizedUserIdKey") != nil {
-                    completion(nil)
-                    return
-                }
                 
-                /// pull the user's id, email and fullname FROM google credentials
-                guard let uid = authDataResult?.user.uid else{
-                    print("no uid")
-                    return }
-                guard let email = authDataResult?.user.email else{
-                    print("no email")
-                    return }
-                let fullname = authDataResult?.user.displayName ?? "Achiever"
-
-
-                let payload = [
-                    "email": email,
-                    "fullname": fullname,
-                    "hasSeenOnboardingPage": false,
-                    "uid": uid
-                ] as [String: Any]
-
-                delegate.authManager(setUser: payload, for: uid, onComplete: completion)
+                if authResult?.additionalUserInfo?.isNewUser == true {
+                    
+                    /// pull the user's id, email and fullname FROM  credentials
+                    guard let uid = authResult?.user.uid else{
+                        print("Debug: Unable to get uid from Apple Login")
+                        return }
+                    
+                    guard let email = authResult?.user.email else{
+                        print("Debug: Unable to get email from Apple Login")
+                        return }
+                    
+                    let fullname = authResult?.user.displayName ?? "Task Destroyer"
+                    
+                    let payload = [
+                        "email": email,
+                        "fullname": fullname,
+                        "hasSeenOnboardingPage": false,
+                        "uid": uid
+                    ] as [String: Any]
+                    
+                    delegate.authManager(setUser: payload, for: uid, onComplete: completion)
+                    
+                } else {
+                    
+                    completion(nil)
+                }
             }
         }
     }

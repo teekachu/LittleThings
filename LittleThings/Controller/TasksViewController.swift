@@ -248,6 +248,8 @@ class TasksViewController: UIViewController, Animatable {
             cont.modalPresentationStyle = .fullScreen
             self.present(cont, animated: true)
         }
+        
+        
     }
     
     private func showAboutUsScreen(){
@@ -476,6 +478,7 @@ extension TasksViewController: OnboardingControllerDelegate {
 extension TasksViewController: AuthenticationDelegate {
     func authenticationComplete() {
         updateUserToCurrentUser()
+        
         dismiss(animated: true) {[weak self] in
             self?.presentOnboardingIfNecessary()
         }

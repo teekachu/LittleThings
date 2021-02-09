@@ -41,12 +41,12 @@ class LoginViewController: UIViewController, Animatable {
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
         handleGoogleLogin()}
     @IBOutlet weak var buttonsStackView: UIStackView!
-
+    
     init(authManager: AuthManager) {
         self.authManager = authManager
         super.init(nibName: "LoginViewController", bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -92,7 +92,7 @@ class LoginViewController: UIViewController, Animatable {
     
     @objc func keyboardWillShow(_ notification: Notification){
         let keyboardHeight = Helper.getKeyboardHeight(notification: notification)
-
+        
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) { [weak self] in
             self?.view.frame.origin.y = -keyboardHeight
         }
@@ -221,7 +221,6 @@ class LoginViewController: UIViewController, Animatable {
                 self?.delegate?.didTapActionButton()
             }
         }
-        
     }
     
     private func handleGoogleLogin(){
@@ -288,42 +287,40 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         case .canceled:
             break
         case .failed:
-            print("auth failed")
+            print("DEBUG: APPL Login auth failed")
         case .invalidResponse:
-            print("invalid response received from login")
+            print("DEBUG: APPL Login invalid response received from login")
         case .notHandled:
-            print("Potentially due to internet failure during login")
+            print("DEBUG: APPL Login Potentially due to internet failure during login")
         case .unknown:
-            print("User didn't log their apple ID on device")
+            print("DEBUG: APPL Login User didn't log their apple ID on device")
         @unknown default:
-            print("unknown default")
+            print("DEBUG: APPL Login unknown default")
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        guard let nonce = currentNonce else {
+            fatalError("Invalid state: A login callback was received, but no login request was sent.")
+        }
+        
+        showLottieAnimation(true)
+        
+        authManager.signInWithApple(with: nonce, didSignInForUser: authorization) {[weak self] (error) in
             
-            guard let nonce = currentNonce else {
-                fatalError("Invalid state: A login callback was received, but no login request was sent.")
-            }
+            self?.showLottieAnimation(false)
             
-            showLottieAnimation(true)
-            
-            authManager.signInWithApple(with: nonce, didSignInForUser: authorization) {[weak self] (error) in
-                
-                self?.showLottieAnimation(false)
-                
-                if let error = error {
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
-                        self?.errorLabel.text = "\(error.localizedDescription)"
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                            self?.errorLabel.text = ""
-                        }
+            if let error = error {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
+                    self?.errorLabel.text = "\(error.localizedDescription)"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        self?.errorLabel.text = ""
                     }
                 }
-                
-                self?.delegate?.didTapActionButton()
             }
-        
+            self?.delegate?.didTapActionButton()
+        }
     }
     
 }
