@@ -14,9 +14,10 @@ class AboutUSViewController: UIViewController {
     
     //  MARK: - IB Properties
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var twitterButton: UIButton!
-    @IBOutlet weak var gitHubButton: UIButton!
-    @IBOutlet weak var linkedinButton: UIButton!
+    @IBOutlet weak var twitterStack: UIStackView!
+    @IBOutlet weak var githubStack: UIStackView!
+    @IBOutlet weak var linkedinStack: UIStackView!
+    
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -38,9 +39,10 @@ class AboutUSViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        twitterButton.layer.borderColor = Constants.whiteOffblack?.cgColor
-        linkedinButton.layer.borderColor = Constants.whiteOffblack?.cgColor
-        gitHubButton.layer.borderColor = Constants.whiteOffblack?.cgColor
+        twitterStack.layer.borderColor = Constants.whiteOffblack?.cgColor
+        githubStack.layer.borderColor = Constants.whiteOffblack?.cgColor
+        linkedinStack.layer.borderColor = Constants.whiteOffblack?.cgColor
+        
     }
     
     
@@ -52,14 +54,17 @@ class AboutUSViewController: UIViewController {
         profileImageView.layer.cornerRadius = 35
         profileImageView.backgroundColor = .clear
         
-        let arrayOfButtons: [UIButton] = [twitterButton, linkedinButton, gitHubButton]
         
-        for each in arrayOfButtons{
+        let stacks: [UIStackView] = [twitterStack, githubStack, linkedinStack]
+        
+        for each in stacks {
             each.layer.borderWidth = 1
             each.backgroundColor = Constants.cellBorderColor
             each.layer.borderColor = Constants.whiteOffblack?.cgColor
             each.layer.cornerRadius = 15
         }
+        
+        
     }
     
     private func twitterTapped() {

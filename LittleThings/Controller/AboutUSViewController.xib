@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutUSViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
-                <outlet property="gitHubButton" destination="OAw-B1-4Ks" id="nOb-zL-3AF"/>
-                <outlet property="linkedinButton" destination="HYl-pN-tcD" id="aA5-CB-mmP"/>
+                <outlet property="githubStack" destination="y4k-Qf-Xhf" id="0vc-u5-Z49"/>
+                <outlet property="linkedinStack" destination="sbZ-Hv-GFZ" id="ZFz-f4-XXv"/>
                 <outlet property="profileImageView" destination="42o-cK-x5f" id="5i9-7p-oRy"/>
-                <outlet property="twitterButton" destination="T77-E8-Awk" id="xBR-aQ-meB"/>
+                <outlet property="twitterStack" destination="4rv-wq-wTT" id="GWE-2T-HmN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -86,45 +86,96 @@
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T77-E8-Awk">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rv-wq-wTT">
                                     <rect key="frame" x="0.0" y="534" width="384" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="Rm2-Xt-pXH"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                                    <state key="normal" title="  Twitter @Teekachu1">
-                                        <color key="titleColor" name="normalBW"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="twitterButtonTapped:" destination="-1" eventType="touchUpInside" id="cWT-6t-EMc"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-B1-4Ks">
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T77-E8-Awk">
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Rm2-Xt-pXH"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                            <state key="normal" title="  Twitter @Teekachu1">
+                                                <color key="titleColor" name="normalBW"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="twitterButtonTapped:" destination="-1" eventType="touchUpInside" id="cWT-6t-EMc"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxn-uY-YsE">
+                                            <rect key="frame" x="340" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="GzG-Yr-2ZS"/>
+                                            </constraints>
+                                            <color key="tintColor" name="normalBW"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4k-Qf-Xhf">
                                     <rect key="frame" x="0.0" y="598" width="384" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="bvV-KC-bge"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                                    <state key="normal" title="  GitHub @teekachu">
-                                        <color key="titleColor" name="normalBW"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="gitHubButtonTapped:" destination="-1" eventType="touchUpInside" id="uwx-rK-dx0"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-pN-tcD" userLabel="LinkedIn">
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-B1-4Ks">
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="bvV-KC-bge"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                            <state key="normal" title="  GitHub @teekachu">
+                                                <color key="titleColor" name="normalBW"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="gitHubButtonTapped:" destination="-1" eventType="touchUpInside" id="uwx-rK-dx0"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhs-gQ-n0u">
+                                            <rect key="frame" x="340" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="yfD-fs-EVb"/>
+                                            </constraints>
+                                            <color key="tintColor" name="normalBW"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbZ-Hv-GFZ">
                                     <rect key="frame" x="0.0" y="662" width="384" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="2T3-MR-bwJ"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
-                                    <state key="normal" title="  LinkedIn @TingBecker">
-                                        <color key="titleColor" name="normalBW"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="linkedinButtonTapped:" destination="-1" eventType="touchUpInside" id="B7Q-hd-6hF"/>
-                                    </connections>
-                                </button>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-pN-tcD" userLabel="LinkedIn">
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="2T3-MR-bwJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
+                                            <state key="normal" title="  LinkedIn @TingBecker">
+                                                <color key="titleColor" name="normalBW"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="linkedinButtonTapped:" destination="-1" eventType="touchUpInside" id="B7Q-hd-6hF"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7X-l0-sCh">
+                                            <rect key="frame" x="340" y="0.0" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="CDk-mX-S2D"/>
+                                            </constraints>
+                                            <color key="tintColor" name="normalBW"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-HD-K9K">
                                     <rect key="frame" x="0.0" y="726" width="384" height="142"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,6 +210,7 @@
     </objects>
     <resources>
         <image name="Teeks 1" width="142.66667175292969" height="142.66667175292969"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="normalBW">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
