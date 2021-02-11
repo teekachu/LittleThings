@@ -103,15 +103,15 @@
                                     <viewLayoutGuide key="safeArea" id="vIb-Ep-iB3"/>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wE5-7u-xoe" userLabel="Explanation Label">
-                                    <rect key="frame" x="0.0" y="234" width="384" height="70"/>
+                                    <rect key="frame" x="0.0" y="234" width="384" height="93"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <string key="text">Need a little motivation to get through the tasks? No problem. I left something for you in the main screen under the stars, go check it out.</string>
+                                    <string key="text">Need a little motivation to get through the tasks? No problem. I left something for you in the main screen under the stars, go check it out. Quickly, it won't be there for long. </string>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vAo-nX-xtJ" userLabel="icon stack">
-                                    <rect key="frame" x="0.0" y="324" width="384" height="112.5"/>
+                                    <rect key="frame" x="0.0" y="347" width="384" height="112.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqf-Ts-9jZ" userLabel="CustomIconLabel">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -238,7 +238,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6k2-EF-IKy" userLabel="payment stack">
-                                    <rect key="frame" x="0.0" y="456.5" width="384" height="1005"/>
+                                    <rect key="frame" x="0.0" y="479.5" width="384" height="982"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iH-VZ-qsg" userLabel="SupportDevelopment">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -261,7 +261,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-mz-dkS">
-                                            <rect key="frame" x="0.0" y="273.5" width="384" height="731.5"/>
+                                            <rect key="frame" x="0.0" y="273.5" width="384" height="708.5"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-63-i7H">
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="448.5"/>
@@ -542,7 +542,7 @@
                                                     <viewLayoutGuide key="frameLayoutGuide" id="04g-rV-Jmh"/>
                                                 </scrollView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Qu-Lhw">
-                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="283"/>
+                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="260"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Restore Purchase">
                                                         <color key="titleColor" name="normalBW"/>
