@@ -42,7 +42,7 @@ extension UIAlertController {
     }
     
     static func clearDoneTasks(onTap: @escaping (Bool) -> Void) -> UIAlertController {
-        let controller = UIAlertController(title: nil, message: "Are you sure you want to clear all done tasks? ", preferredStyle: .alert)
+        let controller = UIAlertController(title: nil, message: "Are you sure you want to clear all the done tasks? ", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "No", style: .default)
         let delete = UIAlertAction(title: "Yes", style: .default) { (_) in
             onTap(true)}
@@ -72,7 +72,7 @@ extension UIAlertController {
     }
     
     static func showLogOutAlert(onTap: @escaping(Bool) -> Void) -> UIAlertController {
-        let controller = UIAlertController(title: nil, message: "Sure you want to log out? Okay then, I miss you already.", preferredStyle: .alert)
+        let controller = UIAlertController(title: nil, message: "You are LEAVING ME? Awwwww, okay then. I miss you already.", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .default)
         let logout = UIAlertAction(title: "Logout", style: .default) { (_) in
             onTap(true)
@@ -84,19 +84,4 @@ extension UIAlertController {
         return controller
     }
     
-    //    static func logUserOut(onTap: @escaping (Bool) -> Void) -> UIAlertController {
-    //        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-    //        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-    //        let logOut = UIAlertAction(title: "Log out", style: .default) { _ in
-    //            onTap(true)}
-    //        let clearAllDone = UIAlertAction(title: "Clear Done", style: .destructive) { (_) in
-    //            onTap(false)}
-    //
-    //        controller.addAction(cancel)
-    //        controller.addAction(logOut)
-    //        controller.addAction(clearAllDone)
-    //
-    //        controller.view.tintColor = Constants.blackWhite
-    //        return controller
-    //    }
 }

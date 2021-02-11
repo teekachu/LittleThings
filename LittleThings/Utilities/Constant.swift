@@ -119,6 +119,8 @@ struct toastStrings {
         "You got anymore of them tasks? I'm still a little hungry.",
         "Nom nom nom...",
         "New task added!",
+        "Danggg, you are hella busy today.",
+        "Feeeeeeed meeeeeeee!"
     ]
     
     static let doneString = [
@@ -127,10 +129,12 @@ struct toastStrings {
         "We got 99 problems and one more task ain't a thing.",
         "Go get em' tiger.",
         "Good job on wrapping this up!",
-        "Thank you, neeeext",
-        "Byeee Felicia",
+        "Thank you, NEXTTTTTT",
+        "Byeeeeeee Felicia",
         "Done! Finished! Get it!",
-        "Nice! I don't have arms or I'd give you a high five."
+        "Nice! I don't have arms or I'd give you a high five.",
+        "Don't forget to clean out the trash can.",
+        "Love that accomplishment for you."
     ]
     
     static let notDoneString = [
@@ -141,7 +145,8 @@ struct toastStrings {
     
     static let updatedString = [
         "Updated",
-        "Done-zo"
+        "Done-zo",
+        "Grumble..."
     ]
 }
 
