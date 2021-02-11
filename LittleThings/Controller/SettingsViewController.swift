@@ -17,11 +17,13 @@ protocol MotivationSwitchDelegate {
     func needMotivation(_ option: Bool)
 }
 
+
 class SettingsViewController: UIViewController {
     
     //  MARK: - Properties
     var delegate: SettingsMenuDelegate?
     var delegate2: MotivationSwitchDelegate?
+    
     private let cellIdentifier = "settingsTableViewCell"
     let appIconManager = AppIconManager()
     var arr = [UIButton]()
@@ -35,6 +37,7 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBOutlet weak var motivationSwitch: UISwitch!
+    @IBOutlet weak var taskCountSwitch: UISwitch!
     @IBOutlet weak var defaultIcon: UIButton!
     @IBOutlet weak var rainbowIcon: UIButton!
     @IBOutlet weak var blackCheckmarkIcon: UIButton!
@@ -49,7 +52,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var purchaseOptionB: UIButton!
     @IBOutlet weak var fishQuoteLabel: UILabel!
     
-    
     @IBAction func switchTapped(_ sender: Any) {
         if motivationSwitch.isOn {
             delegate2?.needMotivation(true)
@@ -57,6 +59,17 @@ class SettingsViewController: UIViewController {
             delegate2?.needMotivation(false)
         }
     }
+    
+    @IBAction func taskCountSwitchTapped(_ sender: Any) {
+        if taskCountSwitch.isOn {
+            UserDefaults.standard.set(true, forKey: "CountSwitchIsOn")
+            print("Count switch on ")
+        } else {
+            UserDefaults.standard.set(false, forKey: "CountSwitchIsOn")
+            print("count switch off ")
+        }
+    }
+    
     
     @IBAction func purchaseOptionA(_ sender: Any) {
         handleBaseTip()
@@ -106,6 +119,7 @@ class SettingsViewController: UIViewController {
         configureUI()
         configureIconButtons()
         configureTableView()
+        configureCountSwitch()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -136,7 +150,7 @@ class SettingsViewController: UIViewController {
         fishingStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
         
         SKPaymentQueue.default().add(self)
-        
+    
     }
     
     private func configureTableView(){
@@ -156,6 +170,17 @@ class SettingsViewController: UIViewController {
             each.imageView?.layer.cornerRadius = 12
             each.layer.borderWidth = 1.5
             each.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        }
+    }
+    
+    private func configureCountSwitch(){
+        if UserDefaults.exists(key: "CountSwitchIsOn") {
+            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
+            
+        } else {
+            // If doesn't exist, set it to true as default
+            UserDefaults.standard.setValue(true, forKey: "CountSwitchIsOn")
+            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
         }
     }
     

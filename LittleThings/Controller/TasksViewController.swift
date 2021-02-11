@@ -15,6 +15,7 @@ protocol TasksViewControllerDelegate: class {
 class TasksViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
+   
     private let authManager: AuthManager
     private let taskManager: TaskManager
     private let notificationsManager: NotificationsManager

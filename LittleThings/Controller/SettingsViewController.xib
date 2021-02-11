@@ -26,6 +26,7 @@
                 <outlet property="rainbowHeart" destination="d7t-L5-25T" id="hUL-YS-iTp"/>
                 <outlet property="rainbowIcon" destination="s6h-wx-Ued" id="IkK-bi-AtH"/>
                 <outlet property="tableview" destination="W7F-VH-vhD" id="t8L-ee-2bo"/>
+                <outlet property="taskCountSwitch" destination="fUB-JH-ekD" id="46i-PX-YV9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -38,7 +39,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LsH-ID-cCb">
-                            <rect key="frame" x="15" y="15" width="384" height="1600"/>
+                            <rect key="frame" x="15" y="15" width="384" height="1700"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Wr-r2X" userLabel="exit">
                                     <rect key="frame" x="0.0" y="0.0" width="384" height="22"/>
@@ -54,8 +55,35 @@
                                         <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="uhP-C6-V0w"/>
                                     </connections>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="45" id="mHf-u1-aWp" userLabel="motivation stack">
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="45" id="6bS-14-iTe" userLabel="disable badge count stack">
                                     <rect key="frame" x="0.0" y="42" width="384" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many tasks?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-Cn-kSE" userLabel="Enable Notifications">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="31"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                            <color key="textColor" name="normalBW"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fUB-JH-ekD">
+                                            <rect key="frame" x="335" y="0.0" width="51" height="31"/>
+                                            <color key="onTintColor" name="OrangeTintFDB903"/>
+                                            <connections>
+                                                <action selector="taskCountSwitchTapped:" destination="-1" eventType="valueChanged" id="3Jx-Tg-QsC"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <viewLayoutGuide key="safeArea" id="bF3-vx-PnL"/>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display the number of unfinished tasks in the form of a red circle on the Icon. Or not. Whatever floats your boat." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
+                                    <rect key="frame" x="0.0" y="93" width="384" height="70"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                    <color key="textColor" name="offblack white"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="45" id="mHf-u1-aWp" userLabel="motivation stack">
+                                    <rect key="frame" x="0.0" y="183" width="384" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a dose of motivation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVs-ZT-TIq" userLabel="Enable Notifications">
@@ -74,8 +102,8 @@
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="vIb-Ep-iB3"/>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
-                                    <rect key="frame" x="0.0" y="93" width="384" height="70"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wE5-7u-xoe" userLabel="Explanation Label">
+                                    <rect key="frame" x="0.0" y="234" width="384" height="70"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <string key="text">Need a little motivation to get through the tasks? No problem. I left something for you in the main screen under the stars, go check it out.</string>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
@@ -83,7 +111,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vAo-nX-xtJ" userLabel="icon stack">
-                                    <rect key="frame" x="0.0" y="183" width="384" height="112.5"/>
+                                    <rect key="frame" x="0.0" y="324" width="384" height="112.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqf-Ts-9jZ" userLabel="CustomIconLabel">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -210,7 +238,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6k2-EF-IKy" userLabel="payment stack">
-                                    <rect key="frame" x="0.0" y="315.5" width="384" height="1046"/>
+                                    <rect key="frame" x="0.0" y="456.5" width="384" height="1005"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iH-VZ-qsg" userLabel="SupportDevelopment">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -233,7 +261,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-mz-dkS">
-                                            <rect key="frame" x="0.0" y="273.5" width="384" height="772.5"/>
+                                            <rect key="frame" x="0.0" y="273.5" width="384" height="731.5"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-63-i7H">
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="448.5"/>
@@ -514,7 +542,7 @@
                                                     <viewLayoutGuide key="frameLayoutGuide" id="04g-rV-Jmh"/>
                                                 </scrollView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Qu-Lhw">
-                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="324"/>
+                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="283"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Restore Purchase">
                                                         <color key="titleColor" name="normalBW"/>
@@ -528,12 +556,12 @@
                                     </subviews>
                                 </stackView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W7F-VH-vhD">
-                                    <rect key="frame" x="0.0" y="1381.5" width="384" height="218.5"/>
+                                    <rect key="frame" x="0.0" y="1481.5" width="384" height="218.5"/>
                                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1600" id="5Cd-jk-Pi7"/>
+                                <constraint firstAttribute="height" constant="1700" id="5Cd-jk-Pi7"/>
                             </constraints>
                         </stackView>
                     </subviews>
@@ -556,7 +584,7 @@
                 <constraint firstAttribute="bottom" secondItem="3Nq-ix-lAI" secondAttribute="bottom" id="jEl-jo-Wys"/>
                 <constraint firstItem="3Nq-ix-lAI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jxu-yf-gbM"/>
             </constraints>
-            <point key="canvasLocation" x="186.95652173913044" y="79.6875"/>
+            <point key="canvasLocation" x="-23" y="89"/>
         </view>
     </objects>
     <resources>
