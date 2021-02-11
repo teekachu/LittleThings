@@ -34,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().selectedBackgroundView = colorView
         
         authManager = AuthManager(delegate: self)
-        databaseManager = DatabaseManager(delegate: self)
-//        databaseManager = DatabaseManager()
+//        databaseManager = DatabaseManager(delegate: self)
+        databaseManager = DatabaseManager()
         let taskManager = TaskManager(authManager: authManager!, databaseManager: databaseManager!)
         notificationsManager = NotificationsManager(registerIn: application, delegate: self)
         let controller = TasksViewController(
@@ -112,8 +112,8 @@ extension AppDelegate: AuthManagerDelegate {
 }
 
 // MARK: - DatabaseManagerDelegate
-extension AppDelegate: DatabaseManagerDelegate {
-    func databaseManager(didSignalUserAuthenticationFor userID: String) {
+//extension AppDelegate: DatabaseManagerDelegate {
+//    func databaseManager(didSignalUserAuthenticationFor userID: String) {
 //        databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
-    }
-}
+//    }
+//}

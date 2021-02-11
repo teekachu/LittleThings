@@ -371,7 +371,7 @@ class TasksViewController: UIViewController, Animatable {
         authManager.fetchUserFromFirestore { [weak self] (user) in
             self?.user = user
             self?.notificationsManager.publishCurrentToken()
-            self?.databaseManager.notifyUserDidAuthSuccessfully(userID: user.uid)
+//            self?.databaseManager.notifyUserDidAuthSuccessfully(userID: user.uid)
             print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is \(user.uid)")
         }
     }
