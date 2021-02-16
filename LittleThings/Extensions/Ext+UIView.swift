@@ -103,5 +103,9 @@ extension UIView {
         gradient.frame = self.frame
     }
     
+    func setBorderColorForObject(using color: UIColor) {
+        self.layer.borderColor = color.cgColor
+    }
+    
 }
 

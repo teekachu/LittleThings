@@ -54,7 +54,6 @@ class AuthMainViewController: UIViewController {
         configureUI()
     }
     
-    
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true

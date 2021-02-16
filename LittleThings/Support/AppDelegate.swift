@@ -51,25 +51,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        if UserDefaults.exists(key: "CountSwitchIsOn") {
-            
-            if UserDefaults.standard.bool(forKey: "CountSwitchIsOn") == false {
-                // Hide
-                UIApplication.shared.applicationIconBadgeNumber = 0
-                
-            } else {
-                guard let userID = authManager?.userID else {return}
-                databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
-                return
-            }
-            
-        } else {
-            guard let userID = authManager?.userID else {return}
-            databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
-            return
-        }
-    }
+//    func applicationDidEnterBackground(_ application: UIApplication) {
+//        if UserDefaults.exists(key: "CountSwitchIsOn") {
+//
+//            if UserDefaults.standard.bool(forKey: "CountSwitchIsOn") == false {
+//                // Hide
+//                UIApplication.shared.applicationIconBadgeNumber = 0
+//
+//            } else {
+//                guard let userID = authManager?.userID else {return}
+//                databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
+//                return
+//            }
+//
+//        } else {
+//            guard let userID = authManager?.userID else {return}
+//            databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
+//            return
+//        }
+//    }
     
 }
 

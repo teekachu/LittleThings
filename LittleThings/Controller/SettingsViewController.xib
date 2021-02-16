@@ -105,7 +105,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wE5-7u-xoe" userLabel="Explanation Label">
                                     <rect key="frame" x="0.0" y="234" width="384" height="93"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <string key="text">Need a little motivation to get through the tasks? No problem. I left something for you in the main screen under the stars, go check it out. Quickly, it won't be there for long. </string>
+                                    <string key="text">Need a little motivation right now to get through the tasks? No problem. I left something for you in the main screen under the stars, go check it out. Quickly, it won't be there for long. </string>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>

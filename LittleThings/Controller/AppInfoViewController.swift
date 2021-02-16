@@ -10,17 +10,13 @@ import UIKit
 class AppInfoViewController: UIViewController {
     
     //MARK: - IB Properties
-    
-    
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         tapToDismissVC()
     }
     
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
     }
     
@@ -28,7 +24,6 @@ class AppInfoViewController: UIViewController {
     private func tapToDismissVC(){
         dismiss(animated: true)
     }
-    
     
     //MARK: - Privates
     private func configureUI(){

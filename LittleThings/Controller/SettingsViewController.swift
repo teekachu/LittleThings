@@ -17,15 +17,19 @@ protocol MotivationSwitchDelegate {
     func needMotivation(_ option: Bool)
 }
 
-
 class SettingsViewController: UIViewController {
     
     //  MARK: - Properties
+    let appIconManager = AppIconManager()
+    let databaseManager: DatabaseManager?
+    let authManager: AuthManager?
+    let notificationManager: NotificationsManager?
+    
     var delegate: SettingsMenuDelegate?
     var delegate2: MotivationSwitchDelegate?
     
     private let cellIdentifier = "settingsTableViewCell"
-    let appIconManager = AppIconManager()
+    
     var arr = [UIButton]()
     
     var basePurchaseID = "base_tip"
@@ -62,11 +66,17 @@ class SettingsViewController: UIViewController {
     
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
         if taskCountSwitch.isOn {
+            // set userDefault
             UserDefaults.standard.set(true, forKey: "CountSwitchIsOn")
-            print("Count switch on ")
+            
+            // change badge count
+            guard let userID = authManager?.userID else {return}
+            databaseManager?.getBadgeCount(for: userID) {[weak self] (count) in
+                self?.notificationManager?.setBadge(to: count)
+            }
         } else {
             UserDefaults.standard.set(false, forKey: "CountSwitchIsOn")
-            print("count switch off ")
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
     }
     
@@ -104,8 +114,16 @@ class SettingsViewController: UIViewController {
     
     
     //  MARK: - Lifecycle
-    init(delegate: SettingsMenuDelegate) {
+    init(delegate: SettingsMenuDelegate,
+         databaseManager: DatabaseManager,
+         authManager: AuthManager,
+         notificationManager: NotificationsManager ) {
+        
         self.delegate = delegate
+        self.databaseManager = databaseManager
+        self.authManager = authManager
+        self.notificationManager = notificationManager
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -150,7 +168,6 @@ class SettingsViewController: UIViewController {
         fishingStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
         
         SKPaymentQueue.default().add(self)
-    
     }
     
     private func configureTableView(){
@@ -226,7 +243,6 @@ class SettingsViewController: UIViewController {
         } else {
             print("Unable to restore purchase")
         }
-        
     }
     
 }

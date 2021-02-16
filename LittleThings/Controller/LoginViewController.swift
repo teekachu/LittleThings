@@ -180,10 +180,8 @@ class LoginViewController: UIViewController, Animatable {
     private func performSignin() {
         let request = createAppleIDRequest()
         let authController = ASAuthorizationController(authorizationRequests: [request])
-        
         authController.delegate = self
         authController.presentationContextProvider = self
-        
         authController.performRequests()
     }
     
@@ -191,10 +189,8 @@ class LoginViewController: UIViewController, Animatable {
         let provider = ASAuthorizationAppleIDProvider()
         let request = provider.createRequest()
         request.requestedScopes = [.fullName, .email]
-        
         self.currentNonce = randomNonceString()
         request.nonce = sha256(currentNonce!)
-        
         return request
     }
     

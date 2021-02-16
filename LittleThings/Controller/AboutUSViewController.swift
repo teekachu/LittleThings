@@ -10,7 +10,7 @@ import UIKit
 class AboutUSViewController: UIViewController {
     
     //  MARK: - Properties
-    
+    var stacks = [UIStackView]()
     
     //  MARK: - IB Properties
     @IBOutlet weak var profileImageView: UIImageView!
@@ -39,10 +39,9 @@ class AboutUSViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        twitterStack.layer.borderColor = Constants.whiteOffblack?.cgColor
-        githubStack.layer.borderColor = Constants.whiteOffblack?.cgColor
-        linkedinStack.layer.borderColor = Constants.whiteOffblack?.cgColor
-        
+        if !stacks.isEmpty{
+            stacks.map{$0.setBorderColorForObject(using: Constants.whiteOffblack!)}
+        }
     }
     
     
@@ -54,8 +53,7 @@ class AboutUSViewController: UIViewController {
         profileImageView.layer.cornerRadius = 35
         profileImageView.backgroundColor = .clear
         
-        
-        let stacks: [UIStackView] = [twitterStack, githubStack, linkedinStack]
+        stacks = [twitterStack, githubStack, linkedinStack]
         
         for each in stacks {
             each.layer.borderWidth = 1
@@ -63,7 +61,6 @@ class AboutUSViewController: UIViewController {
             each.layer.borderColor = Constants.whiteOffblack?.cgColor
             each.layer.cornerRadius = 15
         }
-        
         
     }
     

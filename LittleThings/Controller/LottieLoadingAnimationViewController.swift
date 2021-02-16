@@ -17,7 +17,6 @@ class LottieLoadingAnimationViewController: UIViewController {
     @IBOutlet weak var animationView: AnimationView!
     
     
-    
     //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

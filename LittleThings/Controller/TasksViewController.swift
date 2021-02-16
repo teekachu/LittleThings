@@ -58,7 +58,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     @IBAction func ShowMenuTapped(_ sender: Any) {
-        let menuVC = SettingsViewController(delegate: self)
+        let menuVC = SettingsViewController(delegate: self, databaseManager: databaseManager, authManager: authManager, notificationManager: notificationsManager)
         menuVC.delegate2 = self
         present(menuVC, animated: true)
     }
@@ -397,7 +397,7 @@ extension TasksViewController: MotivationSwitchDelegate{
     func needMotivation(_ option: Bool) {
         needMotivation = option
         
-        if !allQuotes.isEmpty && needMotivation{
+        if !allQuotes.isEmpty && needMotivation {
             if let chosenQuote = allQuotes.randomElement() {
                 quotesLabel.isHidden = false
                 quotesLabel.text = "\(chosenQuote.quote) - \(chosenQuote.author)"
