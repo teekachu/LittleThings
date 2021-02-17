@@ -15,7 +15,7 @@ protocol TasksViewControllerDelegate: class {
 class TasksViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
-   
+    
     private let authManager: AuthManager
     private let taskManager: TaskManager
     private let notificationsManager: NotificationsManager
@@ -28,9 +28,17 @@ class TasksViewController: UIViewController, Animatable {
     }
     private var tasks: [Task] = [] {
         didSet {
+            // filter things
             configureSnapshot(for: tasks.filter { $0.isDone == isDoneActive})
-            DispatchQueue.main.async {[weak self] in
-                self?.tableView.reloadData()
+            
+            // reload tableview on main thread
+            DispatchQueue.main.async {[weak self] in self?.tableView.reloadData()}
+            
+            // Update badge count
+            if user?.uid != nil {
+                databaseManager.getBadgeCount(for: user!.uid) {[weak self] (count) in
+                    self?.notificationsManager.setBadge(to: count)
+                }
             }
         }
     }
@@ -249,8 +257,6 @@ class TasksViewController: UIViewController, Animatable {
             cont.modalPresentationStyle = .fullScreen
             self.present(cont, animated: true)
         }
-        
-        
     }
     
     private func showAboutUsScreen(){
@@ -371,7 +377,7 @@ class TasksViewController: UIViewController, Animatable {
         authManager.fetchUserFromFirestore { [weak self] (user) in
             self?.user = user
             self?.notificationsManager.publishCurrentToken()
-//            self?.databaseManager.notifyUserDidAuthSuccessfully(userID: user.uid)
+            //            self?.databaseManager.notifyUserDidAuthSuccessfully(userID: user.uid)
             print("DEBUG fetchUser(): User \(user.fullname) is currently logged in, uid is \(user.uid)")
         }
     }
@@ -543,7 +549,7 @@ extension TasksViewController: SettingsMenuDelegate {
             UIApplication.shared.open(emailURL,
                                       options: [:],
                                       completionHandler: nil)
-            
+
         case .about:
             showAboutUsScreen()
             

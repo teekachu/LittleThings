@@ -54,12 +54,17 @@ class NotificationsManager: NSObject {
     // explanation screen why they should accept notifications.
     // It drastically increases the chance of the user
     // being willing to receive them.
-    private func register(_ application: UIApplication) {
+    func register(_ application: UIApplication) {
         
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
         
-        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        var options: UNAuthorizationOptions = []
+        
+        if !UserDefaults.standard.bool(forKey: "CountSwitchIsOff") {
+            options = [.alert, .badge, .sound]
+        }
+        
         
         // Register for remote notifications. This shows a permission dialog on first run, to
         // show the dialog at a more appropriate time move this registration accordingly.
@@ -71,7 +76,9 @@ class NotificationsManager: NSObject {
     }
     
     public func setBadge(to count: Int) {
-        UIApplication.shared.applicationIconBadgeNumber = count
+        if !UserDefaults.standard.bool(forKey: "CountSwitchIsOff") {
+            UIApplication.shared.applicationIconBadgeNumber = count
+        }
     }
     
     // MARK: - Private

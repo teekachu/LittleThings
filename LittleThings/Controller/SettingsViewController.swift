@@ -65,24 +65,30 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
+        
         if taskCountSwitch.isOn {
             // set userDefault
-            UserDefaults.standard.set(true, forKey: "CountSwitchIsOn")
+            UserDefaults.standard.set(false, forKey: "CountSwitchIsOff")
             
             // change badge count
             guard let userID = authManager?.userID else {return}
             databaseManager?.getBadgeCount(for: userID) {[weak self] (count) in
                 self?.notificationManager?.setBadge(to: count)
             }
+            
         } else {
-            UserDefaults.standard.set(false, forKey: "CountSwitchIsOn")
+            UserDefaults.standard.set(true, forKey: "CountSwitchIsOff")
             UIApplication.shared.applicationIconBadgeNumber = 0
         }
+        
+        notificationManager?.register(UIApplication.shared)
     }
     
     
     @IBAction func purchaseOptionA(_ sender: Any) {
-        handleBaseTip()
+//        handleBaseTip()
+        notificationManager?.setBadge(to: 5)
+        print("Tapped")
     }
     @IBAction func purchaseOptionB(_ sender: Any) {
         handlePremiumTip()
@@ -191,14 +197,16 @@ class SettingsViewController: UIViewController {
     }
     
     private func configureCountSwitch(){
-        if UserDefaults.exists(key: "CountSwitchIsOn") {
-            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
-            
-        } else {
-            // If doesn't exist, set it to true as default
-            UserDefaults.standard.setValue(true, forKey: "CountSwitchIsOn")
-            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
-        }
+        taskCountSwitch.isOn = !UserDefaults.standard.bool(forKey: "CountSwitchIsOff")
+//
+//        if UserDefaults.exists(key: "CountSwitchIsOn") {
+//            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
+//
+//        } else {
+//            // If doesn't exist, set it to true as default
+//            UserDefaults.standard.setValue(true, forKey: "CountSwitchIsOn")
+//            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
+//        }
     }
     
     //  MARK: - Payments
@@ -322,7 +330,6 @@ extension SettingsViewController: SKPaymentTransactionObserver, Animatable {
                     
                     self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
                 }
-                
                 break
                 
             default:
