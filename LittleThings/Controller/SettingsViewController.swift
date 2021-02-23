@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import StoreKit
+//import StoreKit
 
 
 protocol SettingsMenuDelegate {
@@ -87,14 +87,12 @@ class SettingsViewController: UIViewController {
     
     @IBAction func purchaseOptionA(_ sender: Any) {
 //        handleBaseTip()
-        notificationManager?.setBadge(to: 5)
-        print("Tapped")
     }
     @IBAction func purchaseOptionB(_ sender: Any) {
-        handlePremiumTip()
+//        handlePremiumTip()
     }
     @IBAction func restorePurchaseTapped(_ sender: Any) {
-        handleRestorePurchase()
+//        handleRestorePurchase()
     }
     
     
@@ -173,7 +171,8 @@ class SettingsViewController: UIViewController {
         fishingStackview.layer.borderWidth = 2
         fishingStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
         
-        SKPaymentQueue.default().add(self)
+//        SKPaymentQueue.default().add(self)
+        PurchaseManager.shared.getProduct()
     }
     
     private func configureTableView(){
@@ -198,60 +197,53 @@ class SettingsViewController: UIViewController {
     
     private func configureCountSwitch(){
         taskCountSwitch.isOn = !UserDefaults.standard.bool(forKey: "CountSwitchIsOff")
-//
-//        if UserDefaults.exists(key: "CountSwitchIsOn") {
-//            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
-//
-//        } else {
-//            // If doesn't exist, set it to true as default
-//            UserDefaults.standard.setValue(true, forKey: "CountSwitchIsOn")
-//            taskCountSwitch.isOn = UserDefaults.standard.bool(forKey: "CountSwitchIsOn")
-//        }
     }
     
     //  MARK: - Payments
-    func handleBaseTip() {
-        
-        showLottieAnimation(true)
-        
-        if SKPaymentQueue.canMakePayments() {
-            showLottieAnimation(false)
-            
-            let transactionRequest = SKMutablePayment()
-            transactionRequest.productIdentifier = basePurchaseID
-            SKPaymentQueue.default().add(transactionRequest)
-        } else {
-            print("DEBUG: Unable to purchase base tip. ")
-        }
-    }
+//    func handleBaseTip() {
+//
+//        showLottieAnimation(true)
+//
+//        if SKPaymentQueue.canMakePayments() {
+//
+//            showLottieAnimation(false)
+//
+//            let transactionRequest = SKMutablePayment()
+//            transactionRequest.productIdentifier = basePurchaseID
+//            SKPaymentQueue.default().add(transactionRequest)
+//
+//        } else {
+//            print("DEBUG: Unable to purchase base tip. ")
+//        }
+//    }
     
-    func handlePremiumTip(){
-        
-        showLottieAnimation(true)
-        
-        if SKPaymentQueue.canMakePayments() {
-            showLottieAnimation(false)
-            
-            let transactionRequest = SKMutablePayment()
-            transactionRequest.productIdentifier = advancePurchaseID
-            SKPaymentQueue.default().add(transactionRequest)
-        } else {
-            print("DEBUG: Unable to purchase advanced tip. ")
-        }
-    }
+//    func handlePremiumTip(){
+//
+//        showLottieAnimation(true)
+//
+//        if SKPaymentQueue.canMakePayments() {
+//            showLottieAnimation(false)
+//
+//            let transactionRequest = SKMutablePayment()
+//            transactionRequest.productIdentifier = advancePurchaseID
+//            SKPaymentQueue.default().add(transactionRequest)
+//        } else {
+//            print("DEBUG: Unable to purchase advanced tip. ")
+//        }
+//    }
     
-    func handleRestorePurchase(){
-        
-        showLottieAnimation(true)
-        
-        if SKPaymentQueue.canMakePayments() {
-            showLottieAnimation(false)
-            SKPaymentQueue.default().restoreCompletedTransactions()
-            
-        } else {
-            print("Unable to restore purchase")
-        }
-    }
+//    func handleRestorePurchase(){
+//
+//        showLottieAnimation(true)
+//
+//        if SKPaymentQueue.canMakePayments() {
+//            showLottieAnimation(false)
+//            SKPaymentQueue.default().restoreCompletedTransactions()
+//
+//        } else {
+//            print("Unable to restore purchase")
+//        }
+//    }
     
 }
 
@@ -266,8 +258,6 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingsOption.allCases.count
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
@@ -304,40 +294,41 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 //  MARK: - Extensions
-extension SettingsViewController: SKPaymentTransactionObserver, Animatable {
+//extension SettingsViewController: SKPaymentTransactionObserver, Animatable {
+//
+//    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+//        for transaction in transactions {
+//            switch transaction.transactionState {
+//            case .purchased:
+//
+//                fishQuoteLabel.text = "THANK YOU SO MUCH FOR YOUR SUPPORT!"
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {[weak self] in
+//
+//                    self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
+//                }
+//
+//                break
+//
+//            case .failed:
+//                showToast(state: .error, message: "UH OH, the transaction has failed.")
+//                break
+//
+//            case .restored:
+//                print("restored successful...")
+//
+//                fishQuoteLabel.text = "THANK YOU SO MUCH FOR YOUR PREVIOUS SUPPORT!"
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {[weak self] in
+//
+//                    self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
+//                }
+//                break
+//
+//            default:
+//                print("default")
+//                break
+//            }
+//
+//        }
+//    }
     
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction in transactions {
-            switch transaction.transactionState {
-            case .purchased:
-                
-                fishQuoteLabel.text = "THANK YOU SO MUCH FOR YOUR SUPPORT!"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {[weak self] in
-                    
-                    self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
-                }
-                break
-                
-            case .failed:
-                showToast(state: .error, message: "UH OH, the transaction has failed.")
-                break
-                
-            case .restored:
-                print("restored successful...")
-                
-                fishQuoteLabel.text = "THANK YOU SO MUCH FOR YOUR PREVIOUS SUPPORT!"
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {[weak self] in
-                    
-                    self?.fishQuoteLabel.text = "Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885"
-                }
-                break
-                
-            default:
-                print("default")
-                break
-            }
-            
-        }
-    }
-    
-}
+//}

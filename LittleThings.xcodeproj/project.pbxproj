@@ -66,6 +66,8 @@
 		A78A730625C0B3F20096F88D /* cny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78A730525C0B3F20096F88D /* cny@2x.png */; };
 		A78A730B25C0B4060096F88D /* cny@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78A730A25C0B4060096F88D /* cny@3x.png */; };
 		A78A730F25C124970096F88D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78A730E25C124970096F88D /* StoreKit.framework */; };
+		A7B6781F25E4556A00B69BEB /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6781E25E4556A00B69BEB /* PurchaseManager.swift */; };
+		A7B6782225E4583700B69BEB /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6782125E4583700B69BEB /* IAPProduct.swift */; };
 		A7C3B36925D2467100D0D1B4 /* Ext+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C3B36825D2467100D0D1B4 /* Ext+UserDefaults.swift */; };
 		ABBACFEFC73833C2E81A412E5B73D855 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12C71947A07EC17B515292F25AF3EC8 /* AboutUSViewController.xib */; };
 		AC2431D3AEA617788F553CCF9E973CC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */; };
@@ -172,6 +174,8 @@
 		A78A730525C0B3F20096F88D /* cny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@2x.png"; sourceTree = "<group>"; };
 		A78A730A25C0B4060096F88D /* cny@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@3x.png"; sourceTree = "<group>"; };
 		A78A730E25C124970096F88D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A7B6781E25E4556A00B69BEB /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		A7B6782125E4583700B69BEB /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		A7C3B36825D2467100D0D1B4 /* Ext+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UserDefaults.swift"; sourceTree = "<group>"; };
 		AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +239,7 @@
 				7ECD45FD52FA9F84D3B8E04F901A2C16 /* DatabaseManager.swift */,
 				47604717F76F3EECD0F5E72E720FCF24 /* NotificationsManager.swift */,
 				67BE71CD6CF0D297B725764EF76004A5 /* TaskManager.swift */,
+				A7B6781E25E4556A00B69BEB /* PurchaseManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				A77CE26C25BE50D400E5AA9D /* Quote.swift */,
 				D575646B44C03FFCD1D03E3D1E38F2F8 /* TaskType.swift */,
 				692C252AB51F1FAD42F8489CBDE07DA8 /* User.swift */,
+				A7B6782125E4583700B69BEB /* IAPProduct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				0063A31FC24880D8B84B38639949294D /* AnimatableExt.swift in Sources */,
 				B85FC1791307541708597EDE52EDD42E /* AppDelegate.swift in Sources */,
 				E8902B52C81563616D0F98ADC7BB65A9 /* AppInfoViewController.swift in Sources */,
+				A7B6781F25E4556A00B69BEB /* PurchaseManager.swift in Sources */,
 				A3A216BFBFF0CF06CBDE8E97AD0C8007 /* AuthMainViewController.swift in Sources */,
 				C2AF712050EC0F998CFA11213F1213C0 /* AuthManager.swift in Sources */,
 				114D30360119DA71E0D2668854970EC7 /* AuthenticationViewModel.swift in Sources */,
@@ -704,6 +711,7 @@
 				22296F4C3E89F07CE473E2ECA2E53411 /* Taskable.swift in Sources */,
 				1A881C8303262778A0563E65E116A0E1 /* TasksViewController.swift in Sources */,
 				B07CA68EFF452B7FCF1A5B47C27AC457 /* Ext+UITableView.swift in Sources */,
+				A7B6782225E4583700B69BEB /* IAPProduct.swift in Sources */,
 				2A5C5D89C181CBB2E630BEF593A62BC2 /* UpdatesTracker.swift in Sources */,
 				87EF1DF95C587D0D40AF10026011A8DA /* User.swift in Sources */,
 			);
