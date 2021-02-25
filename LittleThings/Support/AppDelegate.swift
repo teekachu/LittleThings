@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-
+import StoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,19 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
-        // set up your background color view
+        /// set up your background color view
         let colorView = UIView()
         colorView.layer.cornerRadius = 15
         
-        // configure gradiant background
+        /// configure gradiant background
         colorView.backgroundColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         
-        // use UITableViewCell.appearance() to configure
-        // the default appearance of all UITableViewCells in your app
+        /// Start observing the payment queue
+        PurchaseManager.shared.addPaymentQueueObserver()
+        
+        /// use UITableViewCell.appearance() to configure
+        /// the default appearance of all UITableViewCells in your app
         UITableViewCell.appearance().selectedBackgroundView = colorView
         
         authManager = AuthManager(delegate: self)
-//        databaseManager = DatabaseManager(delegate: self)
+        //        databaseManager = DatabaseManager(delegate: self)
         databaseManager = DatabaseManager()
         let taskManager = TaskManager(authManager: authManager!, databaseManager: databaseManager!)
         notificationsManager = NotificationsManager(registerIn: application, delegate: self)
@@ -52,27 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-//    func applicationDidEnterBackground(_ application: UIApplication) {
-//        if UserDefaults.exists(key: "CountSwitchIsOn") {
-//
-//            if UserDefaults.standard.bool(forKey: "CountSwitchIsOn") == false {
-//                // Hide
-//                UIApplication.shared.applicationIconBadgeNumber = 0
-//
-//            } else {
-//                guard let userID = authManager?.userID else {return}
-//                databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
-//                return
-//            }
-//
-//        } else {
-//            guard let userID = authManager?.userID else {return}
-//            databaseManager?.getBadgeCount(for: userID, onLoad: notificationsManager!.setBadge)
-//            return
-//        }
-//    }
+    func applicationWillTerminate(_ application: UIApplication) {
+        PurchaseManager.shared.removePaymentQueueObserver()
+    }
     
 }
+
 
 // MARK: - NotificationManagerDelegate
 extension AppDelegate: NotificationManagerDelegate {
@@ -97,6 +85,7 @@ extension AppDelegate: NotificationManagerDelegate {
     }
 }
 
+
 // MARK: - AuthManagerDelegate
 extension AppDelegate: AuthManagerDelegate {
     func authManager(setUser data: [String : Any], for userID: String, onComplete: @escaping FirebaseCompletion) {
@@ -111,6 +100,9 @@ extension AppDelegate: AuthManagerDelegate {
         databaseManager?.getDataFor(userID, onCompletion: onCompletion)
     }
 }
+
+
+
 
 // MARK: - DatabaseManagerDelegate
 //extension AppDelegate: DatabaseManagerDelegate {

@@ -4,42 +4,105 @@
 //
 //  Created by Ting Becker on 2/22/21.
 //
-
+//  WHAT THE HECK IS THIS IAP THING
 import UIKit
 import StoreKit
 
 class PurchaseManager: NSObject {
     
-    // Singleton -
+    // MARK - Singleton
     static var shared = PurchaseManager()
-    var products = [SKProduct]()
-    var paymentQueue = SKPaymentQueue.default()
     private override init() {}
     
-    func getProduct(){
-        let products: Set = [IAPProduct.baseID.rawValue, IAPProduct.advanceID.rawValue]
-        let request = SKProductsRequest(productIdentifiers: products)
-        request.delegate = self
-        request.start()
-        paymentQueue.add(self)
-        paymentQueue.restoreCompletedTransactions()
-    }
-}
-
-extension PurchaseManager: SKProductsRequestDelegate, SKPaymentTransactionObserver {
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        
-        if response.products.count > 0 {
-            for product in response.products{
-                print("tbbb: \(product.productIdentifier)")
-            }
+    //MARK:- Private
+    fileprivate var productIds = [IAPProduct.baseID.rawValue, IAPProduct.advanceID.rawValue]
+    fileprivate var productID = ""
+    fileprivate var productsRequest = SKProductsRequest()
+    fileprivate var productToPurchase: SKProduct?
+    
+    // MARK- Public
+    // To determine whether able to make purchase
+    func canMakePurchases() -> Bool {  return SKPaymentQueue.canMakePayments()  }
+    
+    func makePurchase(productID: IAPProduct) {
+        if self.canMakePurchases() {
+            let transactionRequest = SKMutablePayment()
+            transactionRequest.productIdentifier = productID.rawValue
+            SKPaymentQueue.default().add(transactionRequest)
+        } else {
+            print("Cannot make purchase of product- \(productID.rawValue)")
         }
-        
-        products = response.products
-
     }
     
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        // handles transaction states here
+    
+    // Get products
+    func fetchAvailableProducts(){
+        // Initialize the product request with the above identifiers.
+        productsRequest = SKProductsRequest(productIdentifiers: Set(self.productIds))
+        productsRequest.delegate = self
+        productsRequest.start()
+    }
+    
+    
+    // Restore purchase
+    func restorePurchase(){
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
+    func addPaymentQueueObserver(){
+        SKPaymentQueue.default().add(self)
+    }
+    
+    func removePaymentQueueObserver(){
+        SKPaymentQueue.default().remove(self)
     }
 }
+
+
+extension PurchaseManager: SKProductsRequestDelegate, SKPaymentTransactionObserver{
+    
+    /// AHHH. I DON'T REALLY KNOW WHAT THIS IS FOR ...
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if response.products.count > 0 {
+            print("There are \(response.products.count)products available")
+        }
+    }
+    
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+        for transaction:AnyObject in transactions {
+            if let trans = transaction as? SKPaymentTransaction {
+                switch trans.transactionState {
+                case .purchased:
+                    print("Product purchase done")
+                    SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    
+                    if trans.payment.productIdentifier == IAPProduct.baseID.rawValue {
+                        print("You bought the base product")
+                        /// Hide the base product purchase button, or maybe show an alert as appreciation
+                        
+                    } else {
+                        print("you bought the advanced product")
+                        /// hide the advanced product purchase button,  or maybe show an alert as appreciation
+                    }
+
+                    break
+                    
+                case .failed:
+                    print("Product purchase failed")
+                    SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    break
+                    
+                case .restored:
+                    print("Product restored")
+                    SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    break
+                    
+                default:
+                    break
+                    
+                }}}}
+}
+
