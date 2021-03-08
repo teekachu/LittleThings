@@ -19,9 +19,13 @@ She is full of personality and wit. Her interactive feedback messages are so sna
 HOW:
 
 Framework:  UIKit
+
 Architecture Style: MVVM
+
 Third Party Library: Firebase 
+
 CocoaPods: Paper-onboarding
+
 ***
 
 SCREEN SHOTS: 
