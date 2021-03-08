@@ -16,6 +16,7 @@
                 <outlet property="dismissButton" destination="ct4-Pz-A81" id="dB0-tS-N1O"/>
                 <outlet property="labelText" destination="bxc-AB-K2b" id="hec-ex-0sw"/>
                 <outlet property="stackView" destination="LnV-KD-ZJH" id="wkt-EQ-l3i"/>
+                <outlet property="titleLabel" destination="MOV-PV-k4E" id="MQg-0S-spQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,10 +29,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1T-6f-dFg" userLabel="alertView">
-                            <rect key="frame" x="35" y="362.5" width="344" height="171.5"/>
+                            <rect key="frame" x="35" y="376" width="344" height="144"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LnV-KD-ZJH">
-                                    <rect key="frame" x="30" y="25" width="284" height="121.5"/>
+                                    <rect key="frame" x="30" y="25" width="284" height="94"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ct4-Pz-A81" userLabel="exit">
                                             <rect key="frame" x="0.0" y="0.0" width="284" height="44"/>
@@ -48,16 +49,16 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="WA7-qo-swo">
-                                            <rect key="frame" x="0.0" y="54" width="284" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="54" width="284" height="40"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rule of thumb: " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-PV-k4E">
-                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="27.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-PV-k4E" userLabel="TitleLabel">
+                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-AB-K2b">
-                                                    <rect key="frame" x="0.0" y="67.5" width="284" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="40" width="284" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

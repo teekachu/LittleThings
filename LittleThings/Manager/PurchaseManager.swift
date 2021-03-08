@@ -4,13 +4,18 @@
 //
 //  Created by Ting Becker on 2/22/21.
 //
-//  WHAT THE HECK IS THIS IAP THING
+
 import UIKit
 import StoreKit
 
+protocol PurchaseManagerDelegate {
+    func didPurchaseBaseProduct()
+    func didPurchaseAdvanceProduct()
+}
+
 class PurchaseManager: NSObject {
     
-    // MARK - Singleton
+    //    // MARK - Singleton
     static var shared = PurchaseManager()
     private override init() {}
     
@@ -19,6 +24,7 @@ class PurchaseManager: NSObject {
     fileprivate var productID = ""
     fileprivate var productsRequest = SKProductsRequest()
     fileprivate var productToPurchase: SKProduct?
+    var delegate: PurchaseManagerDelegate?
     
     // MARK- Public
     // To determine whether able to make purchase
@@ -80,14 +86,11 @@ extension PurchaseManager: SKProductsRequestDelegate, SKPaymentTransactionObserv
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     
                     if trans.payment.productIdentifier == IAPProduct.baseID.rawValue {
-                        print("You bought the base product")
-                        /// Hide the base product purchase button, or maybe show an alert as appreciation
-                        
+                        delegate?.didPurchaseBaseProduct()
                     } else {
-                        print("you bought the advanced product")
-                        /// hide the advanced product purchase button,  or maybe show an alert as appreciation
+                        delegate?.didPurchaseAdvanceProduct()
                     }
-
+                    
                     break
                     
                 case .failed:

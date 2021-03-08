@@ -64,7 +64,6 @@ class SettingsViewController: UIViewController {
         }
     }
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
-        
         if taskCountSwitch.isOn {
             // set userDefault
             UserDefaults.standard.set(false, forKey: "CountSwitchIsOff")
@@ -154,6 +153,11 @@ class SettingsViewController: UIViewController {
     //  MARK: - Privates
     private func configureUI(){
         
+        if UserDefaults.exists(key: "IAPoptionAisEnabled"){
+            purchaseOptionA.isEnabled = UserDefaults.standard.bool(forKey: "IAPoptionAisEnabled")
+            purchaseOptionA.backgroundColor = .clear
+            purchaseOptionA.setTitle("Thank You", for: .normal)
+        }
         purchaseOptionA.layer.cornerRadius = 8
         fishSkeleton.layer.cornerRadius = 5
         
@@ -161,6 +165,11 @@ class SettingsViewController: UIViewController {
         fishboneStackview.layer.borderWidth = 2
         fishboneStackview.layer.borderColor = Constants.normalBlackWhite?.cgColor
         
+        if UserDefaults.exists(key: "IAPoptionBisEnabled"){
+            purchaseOptionB.isEnabled = UserDefaults.standard.bool(forKey: "IAPoptionBisEnabled")
+            purchaseOptionB.backgroundColor = .clear
+            purchaseOptionB.setTitle("Thank You", for: .normal)
+        }
         purchaseOptionB.layer.cornerRadius = 8
         fishingImg.layer.cornerRadius = 5
         
@@ -170,6 +179,7 @@ class SettingsViewController: UIViewController {
         
         /// Fetch product info when settings menu is active
         PurchaseManager.shared.fetchAvailableProducts()
+        PurchaseManager.shared.delegate = self
     }
     
     private func configureTableView(){
@@ -243,4 +253,40 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
+extension SettingsViewController: PurchaseManagerDelegate {
+    func didPurchaseBaseProduct() {
+        /// Show an alert as appreciation
+        let alert = CustomAlertViewController(alertTitle: "THANK YOU", alertMessage: Constants.thankYouForYourPurchaseBase)
+        alert.modalPresentationStyle = .fullScreen
+        present(alert, animated: true)
+        
+        /// Hide the base product purchase button
+        
+        purchaseOptionA.isEnabled = false
+        UserDefaults.standard.set(false, forKey: "IAPoptionAisEnabled")
+        
+        purchaseOptionA.setTitle("Thank You", for: .normal)
+        purchaseOptionA.backgroundColor = .clear
+        print("You bought the base product")
+    
+    }
+    
+    func didPurchaseAdvanceProduct() {
+        /// Show an alert as appreciation
+        let alert = CustomAlertViewController(alertTitle: "THANK YOU", alertMessage: Constants.thankYouForYourPurchaseAdv)
+        alert.modalPresentationStyle = .fullScreen
+        present(alert, animated: true)
+        
+        /// Hide the base product purchase button
+        purchaseOptionB.isEnabled = false
+        UserDefaults.standard.set(false, forKey: "IAPoptionBisEnabled")
+        
+        purchaseOptionB.setTitle("Thank You", for: .normal)
+        purchaseOptionB.backgroundColor = .clear
+        
+        print("you bought the advanced product")
+    }
+    
+}
 

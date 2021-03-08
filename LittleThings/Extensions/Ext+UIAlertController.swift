@@ -17,13 +17,13 @@ extension UIAlertController {
         }
     }
     
-    static func showTipsInAlert(message: String) -> UIAlertController{
-        let controller = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Sounds Good!", style: .cancel)
-        controller.addAction(okay)
-        controller.view.tintColor = Constants.blackWhite
-        return controller
-    }
+//    static func showTipsInAlert(message: String, buttonTitle: String) -> UIAlertController{
+//        let controller = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+//        let okay = UIAlertAction(title: buttonTitle, style: .cancel)
+//        controller.addAction(okay)
+//        controller.view.tintColor = Constants.blackWhite
+//        return controller
+//    }
     
     static func addTask(onTap: @escaping (Bool) -> Void) -> UIAlertController {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

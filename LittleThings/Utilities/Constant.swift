@@ -109,6 +109,18 @@ struct Constants {
 
         Once you are ready to swap, the old task will be moved to done, replaced by the new.
         """
+    
+    static let thankYouForYourPurchaseBase = """
+        Hey there. Thank you so much for your love and support. This tip will allow me to continue working on LittleThings and improve her to be even better for you guys. I appreciate you so much for supporting my journey!
+
+        Much love, Tee
+        """
+    
+    static let thankYouForYourPurchaseAdv = """
+        Hey there. Thank you so much for your love and support. This tip will allow me to continue learning new knowledge and strive to become a better developer. Thanks for investing in my future, I appreciate you to the moon and back!
+
+        Much love, Tee
+        """
 }
 
 

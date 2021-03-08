@@ -61,7 +61,7 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var tableView: UITableView!
     @IBAction func additionalInfoTapped(_ sender: Any) {
         let msg = Constants.ruleOfThumb
-        let controller = CustomAlertViewController(alertMessage: msg)
+        let controller = CustomAlertViewController(alertTitle: "Rule Of Thumb:", alertMessage: msg)
         present(a: controller)
     }
     
@@ -80,6 +80,7 @@ class TasksViewController: UIViewController, Animatable {
          taskManager: TaskManager,
          notificationsManager: NotificationsManager,
          databaseManager: DatabaseManager) {
+        
         self.authManager = authManager
         self.taskManager = taskManager
         self.notificationsManager = notificationsManager

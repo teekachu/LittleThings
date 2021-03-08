@@ -9,9 +9,11 @@ import UIKit
 
 class CustomAlertViewController: UIViewController {
 
+    var alertTitle: String
     var message: String
     
-    init(alertMessage: String) {
+    init(alertTitle: String, alertMessage: String) {
+        self.alertTitle = alertTitle
         self.message = alertMessage
         super.init(nibName: nil, bundle: nil)
     }
@@ -22,6 +24,7 @@ class CustomAlertViewController: UIViewController {
     
     //  MARK: - IB Properties
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var stackView: UIStackView!
@@ -51,6 +54,7 @@ class CustomAlertViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         addBlurEffectToView(for: .systemUltraThinMaterial)
         
+        titleLabel.text = alertTitle
         labelText.text = message
         alertView.backgroundColor = Constants.whiteOffblack
         alertView.layer.cornerRadius = 25

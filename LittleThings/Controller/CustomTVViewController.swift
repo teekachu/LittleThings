@@ -35,7 +35,7 @@ class CustomTVViewController: UIViewController {
     
     @IBAction func infoButtonTapped(_ sender: Any) {
         let msg = Constants.swapScreenExplaination
-        let controller = CustomAlertViewController(alertMessage: msg)
+        let controller = CustomAlertViewController(alertTitle: "Rule Of Thumb:", alertMessage: msg)
         present(a: controller)
     }
     
