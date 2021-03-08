@@ -30,9 +30,9 @@ CocoaPods: Paper-onboarding
 
 SCREEN SHOTS: 
 
-<img src="https://user-images.githubusercontent.com/64371072/110382932-72df4900-8010-11eb-81cb-4b3ad7a17aeb.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382926-707cef00-8010-11eb-94d0-54fbd88e2602.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382930-7246b280-8010-11eb-8551-704417eda2fe.png" width="200">
+<img src="https://user-images.githubusercontent.com/64371072/110382936-74107600-8010-11eb-9ac5-0730faa86a38.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382926-707cef00-8010-11eb-94d0-54fbd88e2602.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382930-7246b280-8010-11eb-8551-704417eda2fe.png" width="200">
 
 
-<img src="https://user-images.githubusercontent.com/64371072/110382933-7377df80-8010-11eb-9807-232a8597ffd4.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382934-7377df80-8010-11eb-96bd-2ae459f4cd45.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382936-74107600-8010-11eb-9ac5-0730faa86a38.png" width="200">
+<img src="https://user-images.githubusercontent.com/64371072/110382933-7377df80-8010-11eb-9807-232a8597ffd4.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382934-7377df80-8010-11eb-96bd-2ae459f4cd45.png" width="200"><img src="https://user-images.githubusercontent.com/64371072/110382932-72df4900-8010-11eb-81cb-4b3ad7a17aeb.png" width="200">
 
 ***
