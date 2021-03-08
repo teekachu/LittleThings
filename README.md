@@ -3,6 +3,8 @@ Updated: Mar 8, 2021
 
 Beta Version: 1.3
 
+TestFlight link: https://testflight.apple.com/join/FwtK8Ylo
+
 ***
 WHAT:
 
