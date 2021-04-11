@@ -39,7 +39,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LsH-ID-cCb">
-                            <rect key="frame" x="15" y="15" width="384" height="1700"/>
+                            <rect key="frame" x="15" y="15" width="384" height="1500"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Wr-r2X" userLabel="exit">
                                     <rect key="frame" x="0.0" y="0.0" width="384" height="22"/>
@@ -75,7 +75,7 @@
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="bF3-vx-PnL"/>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display the number of unfinished tasks in the form of a red circle on the Icon. Or not. Whatever floats your boat." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opt in to receive daily reminder notifications and display the number of unfinished tasks on the icon. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mk7-qQ-exd" userLabel="Explanation Label">
                                     <rect key="frame" x="0.0" y="93" width="384" height="70"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
@@ -102,16 +102,15 @@
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="vIb-Ep-iB3"/>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wE5-7u-xoe" userLabel="Explanation Label">
-                                    <rect key="frame" x="0.0" y="234" width="384" height="93"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psst, I left something for you in the main screen under the stars, go check it out. Quickly, it won't be there for long. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wE5-7u-xoe" userLabel="Explanation Label">
+                                    <rect key="frame" x="0.0" y="234" width="384" height="70"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <string key="text">Need a little motivation right now to get through the tasks? No problem. I left something for you in the main screen under the stars, go check it out. Quickly, it won't be there for long. </string>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vAo-nX-xtJ" userLabel="icon stack">
-                                    <rect key="frame" x="0.0" y="347" width="384" height="112.5"/>
+                                    <rect key="frame" x="0.0" y="324" width="384" height="112.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqf-Ts-9jZ" userLabel="CustomIconLabel">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -238,7 +237,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6k2-EF-IKy" userLabel="payment stack">
-                                    <rect key="frame" x="0.0" y="479.5" width="384" height="982"/>
+                                    <rect key="frame" x="0.0" y="456.5" width="384" height="805"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iH-VZ-qsg" userLabel="SupportDevelopment">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -246,22 +245,21 @@
                                             <color key="textColor" name="normalBW"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bzX-eO-8P2" userLabel="Explanation Label">
-                                            <rect key="frame" x="0.0" y="42.5" width="384" height="139.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the Tip Jar, a place to leave some pocket change in exchange for good karma. " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bzX-eO-8P2" userLabel="Explanation Label">
+                                            <rect key="frame" x="0.0" y="42.5" width="384" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <string key="text">This is the Tip Jar, a place to leave some pocket change in exchange for good karma. If you would like to support my journey as a self taught iOS developer, and to be able to continue creating fun, useful and meaningful iOS applications, I'd really love you for it.</string>
                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                             <color key="textColor" name="offblack white"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Give a Man a Fish, and You Feed Him for a Day. Teach a Man To Fish, and You Feed Him for a Lifetime”   -- Anne Ritchie, 1885" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snq-yu-GAF">
-                                            <rect key="frame" x="0.0" y="197" width="384" height="61.5"/>
+                                            <rect key="frame" x="0.0" y="104" width="384" height="61.5"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                             <color key="textColor" name="Navbar quote text color"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-mz-dkS">
-                                            <rect key="frame" x="0.0" y="273.5" width="384" height="708.5"/>
+                                            <rect key="frame" x="0.0" y="180.5" width="384" height="624.5"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-63-i7H">
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="448.5"/>
@@ -542,7 +540,7 @@
                                                     <viewLayoutGuide key="frameLayoutGuide" id="04g-rV-Jmh"/>
                                                 </scrollView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Qu-Lhw">
-                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="260"/>
+                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="176"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Restore Purchase">
                                                         <color key="titleColor" name="normalBW"/>
@@ -556,12 +554,12 @@
                                     </subviews>
                                 </stackView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W7F-VH-vhD">
-                                    <rect key="frame" x="0.0" y="1481.5" width="384" height="218.5"/>
+                                    <rect key="frame" x="0.0" y="1281.5" width="384" height="218.5"/>
                                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1700" id="5Cd-jk-Pi7"/>
+                                <constraint firstAttribute="height" constant="1500" id="5Cd-jk-Pi7"/>
                             </constraints>
                         </stackView>
                     </subviews>
