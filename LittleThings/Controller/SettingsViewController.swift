@@ -65,22 +65,24 @@ class SettingsViewController: UIViewController {
         }
     }
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
-        if taskCountSwitch.isOn {
-            // set userDefault
-            UserDefaults.standard.set(false, forKey: "CountSwitchIsOff")
-            
-            // change badge count
-            guard let userID = authManager?.userID else {return}
-            databaseManager?.getBadgeCount(for: userID) {[weak self] (count) in
-                self?.notificationManager?.setBadge(to: count)
-            }
-            
-        } else {
-            UserDefaults.standard.set(true, forKey: "CountSwitchIsOff")
-            UIApplication.shared.applicationIconBadgeNumber = 0
-        }
+        print("I tapped the task count switch to \(taskCountSwitch.state)")
         
-        notificationManager?.register(UIApplication.shared)
+//        if taskCountSwitch.isOn {
+//            // set userDefault
+//            UserDefaults.standard.set(false, forKey: "CountSwitchIsOff")
+//
+//            // change badge count
+//            guard let userID = authManager?.userID else {return}
+//            databaseManager?.getBadgeCount(for: userID) {[weak self] (count) in
+//                self?.notificationManager?.setBadge(to: count)
+//            }
+//
+//        } else {
+//            UserDefaults.standard.set(true, forKey: "CountSwitchIsOff")
+//            UIApplication.shared.applicationIconBadgeNumber = 0
+//        }
+//
+//        notificationManager?.register(UIApplication.shared)
     }
     @IBAction func purchaseOptionA(_ sender: Any) {
         PurchaseManager.shared.makePurchase(productID: .baseID)
@@ -142,7 +144,7 @@ class SettingsViewController: UIViewController {
         configureUI()
         configureIconButtons()
         configureTableView()
-        configureCountSwitch()
+//        configureCountSwitch()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -207,9 +209,9 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func configureCountSwitch(){
-        taskCountSwitch.isOn = !UserDefaults.standard.bool(forKey: "CountSwitchIsOff")
-    }
+//    private func configureCountSwitch(){
+//        taskCountSwitch.isOn = !UserDefaults.standard.bool(forKey: "CountSwitchIsOff")
+//    }
     
 }
 
