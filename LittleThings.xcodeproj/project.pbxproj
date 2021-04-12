@@ -66,6 +66,9 @@
 		A78A730625C0B3F20096F88D /* cny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78A730525C0B3F20096F88D /* cny@2x.png */; };
 		A78A730B25C0B4060096F88D /* cny@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78A730A25C0B4060096F88D /* cny@3x.png */; };
 		A78A730F25C124970096F88D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78A730E25C124970096F88D /* StoreKit.framework */; };
+		A7AD5481262372E200A040F2 /* ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7AD547E262372E100A040F2 /* ball@2x.png */; };
+		A7AD5482262372E200A040F2 /* ball@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7AD547F262372E100A040F2 /* ball@3x.png */; };
+		A7AD5483262372E200A040F2 /* ball@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7AD5480262372E100A040F2 /* ball@1x.png */; };
 		A7B6781F25E4556A00B69BEB /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6781E25E4556A00B69BEB /* PurchaseManager.swift */; };
 		A7B6782225E4583700B69BEB /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6782125E4583700B69BEB /* IAPProduct.swift */; };
 		A7C3B36925D2467100D0D1B4 /* Ext+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C3B36825D2467100D0D1B4 /* Ext+UserDefaults.swift */; };
@@ -174,6 +177,9 @@
 		A78A730525C0B3F20096F88D /* cny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@2x.png"; sourceTree = "<group>"; };
 		A78A730A25C0B4060096F88D /* cny@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cny@3x.png"; sourceTree = "<group>"; };
 		A78A730E25C124970096F88D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A7AD547E262372E100A040F2 /* ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball@2x.png"; sourceTree = "<group>"; };
+		A7AD547F262372E100A040F2 /* ball@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball@3x.png"; sourceTree = "<group>"; };
+		A7AD5480262372E100A040F2 /* ball@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball@1x.png"; sourceTree = "<group>"; };
 		A7B6781E25E4556A00B69BEB /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		A7B6782125E4583700B69BEB /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		A7C3B36825D2467100D0D1B4 /* Ext+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UserDefaults.swift"; sourceTree = "<group>"; };
@@ -366,6 +372,7 @@
 		A77BDE7B25BFBE2D00F95C84 /* Alt Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A7AD547C262372BF00A040F2 /* LTBall */,
 				A78A72FC25C0AE8D0096F88D /* BW135 */,
 				A78A72F425C0ADE20096F88D /* RainbowHeart */,
 				A78A72EC25C0AD930096F88D /* BlackCheckmark */,
@@ -422,6 +429,16 @@
 				A78A72FF25C0AEA60096F88D /* bw@3x.png */,
 			);
 			path = BW135;
+			sourceTree = "<group>";
+		};
+		A7AD547C262372BF00A040F2 /* LTBall */ = {
+			isa = PBXGroup;
+			children = (
+				A7AD5480262372E100A040F2 /* ball@1x.png */,
+				A7AD547E262372E100A040F2 /* ball@2x.png */,
+				A7AD547F262372E100A040F2 /* ball@3x.png */,
+			);
+			path = LTBall;
 			sourceTree = "<group>";
 		};
 		BF853BF68A4E6A9CFA65D0133A16C50D /* View */ = {
@@ -527,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABBACFEFC73833C2E81A412E5B73D855 /* AboutUSViewController.xib in Resources */,
+				A7AD5483262372E200A040F2 /* ball@1x.png in Resources */,
 				FE664C5054E6107E3CA9178E8107CE2C /* AddNewTaskViewController.xib in Resources */,
 				33B4A436AACC56AF27DC53741E0D7F13 /* AppInfoViewController.xib in Resources */,
 				A78A72F225C0ADAE0096F88D /* blackCheck@3x.png in Resources */,
@@ -547,6 +565,7 @@
 				EBC4ACA5B958AF381E2B5F3C9D89BA0A /* LottieLoadingAnimationViewController.xib in Resources */,
 				A77BDE9725BFD88C00F95C84 /* rainbow@1x.png in Resources */,
 				5646FFA46A210192DF067F43B6021758 /* Main.storyboard in Resources */,
+				A7AD5481262372E200A040F2 /* ball@2x.png in Resources */,
 				0ED6BD742A61911FC7782840568437F9 /* OngoingTaskTableViewCell.xib in Resources */,
 				5B76CBF98BFC54DEF905D1BB963C5250 /* Podfile in Resources */,
 				3E1CE037CDC5453ABC7C72A5E07A47AA /* ResetPasswordViewController.xib in Resources */,
@@ -555,6 +574,7 @@
 				63FB93E25019C992D82159770CBB0B70 /* SignUpViewController.xib in Resources */,
 				A78A730B25C0B4060096F88D /* cny@3x.png in Resources */,
 				A78A730625C0B3F20096F88D /* cny@2x.png in Resources */,
+				A7AD5482262372E200A040F2 /* ball@3x.png in Resources */,
 				A78A72F925C0AE270096F88D /* rainbowHeart@3x.png in Resources */,
 				EAF4DF69252369890B8A872867BF8E3A /* SwapTaskViewController.xib in Resources */,
 				A77BDE9A25BFD8A000F95C84 /* rainbow@2x.png in Resources */,

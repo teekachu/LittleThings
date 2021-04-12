@@ -49,6 +49,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var CNYIcon: UIButton!
     @IBOutlet weak var bwBallsIcon: UIButton!
     @IBOutlet weak var rainbowHeart: UIButton!
+    @IBOutlet weak var littleThingIcon: UIButton!
     @IBOutlet weak var fishSkeleton: UIImageView!
     @IBOutlet weak var fishingImg: UIImageView!
     @IBOutlet weak var fishboneStackview: UIStackView!
@@ -111,6 +112,10 @@ class SettingsViewController: UIViewController {
     @IBAction func rainbowHeartIconTapped(_ sender: Any) {
         appIconManager.changeAppIcon(to: .rainbowHeartAppIcon)
     }
+    @IBAction func littleThingIconTapped(_ sender: Any) {
+        appIconManager.changeAppIcon(to: .yellowLTIcon)
+    }
+    
     
     
     //  MARK: - Lifecycle
@@ -193,7 +198,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func configureIconButtons(){
-        arr += [defaultIcon, rainbowIcon, blackCheckmarkIcon, CNYIcon, bwBallsIcon, rainbowHeart]
+        arr += [defaultIcon, rainbowIcon, blackCheckmarkIcon, CNYIcon, bwBallsIcon, rainbowHeart, littleThingIcon]
         for each in arr{
             each.layer.cornerRadius = 12
             each.imageView?.layer.cornerRadius = 12

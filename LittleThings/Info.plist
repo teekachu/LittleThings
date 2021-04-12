@@ -55,6 +55,15 @@
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
+			<key>yellowLTIcon</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>ball</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
 		</dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
@@ -90,7 +99,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>902</string>
+	<string>906</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

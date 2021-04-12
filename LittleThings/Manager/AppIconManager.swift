@@ -16,6 +16,7 @@ class AppIconManager {
         case CNYAppIcon
         case rainbowAppIcon
         case bwAppIcon
+        case yellowLTIcon
         case rainbowHeartAppIcon
         case blackCheckmarkAppIcon
     }

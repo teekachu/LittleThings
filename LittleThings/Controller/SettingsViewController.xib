@@ -20,6 +20,7 @@
                 <outlet property="fishboneStackview" destination="Mg1-Tw-10M" id="KMT-Ix-MTo"/>
                 <outlet property="fishingImg" destination="S7Y-e6-FMg" id="Fvz-A2-bGV"/>
                 <outlet property="fishingStackview" destination="n1l-zw-4PU" id="cfR-K9-Nit"/>
+                <outlet property="littleThingIcon" destination="zDq-t9-NhC" id="RpP-Mf-cyE"/>
                 <outlet property="motivationSwitch" destination="2EQ-5d-6ga" id="UJF-vc-Mga"/>
                 <outlet property="purchaseOptionA" destination="DXd-Fh-fz7" id="rOz-Nu-kmI"/>
                 <outlet property="purchaseOptionB" destination="kVE-kP-iga" id="eBq-Zp-u2J"/>
@@ -39,7 +40,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LsH-ID-cCb">
-                            <rect key="frame" x="15" y="15" width="384" height="1500"/>
+                            <rect key="frame" x="15" y="15" width="384" height="1600"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-Wr-r2X" userLabel="exit">
                                     <rect key="frame" x="0.0" y="0.0" width="384" height="22"/>
@@ -122,7 +123,7 @@
                                             <rect key="frame" x="0.0" y="42.5" width="384" height="70"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-o0-drn">
-                                                    <rect key="frame" x="20" y="5" width="485" height="60"/>
+                                                    <rect key="frame" x="20" y="5" width="570" height="60"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wWV-Q5-VcP">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -140,18 +141,18 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-uT-fWc">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gn9-FW-k0j">
                                                             <rect key="frame" x="85" y="0.0" width="60" height="60"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-Qe-GBR" userLabel="BWballs">
+                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDq-t9-NhC" userLabel="littleThing">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="60" id="8Ip-Gd-uT2"/>
-                                                                        <constraint firstAttribute="width" constant="60" id="axc-7C-MmV"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="J79-t0-hzv"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="YRp-Gy-gIm"/>
                                                                     </constraints>
-                                                                    <state key="normal" image="bw.png"/>
+                                                                    <state key="normal" image="ball.png"/>
                                                                     <connections>
-                                                                        <action selector="bwBallsIconTapped:" destination="-1" eventType="touchUpInside" id="Q9u-Bj-PfE"/>
+                                                                        <action selector="littleThingIconTapped:" destination="-1" eventType="touchUpInside" id="GLh-YW-aa1"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -172,8 +173,24 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Am8-Cw-Hso">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-uT-fWc">
                                                             <rect key="frame" x="255" y="0.0" width="60" height="60"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNS-Qe-GBR" userLabel="BWballs">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="60" id="8Ip-Gd-uT2"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="axc-7C-MmV"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="bw.png"/>
+                                                                    <connections>
+                                                                        <action selector="bwBallsIconTapped:" destination="-1" eventType="touchUpInside" id="Q9u-Bj-PfE"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Am8-Cw-Hso">
+                                                            <rect key="frame" x="340" y="0.0" width="60" height="60"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6h-wx-Ued" userLabel="rainbow">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -189,7 +206,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A6a-MC-PAk">
-                                                            <rect key="frame" x="340" y="0.0" width="60" height="60"/>
+                                                            <rect key="frame" x="425" y="0.0" width="60" height="60"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ig-bq-7Vc" userLabel="blackCheckmark">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -205,7 +222,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hnp-Mr-nv8">
-                                                            <rect key="frame" x="425" y="0.0" width="60" height="60"/>
+                                                            <rect key="frame" x="510" y="0.0" width="60" height="60"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-Mh-JcR" userLabel="cny">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -237,7 +254,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6k2-EF-IKy" userLabel="payment stack">
-                                    <rect key="frame" x="0.0" y="456.5" width="384" height="805"/>
+                                    <rect key="frame" x="0.0" y="456.5" width="384" height="905"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iH-VZ-qsg" userLabel="SupportDevelopment">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -259,7 +276,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-mz-dkS">
-                                            <rect key="frame" x="0.0" y="180.5" width="384" height="624.5"/>
+                                            <rect key="frame" x="0.0" y="180.5" width="384" height="724.5"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-63-i7H">
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="448.5"/>
@@ -540,7 +557,7 @@
                                                     <viewLayoutGuide key="frameLayoutGuide" id="04g-rV-Jmh"/>
                                                 </scrollView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Qu-Lhw">
-                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="176"/>
+                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="276"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Restore Purchase">
                                                         <color key="titleColor" name="normalBW"/>
@@ -554,12 +571,12 @@
                                     </subviews>
                                 </stackView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W7F-VH-vhD">
-                                    <rect key="frame" x="0.0" y="1281.5" width="384" height="218.5"/>
+                                    <rect key="frame" x="0.0" y="1381.5" width="384" height="218.5"/>
                                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1500" id="5Cd-jk-Pi7"/>
+                                <constraint firstAttribute="height" constant="1600" id="5Cd-jk-Pi7"/>
                             </constraints>
                         </stackView>
                     </subviews>
@@ -587,6 +604,7 @@
     </objects>
     <resources>
         <image name="LaunchScreen" width="120" height="120"/>
+        <image name="ball.png" width="120.23999786376953" height="120"/>
         <image name="blackCheck.png" width="60" height="60"/>
         <image name="bw.png" width="60" height="60"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
