@@ -400,23 +400,24 @@ extension TasksViewController: UITableViewDelegate {
 
 
 // //  MARK: - MotivationSwitchDelegate
-extension TasksViewController: MotivationSwitchDelegate{
+extension TasksViewController: MotivationQuoteDelegate{
     func needMotivation(_ option: Bool) {
         needMotivation = option
-        
+
         if !allQuotes.isEmpty && needMotivation {
             if let chosenQuote = allQuotes.randomElement() {
                 quotesLabel.isHidden = false
                 quotesLabel.text = "\(chosenQuote.quote) - \(chosenQuote.author)"
             }
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {[weak self] in
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30) {[weak self] in
             self?.needMotivation = false
-            UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut) {
+            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut) {
                 self?.quotesLabel.isHidden = true
             } completion: { (_) in
                 self?.quotesLabel.text = ""
+                UserDefaults().setValue(false, forKey: "showMotivation")
             }
         }
     }

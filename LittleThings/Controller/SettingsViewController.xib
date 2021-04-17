@@ -6,12 +6,14 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
                 <outlet property="CNYIcon" destination="VgX-Mh-JcR" id="4Xe-uK-idz"/>
+                <outlet property="MotivationQuoteButton" destination="qhY-Mi-UmB" id="Fu4-QK-39J"/>
                 <outlet property="blackCheckmarkIcon" destination="8Ig-bq-7Vc" id="Szo-7m-uwf"/>
                 <outlet property="bwBallsIcon" destination="dNS-Qe-GBR" id="vh3-lJ-Z4g"/>
                 <outlet property="defaultIcon" destination="Wfi-hY-dG2" id="7Md-Xr-QWW"/>
@@ -21,7 +23,6 @@
                 <outlet property="fishingImg" destination="S7Y-e6-FMg" id="Fvz-A2-bGV"/>
                 <outlet property="fishingStackview" destination="n1l-zw-4PU" id="cfR-K9-Nit"/>
                 <outlet property="littleThingIcon" destination="zDq-t9-NhC" id="RpP-Mf-cyE"/>
-                <outlet property="motivationSwitch" destination="2EQ-5d-6ga" id="UJF-vc-Mga"/>
                 <outlet property="purchaseOptionA" destination="DXd-Fh-fz7" id="rOz-Nu-kmI"/>
                 <outlet property="purchaseOptionB" destination="kVE-kP-iga" id="eBq-Zp-u2J"/>
                 <outlet property="rainbowHeart" destination="d7t-L5-25T" id="hUL-YS-iTp"/>
@@ -56,12 +57,12 @@
                                         <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="uhP-C6-V0w"/>
                                     </connections>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="45" id="6bS-14-iTe" userLabel="disable badge count stack">
+                                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" id="6bS-14-iTe" userLabel="disable badge count stack">
                                     <rect key="frame" x="0.0" y="42" width="384" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-Cn-kSE" userLabel="Enable Notifications">
-                                            <rect key="frame" x="0.0" y="0.0" width="290" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="327" height="31"/>
                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                             <color key="textColor" name="normalBW"/>
                                             <nil key="highlightedColor"/>
@@ -83,35 +84,44 @@
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="45" id="mHf-u1-aWp" userLabel="motivation stack">
-                                    <rect key="frame" x="0.0" y="183" width="384" height="31"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" id="mHf-u1-aWp" userLabel="motivation stack">
+                                    <rect key="frame" x="0.0" y="183" width="384" height="28"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a dose of motivation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVs-ZT-TIq" userLabel="Enable Notifications">
-                                            <rect key="frame" x="0.0" y="0.0" width="290" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="28"/>
                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                             <color key="textColor" name="normalBW"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2EQ-5d-6ga">
-                                            <rect key="frame" x="335" y="0.0" width="51" height="31"/>
-                                            <color key="onTintColor" name="OrangeTintFDB903"/>
+                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhY-Mi-UmB">
+                                            <rect key="frame" x="333" y="0.0" width="51" height="28"/>
+                                            <color key="backgroundColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="51" id="l6N-vY-u7K"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="pills" catalog="system" symbolScale="default"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="bold"/>
+                                            </state>
                                             <connections>
-                                                <action selector="switchTapped:" destination="-1" eventType="valueChanged" id="Ocs-aW-Dd8"/>
+                                                <action selector="showMotivationQuoteButtonTapped:" destination="-1" eventType="touchUpInside" id="8gk-Yn-fYn"/>
                                             </connections>
-                                        </switch>
+                                        </button>
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="vIb-Ep-iB3"/>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psst, I left something for you in the main screen under the stars, go check it out. Quickly, it won't be there for long. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wE5-7u-xoe" userLabel="Explanation Label">
-                                    <rect key="frame" x="0.0" y="234" width="384" height="70"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psst. Hey kid, want some motivation?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wE5-7u-xoe" userLabel="Explanation Label">
+                                    <rect key="frame" x="0.0" y="231" width="384" height="23.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <color key="textColor" name="offblack white"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vAo-nX-xtJ" userLabel="icon stack">
-                                    <rect key="frame" x="0.0" y="324" width="384" height="112.5"/>
+                                    <rect key="frame" x="0.0" y="274.5" width="384" height="112.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqf-Ts-9jZ" userLabel="CustomIconLabel">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -254,7 +264,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6k2-EF-IKy" userLabel="payment stack">
-                                    <rect key="frame" x="0.0" y="456.5" width="384" height="905"/>
+                                    <rect key="frame" x="0.0" y="407" width="384" height="954.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iH-VZ-qsg" userLabel="SupportDevelopment">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -276,7 +286,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-mz-dkS">
-                                            <rect key="frame" x="0.0" y="180.5" width="384" height="724.5"/>
+                                            <rect key="frame" x="0.0" y="180.5" width="384" height="774"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-63-i7H">
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="448.5"/>
@@ -557,7 +567,7 @@
                                                     <viewLayoutGuide key="frameLayoutGuide" id="04g-rV-Jmh"/>
                                                 </scrollView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Qu-Lhw">
-                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="276"/>
+                                                    <rect key="frame" x="0.0" y="448.5" width="384" height="325.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Restore Purchase">
                                                         <color key="titleColor" name="normalBW"/>
@@ -610,6 +620,7 @@
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="cny.png" width="60" height="60"/>
         <image name="fishing" width="96" height="96"/>
+        <image name="pills" catalog="system" width="128" height="104"/>
         <image name="rainbow.png" width="60" height="60"/>
         <image name="rainbowHeart.png" width="60" height="60"/>
         <image name="skeleton" width="90" height="90"/>

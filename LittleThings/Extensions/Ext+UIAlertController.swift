@@ -84,4 +84,12 @@ extension UIAlertController {
         return controller
     }
     
+    static func showAlertWithAction(title: String?, message: String?, actionTitle: String, actionHandler: ((UIAlertAction) -> Void)?) -> UIAlertController {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionTitle, style: .default, handler: actionHandler)
+        controller.addAction(action)
+        controller.view.tintColor = Constants.blackWhite
+        return controller
+    }
+    
 }

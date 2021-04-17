@@ -13,7 +13,7 @@ protocol SettingsMenuDelegate {
     func settingsMenu(didSelect option: SettingsOption)
 }
 
-protocol MotivationSwitchDelegate {
+protocol MotivationQuoteDelegate {
     func needMotivation(_ option: Bool)
 }
 
@@ -26,7 +26,7 @@ class SettingsViewController: UIViewController {
     let notificationManager: NotificationsManager?
     
     var delegate: SettingsMenuDelegate?
-    var delegate2: MotivationSwitchDelegate?
+    var delegate2: MotivationQuoteDelegate?
     
     private let cellIdentifier = "settingsTableViewCell"
     
@@ -41,7 +41,8 @@ class SettingsViewController: UIViewController {
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
-    @IBOutlet weak var motivationSwitch: UISwitch!
+    
+    @IBOutlet weak var MotivationQuoteButton: UIButton!
     @IBOutlet weak var taskCountSwitch: UISwitch!
     @IBOutlet weak var defaultIcon: UIButton!
     @IBOutlet weak var rainbowIcon: UIButton!
@@ -57,13 +58,16 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var purchaseOptionA: UIButton!
     @IBOutlet weak var purchaseOptionB: UIButton!
     @IBOutlet weak var fishQuoteLabel: UILabel!
-    @IBAction func switchTapped(_ sender: Any) {
-        if motivationSwitch.isOn {
-            delegate2?.needMotivation(true)
-        } else {
-            delegate2?.needMotivation(false)
+    @IBAction func showMotivationQuoteButtonTapped(_ sender: Any) {
+        UserDefaults().setValue(true, forKey: "showMotivation")
+        MotivationQuoteButton.isHidden = true
+        let ac = UIAlertController.showAlertWithAction(
+            title: nil, message: "I left it in the main screen under the stars. Quick, it won't be there for long.", actionTitle: "Okay") {[weak self] _ in
+            self?.delegate2?.needMotivation(true)
         }
+        present(a: ac)
     }
+    
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
         print("I tapped the task count switch to \(taskCountSwitch.state)")
         
@@ -117,7 +121,6 @@ class SettingsViewController: UIViewController {
     @IBAction func littleThingIconTapped(_ sender: Any) {
         appIconManager.changeAppIcon(to: .yellowLTIcon)
     }
-    
     
     
     //  MARK: - Lifecycle
@@ -187,6 +190,12 @@ class SettingsViewController: UIViewController {
         /// Fetch product info when settings menu is active
         PurchaseManager.shared.fetchAvailableProducts()
         PurchaseManager.shared.delegate = self
+        
+        MotivationQuoteButton.layer.cornerRadius = 12
+        if !UserDefaults.exists(key: "showMotivation") {
+            UserDefaults().setValue(false, forKey: "showMotivation")
+        }
+        MotivationQuoteButton.isHidden = UserDefaults().bool(forKey: "showMotivation")
     }
     
     private func configureTableView(){

@@ -76,7 +76,6 @@ class AddNewTaskViewController: UIViewController, Animatable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +112,6 @@ class AddNewTaskViewController: UIViewController, Animatable {
     @objc func keyboardWillHide(_ notification: Notification){
         self.view.frame.origin.y = 0
     }
-    
     
     //  MARK: - Privates
     private func configureUI(){
