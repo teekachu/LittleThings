@@ -102,8 +102,6 @@ extension AppDelegate: AuthManagerDelegate {
 }
 
 
-
-
 // MARK: - DatabaseManagerDelegate
 extension AppDelegate: DatabaseManagerDelegate {
     func databaseManager(didSignalUserAuthenticationFor userID: String) {

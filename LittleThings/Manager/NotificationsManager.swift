@@ -59,11 +59,7 @@ class NotificationsManager: NSObject {
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
         
-        var options: UNAuthorizationOptions = []
-        
-        if !UserDefaults.standard.bool(forKey: "CountSwitchIsOff") {
-            options = [.alert, .badge, .sound]
-        }
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
         
         // Register for remote notifications. This shows a permission dialog on first run, to
         // show the dialog at a more appropriate time move this registration accordingly.
@@ -74,13 +70,10 @@ class NotificationsManager: NSObject {
         }
     }
     
-    public func setBadge(to count: Int) {
-        if !UserDefaults.standard.bool(forKey: "CountSwitchIsOff") {
-            UIApplication.shared.applicationIconBadgeNumber = count
-        }
-    }
-    
     // MARK: - Private
+    public func setBadge(to count: Int) {
+        UIApplication.shared.applicationIconBadgeNumber = count
+    }
     
     private func didReceive(_ notification: UNNotification, withResponse didRespond: Bool = false) {
         let userInfo = notification.request.content.userInfo

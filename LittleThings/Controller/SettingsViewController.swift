@@ -36,6 +36,7 @@ class SettingsViewController: UIViewController {
     var basePurchaseID = "base_tip"
     var advancePurchaseID = "tip_advanced"
     
+    
     // MARK: - IB Property
     @IBOutlet weak var tableview: UITableView!
     @IBAction func exitButtonTapped(_ sender: Any) {
@@ -69,7 +70,14 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
-        print("I tapped the task count switch to \(taskCountSwitch.state)")
+        var action: String = "enable"
+        if taskCountSwitch.isOn { action = "disable" }
+        let alert = UIAlertController.showAlertWithCancelAndAction(title: nil, message: "Are you sure you would like to \(action) notifications?", actionTitle: "Go to Settings") { _ in
+            
+            print("Take me to settings menu")
+        }
+        present(a: alert)
+        
         
 //        if taskCountSwitch.isOn {
 //            // set userDefault
@@ -147,7 +155,6 @@ class SettingsViewController: UIViewController {
         configureUI()
         configureIconButtons()
         configureTableView()
-//        configureCountSwitch()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -196,13 +203,18 @@ class SettingsViewController: UIViewController {
             UserDefaults().setValue(false, forKey: "showMotivation")
         }
         MotivationQuoteButton.isHidden = UserDefaults().bool(forKey: "showMotivation")
+        
+        UNUserNotificationCenter.current().getNotificationSettings {[weak self] (settings) in
+            DispatchQueue.main.async {
+                self?.taskCountSwitch.isOn = (settings.authorizationStatus == .authorized)
+            }
+        }
     }
     
     private func configureTableView(){
         tableview.dataSource = self
         tableview.delegate = self
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
         tableview.backgroundColor = .clear
         tableview.separatorColor = Constants.cellBorderColor //292a27
         tableview.layer.cornerRadius = 15
@@ -217,11 +229,6 @@ class SettingsViewController: UIViewController {
             each.layer.borderColor = Constants.normalBlackWhite?.cgColor
         }
     }
-    
-//    private func configureCountSwitch(){
-//        taskCountSwitch.isOn = !UserDefaults.standard.bool(forKey: "CountSwitchIsOff")
-//    }
-    
 }
 
 
