@@ -8,7 +8,6 @@
 import UIKit
 import StoreKit
 
-
 protocol SettingsMenuDelegate {
     func settingsMenu(didSelect option: SettingsOption)
 }
@@ -60,6 +59,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var purchaseOptionB: UIButton!
     @IBOutlet weak var fishQuoteLabel: UILabel!
     @IBAction func showMotivationQuoteButtonTapped(_ sender: Any) {
+        Action.createHapticFeedback(style: .light)
         UserDefaults().setValue(true, forKey: "showMotivation")
         MotivationQuoteButton.isHidden = true
         let ac = UIAlertController.showAlertWithAction(
@@ -70,31 +70,18 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
-        var action: String = "enable"
-        if taskCountSwitch.isOn { action = "disable" }
-        let alert = UIAlertController.showAlertWithCancelAndAction(title: nil, message: "Are you sure you would like to \(action) notifications?", actionTitle: "Go to Settings") { _ in
-            
-            print("Take me to settings menu")
+        var action: String = ""
+        taskCountSwitch.isOn ? (action = "enable") : (action = "disable")
+        let alert = UIAlertController.showAlertWithTwoActions(title: nil, message: "Please go to app settings and manually \(action) notifications.",
+                                                              actionTitle1: "Go to Settings", style1: .default, actionHandler1: { (_) in
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        }, actionTitle2: "Cancel", style2: .default) {[weak self] _ in
+            self?.setUpNotificationSwitchStatus()
         }
         present(a: alert)
-        
-        
-//        if taskCountSwitch.isOn {
-//            // set userDefault
-//            UserDefaults.standard.set(false, forKey: "CountSwitchIsOff")
-//
-//            // change badge count
-//            guard let userID = authManager?.userID else {return}
-//            databaseManager?.getBadgeCount(for: userID) {[weak self] (count) in
-//                self?.notificationManager?.setBadge(to: count)
-//            }
-//
-//        } else {
-//            UserDefaults.standard.set(true, forKey: "CountSwitchIsOff")
-//            UIApplication.shared.applicationIconBadgeNumber = 0
-//        }
-//
-//        notificationManager?.register(UIApplication.shared)
     }
     @IBAction func purchaseOptionA(_ sender: Any) {
         PurchaseManager.shared.makePurchase(productID: .baseID)
@@ -204,11 +191,7 @@ class SettingsViewController: UIViewController {
         }
         MotivationQuoteButton.isHidden = UserDefaults().bool(forKey: "showMotivation")
         
-        UNUserNotificationCenter.current().getNotificationSettings {[weak self] (settings) in
-            DispatchQueue.main.async {
-                self?.taskCountSwitch.isOn = (settings.authorizationStatus == .authorized)
-            }
-        }
+        setUpNotificationSwitchStatus()
     }
     
     private func configureTableView(){
@@ -227,6 +210,14 @@ class SettingsViewController: UIViewController {
             each.imageView?.layer.cornerRadius = 12
             each.layer.borderWidth = 1.5
             each.layer.borderColor = Constants.normalBlackWhite?.cgColor
+        }
+    }
+    
+    private func setUpNotificationSwitchStatus() {
+        UNUserNotificationCenter.current().getNotificationSettings {[weak self] (settings) in
+            DispatchQueue.main.async {
+                self?.taskCountSwitch.isOn = (settings.authorizationStatus == .authorized)
+            }
         }
     }
 }

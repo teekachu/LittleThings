@@ -14,7 +14,6 @@
 
 import UIKit
 
-
 struct Constants {
     
     //  MARK: - Colors
@@ -173,7 +172,6 @@ struct apperance {
 
 //  MARK: - Helper functions
 struct Helper {
-    
     static func getKeyboardHeight(notification: Notification) -> CGFloat {
         guard let keyboardHeight = (notification.userInfo? [UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {return 0}
         return keyboardHeight

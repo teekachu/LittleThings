@@ -31,7 +31,6 @@ class SwapTaskViewController: UIViewController {
         delegate?.didSwapTask(for: oldTask, with: newString)
     }
     
-    
     //  MARK: - Lifecycle
     init(for task: Task, with newTask: String ) {
         self.oldTask = task
@@ -48,10 +47,7 @@ class SwapTaskViewController: UIViewController {
         configureUI()
         
     }
-    
-    //  MARK: - Selectors
-    
-    
+
     //  MARK: - Privates
     private func configureUI(){
         addBlurEffectToView(for: .systemChromeMaterial)

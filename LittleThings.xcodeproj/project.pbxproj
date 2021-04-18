@@ -72,6 +72,7 @@
 		A7B6781F25E4556A00B69BEB /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6781E25E4556A00B69BEB /* PurchaseManager.swift */; };
 		A7B6782225E4583700B69BEB /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6782125E4583700B69BEB /* IAPProduct.swift */; };
 		A7C3B36925D2467100D0D1B4 /* Ext+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C3B36825D2467100D0D1B4 /* Ext+UserDefaults.swift */; };
+		A7D3A479262BED4200D2A420 /* Supporting Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D3A478262BED4200D2A420 /* Supporting Func.swift */; };
 		ABBACFEFC73833C2E81A412E5B73D855 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12C71947A07EC17B515292F25AF3EC8 /* AboutUSViewController.xib */; };
 		AC2431D3AEA617788F553CCF9E973CC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */; };
 		ACA53A537373B1A38964B29A63DB07F2 /* Ext+CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C781E6AF1E8F1E345BBF90687BA19CF /* Ext+CATransition.swift */; };
@@ -183,6 +184,7 @@
 		A7B6781E25E4556A00B69BEB /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		A7B6782125E4583700B69BEB /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		A7C3B36825D2467100D0D1B4 /* Ext+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UserDefaults.swift"; sourceTree = "<group>"; };
+		A7D3A478262BED4200D2A420 /* Supporting Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Supporting Func.swift"; sourceTree = "<group>"; };
 		AB6C31A25B0AFC52CC659D4B4EDFD301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8404F0305379EA3B170AEC148118DB /* LittleThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC852930655E34D0179B4900A85E9E8B /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				2DAD001BF79DAC5AC038D198E09C168B /* AnimatableExt.swift */,
 				7D75171CECDDF7B9A677703497A846D3 /* Constant.swift */,
+				A7D3A478262BED4200D2A420 /* Supporting Func.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2FDC5E6E63234FB4F8D6402C9BC4120 /* AboutUSViewController.swift in Sources */,
+				A7D3A479262BED4200D2A420 /* Supporting Func.swift in Sources */,
 				A7C3B36925D2467100D0D1B4 /* Ext+UserDefaults.swift in Sources */,
 				8EA814B7E69FABB285E22F260D70755B /* AddNewTaskViewController.swift in Sources */,
 				0063A31FC24880D8B84B38639949294D /* AnimatableExt.swift in Sources */,

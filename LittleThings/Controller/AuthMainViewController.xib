@@ -9,8 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthMainViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
-                <outlet property="LoginButton" destination="c1e-Dh-HOa" id="UIF-Bx-yMW"/>
-                <outlet property="signupButton" destination="Tyr-6L-CEz" id="4wF-dI-gBu"/>
+                <outlet property="getStartedButton" destination="c1e-Dh-HOa" id="90R-Kc-P1s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,16 +19,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mxK-sq-UC4">
-                    <rect key="frame" x="15" y="25" width="345" height="454"/>
+                    <rect key="frame" x="15" y="25" width="345" height="523"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Little Things Make Big Days" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dU-2F-i8f">
-                            <rect key="frame" x="0.0" y="0.0" width="345" height="104"/>
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="173"/>
                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taxi-task-presentation" translatesAutoresizingMaskIntoConstraints="NO" id="FnF-a3-Deh">
-                            <rect key="frame" x="0.0" y="109" width="345" height="345"/>
+                            <rect key="frame" x="0.0" y="178" width="345" height="345"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="FnF-a3-Deh" secondAttribute="height" multiplier="1:1" id="cdE-3Y-XWE"/>
                             </constraints>
@@ -37,34 +36,20 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hK6-um-nyW">
-                    <rect key="frame" x="55" y="514" width="265" height="113"/>
+                    <rect key="frame" x="55" y="583" width="265" height="44"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyr-6L-CEz">
-                            <rect key="frame" x="0.0" y="0.0" width="265" height="44"/>
-                            <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="6VN-7q-OxG"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="Sign up">
-                                <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="signupTapped:" destination="-1" eventType="touchUpInside" id="j7h-Fg-1Gm"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1e-Dh-HOa">
-                            <rect key="frame" x="0.0" y="69" width="265" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="265" height="44"/>
                             <color key="backgroundColor" red="0.99215686270000003" green="0.97254901959999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="VVw-xp-2EL"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="Login">
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="Get Started">
                                 <color key="titleColor" red="0.12549019610000001" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="loginTapped:" destination="-1" eventType="touchUpInside" id="xwa-CV-zQR"/>
+                                <action selector="getStartTapped:" destination="-1" eventType="touchUpInside" id="JXi-Ay-iSf"/>
                             </connections>
                         </button>
                     </subviews>

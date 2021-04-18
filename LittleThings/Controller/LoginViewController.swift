@@ -11,7 +11,6 @@ import GoogleSignIn
 import AuthenticationServices
 import CryptoKit
 
-
 class LoginViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
@@ -19,6 +18,7 @@ class LoginViewController: UIViewController, Animatable {
     private var viewmodel = LoginViewModel()
     weak var delegate: AuthMainViewControllerDelegate?
     weak var delegate2: ResetPasswordDelegate?
+    weak var createAccountDelegate: createAccountDelegate?
     fileprivate var currentNonce: String?
     
     //  MARK: - IB Properties
@@ -27,20 +27,28 @@ class LoginViewController: UIViewController, Animatable {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var createAccountButton: UIButton!
+    
     @IBAction func closeButtonTapped(_ sender: Any) {
         dismiss(animated: true)}
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         dismissKeyboard()
-        handleLogin()}
+        handleLogin()
+    }
     
     @IBAction func forgotPasswordTapped(_ sender: Any) {
-        handleForgotPassword()}
+        handleForgotPassword()
+    }
     
     @IBOutlet weak var signInWithGoogle: UIButton!
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
-        handleGoogleLogin()}
+        handleGoogleLogin()
+    }
     @IBOutlet weak var buttonsStackView: UIStackView!
+    @IBAction func createAccounTapped(_ sender: Any) {
+        handleCreateAccount()
+    }
     
     init(authManager: AuthManager) {
         self.authManager = authManager
@@ -177,6 +185,12 @@ class LoginViewController: UIViewController, Animatable {
         }
     }
     
+    private func handleCreateAccount(){
+        dismiss(animated: true) {
+            self.createAccountDelegate?.didTapCreateAccount()
+        }
+    }
+    
     private func performSignin() {
         let request = createAppleIDRequest()
         let authController = ASAuthorizationController(authorizationRequests: [request])
@@ -193,6 +207,8 @@ class LoginViewController: UIViewController, Animatable {
         request.nonce = sha256(currentNonce!)
         return request
     }
+    
+    
     
     //MARK: - Auth
     private func handleLogin(){
@@ -375,3 +391,5 @@ extension LoginViewController {
         return hashString
     }
 }
+
+

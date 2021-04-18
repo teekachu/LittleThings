@@ -15,7 +15,6 @@ protocol AuthMainViewControllerDelegate: class{
     func didTapActionButton()
 }
 
-
 class AuthMainViewController: UIViewController {
     
     //  MARK: - Properties
@@ -32,21 +31,8 @@ class AuthMainViewController: UIViewController {
     }
     
     //  MARK: - IB Properties
-    @IBOutlet weak var signupButton: UIButton!
-    @IBOutlet weak var LoginButton: UIButton!
-    
-    @IBAction func loginTapped(_ sender: Any) {
-        let controller = LoginViewController(authManager: authManager)
-        controller.delegate = self
-        controller.delegate2 = self
-        present(a: controller)
-    }
-    
-    @IBAction func signupTapped(_ sender: Any) {
-        let controller = SignUpViewController(authManager: authManager)
-        controller.delegate = self
-        present(a: controller)}
-    
+    @IBOutlet weak var getStartedButton: UIButton!
+    @IBAction func getStartTapped(_ sender: Any) { handleLogin() }
     
     //  MARK: - Lifecycle
     override func viewDidLoad() {
@@ -57,8 +43,15 @@ class AuthMainViewController: UIViewController {
     //  MARK: - Privates
     private func configureUI(){
         navigationController?.navigationBar.isHidden = true
-        signupButton.layer.cornerRadius = 15
-        LoginButton.layer.cornerRadius = 15
+        getStartedButton.layer.cornerRadius = 15
+    }
+    
+    private func handleLogin(){
+        let controller = LoginViewController(authManager: authManager)
+        controller.createAccountDelegate = self
+//        controller.delegate = self
+//        controller.delegate2 = self
+        present(a: controller)
     }
 }
 
@@ -75,6 +68,13 @@ extension AuthMainViewController: ResetPasswordDelegate {
     func resetPasswordTapped(with email: String) {
         let vc = ResetPasswordViewController(authManager: authManager)
         vc.email = email
+        present(a: vc)
+    }
+}
+
+extension AuthMainViewController: createAccountDelegate {
+    func didTapCreateAccount() {
+        let vc = SignUpViewController(authManager: authManager)
         present(a: vc)
     }
 }

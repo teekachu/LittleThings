@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol createAccountDelegate: class {
+    func didTapCreateAccount()
+}
+
 class SignUpViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
@@ -15,21 +19,18 @@ class SignUpViewController: UIViewController, Animatable {
     weak var delegate: AuthMainViewControllerDelegate?
     
     //  MARK: - IB Properties
-    
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBAction func signUpButtonTapped(_ sender: Any) {
         dismissKeyboard()
         showLottieAnimation(true)
         handleSignup()
     }
-    @IBAction func dismissTapped(_ sender: Any) {
-        dismiss(animated: true)
-    }
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBAction func dismissTapped(_ sender: Any) { dismiss(animated: true) }
     
     
     //  MARK: - Lifecycle

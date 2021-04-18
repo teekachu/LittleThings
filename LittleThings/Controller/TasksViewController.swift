@@ -64,7 +64,6 @@ class TasksViewController: UIViewController, Animatable {
         let controller = CustomAlertViewController(alertTitle: "Rule Of Thumb:", alertMessage: msg)
         present(a: controller)
     }
-    
     @IBAction func ShowMenuTapped(_ sender: Any) {
         let menuVC = SettingsViewController(delegate: self, databaseManager: databaseManager, authManager: authManager, notificationManager: notificationsManager)
         menuVC.delegate2 = self
@@ -73,7 +72,6 @@ class TasksViewController: UIViewController, Animatable {
     @IBAction func nameLabelTapped(_ sender: Any) {
         handleNameChange()
     }
-    
     
     //  MARK: - Lifecycle
     init(authManager: AuthManager,
@@ -115,6 +113,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     @objc func didPressAddTaskButton() {
+        Action.createHapticFeedback(style: .light)
         if isDoneActive {
             clearAllDoneTasks()
         } else {
@@ -125,7 +124,6 @@ class TasksViewController: UIViewController, Animatable {
             present(a: controller)
         }
     }
-    
     
     //  MARK: - Configuration Setup
     private func configureTableView() {
@@ -217,7 +215,6 @@ class TasksViewController: UIViewController, Animatable {
         actionButton.addTarget(self, action: #selector(didPressAddTaskButton), for: .touchUpInside)
     }
     
-    
     //  MARK: - Privates
     private func editTask(for task: Task){
         let controller = AddNewTaskViewController(taskManager: taskManager, task: task, isEditingTask: true)
@@ -274,6 +271,7 @@ class TasksViewController: UIViewController, Animatable {
     }
     
     private func handleNameChange(){
+        Action.createHapticFeedback(style: .light)
         let controller = UIAlertController.showAlertWithTextfield {[weak self] (newName, didTap) in
             guard newName.count < 20 &&
                     newName.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {return}

@@ -92,12 +92,14 @@ extension UIAlertController {
         return controller
     }
     
-    static func showAlertWithCancelAndAction(title: String?, message: String?, actionTitle: String, actionHandler: ((UIAlertAction) -> Void)?) -> UIAlertController {
+    static func showAlertWithTwoActions(title: String?, message: String?,
+                                        actionTitle1: String, style1: UIAlertAction.Style, actionHandler1: ((UIAlertAction) -> Void)?,
+                                        actionTitle2: String, style2: UIAlertAction.Style, actionHandler2: ((UIAlertAction) -> Void)?) -> UIAlertController {
         let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: actionTitle, style: .default, handler: actionHandler)
-        let cancel = UIAlertAction(title: "Cancel", style: .default)
-        controller.addAction(action)
-        controller.addAction(cancel)
+        let action1 = UIAlertAction(title: actionTitle1, style: style1, handler: actionHandler1)
+        let action2 = UIAlertAction(title: actionTitle2, style: style2, handler: actionHandler2)
+        controller.addAction(action1)
+        controller.addAction(action2)
         controller.view.tintColor = Constants.blackWhite
         return controller
     }
