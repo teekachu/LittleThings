@@ -11,13 +11,21 @@ import GoogleSignIn
 import AuthenticationServices
 import CryptoKit
 
+protocol createAccountDelegate: class {
+    func didTapCreateAccount()
+}
+
+protocol ResetPasswordDelegate: class {
+    func resetPasswordTapped(with email: String)
+}
+
 class LoginViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private let authManager: AuthManager
     private var viewmodel = LoginViewModel()
-    weak var delegate: AuthMainViewControllerDelegate?
-    weak var delegate2: ResetPasswordDelegate?
+    weak var authenticateDeligate: AuthMainViewControllerDelegate?
+    weak var resetPasswordDelegate: ResetPasswordDelegate?
     weak var createAccountDelegate: createAccountDelegate?
     fileprivate var currentNonce: String?
     
@@ -181,7 +189,7 @@ class LoginViewController: UIViewController, Animatable {
     private func handleForgotPassword(){
         dismiss(animated: true) {
             guard let email = self.emailTextfield.text else {return}
-            self.delegate2?.resetPasswordTapped(with: email)
+            self.resetPasswordDelegate?.resetPasswordTapped(with: email)
         }
     }
     
@@ -230,7 +238,7 @@ class LoginViewController: UIViewController, Animatable {
                 }
             case .success:
                 print("DEBUG: handleLogin()successful for user: \(email)")
-                self?.delegate?.didTapActionButton()
+                self?.authenticateDeligate?.didTapActionButton()
             }
         }
     }
@@ -275,7 +283,7 @@ extension LoginViewController: GIDSignInDelegate{
                     }
                 }
             }
-            self?.delegate?.didTapActionButton()
+            self?.authenticateDeligate?.didTapActionButton()
         }
     }
 }
@@ -331,7 +339,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                     }
                 }
             }
-            self?.delegate?.didTapActionButton()
+            self?.authenticateDeligate?.didTapActionButton()
         }
     }
     

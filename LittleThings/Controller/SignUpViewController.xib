@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="LittleThings" customModuleProvider="target">
             <connections>
+                <outlet property="backToLoginScreen" destination="tNU-Gu-l4k" id="OLk-OJ-lmQ"/>
                 <outlet property="bottomContainerView" destination="ENA-mT-ZSv" id="RVx-lS-tac"/>
                 <outlet property="emailTextfield" destination="Grs-bM-pqp" id="yDx-v3-MPL"/>
                 <outlet property="errorLabel" destination="6gb-4V-wN8" id="CSY-6S-a7W"/>
@@ -25,13 +26,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-mT-ZSv" userLabel="bottomContainerView">
-                    <rect key="frame" x="0.0" y="210.5" width="375" height="456.5"/>
+                    <rect key="frame" x="0.0" y="267.5" width="375" height="399.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tGd-wQ-HyD">
-                            <rect key="frame" x="35" y="35" width="305" height="386.5"/>
+                            <rect key="frame" x="35" y="35" width="305" height="329.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPi-Ic-17A" userLabel="closeButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="305" height="114.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="305" height="22"/>
                                     <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" image="xmark" catalog="system">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
@@ -40,15 +41,55 @@
                                         <action selector="dismissTapped:" destination="-1" eventType="touchUpInside" id="NtM-Ij-QqH"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Account" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OTt-oX-Z2L">
-                                    <rect key="frame" x="0.0" y="124.5" width="305" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                    <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FnQ-29-om0">
+                                    <rect key="frame" x="0.0" y="32" width="305" height="65.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Account" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OTt-oX-Z2L">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                            <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNU-Gu-l4k">
+                                            <rect key="frame" x="0.0" y="35" width="305" height="30.5"/>
+                                            <state key="normal">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Oops,  take me back to">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                            <integer key="NSUnderline" value="1"/>
+                                                            <color key="NSUnderlineColor" red="0.47011999999999998" green="0.43424000000000001" blue="0.15870999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="Sign In">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.99215686274509807" green="0.72549019607843135" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                            <integer key="NSUnderline" value="1"/>
+                                                            <color key="NSUnderlineColor" red="0.47011999999999998" green="0.43424000000000001" blue="0.15870999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </state>
+                                            <connections>
+                                                <action selector="backToLoginScreenTapped:" destination="-1" eventType="touchUpInside" id="KT2-Bf-WlE"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="line" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Grs-bM-pqp">
-                                    <rect key="frame" x="0.0" y="164.5" width="305" height="40"/>
+                                    <rect key="frame" x="0.0" y="107.5" width="305" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -59,7 +100,7 @@
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="line" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-4Q-EjF">
-                                    <rect key="frame" x="0.0" y="214.5" width="305" height="40"/>
+                                    <rect key="frame" x="0.0" y="157.5" width="305" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -70,7 +111,7 @@
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="line" placeholder="What should we call you ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jCh-TV-ol9">
-                                    <rect key="frame" x="0.0" y="264.5" width="305" height="40"/>
+                                    <rect key="frame" x="0.0" y="207.5" width="305" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -81,13 +122,13 @@
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-4V-wN8" userLabel="Error label">
-                                    <rect key="frame" x="0.0" y="314.5" width="305" height="18"/>
+                                    <rect key="frame" x="0.0" y="257.5" width="305" height="18"/>
                                     <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
                                     <color key="textColor" systemColor="systemRedColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCf-on-Qka">
-                                    <rect key="frame" x="0.0" y="342.5" width="305" height="44"/>
+                                    <rect key="frame" x="0.0" y="285.5" width="305" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="VXE-0h-ZOb"/>
                                     </constraints>

@@ -13,6 +13,7 @@ protocol AuthenticationDelegate: class{
 
 protocol AuthMainViewControllerDelegate: class{
     func didTapActionButton()
+    func didTapBackToLoginButton()
 }
 
 class AuthMainViewController: UIViewController {
@@ -49,19 +50,27 @@ class AuthMainViewController: UIViewController {
     private func handleLogin(){
         let controller = LoginViewController(authManager: authManager)
         controller.createAccountDelegate = self
-//        controller.delegate = self
-//        controller.delegate2 = self
+        controller.resetPasswordDelegate = self
+        controller.authenticateDeligate = self
         present(a: controller)
     }
 }
 
 //  MARK: - Extensions
 extension AuthMainViewController: AuthMainViewControllerDelegate {
+    func didTapBackToLoginButton() {
+        dismiss(animated: true) {[weak self] in
+            self?.handleLogin()
+        }
+    }
+    
     func didTapActionButton() {
         dismiss(animated: true) {
             self.delegate?.authenticationComplete()
         }
     }
+    
+    
 }
 
 extension AuthMainViewController: ResetPasswordDelegate {
@@ -75,6 +84,7 @@ extension AuthMainViewController: ResetPasswordDelegate {
 extension AuthMainViewController: createAccountDelegate {
     func didTapCreateAccount() {
         let vc = SignUpViewController(authManager: authManager)
+        vc.authenticateDeligate = self
         present(a: vc)
     }
 }

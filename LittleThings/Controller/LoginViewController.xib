@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="bottomContainerView" destination="eif-t3-1Wy" id="TSs-sf-mRs"/>
                 <outlet property="buttonsStackView" destination="1KI-ab-eFd" id="P5q-tr-lAT"/>
-                <outlet property="createAccountButton" destination="aXi-Aj-gde" id="FkL-0m-ItT"/>
+                <outlet property="createAccountButton" destination="aXi-Aj-gde" id="nmH-ke-xui"/>
                 <outlet property="emailTextfield" destination="Au1-Wf-m3j" id="wye-wO-Ipx"/>
                 <outlet property="errorLabel" destination="UBn-sF-hv5" id="PTl-wO-bsD"/>
                 <outlet property="loginButton" destination="qpK-Db-fat" id="1NT-kF-vHz"/>
@@ -80,7 +80,7 @@
                                                 </attributedString>
                                             </state>
                                             <connections>
-                                                <action selector="createAccounTapped:" destination="-1" eventType="touchUpInside" id="qd8-J5-FqM"/>
+                                                <action selector="createAccounTapped:" destination="-1" eventType="touchUpInside" id="7fW-n3-bGe"/>
                                             </connections>
                                         </button>
                                     </subviews>

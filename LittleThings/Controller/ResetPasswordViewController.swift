@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ResetPasswordDelegate: class {
-    func resetPasswordTapped(with email: String)
-}
-
 class ResetPasswordViewController: UIViewController {
     
     //  MARK: - Properties
@@ -32,7 +28,7 @@ class ResetPasswordViewController: UIViewController {
     }
     
     @IBOutlet weak var errorLabel: UILabel!
-    
+
     
     //  MARK: - Lifecycle
     init(authManager: AuthManager) {

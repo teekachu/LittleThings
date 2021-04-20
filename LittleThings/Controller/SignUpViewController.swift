@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol createAccountDelegate: class {
-    func didTapCreateAccount()
-}
+//protocol LoginScreenNavigateDelegate: class {
+//    func navigateToLoginScreen()
+//}
 
 class SignUpViewController: UIViewController, Animatable {
     
     //  MARK: - Properties
     private let authManager: AuthManager
     private var viewmodel = RegistrationViewModel()
-    weak var delegate: AuthMainViewControllerDelegate?
+    weak var authenticateDeligate: AuthMainViewControllerDelegate?
     
     //  MARK: - IB Properties
     @IBOutlet weak var bottomContainerView: UIView!
@@ -24,6 +24,7 @@ class SignUpViewController: UIViewController, Animatable {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var backToLoginScreen: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBAction func signUpButtonTapped(_ sender: Any) {
         dismissKeyboard()
@@ -31,7 +32,10 @@ class SignUpViewController: UIViewController, Animatable {
         handleSignup()
     }
     @IBAction func dismissTapped(_ sender: Any) { dismiss(animated: true) }
-    
+    @IBAction func backToLoginScreenTapped(_ sender: Any) {
+        print("Tapped")
+        authenticateDeligate?.didTapBackToLoginButton()
+    }
     
     //  MARK: - Lifecycle
     init(authManager: AuthManager) {
@@ -154,6 +158,12 @@ class SignUpViewController: UIViewController, Animatable {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func handleGoToSignInScreen() {
+        dismiss(animated: true) {
+            
+        }
+    }
+    
     // MARK: - Auth
     private func handleSignup(){
         guard let emailtf = emailTextfield.text else { return }
@@ -172,7 +182,7 @@ class SignUpViewController: UIViewController, Animatable {
                 }
                 return
             }
-            self?.delegate?.didTapActionButton()
+            self?.authenticateDeligate?.didTapActionButton()
         }
     }
 }
