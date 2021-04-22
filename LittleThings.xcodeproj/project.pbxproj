@@ -49,6 +49,7 @@
 		983D2FD424429AD16D0401CB27641BF3 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF34D6ABB8773A446D742B43F71057D6 /* TasksViewController.xib */; };
 		994D70FEE1336034041E83030DEBDC43 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575646B44C03FFCD1D03E3D1E38F2F8 /* TaskType.swift */; };
 		A3A216BFBFF0CF06CBDE8E97AD0C8007 /* AuthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CC8718C77E2CF75339ABEF7CBF0916 /* AuthMainViewController.swift */; };
+		A764775F26311701002715FA /* Ext+UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A764775E26311701002715FA /* Ext+UIElements.swift */; };
 		A77BDE9325BFD85F00F95C84 /* rainbow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9225BFD85F00F95C84 /* rainbow@3x.png */; };
 		A77BDE9725BFD88C00F95C84 /* rainbow@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9625BFD88C00F95C84 /* rainbow@1x.png */; };
 		A77BDE9A25BFD8A000F95C84 /* rainbow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BDE9925BFD8A000F95C84 /* rainbow@2x.png */; };
@@ -159,6 +160,7 @@
 		9AE02761824380CB6A696EBC30F7B41C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		9B811F4563436AAF561A36DCAD6DB90C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		9E944DD7946EBD7BCFFC82112503AA55 /* OngoingTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTaskTableViewCell.xib; sourceTree = "<group>"; };
+		A764775E26311701002715FA /* Ext+UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIElements.swift"; sourceTree = "<group>"; };
 		A77BDD8325BF509100F95C84 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A77BDD8525BF509100F95C84 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A77BDE9225BFD85F00F95C84 /* rainbow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainbow@3x.png"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				28DEB36A987A89260333ADA1074CA118 /* Ext+UIViewController.swift */,
 				22ABEEDC49BB44DF66FA542272D51B95 /* Ext+UITableView.swift */,
 				A7C3B36825D2467100D0D1B4 /* Ext+UserDefaults.swift */,
+				A764775E26311701002715FA /* Ext+UIElements.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				114D30360119DA71E0D2668854970EC7 /* AuthenticationViewModel.swift in Sources */,
 				2B47A4E5F4C3DE489521D361F12B4859 /* Constant.swift in Sources */,
 				0B3B2D57925663DD327085C4CCEEA2B8 /* CustomAlertViewController.swift in Sources */,
+				A764775F26311701002715FA /* Ext+UIElements.swift in Sources */,
 				06438354AD1632DD93B979C4FA5E0714 /* CustomTVViewController.swift in Sources */,
 				EF168208BCE89336FBEBDDD011A17C04 /* DataSource.swift in Sources */,
 				4250303DB9F5D1583B0108CF0030B681 /* DatabaseManager.swift in Sources */,

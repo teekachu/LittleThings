@@ -72,7 +72,7 @@ class SettingsViewController: UIViewController {
     @IBAction func taskCountSwitchTapped(_ sender: Any) {
         var action: String = ""
         taskCountSwitch.isOn ? (action = "enable") : (action = "disable")
-        let alert = UIAlertController.showAlertWithTwoActions(title: nil, message: "Please go to app settings and manually \(action) notifications.",
+        let alert = UIAlertController.showAlertWithTwoActions(title: nil, message: "Please go to app settings and manually \(action) notifications",
                                                               actionTitle1: "Go to Settings", style1: .default, actionHandler1: { (_) in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
             if UIApplication.shared.canOpenURL(settingsUrl) {

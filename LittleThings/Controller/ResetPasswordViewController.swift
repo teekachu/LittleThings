@@ -90,14 +90,13 @@ class ResetPasswordViewController: UIViewController {
         bottomContainerview.layer.cornerRadius = 35
         bottomContainerview.backgroundColor = Constants.offBlack202020
         
+        emailTextfield.applyBorders()
         emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString (
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
-        resetButton.layer.cornerRadius = 15
-        resetButton.tintColor = Constants.mediumBlack3f3f3f
-        resetButton.backgroundColor = Constants.offBlack202020
+        resetButton.applyButtonCustomization()
         
         errorLabel.textColor = .red
         errorLabel.textAlignment = .center

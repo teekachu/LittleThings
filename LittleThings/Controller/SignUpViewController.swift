@@ -33,7 +33,6 @@ class SignUpViewController: UIViewController, Animatable {
     }
     @IBAction func dismissTapped(_ sender: Any) { dismiss(animated: true) }
     @IBAction func backToLoginScreenTapped(_ sender: Any) {
-        print("Tapped")
         authenticateDeligate?.didTapBackToLoginButton()
     }
     
@@ -108,25 +107,26 @@ class SignUpViewController: UIViewController, Animatable {
         bottomContainerView.layer.cornerRadius = 35
         bottomContainerView.backgroundColor = Constants.offBlack202020
         
+        emailTextfield.applyBorders()
         emailTextfield.delegate = self
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
+        passwordTextfield.applyBorders()
         passwordTextfield.isSecureTextEntry = true
         passwordTextfield.delegate = self
         passwordTextfield.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
+        nameTextfield.applyBorders()
         nameTextfield.delegate = self
         nameTextfield.attributedPlaceholder = NSAttributedString(
             string: "What should we call you?",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
-        signUpButton.layer.cornerRadius = 15
-        signUpButton.tintColor = Constants.mediumBlack3f3f3f
-        signUpButton.backgroundColor = Constants.offBlack202020
+        signUpButton.applyButtonCustomization()
         
         errorLabel.textColor = .red
         errorLabel.textAlignment = .center
@@ -160,7 +160,6 @@ class SignUpViewController: UIViewController, Animatable {
     
     private func handleGoToSignInScreen() {
         dismiss(animated: true) {
-            
         }
     }
     

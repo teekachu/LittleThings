@@ -131,20 +131,20 @@ class LoginViewController: UIViewController, Animatable {
         bottomContainerView.backgroundColor = Constants.offBlack202020
         
         emailTextfield.delegate = self
+        emailTextfield.applyBorders()
         emailTextfield.attributedPlaceholder = NSAttributedString(
             string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         
         passwordTextfield.isSecureTextEntry = true
+        passwordTextfield.applyBorders()
         passwordTextfield.delegate = self
         passwordTextfield.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor : Constants.whiteSmoke.self])
         passwordTextfield.textContentType = .password
         
-        loginButton.layer.cornerRadius = 15
-        loginButton.tintColor = Constants.mediumBlack3f3f3f
-        loginButton.backgroundColor = Constants.offBlack202020
+        loginButton.applyButtonCustomization()
         
         let googleIconImage = #imageLiteral(resourceName: "googleLogo").withRenderingMode(.alwaysOriginal)
         signInWithGoogle.setImage(googleIconImage, for: .normal)
@@ -399,5 +399,6 @@ extension LoginViewController {
         return hashString
     }
 }
+
 
 

@@ -69,8 +69,6 @@ extension AuthMainViewController: AuthMainViewControllerDelegate {
             self.delegate?.authenticationComplete()
         }
     }
-    
-    
 }
 
 extension AuthMainViewController: ResetPasswordDelegate {

@@ -57,6 +57,8 @@ extension UIAlertController {
     static func showAlertWithTextfield(onTap: @escaping (String, Bool) -> Void) -> UIAlertController {
         let controller = UIAlertController(title: nil, message: "What should we call you? ", preferredStyle: .alert)
         controller.addTextField()
+        controller.textFields?[0].clearButtonMode = .always
+        controller.textFields?[0].clearButtonMode = .whileEditing
         
         let cancel = UIAlertAction(title: "Cancel", style: .default)
         let update = UIAlertAction(title: "Update", style: .default) { (_) in
