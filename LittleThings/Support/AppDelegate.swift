@@ -39,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         authManager = AuthManager(delegate: self)
         databaseManager = DatabaseManager(delegate: self)
-//        databaseManager = DatabaseManager()
         let taskManager = TaskManager(authManager: authManager!, databaseManager: databaseManager!)
         notificationsManager = NotificationsManager(registerIn: application, delegate: self)
         let controller = TasksViewController(
@@ -48,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             notificationsManager: notificationsManager!,
             databaseManager: databaseManager!)
         
+//        let controller = OnboardingViewController()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: controller)
         window?.makeKeyAndVisible()
