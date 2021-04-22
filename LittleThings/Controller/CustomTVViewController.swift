@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol CustomTextViewDelegate: class {
-    func presentSwapVC(for oldTask: Task?, with newText: String?)
+    func presentFocusVC(for oldTask: Task?, with newText: String?)
 }
 
 class CustomTVViewController: UIViewController {
@@ -28,13 +28,13 @@ class CustomTVViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var yesButton: UIButton!
     @IBAction func yesButtonTapped(_ sender: Any) {
-        delegate?.presentSwapVC(for: taskToSwap, with: newTaskString)
+        delegate?.presentFocusVC(for: taskToSwap, with: newTaskString)
     }
     @IBAction func noButtonTapped(_ sender: Any) {
         dismiss(animated: true)}
     
     @IBAction func infoButtonTapped(_ sender: Any) {
-        let msg = Constants.swapScreenExplaination
+        let msg = Constants.focusScreenExplaination
         let controller = CustomAlertViewController(alertTitle: "Rule Of Thumb:", alertMessage: msg)
         present(a: controller)
     }

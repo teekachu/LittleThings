@@ -101,12 +101,10 @@ struct Constants {
     // MARK: - Strings
     static let ruleOfThumb = "Consider a task Large if it takes about 3-4 hours to complete. Medium Tasks can take about 1-2 hours, and Small Tasks may take less than 30 minutes each. "
     
-    static let swapScreenExplaination = """
-        Swap mode's purpose is to focus on completing one existing task in exchange for another. When in swap mode, you cannot navigate around the app until the old task is "swapped" out.
+    static let focusScreenExplaination = """
+        Focus mode allows you to focus on completing an existing task. When in swap mode, you cannot navigate around the app until this task is complete, and even if you exit the app, the focus screen will still appear when you log back in.
 
-        Simply enter the new task in the text bubble, tap on "Yes", exit the app if necessary, and get working.
-
-        Once you are ready to swap, the old task will be moved to done, replaced by the new.
+        Let's stay focused, and get stuff done!
         """
     
     static let thankYouForYourPurchaseBase = """

@@ -29,10 +29,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBp-Tb-ged" userLabel="alertView">
-                            <rect key="frame" x="45" y="215.5" width="324" height="465.5"/>
+                            <rect key="frame" x="45" y="267.5" width="324" height="361.5"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="zSS-GU-Zxw">
-                                    <rect key="frame" x="15" y="25" width="294" height="415.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zSS-GU-Zxw">
+                                    <rect key="frame" x="15" y="25" width="294" height="311.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ceh-kX-o9x" userLabel="exit">
                                             <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
@@ -48,14 +48,14 @@
                                                 <action selector="noButtonTapped:" destination="-1" eventType="touchUpInside" id="HlG-bF-x7a"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Swap Mode ? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Sq-hUk">
-                                            <rect key="frame" x="0.0" y="74" width="294" height="34.5"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Focus Mode ? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVh-Sq-hUk">
+                                            <rect key="frame" x="0.0" y="54" width="294" height="30.5"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="22"/>
                                             <color key="textColor" name="normalBW"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJw-EB-ldK">
-                                            <rect key="frame" x="0.0" y="138.5" width="294" height="100"/>
+                                            <rect key="frame" x="0.0" y="94.5" width="294" height="100"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="UH4-Nb-JLp"/>
@@ -65,13 +65,13 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zq2-pp-kI0" userLabel="error">
-                                            <rect key="frame" x="0.0" y="268.5" width="294" height="18"/>
+                                            <rect key="frame" x="0.0" y="204.5" width="294" height="18"/>
                                             <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="13"/>
                                             <color key="textColor" systemColor="systemRedColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mZl-yg-E9B">
-                                            <rect key="frame" x="0.0" y="316.5" width="294" height="44"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="mZl-yg-E9B">
+                                            <rect key="frame" x="0.0" y="232.5" width="294" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-0V-ata">
                                                     <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
@@ -88,11 +88,11 @@
                                             </constraints>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egj-4Z-l7k" userLabel="additionalInfoButton">
-                                            <rect key="frame" x="0.0" y="390.5" width="294" height="25"/>
+                                            <rect key="frame" x="0.0" y="286.5" width="294" height="25"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                             <color key="tintColor" name="OrangeTintFDB903"/>
-                                            <state key="normal" title="   What even is Swap Mode?">
+                                            <state key="normal" title=" What is that">
                                                 <color key="titleColor" name="Navbar quote text color"/>
                                                 <imageReference key="image" image="questionmark" catalog="system" symbolScale="large"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>

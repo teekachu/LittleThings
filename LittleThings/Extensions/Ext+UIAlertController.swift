@@ -30,7 +30,7 @@ extension UIAlertController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         let edit = UIAlertAction(title: "Edit", style: .default) { _ in
             onTap(true)}
-        let swap = UIAlertAction(title: "Swap", style: .default) { _ in
+        let swap = UIAlertAction(title: "Focus", style: .default) { _ in
             onTap(false)}
         
         controller.addAction(cancel)
@@ -74,7 +74,7 @@ extension UIAlertController {
     }
     
     static func showLogOutAlert(onTap: @escaping(Bool) -> Void) -> UIAlertController {
-        let controller = UIAlertController(title: nil, message: "You are LEAVING ME? Awwwww, okay then. I miss you already.", preferredStyle: .alert)
+        let controller = UIAlertController(title: nil, message: "Aweee don't leave me for too long, I miss you already.", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .default)
         let logout = UIAlertAction(title: "Logout", style: .default) { (_) in
             onTap(true)

@@ -39,7 +39,7 @@
                                         <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="M6v-cv-7xb"/>
                                     </connections>
                                 </button>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pixeltrue-idea" translatesAutoresizingMaskIntoConstraints="NO" id="lkS-5T-h1t">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding3" translatesAutoresizingMaskIntoConstraints="NO" id="lkS-5T-h1t">
                                     <rect key="frame" x="0.0" y="79" width="384" height="230"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="230" id="4TA-91-NJK"/>
@@ -112,7 +112,7 @@
         </view>
     </objects>
     <resources>
-        <image name="pixeltrue-idea" width="3333" height="2500"/>
+        <image name="onboarding3" width="3333" height="2500"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="black black">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

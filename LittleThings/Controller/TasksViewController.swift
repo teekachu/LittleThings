@@ -495,7 +495,7 @@ extension TasksViewController: AuthenticationDelegate {
 
 //MARK: - CustomTextViewDelegate
 extension TasksViewController: CustomTextViewDelegate {
-    func presentSwapVC(for oldTask: Task?, with newText: String?) {
+    func presentFocusVC(for oldTask: Task?, with newText: String?) {
         dismiss(animated: true) {[weak self] in
             guard let oldTask = oldTask else {return}
             guard let newText = newText else {return}
