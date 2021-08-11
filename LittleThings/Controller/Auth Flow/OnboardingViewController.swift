@@ -75,7 +75,7 @@ class OnboardingViewController: UIViewController {
             informationImage: #imageLiteral(resourceName: "onboarding1")
                 .withRenderingMode(.alwaysOriginal),
             title: "Hey there!",
-            description: "Welcome to Little Things, your daily task manager",
+            description: "Welcome to Little Things, your simple daily task manager",
             pageIcon: UIImage(),
             color: Constants.offBlack202020,
             titleColor: Constants.lightGrayCDCDCD,

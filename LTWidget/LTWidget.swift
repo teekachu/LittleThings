@@ -18,6 +18,7 @@ struct Provider: TimelineProvider {
         completion(entry)
     }
 
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
 

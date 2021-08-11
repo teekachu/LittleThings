@@ -343,33 +343,10 @@
 		7FEED97707006BC49C87D693C6A10AC1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E5F23834F78885919D820BD9198F854F /* AboutUSViewController.swift */,
-				D12C71947A07EC17B515292F25AF3EC8 /* AboutUSViewController.xib */,
-				482DBB6C4FA9127FC4D220172A058E1E /* AddNewTaskViewController.swift */,
-				955480E7C3362700707D5C89B2CD0BE7 /* AddNewTaskViewController.xib */,
-				02B38534A891BD09070C5CD811ABE016 /* AppInfoViewController.swift */,
-				B23B9522A9FB115F9CF76D76BA69250F /* AppInfoViewController.xib */,
-				00CC8718C77E2CF75339ABEF7CBF0916 /* AuthMainViewController.swift */,
-				765352E411B7D2AFA207F3298B21210A /* AuthMainViewController.xib */,
-				E6A2EECE2F14C42184775CED9D57369A /* CustomAlertViewController.swift */,
-				DF6AADA8C82FF4F886211D6A4085799E /* CustomAlertViewController.xib */,
-				6C1A02CA2B71FAA684F53F969FD874B8 /* CustomTVViewController.swift */,
-				1113E3A4F25FBC3BF935B05FBC05A432 /* CustomTVViewController.xib */,
-				3179F6683898BEA5FBF4ECA28BBC495C /* LoginViewController.swift */,
-				4AD00A46621C1FB03BF865EFDFE96155 /* LoginViewController.xib */,
-				0BA03CF630C88E0BC17F6D304EE522ED /* LottieLoadingAnimationViewController.swift */,
-				773B8139F7C0D6E4C8C33DFEE9DF3185 /* LottieLoadingAnimationViewController.xib */,
-				FFF63AF0FCBC6FC77EA9053EC2F53B76 /* OnboardingViewController.swift */,
-				92766268739198EC98469CAB9D8D38C4 /* ResetPasswordViewController.swift */,
-				5E09EDEED92EC5B5FF5B1F03A2EBE7D5 /* ResetPasswordViewController.xib */,
-				10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */,
-				9B811F4563436AAF561A36DCAD6DB90C /* SettingsViewController.xib */,
-				B855AE6EF1E7EFFF5D69AAEFD87B782E /* SignUpViewController.swift */,
-				FDEF18ED09B03EB0A3F890BCE0E6404D /* SignUpViewController.xib */,
-				2CD074C9A23EB8F6A04F87A1625757A3 /* SwapTaskViewController.swift */,
-				4D2E94E4AF08E6E60C5A2F5D9ECB14B5 /* SwapTaskViewController.xib */,
-				3FDB48C397816DD0B6F64D8094C4F998 /* TasksViewController.swift */,
-				EF34D6ABB8773A446D742B43F71057D6 /* TasksViewController.xib */,
+				A75576D026C36349008DE582 /* Elements */,
+				A75576CF26C36311008DE582 /* Misc Flow */,
+				A75576CE26C36305008DE582 /* Main Flow */,
+				A75576CD26C36091008DE582 /* Auth Flow */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -404,6 +381,61 @@
 				C34F2F9DD900D289F114DA2DD0293D91 /* Localizable.strings */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		A75576CD26C36091008DE582 /* Auth Flow */ = {
+			isa = PBXGroup;
+			children = (
+				00CC8718C77E2CF75339ABEF7CBF0916 /* AuthMainViewController.swift */,
+				765352E411B7D2AFA207F3298B21210A /* AuthMainViewController.xib */,
+				FFF63AF0FCBC6FC77EA9053EC2F53B76 /* OnboardingViewController.swift */,
+				3179F6683898BEA5FBF4ECA28BBC495C /* LoginViewController.swift */,
+				4AD00A46621C1FB03BF865EFDFE96155 /* LoginViewController.xib */,
+				B855AE6EF1E7EFFF5D69AAEFD87B782E /* SignUpViewController.swift */,
+				FDEF18ED09B03EB0A3F890BCE0E6404D /* SignUpViewController.xib */,
+				92766268739198EC98469CAB9D8D38C4 /* ResetPasswordViewController.swift */,
+				5E09EDEED92EC5B5FF5B1F03A2EBE7D5 /* ResetPasswordViewController.xib */,
+			);
+			path = "Auth Flow";
+			sourceTree = "<group>";
+		};
+		A75576CE26C36305008DE582 /* Main Flow */ = {
+			isa = PBXGroup;
+			children = (
+				482DBB6C4FA9127FC4D220172A058E1E /* AddNewTaskViewController.swift */,
+				955480E7C3362700707D5C89B2CD0BE7 /* AddNewTaskViewController.xib */,
+				6C1A02CA2B71FAA684F53F969FD874B8 /* CustomTVViewController.swift */,
+				1113E3A4F25FBC3BF935B05FBC05A432 /* CustomTVViewController.xib */,
+				2CD074C9A23EB8F6A04F87A1625757A3 /* SwapTaskViewController.swift */,
+				4D2E94E4AF08E6E60C5A2F5D9ECB14B5 /* SwapTaskViewController.xib */,
+				3FDB48C397816DD0B6F64D8094C4F998 /* TasksViewController.swift */,
+				EF34D6ABB8773A446D742B43F71057D6 /* TasksViewController.xib */,
+			);
+			path = "Main Flow";
+			sourceTree = "<group>";
+		};
+		A75576CF26C36311008DE582 /* Misc Flow */ = {
+			isa = PBXGroup;
+			children = (
+				E5F23834F78885919D820BD9198F854F /* AboutUSViewController.swift */,
+				D12C71947A07EC17B515292F25AF3EC8 /* AboutUSViewController.xib */,
+				02B38534A891BD09070C5CD811ABE016 /* AppInfoViewController.swift */,
+				B23B9522A9FB115F9CF76D76BA69250F /* AppInfoViewController.xib */,
+				10C83E81FEA89B999E1C11809FD30DD7 /* SettingsViewController.swift */,
+				9B811F4563436AAF561A36DCAD6DB90C /* SettingsViewController.xib */,
+			);
+			path = "Misc Flow";
+			sourceTree = "<group>";
+		};
+		A75576D026C36349008DE582 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				0BA03CF630C88E0BC17F6D304EE522ED /* LottieLoadingAnimationViewController.swift */,
+				773B8139F7C0D6E4C8C33DFEE9DF3185 /* LottieLoadingAnimationViewController.xib */,
+				E6A2EECE2F14C42184775CED9D57369A /* CustomAlertViewController.swift */,
+				DF6AADA8C82FF4F886211D6A4085799E /* CustomAlertViewController.xib */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 		A768EE132634F22F009D6489 /* LTWidget */ = {

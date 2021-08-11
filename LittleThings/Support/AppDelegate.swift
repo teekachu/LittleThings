@@ -40,14 +40,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         authManager = AuthManager(delegate: self)
         databaseManager = DatabaseManager(delegate: self)
         let taskManager = TaskManager(authManager: authManager!, databaseManager: databaseManager!)
-        notificationsManager = NotificationsManager(registerIn: application, delegate: self)
-        let controller = TasksViewController(
-            authManager: authManager!,
-            taskManager: taskManager,
-            notificationsManager: notificationsManager!,
-            databaseManager: databaseManager!)
         
-//        let controller = OnboardingViewController()
+        notificationsManager = NotificationsManager(registerIn: application, delegate: self)
+        
+        // If first time logging in, show onboarding
+        
+        // If not, show sign in
+//        let controller = TasksViewController(
+//            authManager: authManager!,
+//            taskManager: taskManager,
+//            notificationsManager: notificationsManager!,
+//            databaseManager: databaseManager!)
+        
+        let controller = OnboardingViewController()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: controller)
         window?.makeKeyAndVisible()
