@@ -22,7 +22,7 @@ HOW:
 
 Framework:  UIKit
 
-Architecture Style: MVVM
+Architecture Style: MVC
 
 Third Party Library: Firebase 
 
